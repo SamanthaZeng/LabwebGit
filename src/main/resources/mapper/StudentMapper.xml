@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace用来找唯一的Mapper文件 一般是domain的全路径名+Mapper -->
+<mapper namespace="zxl.web.mapper.StudentMapper">
+
+    <select id="queryAll"  resultMap="studentMap">
+ 		select u.id,u.name,u.pwd,u.stunum,u.imgUrl,u.sex,d.id did,d.class_name dname from t_student u,t_class d where u.classid=d.id
+ 	</select>
+    <resultMap id="studentMap" type="student">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+        <result column="stunum" property="stunum"/>
+        <result column="imgUrl" property="imgUrl"/>
+        <result column="sex" property="sex"/>
+
+        <association property="classes" javaType="Classes">
+            <id column="did" property="id"/>
+            <id column="dname" property="class_name"/>
+        </association>
+    </resultMap>
+
+    <!--删除方法-->
+    <delete id="delete" parameterType="Student">
+        delete from t_student where id=#{id}
+    </delete>
+
+    <!--保存方法-->
+    <insert id="save" parameterType="Student" useGeneratedKeys="true" keyColumn="id" keyProperty="id"><!--keycolumn对应的就是id-->
+        insert into t_student (name,pwd,stunum,imgUrl,classid,sex) values(#{name},#{pwd},#{stunum},#{imgUrl},#{classes.id},#{sex});
+    </insert>
+
+    <!--查询方法-->
+    <select id="queryOne"  resultMap="studentMap" parameterType="Student"><!--返回类型为parameterType-->
+ 		select u.id,u.name,u.pwd,u.stunum,u.imgUrl,u.sex,d.id did,d.class_name dname from t_student u,t_class d where u.classid=d.id and u.id=#{id}
+ 	</select>
+
+    <!--更新方法-->
+    <update id="update" parameterType="Student">
+        update t_student set name=#{name},pwd=#{pwd},stunum=#{stunum},imgUrl=#{imgUrl},classid=#{classes.id},sex=#{sex} where id=#{id}
+    </update>
+
+    <!--登陆方法-->
+    <select id="login" parameterType="Student" resultType="Student">
+        select name,pwd,imgUrl from t_student where name=#{name} and pwd=#{pwd};
+    </select>
+</mapper>

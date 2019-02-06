@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zxl.web.mapper.VideoMapper">
+  <resultMap id="BaseResultMap" type="zxl.web.domain.Video">
+    <id column="vid" jdbcType="INTEGER" property="vid" />
+    <result column="videourl" jdbcType="VARCHAR" property="videourl" />
+    <result column="uploadid" jdbcType="VARCHAR" property="uploadid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    vid, videourl, uploadid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where vid = #{vid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where vid = #{vid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.Video">
+    insert into video (vid, videourl, uploadid
+      )
+    values (#{vid,jdbcType=INTEGER}, #{videourl,jdbcType=VARCHAR}, #{uploadid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        vid,
+      </if>
+      <if test="videourl != null">
+        videourl,
+      </if>
+      <if test="uploadid != null">
+        uploadid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        #{vid,jdbcType=INTEGER},
+      </if>
+      <if test="videourl != null">
+        #{videourl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadid != null">
+        #{uploadid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.Video">
+    update video
+    <set>
+      <if test="videourl != null">
+        videourl = #{videourl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadid != null">
+        uploadid = #{uploadid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zxl.web.domain.Video">
+    update video
+    set videourl = #{videourl,jdbcType=VARCHAR},
+      uploadid = #{uploadid,jdbcType=VARCHAR}
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="zxl.web.domain.Video">
+    <id column="vid" jdbcType="INTEGER" property="vid" />
+    <result column="videourl" jdbcType="VARCHAR" property="videourl" />
+    <result column="uploadid" jdbcType="VARCHAR" property="uploadid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    vid, videourl, uploadid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video
+    where vid = #{vid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from video
+    where vid = #{vid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.Video">
+    insert into video (vid, videourl, uploadid
+      )
+    values (#{vid,jdbcType=INTEGER}, #{videourl,jdbcType=VARCHAR}, #{uploadid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.Video">
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        vid,
+      </if>
+      <if test="videourl != null">
+        videourl,
+      </if>
+      <if test="uploadid != null">
+        uploadid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        #{vid,jdbcType=INTEGER},
+      </if>
+      <if test="videourl != null">
+        #{videourl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadid != null">
+        #{uploadid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.Video">
+    update video
+    <set>
+      <if test="videourl != null">
+        videourl = #{videourl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadid != null">
+        uploadid = #{uploadid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zxl.web.domain.Video">
+    update video
+    set videourl = #{videourl,jdbcType=VARCHAR},
+      uploadid = #{uploadid,jdbcType=VARCHAR}
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zxl.web.mapper.PaperVideoMapper">
+  <resultMap id="BaseResultMap" type="zxl.web.domain.PaperVideoKey">
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+    <id column="vid" jdbcType="INTEGER" property="vid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.PaperVideoKey">
+    delete from papervideo
+    where pid = #{pid,jdbcType=INTEGER}
+      and vid = #{vid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.PaperVideoKey">
+    insert into papervideo (pid, vid)
+    values (#{pid,jdbcType=INTEGER}, #{vid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.PaperVideoKey">
+    insert into papervideo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="vid != null">
+        vid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="vid != null">
+        #{vid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="zxl.web.domain.PaperVideoKey">
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+    <id column="vid" jdbcType="INTEGER" property="vid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.PaperVideoKey">
+    delete from papervideo
+    where pid = #{pid,jdbcType=INTEGER}
+      and vid = #{vid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.PaperVideoKey">
+    insert into papervideo (pid, vid)
+    values (#{pid,jdbcType=INTEGER}, #{vid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.PaperVideoKey">
+    insert into papervideo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="vid != null">
+        vid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="vid != null">
+        #{vid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

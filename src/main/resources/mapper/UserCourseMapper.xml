@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zxl.web.mapper.UserCourseMapper">
+  <resultMap id="BaseResultMap" type="zxl.web.domain.UserCourse">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="clsid" jdbcType="INTEGER" property="clsid" />
+    <result column="teachertype" jdbcType="INTEGER" property="teachertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, clsid, teachertype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usercourse
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey">
+    delete from usercourse
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.UserCourse">
+    insert into usercourse (id, clsid, teachertype
+      )
+    values (#{id,jdbcType=INTEGER}, #{clsid,jdbcType=INTEGER}, #{teachertype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.UserCourse">
+    insert into usercourse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clsid != null">
+        clsid,
+      </if>
+      <if test="teachertype != null">
+        teachertype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clsid != null">
+        #{clsid,jdbcType=INTEGER},
+      </if>
+      <if test="teachertype != null">
+        #{teachertype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserCourse">
+    update usercourse
+    <set>
+      <if test="teachertype != null">
+        teachertype = #{teachertype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserCourse">
+    update usercourse
+    set teachertype = #{teachertype,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="zxl.web.domain.UserCourse">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="clsid" jdbcType="INTEGER" property="clsid" />
+    <result column="teachertype" jdbcType="INTEGER" property="teachertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, clsid, teachertype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usercourse
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey">
+    delete from usercourse
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.UserCourse">
+    insert into usercourse (id, clsid, teachertype
+      )
+    values (#{id,jdbcType=INTEGER}, #{clsid,jdbcType=INTEGER}, #{teachertype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.UserCourse">
+    insert into usercourse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clsid != null">
+        clsid,
+      </if>
+      <if test="teachertype != null">
+        teachertype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clsid != null">
+        #{clsid,jdbcType=INTEGER},
+      </if>
+      <if test="teachertype != null">
+        #{teachertype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserCourse">
+    update usercourse
+    <set>
+      <if test="teachertype != null">
+        teachertype = #{teachertype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserCourse">
+    update usercourse
+    set teachertype = #{teachertype,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+      and clsid = #{clsid,jdbcType=INTEGER}
+  </update>
+</mapper>
