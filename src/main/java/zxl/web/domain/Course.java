@@ -5,7 +5,7 @@ public class Course {
 
     private String name;
 
-    private String abstract;
+    private String cabstract;
 
     private Integer teachingobject;
 
@@ -30,11 +30,11 @@ public class Course {
     }
 
     public String getAbstract() {
-        return abstract;
+        return cabstract;
     }
 
-    public void setAbstract(String abstract) {
-        this.abstract = abstract == null ? null : abstract.trim();
+    public void setAbstract(String cabstract) {
+        this.cabstract = cabstract == null ? null : cabstract.trim();
     }
 
     public Integer getTeachingobject() {
