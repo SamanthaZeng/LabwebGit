@@ -68,7 +68,7 @@ public class StudentController {
         if(imgFile !=null){
             //获取文件夹路径
            //String path=req.getSession().getServletContext().getRealPath("/uploadFile");
-            String path="F:/计算机/大四/毕业设计项目/代码/LabWeb_SSM/src/main/webapp/uploadFile";
+            String path = req.getServletContext().getRealPath("/uploadFile");
             //System.out.println(path);
             //文件名称UID解决文件名称问题
             String filename=imgFile.getOriginalFilename();
@@ -109,7 +109,8 @@ public class StudentController {
         if(currentStu!=null){
             //把信息存入session里面 页面
             request.getSession().setAttribute("currentStu",currentStu);
-            return "redirect:/classes/index";
+            System.out.println(request.getSession().getAttributeNames());
+            return "redirect:/admin/main";
         }
         //返回登陆页面
         return "redirect:/login.jsp";
