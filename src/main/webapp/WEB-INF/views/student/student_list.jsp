@@ -119,7 +119,7 @@
 						</div>
 					</div><!-- #sidebar-shortcuts -->
 					
-									<ul class="nav nav-list">
+						<ul class="nav nav-list">
 						<li >
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-desktop"></i>

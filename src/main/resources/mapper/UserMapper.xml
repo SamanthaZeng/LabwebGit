@@ -160,4 +160,9 @@
       birthday = #{birthday,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--注册方法-->
+  <insert id="register" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into user(username,pwd,sex,isadmin,usertype,birthday) values(#{username},#{pwd},#{sex},#{isadmin},#{usertype},#{birthday});
+  </insert>
 </mapper>

@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>SSM在线学生管理系统</title>
+		<title>计算机网络与信息安全研究室后台管理系统</title>
 		<meta name="keywords" content="Bootstrapæ¨¡ç,Bootstrapæ¨¡çä¸è½½,Bootstrapæç¨,Bootstrapä¸­æ" />
 		<meta name="description" content="ç«é¿ç´ ææä¾Bootstrapæ¨¡ç,Bootstrapæç¨,Bootstrapä¸­æç¿»è¯ç­ç¸å³Bootstrapæä»¶ä¸è½½" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,7 +44,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="icon-leaf"></i>
-								SSM在线学生管理平台
+							计算机网络与信息安全研究室后台管理系统
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -123,12 +123,12 @@
 							<span class="btn btn-danger"></span>
 						</div>
 					</div><!-- #sidebar-shortcuts -->
-					
+
 					<ul class="nav nav-list">
-						<li class="active open">
+						<li >
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text"> 班级管理</span>
+								<span class="menu-text"> 班级管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -142,8 +142,8 @@
 							</ul>
 
 						</li>
-						
-						<li>
+
+						<li class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
 								<span class="menu-text">学生管理</span>
@@ -159,12 +159,12 @@
 								</li>
 							</ul>
 
-							
+
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle">
-								<i class="glyphicon-th-large"></i>
-								<span class="menu-text">老师管理</span>
+								<i class="icon-user"></i>
+								<span class="menu-text">用户管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -172,7 +172,23 @@
 								<li>
 									<a href="tables.html">
 										<i class="icon-double-angle-right"></i>
-										老师列表¨
+										教师列表
+									</a>
+								</li>
+							</ul>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										学生列表
+									</a>
+								</li>
+							</ul>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										合作伙伴列表
 									</a>
 								</li>
 							</ul>
@@ -180,7 +196,7 @@
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 课程管理</span>
+								<span class="menu-text">课程管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -194,7 +210,6 @@
 							</ul>
 						</li>
 
-		
 					</ul>
 
 					<div class="sidebar-collapse" id="sidebar-collapse">
@@ -215,13 +230,13 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="#">SSM</a>
+								<a href="#">计算机网络与信息安全研究室</a>
 							</li>
 
 							<li>
-								<a href="#">学生管理</a>
+								<a href="#">班级管理</a>
 							</li>
-							<li class="active">学生列表</li>
+							<li class="active">班级列表</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">

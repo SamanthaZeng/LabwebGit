@@ -112,12 +112,12 @@
 										<div class="widget-main">
 											<h4 class="header red lighter bigger">
 												<i class="icon-key"></i>
-												Retrieve Password
+												找回密码
 											</h4>
 
 											<div class="space-6"></div>
 											<p>
-												Enter your email and to receive instructions
+												输入你的邮件并且收到指令
 											</p>
 
 											<form>
@@ -132,7 +132,7 @@
 													<div class="clearfix">
 														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
 															<i class="icon-lightbulb"></i>
-															Send Me!
+															发送邮件！
 														</button>
 													</div>
 												</fieldset>
@@ -141,7 +141,7 @@
 
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												Back to login
+												回到登陆页面
 												<i class="icon-arrow-right"></i>
 											</a>
 										</div>
@@ -153,48 +153,70 @@
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="icon-group blue"></i>
-												New User Registration
+												新用户注册
 											</h4>
 
 											<div class="space-6"></div>
-											<p> Enter your details to begin: </p>
+											<p> 输入你的信息 </p>
 
-											<form>
+											<form action="/user/register" method="post" accept-charset="UTF-8">
 												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
-															<i class="icon-envelope"></i>
-														</span>
-													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" name="username" class="form-control" placeholder="用户名" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" name="pwd" id="pwd" class="form-control" placeholder="密码" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+															<input type="password"  name="rptpwd" id="rptpwd" class="form-control" onblur="checkpwd()" placeholder="重复密码" />
 															<i class="icon-retweet"></i>
 														</span>
 													</label>
+													<span id="tishi"></span>
 
-													<label class="block">
-														<input type="checkbox" class="ace" />
-														<span class="lbl">
-															I accept the
-															<a href="#">User Agreement</a>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="date" name="birthday" class="form-control" placeholder="生日" />
+															<i class="icon-calendar"></i>
 														</span>
+													</label>
+
+													<!--注意name一定要一致，不然会导致二个选择框都能选中的现象；-->
+													<label>选择性别</label>
+													<div>
+														<label class="radio-inline">
+															<input type="radio" name="sex" id="male" value="0" checked>男
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="sex" id="female" value="1">女
+														</label>
+													</div>
+
+													<label>用户类别</label>
+													<div>
+														<label class="radio-inline">
+															<input type="radio" name="usertype" id="teacher" value="0" checked>老师
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="usertype" id="student" value="1">学生
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="usertype" id="coop" value="2">合作伙伴
+														</label>
+													</div>
+
+													<label>
+														<input type="checkbox" name="isadmin" values="true" >是否是管理员
 													</label>
 
 													<div class="space-24"></div>
@@ -202,11 +224,11 @@
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="icon-refresh"></i>
-															Reset
+															重置
 														</button>
 
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															Register
+														<button type="submit" id="register" class="width-65 pull-right btn btn-sm btn-success">
+															注册
 															<i class="icon-arrow-right icon-on-right"></i>
 														</button>
 													</div>
@@ -217,7 +239,7 @@
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
-												Back to login
+												回到登陆页面
 											</a>
 										</div>
 									</div><!-- /widget-body -->
@@ -246,6 +268,25 @@
 			 jQuery('#'+id).addClass('visible');
 			}
 		</script>
+
+		<!--判断重复的密码是否与密码一致-->
+		<script>
+			function checkpwd()
+			{
+				var x=document.getElementById("pwd").value;
+				var y=document.getElementById("rptpwd").value;
+				if(x==y)
+				{
+					document.getElementById("tishi").innerHTML="<font color='gray'>输入正确</font>"
+					document.getElementById("register").disabled=false;
+				}
+				else{
+					document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>"
+					document.getElementById("register").disabled=true;
+				}
+			}
+		</script>
+
 	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

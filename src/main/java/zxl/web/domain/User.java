@@ -19,7 +19,7 @@ public class User {
 
     private String imgurl;
 
-    private Boolean isadmin;
+    private Boolean isadmin=false;
 
     private Integer usertype;
 
