@@ -118,72 +118,51 @@
 							<span class="btn btn-danger"></span>
 						</div>
 					</div><!-- #sidebar-shortcuts -->
-					
-									<ul class="nav nav-list">
-						<li >
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-desktop"></i>
-								<span class="menu-text"> 班级管理</span>
 
-								<b class="arrow icon-angle-down"></b>
-							</a>
-							<ul class="submenu">
-								<li>
-									<a href="/classes/index">
-										<i class="icon-double-angle-right"></i>
-										班级列表
-									</a>
-								</li>
-							</ul>
-
-						</li>
-						
+					<ul class="nav nav-list">
 						<li class="active open">
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-user"></i>
-								<span class="menu-text">学生管理</span>
+							<a class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text" class="active open"> 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="/student/index">
+									<a href="/admin/main">
 										<i class="icon-double-angle-right"></i>
-										学生列表
+										个人信息修改
 									</a>
 								</li>
 							</ul>
 
-							
 						</li>
+
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">用户管理</span>
+								<span class="menu-text">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
-										教师列表
+										教师管理
 									</a>
 								</li>
-							</ul>
-							<ul class="submenu">
+
 								<li>
-									<a href="tables.html">
+									<a href="/student/index">
 										<i class="icon-double-angle-right"></i>
-										学生列表
+										学生管理
 									</a>
 								</li>
-							</ul>
-							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/cooperator/index">
 										<i class="icon-double-angle-right"></i>
-										合作伙伴列表
+										合作者管理
 									</a>
 								</li>
 							</ul>
@@ -191,7 +170,7 @@
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 课程管理</span>
+								<span class="menu-text"> 论文管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -199,13 +178,86 @@
 								<li>
 									<a href="tables.html">
 										<i class="icon-double-angle-right"></i>
-										课程列表
+										新增论文
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										更新论文
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 项目管理</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增项目
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										更新项目
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 课程管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增课程
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										课程信息更改
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 著作管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增著作
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										著作信息更新
 									</a>
 								</li>
 							</ul>
 						</li>
 
-		
+
+
 					</ul>
 
 					<div class="sidebar-collapse" id="sidebar-collapse">
@@ -230,9 +282,9 @@
 							</li>
 
 							<li>
-								<a href="#">学生管理</a>
+								<a href="#">教师管理</a>
 							</li>
-							<li class="active">学生列表</li>
+							<li class="active">教师列表</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -246,23 +298,23 @@
 					</div>
 
 					<div class="page-content">
-						
+
 
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 
-								
+
 
 								<div class="row">
 									<div class="col-xs-12">
-										
-<p>
-											<a href="/student/add">
-											<button class="btn btn-lg btn-success">
-												<i class="icon-ok"></i>
-												新增
-											</button>
+
+										<p>
+											<a href="/teacher/add">
+												<button class="btn btn-lg btn-success">
+													<i class="icon-ok"></i>
+													新增
+												</button>
 											</a>
 
 											<button id="editBtn" class="btn btn-lg btn-warning">
@@ -272,47 +324,47 @@
 
 											<button id="delBtn" class="btn btn-lg btn-danger" onclick="delBtn()">
 												<i class="icon-bolt"></i>
-																
+
 												删除
-				
+
 											</button>
 										</p>
-								
-								</div>
+
+									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-xs-12">
-										
-										
+
+
 
 										<div class="table-responsive">
 											<table id="stuTable" class="table table-striped table-bordered table-hover">
 												<thead>
-													<tr>
-														<th class="center">
-															<label>
-																<input type="checkbox" class="ace" />
-																<span class="lbl"></span>
-															</label>
-														</th>
-														<th>学生编号</th>
-														<th>学生姓名</th>
-														<th >学生性别</th>
-														<th class="hidden-480">学生学号</th>
-														<th class="hidden-480">所选课程</th>
-														<th>
-															<i class="icon-time bigger-110 hidden-480"></i>
-															学生头像
-														</th>
-														
+												<tr>
+													<th class="center">
+														<label>
+															<input type="checkbox" class="ace" />
+															<span class="lbl"></span>
+														</label>
+													</th>
+													<th>用户编号</th>
+													<th>教师姓名</th>
+													<th >教师性别</th>
+													<th class="hidden-480">教师姓名</th>
+													<th class="hidden-480">邮箱</th>
+													<th>
+														<i class="icon-time bigger-110 hidden-480"></i>
+														用户头像
+													</th>
 
-														<th>其他操作</th>
-													</tr>
+
+													<th>其他操作</th>
+												</tr>
 												</thead>
 
 												<tbody>
-												<c:forEach items="${students}" var="stu">
+												<c:forEach items="${teachers}" var="teacher">
 													<tr>
 														<td class="center">
 															<label>
@@ -321,24 +373,25 @@
 															</label>
 														</td>
 
-														<td>${stu.id}</td>
-														<td>${stu.name}</td>
+														<td>${teacher.id}</td>
+														<td>Name</td>
 														<td class="hidden-480">
-														<c:choose>
-															<c:when test="${stu.sex}">
-																男
-															</c:when>
-															<c:otherwise>
-																女
-															</c:otherwise>
-														</c:choose>
+															<c:choose>
+																<%--得导入user--%>
+																<c:when test="true">
+																	男
+																</c:when>
+																<c:otherwise>
+																	女
+																</c:otherwise>
+															</c:choose>
 														</td>
 														<td>${stu.stunum}</td>
 														<td>${stu.classes.class_name}</td>
 
 														<td class="hidden-480">
 															<span >
-																
+
 																<img style="width:60px;height:60px;"  src="${stu.imgUrl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
@@ -350,27 +403,27 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/student/edit?id=${stu.id}" title="edit">
+																<a class="green" href="/teacher/edit?id=${stu.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
-	
-																<a class="red" href="/student/delete?id=${stu.id}" title="delete">
+
+																<a class="red" href="/teacher/delete?id=${stu.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
 
-							
+
 														</td>
 													</tr>
 
-													</c:forEach>
+												</c:forEach>
 												</tbody>
 											</table>
 										</div>
 									</div>
 								</div>
 
-							
+
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
@@ -523,7 +576,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/student/delete?id="+id;
+						location.href="/teacher/delete?id="+id;
 					}
 			    } );
 
@@ -540,7 +593,7 @@
 					if(id == 0){
 						alert("请选中一行数据");
 					}else{
-						location.href="/student/edit?id="+id;
+						location.href="/teacher/edit?id="+id;
 					}
 			    } );
 				

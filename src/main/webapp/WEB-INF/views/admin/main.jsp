@@ -172,7 +172,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/student/index">
+                            <a href="/teacher/index">
                                 <i class="icon-double-angle-right"></i>
                                 教师管理
                             </a>
@@ -185,7 +185,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/student/index">
+                            <a href="/cooperator/index">
                                 <i class="icon-double-angle-right"></i>
                                 合作者管理
                             </a>
