@@ -68,7 +68,7 @@
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
-s
+
 		
 			</div><!-- /.container -->
 		</div>

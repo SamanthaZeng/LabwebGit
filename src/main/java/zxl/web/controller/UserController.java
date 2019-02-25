@@ -3,6 +3,7 @@ package zxl.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import zxl.web.domain.User;
 import zxl.web.service.IUserService;
@@ -18,7 +19,7 @@ public class UserController {
 
     //WEB-INF/login.jsp
     @RequestMapping("/register")
-    public String register(String username, String pwd, @DateTimeFormat(pattern="yyyy-MM-dd")Date birthday, int sex, int usertype, boolean isadmin)
+    public String register(String username, String pwd, @DateTimeFormat(pattern="yyyy-MM-dd")Date birthday, int sex, int usertype, boolean isadmin, Model model)
     {
         System.out.println(username+pwd+birthday+sex+usertype+isadmin);
         User user = new User();
@@ -29,6 +30,7 @@ public class UserController {
         user.setUsertype(usertype);
         user.setIsadmin(isadmin);
         userService.register(user);
+        model.addAttribute("user",user);
        return "student/register";
     }
 }

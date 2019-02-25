@@ -14,4 +14,9 @@ public class UserServiceImpl implements IUserService {
     public void register(User user) {
         mapper.register(user);
     }
+
+    @Override
+    public User selectuser(int id) {
+        return mapper.selectByPrimaryKey(id);
+    }
 }
