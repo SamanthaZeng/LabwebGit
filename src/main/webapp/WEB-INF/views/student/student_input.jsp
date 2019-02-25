@@ -280,9 +280,9 @@ s
 															<select class="col-xs-10 col-sm-5" id="selectpicker" name="classes.id" >
 																<option value="-1">-----------请选择班级----------</option>
 																<c:forEach items="${classes}" var="cls">
-																
+
 																	<option value="${cls.id}"  >${cls.class_name}</option>
-																						
+
 																</c:forEach>
 															</select>
 													</div>
