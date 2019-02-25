@@ -24,7 +24,7 @@ public class AdminController {
     {
         List<Student> lists=studentService.queryAll();
         model.addAttribute("students",lists);//存到model里面，页面可以取出来
-        System.out.println(request.getSession().getAttribute("currentStu"));
+        System.out.println(request.getSession().getAttribute("user"));
         return "admin/main";
     }
 }

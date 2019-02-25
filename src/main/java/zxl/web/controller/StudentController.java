@@ -151,6 +151,7 @@ public class StudentController {
         }
         students.setEntertime(time);
         studentsService.register(students,user);
-        return "redirect:/student/index";
+        req.getSession().setAttribute("user",user);
+        return "redirect:/admin/main";
     }
 }

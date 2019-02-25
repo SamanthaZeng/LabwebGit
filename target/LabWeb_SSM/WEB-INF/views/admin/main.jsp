@@ -74,10 +74,10 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${currentStu.imgUrl}" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>欢迎,</small>
-									${currentStu.name}
+									${user.username}
 								</span>
 
                         <i class="icon-caret-down"></i>
