@@ -34,15 +34,7 @@ public class TeacherController {
         //WEB-INF/views/student/index.jsp
 //        List<Student>lists=studentService.queryAll();
 //        model.addAttribute("students",lists);//存到model里面，页面可以取出来
-        // System.out.println(lists);
-
-        Teacher testTeacher = new Teacher();
-        testTeacher.setId(1);
-        testTeacher.setTid(5);
-        testTeacher.setTmail("test@qq.com");
-        List<Teacher> lists = new LinkedList<>();
-        lists.add((testTeacher));
-        model.addAttribute("teachers", lists);
+        // System.out.println(lists)
         return "teacher/teacher_list";
     }
     @RequestMapping("/edit")

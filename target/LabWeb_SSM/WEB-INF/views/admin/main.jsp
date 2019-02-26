@@ -145,7 +145,7 @@
             </div><!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li class="active open">
+                <li href="#" class="active open">
                     <a class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text" class="active open"> 个人信息管理</span>
@@ -153,7 +153,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="active open">
                             <a href="/admin/main">
                                 <i class="icon-double-angle-right"></i>
                                 个人信息修改
@@ -304,11 +304,10 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/student/login">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">个人信息修改</a>
+                        <a href="">个人信息修改</a>
                     </li>
                 </ul><!-- .breadcrumb -->
                 <%-- 搜索栏 --%>
@@ -329,7 +328,7 @@
                         <div class="col-xs-12">
                             <!--学生表单 -->
 
-                            <form class="form-horizontal" method="post" action="/student/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                            <form class="form-horizontal" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="id" value="${user.id}"/>
                                 <!--根据不同的用户类型，显示不同的表单页面-->
@@ -358,7 +357,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
 
                                     <div class="col-sm-9">
-                                        <input type="date" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5" />
+                                        <input type="date"  readonly="readonly" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
                                     </div>
                                 </div>
 
@@ -533,7 +532,50 @@
                 </div><!-- /.page-content -->
         </div><!-- /.main-content -->
 
+        <div class="ace-settings-container" id="ace-settings-container">
+            <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                <i class="icon-cog bigger-150"></i>
+            </div>
 
+            <div class="ace-settings-box" id="ace-settings-box">
+                <div>
+                    <div class="pull-left">
+                        <select id="skin-colorpicker" class="hide">
+                            <option data-skin="default" value="#438EB9">#438EB9</option>
+                            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                        </select>
+                    </div>
+                    <span>&nbsp; 换肤</span>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                    <label class="lbl" for="ace-settings-navbar"> 固定导航栏</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                    <label class="lbl" for="ace-settings-sidebar"> 固定工具栏</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                    <label class="lbl" for="ace-settings-breadcrumbs"> 固定面包屑导航</label>
+                </div>
+
+
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                    <label class="lbl" for="ace-settings-add-container">
+                        内置
+                        <b>.容器</b>
+                    </label>
+                </div>
+            </div>
+        </div><!-- /#ace-settings-container -->
     </div><!-- /.main-container-inner -->
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
@@ -606,7 +648,13 @@
 
         //初始化拓展表单
         showExpandDiv(usertype);
-
+        $(".date-picker").datepicker({
+            format: "yyyy-mm-dd", //显示日期格式
+            autoclose: true,
+            todayBtn: true,
+            minView: "month",//只选择到天自动关闭
+            language: 'zh-CN',
+        });
         //单选选中
         $("#radio_sex").on("click",function(){
             $('input[type="radio"]:checked').parent('label').addClass('active');

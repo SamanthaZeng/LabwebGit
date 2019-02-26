@@ -328,7 +328,7 @@
                         <div class="col-xs-12">
                             <!--学生表单 -->
 
-                            <form class="form-horizontal" method="post" action="/student/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                            <form class="form-horizontal" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="id" value="${user.id}"/>
                                 <!--根据不同的用户类型，显示不同的表单页面-->
@@ -357,7 +357,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
 
                                     <div class="col-sm-9">
-                                        <input type="date" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5" />
+                                        <input type="date"  readonly="readonly" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
                                     </div>
                                 </div>
 
@@ -648,7 +648,13 @@
 
         //初始化拓展表单
         showExpandDiv(usertype);
-
+        $(".date-picker").datepicker({
+            format: "yyyy-mm-dd", //显示日期格式
+            autoclose: true,
+            todayBtn: true,
+            minView: "month",//只选择到天自动关闭
+            language: 'zh-CN',
+        });
         //单选选中
         $("#radio_sex").on("click",function(){
             $('input[type="radio"]:checked').parent('label').addClass('active');

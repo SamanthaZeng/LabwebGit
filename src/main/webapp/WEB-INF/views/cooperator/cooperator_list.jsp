@@ -120,10 +120,10 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active open">
+						<li>
 							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text" class="active open"> 个人信息管理</span>
+								<span class="menu-text" > 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -138,10 +138,10 @@
 
 						</li>
 
-						<li>
+						<li  class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">人员管理</span>
+								<span class="menu-text" class="active open">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -159,7 +159,7 @@
 										学生管理
 									</a>
 								</li>
-								<li>
+								<li  class="active open">
 									<a href="/cooperator/index">
 										<i class="icon-double-angle-right"></i>
 										合作者管理
@@ -278,13 +278,13 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="#">计算机网络与信息安全研究室</a>
+								<a href="/admin/main">计算机网络与信息安全研究室</a>
 							</li>
 
 							<li>
-								<a href="#">教师管理</a>
+								<a href="#">合作者管理</a>
 							</li>
-							<li class="active">教师列表</li>
+							<li class="active">合作者列表</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -349,10 +349,10 @@
 														</label>
 													</th>
 													<th>用户编号</th>
-													<th>教师姓名</th>
-													<th >教师性别</th>
-													<th class="hidden-480">教师职称</th>
-													<th class="hidden-480">教师邮箱</th>
+													<th>合作者姓名</th>
+													<th >合作者性别</th>
+													<th class="hidden-480">合作者单位</th>
+													<th class="hidden-480">合作者职务</th>
 													<th>
 														<i class="icon-time bigger-110 hidden-480"></i>
 														用户头像
@@ -364,7 +364,7 @@
 												</thead>
 
 												<tbody>
-												<c:forEach items="${teachers}" var="teacher">
+												<c:forEach items="${cooperators}" var="cooperator">
 													<tr>
 														<td class="center">
 															<label>
@@ -372,12 +372,12 @@
 																<span class="lbl"></span>
 															</label>
 														</td>
-														<td>${teacher.id}</td>
-														<td>${teacher.username}</td>
+														<td>${cooperator.id}</td>
+														<td>${cooperator.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.sex}">
+																<c:when test="${cooperator.sex}">
 																	男
 																</c:when>
 																<c:otherwise>
@@ -386,25 +386,14 @@
 															</c:choose>
 														</td>
 														<td class="hidden-480">
-															<c:choose>
-																<%--得导入user--%>
-																<c:when test="${teacher.trank == 1}">
-																	讲师
-																</c:when>
-																<c:when test="${teacher.trank == 2}">
-																	副教授
-																</c:when>
-																<c:when test="${teacher.trank == 3}">
-																	教授
-																</c:when>
-															</c:choose>
+															${cooperator.coname}
 														</td>
-														<td>${teacher.tmail}</td>
+														<td>${cooperator.cduty}</td>
 
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${teacher.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${cooperator.imgUrl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
@@ -415,11 +404,11 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${teacher.id}" title="edit">
+																<a class="green" href="/teacher/edit?id=${cooperator.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${teacher.id}" title="delete">
+																<a class="red" href="/teacher/delete?id=${cooperator.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>

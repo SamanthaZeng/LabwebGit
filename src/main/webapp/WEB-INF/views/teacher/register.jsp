@@ -86,6 +86,59 @@
                 try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
             </script>
 
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <button class="btn btn-success">
+                        <i class="icon-signal"></i>
+                    </button>
+
+                    <button class="btn btn-info">
+                        <i class="icon-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-warning">
+                        <i class="icon-group"></i>
+                    </button>
+
+                    <button class="btn btn-danger">
+                        <i class="icon-cogs"></i>
+                    </button>
+                </div>
+
+                <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+
+                    <span class="btn btn-info"></span>
+
+                    <span class="btn btn-warning"></span>
+
+                    <span class="btn btn-danger"></span>
+                </div>
+            </div><!-- #sidebar-shortcuts -->
+
+            <ul class="nav nav-list">
+                <li class="active open">
+                    <a class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"  class="active open"> 个人信息管理</span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/admin/main">
+                                <i class="icon-double-angle-right"></i>
+                                个人信息编辑
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
 
             <script type="text/javascript">
                 try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
@@ -139,10 +192,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
+                                <label   class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="teduexp" cols="53" rows="10">教育经历</textarea>
+                                    <textarea name="teduexp" style="resize:none;" class="col-sm-5" rows="10">教育经历</textarea>
                                 </div>
                             </div>
 
@@ -150,7 +203,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" > 工作经历 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="workexp" cols="53" rows="10">工作经历</textarea>
+                                    <textarea name="workexp" style="resize:none;" class="col-sm-5" rows="10">工作经历</textarea>
                                 </div>
                             </div>
 
@@ -158,7 +211,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" > 社会服务 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="service" cols="53" rows="10">社会服务</textarea>
+                                    <textarea name="service" style="resize:none;" class="col-sm-5" rows="10">社会服务</textarea>
                                 </div>
                             </div>
 
@@ -175,10 +228,10 @@
                                 <div class="col-sm-9">
                                     <select class="col-xs-10 col-sm-5" id="selectpicker" name="trank" >
                                         <option value="-1">-----------请选择职称----------</option>
-                                        <option value="0" >教授</option>
-                                        <option value="0" >副教授</option>
-                                        <option value="0" >助理教授</option>
-                                        <option value="0" >讲师</option>
+                                        <option value="4" >教授</option>
+                                        <option value="3" >副教授</option>
+                                        <option value="2" >助理教授</option>
+                                        <option value="1" >讲师</option>
                                     </select>
                                 </div>
                             </div>

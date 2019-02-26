@@ -69,7 +69,33 @@
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
 
-		
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎,</small>
+									${user.username}
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+
+
+								<li>
+									<a href="/login.jsp">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
 			</div><!-- /.container -->
 		</div>
 
@@ -117,56 +143,51 @@
 							<span class="btn btn-danger"></span>
 						</div>
 					</div><!-- #sidebar-shortcuts -->
-					
+
 					<ul class="nav nav-list">
-						<li >
-							<a href="#" class="dropdown-toggle">
+						<li>
+							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text"> 班级管理</span>
+								<span class="menu-text" > 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="/classes/index">
+									<a href="/admin/main">
 										<i class="icon-double-angle-right"></i>
-										班级列表
+										个人信息修改
 									</a>
 								</li>
 							</ul>
 
 						</li>
-						
-						<li class="active open">
+
+						<li  class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">学生管理</span>
+								<span class="menu-text" class="active open">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="/student/index">
+									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
-										学生列表
+										教师管理
 									</a>
 								</li>
-							</ul>
 
-							
-						</li>
-						<li >
-							<a href="#" class="dropdown-toggle">
-								<i class="glyphicon-th-large"></i>
-								<span class="menu-text">老师管理</span>
-
-								<b class="arrow icon-angle-down"></b>
-							</a>
-							<ul class="submenu">
-								<li>
-									<a href="tables.html">
+								<li  class="active open">
+									<a href="/student/index">
 										<i class="icon-double-angle-right"></i>
-										老师列表
+										学生管理
+									</a>
+								</li>
+								<li>
+									<a href="/cooperator/index">
+										<i class="icon-double-angle-right"></i>
+										合作者管理
 									</a>
 								</li>
 							</ul>
@@ -174,7 +195,7 @@
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 课程管理</span>
+								<span class="menu-text"> 论文管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -182,16 +203,87 @@
 								<li>
 									<a href="tables.html">
 										<i class="icon-double-angle-right"></i>
-										课程列表
+										新增论文
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										更新论文
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 项目管理</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增项目
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										更新项目
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 课程管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增课程
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										课程信息更改
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 著作管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										新增著作
+									</a>
+								</li>
+								<li>
+									<a href="tables.html">
+										<i class="icon-double-angle-right"></i>
+										著作信息更新
 									</a>
 								</li>
 							</ul>
 						</li>
 
-		
+
+
 					</ul>
-					
-					<!-- /.nav-list -->
 
 					<div class="sidebar-collapse" id="sidebar-collapse">
 						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>

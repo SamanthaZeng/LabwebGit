@@ -49,17 +49,17 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="${currentStu.imgUrl}" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎,</small>
-									${currentStu.name}
+									${user.username}
 								</span>
 
 								<i class="icon-caret-down"></i>
 							</a>
 
 							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								
+
 
 								<li>
 									<a href="/login.jsp">
@@ -351,8 +351,8 @@
 													<th>用户编号</th>
 													<th>教师姓名</th>
 													<th >教师性别</th>
-													<th class="hidden-480">教师姓名</th>
-													<th class="hidden-480">邮箱</th>
+													<th class="hidden-480">教师职称</th>
+													<th class="hidden-480">教师邮箱</th>
 													<th>
 														<i class="icon-time bigger-110 hidden-480"></i>
 														用户头像
@@ -372,13 +372,12 @@
 																<span class="lbl"></span>
 															</label>
 														</td>
-
 														<td>${teacher.id}</td>
-														<td>Name</td>
+														<td>${teacher.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="true">
+																<c:when test="${teacher.sex}">
 																	男
 																</c:when>
 																<c:otherwise>
@@ -386,13 +385,26 @@
 																</c:otherwise>
 															</c:choose>
 														</td>
-														<td>${stu.stunum}</td>
-														<td>${stu.classes.class_name}</td>
+														<td class="hidden-480">
+															<c:choose>
+																<%--得导入user--%>
+																<c:when test="${teacher.trank == 1}">
+																	讲师
+																</c:when>
+																<c:when test="${teacher.trank == 2}">
+																	副教授
+																</c:when>
+																<c:when test="${teacher.trank == 3}">
+																	教授
+																</c:when>
+															</c:choose>
+														</td>
+														<td>${teacher.tmail}</td>
 
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${stu.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${teacher.imgUrl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
@@ -403,11 +415,11 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${stu.id}" title="edit">
+																<a class="green" href="/teacher/edit?id=${teacher.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${stu.id}" title="delete">
+																<a class="red" href="/teacher/delete?id=${teacher.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
