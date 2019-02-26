@@ -331,12 +331,15 @@
 
                             <form class="form-horizontal" method="post" action="/student/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                                 <!--新增点击过来，没有id，修改点过来有id-->
-                                <input type="hidden" name="id" value="${student.id}"/>
+                                <input type="hidden" name="id" value="${user.id}"/>
+                                <!--根据不同的用户类型，显示不同的表单页面-->
+                                <input type="hidden" name="usertype" value="${user.usertype}"/>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${student.name}"/>
+                                        <input type="text" name="name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${user.username}"/>
                                     </div>
                                 </div>
 
@@ -346,20 +349,21 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 密码 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="password" name="pwd" value="${student.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+                                        <input type="password" name="pwd" value="${user.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 编号 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="stunum" value="${student.stunum}" id="form-field-3" placeholder="UserID" class="col-xs-10 col-sm-5" />
+                                        <input type="date" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5" />
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 头像 </label>
+                                    <label class="col-sm-3 control-label no-padding-right"> 头像 </label>
 
                                     <div class="col-sm-9">
                                         <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
@@ -368,23 +372,143 @@
 
                                 <div class="form-group">
 
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别</label>
+                                    <label class="col-sm-3 control-label no-padding-right">性别</label>
                                     <div class="col-sm-9">
 
                                         <div class="radio" id="radio_sex">
                                             <label>
-                                                <input  type="radio" class="ace" name="sex" value="true" <c:if test="${true == student.sex}">checked</c:if>/>
+                                                <input  type="radio" class="ace" name="sex" value="true" <c:if test="${0 == user.sex}">checked</c:if>/>
                                                 <span class="lbl"> 男</span>
                                             </label>
                                             <label>
-                                                <input  type="radio" class="ace" name="sex" value="false" <c:if test="${false == student.sex}">checked</c:if>/>
+                                                <input  type="radio" class="ace" name="sex" value="false" <c:if test="${1 == user.sex}">checked</c:if>/>
                                                 <span class="lbl"> 女</span>
                                             </label>
                                         </div>
 
                                     </div>
                                 </div>
+
                                 <div class="space-4"></div>
+
+
+
+                                <!--教师   style="display: none"  -->
+                                <div class="teacher"  style="display: none" >
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 教师邮箱 </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="tmail" id="form-field-4" placeholder="教师邮箱" class="col-xs-10 col-sm-5" <c:if test="${0 == user.usertype}">value="${teacher.tmail}"</c:if>/>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-5">教师职务</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="tduty" id="form-field-5" placeholder="教师职务" class="col-xs-10 col-sm-5" <c:if test="${0 == user.usertype}">value="${teacher.tduty}"</c:if>/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
+
+                                        <div class="col-sm-9">
+                                            <textarea name="teduexp" cols="53" rows="10" placeholder="教育经历" <c:if test="${0 == user.usertype}">value="${teacher.teduexp}"</c:if>>教育经历</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" > 工作经历 </label>
+
+                                        <div class="col-sm-9">
+                                            <textarea name="workexp" cols="53" rows="10" placeholder="工作经历" <c:if test="${0 == user.usertype}">value="${teacher.workexp}"</c:if>>工作经历</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" > 社会服务 </label>
+
+                                        <div class="col-sm-9">
+                                            <textarea name="service" cols="53" rows="10" placeholder="社会服务"  <c:if test="${0 == user.usertype}">value="${teacher.service}"</c:if>>社会服务</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" >教师职称</label>
+                                        <div class="col-sm-9">
+                                            <select class="col-xs-10 col-sm-5" id="selectteacher" name="trank" >
+                                                <option value="-1">-----------请选择职称----------</option>
+                                                <option value="0" >教授</option>
+                                                <option value="1" >副教授</option>
+                                                <option value="2" >助理教授</option>
+                                                <option value="3" >讲师</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!--teacher-->
+
+
+                                <!--student      style="display: none"    -->
+                                <div class="student" style="display: none" >
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 学生邮箱 </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${students.smail}"</c:if>/>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-7">毕业去向</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${students.wheretogo}"</c:if> />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
+
+                                        <div class="col-sm-9">
+                                            <textarea name="stueduexp" cols="53" rows="10" <c:if test="${1 == user.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 学生头像 </label>
+
+                                        <div class="col-sm-9">
+                                            <input  multiple="" type="file" name="imgFile" id="id-input-file-4" class="col-xs-10 col-sm-5" style="width:200px"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
+                                        <div class="col-sm-9">
+                                            <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" >
+                                                <option value="-1">-----------请选择学位----------</option>
+                                                <option value="0" >本科</option>
+                                                <option value="1" >研究生</option>
+                                                <option value="2" >博士</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="date" name="time" id="form-field-8" class="col-xs-10 col-sm-5" />
+                                        </div>
+                                    </div>
+
+                                </div><!--student-->
 
 
                                 <div class="clearfix form-actions">
@@ -458,13 +582,30 @@
 <script type="text/javascript">
     jQuery(function($) {
 
-        //修改 的时候 默认下来选中
-        var selectVal = "${student.classes.id}";
-        //alert(selectVal);
-        if(selectVal != null && selectVal !=""){
-            $('#selectpicker').find("option[value='"+selectVal+"']").attr("selected", "true");
-
+        //初始化选择菜单的值
+        var usertype="${user.usertype}";
+        //alert(usertype);
+        if(usertype==0)//是老师
+        {
+            var selectval= "${teacher.trank}";
+            if(selectval!=null&&selectval!=""){
+                $('#selectteacher').find("option[value='"+selectval+"']").attr("selected", "true");
+                //alert(selectval);
+            }
+        }else{
+            if(usertype==1)
+            {
+                var selectval= "${student.srank}";
+                if(selectval!=null&&selectval!=""){
+                    $('#selectstudent').find("option[value='"+selectval+"']").attr("selected", "true");
+                    //alert(selectval);
+                }
+            }
         }
+        //alert(selectVal);
+
+        //初始化拓展表单
+        showExpandDiv(usertype);
 
         //单选选中
         $("#radio_sex").on("click",function(){
@@ -739,6 +880,18 @@
 
 
     });
+    /*显示对应拓展表单*/
+    function showExpandDiv(usertype) {
+        if(usertype==0)//是老师
+        {//显示老师表单
+            $(".teacher").show();//一定要加.
+        }else{
+            if(usertype==1)
+            {
+                $(".student").show();
+            }
+        }
+    }
 </script>
 
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>

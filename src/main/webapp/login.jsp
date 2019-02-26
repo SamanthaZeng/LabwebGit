@@ -52,18 +52,18 @@
 
 											<div class="space-6"></div>
 
-											<form action="/student/login" method="post">
+											<form action="/user/login" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" name="name" class="form-control" placeholder="Username" />
+															<input type="text" name="username" class="form-control" placeholder="用户名" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="pwd" class="form-control" placeholder="Password" />
+															<input type="password" name="pwd" class="form-control" placeholder="密码" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>

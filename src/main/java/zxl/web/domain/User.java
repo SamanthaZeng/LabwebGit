@@ -105,6 +105,23 @@ public class User {
         this.usertype = usertype;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", tid=" + tid +
+                ", cid=" + cid +
+                ", sid=" + sid +
+                ", username='" + username + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", sex=" + sex +
+                ", imgurl='" + imgurl + '\'' +
+                ", isadmin=" + isadmin +
+                ", usertype=" + usertype +
+                ", birthday=" + birthday +
+                '}';
+    }
+
     public Date getBirthday() {
         return birthday;
     }

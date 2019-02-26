@@ -19,12 +19,13 @@ public class AdminController {
     private IClassesService classesService;
     @Autowired
     private IStudentService studentService;
+
     @RequestMapping("/main") // 个人主页面
     public String mainInfo(Model model, HttpServletRequest request)
     {
-        List<Student> lists=studentService.queryAll();
-        model.addAttribute("students",lists);//存到model里面，页面可以取出来
-        System.out.println(request.getSession().getAttribute("user"));
+        //List<Student> lists=studentService.queryAll();
+        //model.addAttribute("student",lists);//存到model里面，页面可以取出来
+       // System.out.println(request.getSession().getAttribute("user"));
         return "admin/main";
     }
 }

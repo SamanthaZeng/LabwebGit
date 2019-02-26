@@ -165,4 +165,9 @@
   <insert id="register" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into user(username,pwd,sex,isadmin,usertype,birthday) values(#{username},#{pwd},#{sex},#{isadmin},#{usertype},#{birthday});
   </insert>
+
+  <!--登陆方法-->
+  <select id="login" parameterType="User" resultType="User" >
+    select id,tid,cid,sid,username,pwd,sex,imgurl,isadmin,usertype,birthday from user where username=#{username} and pwd=#{pwd}
+  </select>
 </mapper>

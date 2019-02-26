@@ -16,4 +16,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     public void register(User user); //注册方法
+
+    public User login(User user);//登陆方法
 }

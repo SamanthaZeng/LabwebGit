@@ -9,6 +9,19 @@ public class Students {
 
     private Integer srank;
 
+    @Override
+    public String toString() {
+        return "Students{" +
+                "sid=" + sid +
+                ", id=" + id +
+                ", srank=" + srank +
+                ", smail='" + smail + '\'' +
+                ", wheretogo='" + wheretogo + '\'' +
+                ", entertime=" + entertime +
+                ", stueduexp='" + stueduexp + '\'' +
+                '}';
+    }
+
     private String smail;
 
     private String wheretogo;
