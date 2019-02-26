@@ -14,7 +14,8 @@ import zxl.web.service.ITeacherService;
 import zxl.web.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+
+import java.sql.Date;
 
 @Controller
 @RequestMapping("/user")

@@ -31,13 +31,13 @@ public class TeacherController {
     @RequestMapping("/index")
     public String index(Model model)
     {
-        System.out.println("SpringMVC配置成功");
         //WEB-INF/views/student/index.jsp
 //        List<Student>lists=studentService.queryAll();
 //        model.addAttribute("students",lists);//存到model里面，页面可以取出来
         // System.out.println(lists);
+
         Teacher testTeacher = new Teacher();
-        testTeacher.setId(10086);
+        testTeacher.setId(1);
         testTeacher.setTid(5);
         testTeacher.setTmail("test@qq.com");
         List<Teacher> lists = new LinkedList<>();
@@ -53,6 +53,7 @@ public class TeacherController {
         testTeacher.setTid(5);
         testTeacher.setTmail("test@qq.com");
         model.addAttribute("teacher",teacher);
+        User testUser = new User();
         return "teacher/teacher_input";
     }
     /*教师注册*/
@@ -80,3 +81,12 @@ public class TeacherController {
         return "redirect:/admin/main";
     }
 }
+class TeacherModel
+    {
+        Teacher teacher;
+        User user;
+        TeacherModel(Teacher teacher, User user){
+            this.teacher = teacher;
+            this.user = user;
+        }
+    }
