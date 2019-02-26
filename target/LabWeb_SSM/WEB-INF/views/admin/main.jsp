@@ -1,3 +1,4 @@
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -14,7 +15,7 @@
 
     <link href="/bootstrap/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/bootstrap/assets/css/font-awesome.min.css" />
-
+    <link href="/bootstrap/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 
     <!-- page specific plugin styles -->
@@ -145,7 +146,7 @@
             </div><!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li class="active open">
+                <li href="#" class="active open">
                     <a class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text" class="active open"> 个人信息管理</span>
@@ -153,7 +154,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="active open">
                             <a href="/admin/main">
                                 <i class="icon-double-angle-right"></i>
                                 个人信息修改
@@ -304,11 +305,10 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/student/login">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">个人信息修改</a>
+                        <a href="">个人信息修改</a>
                     </li>
                 </ul><!-- .breadcrumb -->
                 <%-- 搜索栏 --%>
@@ -331,33 +331,36 @@
 
                             <form class="form-horizontal" method="post" action="/student/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                                 <!--新增点击过来，没有id，修改点过来有id-->
-                                <input type="hidden" name="id" value="${student.id}"/>
+                                <input type="hidden" name="id" value="${user.id}"/>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${student.name}"/>
+                                        <input type="text" name="name" disabled="true " id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${user.username}"/>
                                     </div>
                                 </div>
 
                                 <div class="space-4"></div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 密码 </label>
 
-                                    <div class="col-sm-9">
-                                        <input type="password" name="pwd" value="${student.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
-
-                                    </div>
-                                </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 编号 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="stunum" value="${student.stunum}" id="form-field-3" placeholder="UserID" class="col-xs-10 col-sm-5" />
+                                        <input type="text" name="stunum" disabled="true " value="${user.id}" id="form-field-3" placeholder="UserID" class="col-xs-10 col-sm-5" />
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 密码 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="password" name="pwd" value="${user.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 头像 </label>
 
@@ -373,17 +376,25 @@
 
                                         <div class="radio" id="radio_sex">
                                             <label>
-                                                <input  type="radio" class="ace" name="sex" value="true" <c:if test="${true == student.sex}">checked</c:if>/>
+                                                <input  type="radio" class="ace" name="sex" value="true" <c:if test="${1 == user.sex}">checked</c:if>/>
                                                 <span class="lbl"> 男</span>
                                             </label>
                                             <label>
-                                                <input  type="radio" class="ace" name="sex" value="false" <c:if test="${false == student.sex}">checked</c:if>/>
+                                                <input  type="radio" class="ace" name="sex" value="false" <c:if test="${0 == user.sex}">checked</c:if>/>
                                                 <span class="lbl"> 女</span>
                                             </label>
                                         </div>
 
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">出生日期</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="date-picker col-sm-5" value="${user.birthday}" id="birthDay"  readonly="readonly" placeholder="请选择日期"/>
+                                    </div>
+                                </div>
+
                                 <div class="space-4"></div>
 
 
@@ -409,7 +420,50 @@
                 </div><!-- /.page-content -->
         </div><!-- /.main-content -->
 
+        <div class="ace-settings-container" id="ace-settings-container">
+            <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                <i class="icon-cog bigger-150"></i>
+            </div>
 
+            <div class="ace-settings-box" id="ace-settings-box">
+                <div>
+                    <div class="pull-left">
+                        <select id="skin-colorpicker" class="hide">
+                            <option data-skin="default" value="#438EB9">#438EB9</option>
+                            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                        </select>
+                    </div>
+                    <span>&nbsp; 换肤</span>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                    <label class="lbl" for="ace-settings-navbar"> 固定导航栏</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                    <label class="lbl" for="ace-settings-sidebar"> 固定工具栏</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                    <label class="lbl" for="ace-settings-breadcrumbs"> 固定面包屑导航</label>
+                </div>
+
+
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                    <label class="lbl" for="ace-settings-add-container">
+                        内置
+                        <b>.容器</b>
+                    </label>
+                </div>
+            </div>
+        </div><!-- /#ace-settings-container -->
     </div><!-- /.main-container-inner -->
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
@@ -484,9 +538,11 @@
                 inp.value="This text field is disabled!";
             }
         });
-
-
-
+        $('#birthDay').datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 1,minView: "month",
+            autoclose :true,
+        })
         $(".chosen-select").chosen();
         $('#chosen-multiple-style').on('click', function(e){
             var target = $(e.target).find('input[type=radio]');

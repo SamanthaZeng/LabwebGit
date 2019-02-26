@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import zxl.web.domain.User;
 import zxl.web.service.IUserService;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Controller
 @RequestMapping("/user")

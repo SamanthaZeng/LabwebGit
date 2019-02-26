@@ -6,7 +6,27 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e31a599-38d0-4614-b434-77d786fad524" name="Default" comment="" />
+    <list default="true" id="7e31a599-38d0-4614-b434-77d786fad524" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/TeacherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/classes/zxl/web/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/admin/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/admin/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/student/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_input.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_input.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zxl/web/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zxl/web/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zxl/web/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zxl/web/controller/TeacherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zxl/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zxl/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zxl/web/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zxl/web/domain/User.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,34 +38,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/register.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1661">
-              <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student_input.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+            <state relative-caret-position="532">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,71 +50,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="262">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#809#810#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#393#394#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/IUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="21" column="106" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="106" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/StudentsServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -136,20 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stuT</find>
-      <find>editBtn</find>
-      <find>stu</find>
-      <find />
-      <find>filter</find>
-      <find>var ra</find>
-      <find>add</find>
-      <find>edit</find>
-      <find>glyphicon-th-large</find>
-      <find>学生管理</find>
-      <find>新增</find>
-      <find>baseresultmap</find>
-      <find>abstract</find>
-      <find>resultmap</find>
       <find>cabstract</find>
       <find>BaseResultMap</find>
       <find>&lt;ul class=&quot;breadcrumb&quot;&gt;</find>
@@ -166,6 +91,20 @@
       <find>entertime</find>
       <find>&lt;div class=&quot;page-content&quot;&gt;</find>
       <find>cur</find>
+      <find>固定导航栏</find>
+      <find>bread</find>
+      <find>inner</find>
+      <find>个人信息修改</find>
+      <find>page-content</find>
+      <find>个人信息管理</find>
+      <find>navbar-con</find>
+      <find>姓名</find>
+      <find>性别</find>
+      <find>script</find>
+      <find>date-picker</find>
+      <find>for=</find>
+      <find>欢迎</find>
+      <find>birthday</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
@@ -183,9 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/mapper/ClassMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/service/IClassService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/domain/Student.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/mapper/StudentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/service/IStudentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/service/impl/StudentServiceImpl.java" />
@@ -218,22 +154,25 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes/chart.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/test.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/SpringController.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/DateTimeFormat.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/teacher_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/zxl/web/service/IUserService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student_input.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/register.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java" />
+        <option value="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp" />
+        <option value="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_input.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/admin/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java" />
       </list>
     </option>
   </component>
@@ -252,8 +191,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
+    <option name="x" value="1807" />
+    <option name="y" value="-9" />
+    <option name="width" value="1920" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -262,42 +202,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -305,17 +247,18 @@
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="TeacherController.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -323,8 +266,8 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -333,61 +276,92 @@
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="LabWeb_SSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LabwebGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LabwebGit" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="LabWeb_SSM" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="teacher" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550806637523" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551182158130" />
     <property name="last_opened_file_path" value="E:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Project" />
@@ -396,23 +370,23 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="zxl.web.controller" />
+      <recent name="zxl.web.domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\syc\LabwebGit\target\LabWeb_SSM\bootstrap\assets\css" />
+      <recent name="D:\Users\syc\LabwebGit\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\Users\syc\LabwebGit\src\main\webapp\WEB-INF\views\admin" />
+      <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\resources\mapper" />
+      <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\java\zxl\web\mapper" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\webapp" />
       <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\resources\mapper" />
       <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\resources\zxl.web" />
       <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\resources" />
       <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\java\zxl\web\dao" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\syc\LabwebGit\src\main\webapp\WEB-INF\views" />
-      <recent name="D:\Users\syc\LabwebGit\src\main\webapp\WEB-INF\views\admin" />
-      <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\resources\mapper" />
-      <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\java\zxl\web\mapper" />
-      <recent name="F:\计算机\大四\毕业设计项目\代码\LabWeb_SSM\src\main\java\zxl\web\domain" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="zxl.web.controller" />
-      <recent name="zxl.web.domain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -450,6 +424,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="zxl.web.test" />
       <option name="MAIN_CLASS_NAME" value="zxl.web.test.TestMyBatis" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -473,6 +448,7 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -622,6 +598,8 @@
       <workItem from="1550564842459" duration="2697000" />
       <workItem from="1550748657461" duration="1247000" />
       <workItem from="1550753731001" duration="10524000" />
+      <workItem from="1551084024418" duration="4657000" />
+      <workItem from="1551150836742" duration="9645000" />
     </task>
     <servers />
   </component>
@@ -658,7 +636,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154114000" />
+    <option name="totallyTimeSpent" value="168416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,7 +648,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1913" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" weight="0.24865952" />
       <window_info id="Designer" order="1" />
@@ -679,19 +658,19 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Web" order="6" sideWeight="0.5023585" side_tool="true" weight="0.24664879" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4976415" visible="true" weight="0.28753352" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4976415" visible="true" weight="0.29155496" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32904148" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.23055163" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.28470254" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.46534654" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932975" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49932975" weight="0.32719547" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32956153" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49932975" weight="0.21388102" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.2733711" />
       <window_info anchor="bottom" id="Application Servers" order="12" sideWeight="0.49932975" weight="0.32719547" />
       <window_info anchor="bottom" id="Spring" order="13" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -706,49 +685,10 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="JSF" order="9" weight="0.3297587" />
-      <window_info anchor="right" id="CDI" order="10" />
-      <window_info anchor="right" id="Bean Validation" order="11" />
+      <window_info anchor="right" id="CDI" order="10" weight="0.3297587" />
+      <window_info anchor="right" id="Bean Validation" order="11" weight="0.3297587" />
       <window_info anchor="right" id="Maven" order="12" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.54633474" />
-      <window_info id="Structure" order="1" weight="0.24896266" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.5023585" side_tool="true" weight="0.24664879" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.4048641" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46534654" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932975" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32956153" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49932975" weight="0.3281471" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32956153" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32956153" />
-      <window_info anchor="bottom" id="Spring" order="13" weight="0.32956153" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="JSF" order="9" />
-      <window_info anchor="right" id="CDI" order="10" />
-      <window_info anchor="right" id="Bean Validation" order="11" />
-      <window_info anchor="right" id="Maven" order="12" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -778,36 +718,6 @@
           <line>21</line>
           <properties />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/login.jsp</url>
@@ -849,117 +759,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserCourseMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="69" column="11" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserPaperMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserProMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VideoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="69" column="11" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserResearchMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bootstrap/assets/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="150" column="1" lean-forward="true" selection-start-line="150" selection-start-column="1" selection-end-line="150" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/UserServiceImple.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bootstrap/assets/css/ace.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret column="97428" selection-start-column="97428" selection-end-column="97428" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StudentsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="115" column="11" selection-start-line="115" selection-start-column="11" selection-end-line="115" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/mapper/StudentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/StudentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#834#835#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#929#930#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/IStudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -970,17 +769,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/test.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/SpringController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/DateTimeFormat.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
-          <folding>
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1028,7 +816,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/index.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath" />
     <entry file="file://$PROJECT_DIR$/target/classes/mapper/BookMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1098,51 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="183" column="32" lean-forward="true" selection-start-line="183" selection-start-column="32" selection-end-line="184" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="21" column="106" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -1156,23 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/StudentsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1661">
-          <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1180,42 +909,209 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="536" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/uploadFile/e289b8cf-bf5f-43f4-a117-45d916838af3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/uploadFile/dc16e2f3-9670-43ef-b5cf-343c5967ddb0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/uploadFile/d5926def-95bb-44eb-a560-cf34b7553551.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2240">
+          <caret line="100" column="87" selection-start-line="100" selection-start-column="87" selection-end-line="100" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student_input.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="97">
+          <caret line="243" column="119" selection-start-line="243" selection-start-column="115" selection-end-line="243" selection-end-column="119" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/StudentsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="76" column="71" lean-forward="true" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="71" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/student/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/domain/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-745">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/bootstrap/assets/css/bootstrap-datetimepicker.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_input.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/student/student_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="300" column="65" selection-start-line="300" selection-start-column="63" selection-end-line="300" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/student/student_input.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="241" column="76" lean-forward="true" selection-start-line="241" selection-start-column="76" selection-end-line="241" selection-end-column="76" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="76">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/admin/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8094" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/teacher/teacher_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="72" column="46" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="72" selection-end-column="46" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/sql/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LabWeb_SSM/WEB-INF/views/admin/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="393" column="110" selection-start-line="393" selection-start-column="110" selection-end-line="393" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#16772#16778#0#HTML" expanded="true" />
+            <element signature="e#16779#16785#0#HTML" expanded="true" />
+            <element signature="e#16786#16792#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+        <state relative-caret-position="1594">
+          <caret line="122" column="45" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding>
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1058#1059#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/main.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/TeacherController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+        <state relative-caret-position="532">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zxl/web/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
           </folding>
         </state>
       </provider>

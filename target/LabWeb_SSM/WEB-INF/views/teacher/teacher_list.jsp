@@ -120,10 +120,10 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active open">
+						<li>
 							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text" class="active open"> 个人信息管理</span>
+								<span class="menu-text" > 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -138,15 +138,15 @@
 
 						</li>
 
-						<li>
+						<li  class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">人员管理</span>
+								<span class="menu-text" class="active open">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
-								<li>
+								<li class="active open">
 									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
 										教师管理
@@ -278,7 +278,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="#">计算机网络与信息安全研究室</a>
+								<a href="/admin/main">计算机网络与信息安全研究室</a>
 							</li>
 
 							<li>
@@ -351,8 +351,8 @@
 													<th>用户编号</th>
 													<th>教师姓名</th>
 													<th >教师性别</th>
-													<th class="hidden-480">教师姓名</th>
-													<th class="hidden-480">邮箱</th>
+													<th class="hidden-480">教师编号</th>
+													<th class="hidden-480">教师邮箱</th>
 													<th>
 														<i class="icon-time bigger-110 hidden-480"></i>
 														用户头像
