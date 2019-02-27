@@ -193,10 +193,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">任职公司</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">任职单位</label>
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="selectpicker" name="classes.id" >
-                                        <option value="-1">-----------请选择公司----------</option>
+                                    <select class="col-xs-10 col-sm-5" id="selectpicker" name="coid" >
+                                        <option value="-1">-----------请选择任职单位----------</option>
                                         <c:forEach items="${companies}" var="com">
 
                                             <option value="${com.coid}">${com.coname}</option>
