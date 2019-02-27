@@ -10,20 +10,39 @@
     <result column="tmail" jdbcType="VARCHAR" property="tmail" />
     <result column="workexp" jdbcType="VARCHAR" property="workexp" />
     <result column="tduty" jdbcType="VARCHAR" property="tduty" />
+
+    <association property="user" javaType="User">
+      <id column="id" property="id"/>
+      <id column="tid" property="tid"/>
+      <id column="cid" property="cid"/>
+      <id column="sid" property="sid"/>
+      <id column="username" property="username"/>
+      <id column="pwd" property="pwd"/>
+      <id column="sex" property="sex"/>
+      <id column="imgurl" property="imgurl"/>
+      <id column="isadmin" property="isadmin"/>
+      <id column="usertype" property="usertype"/>
+      <id column="birthday" property="birthday"/>
+    </association>
+
   </resultMap>
+
   <sql id="Base_Column_List">
     tid, id, trank, service, teduexp, tmail, workexp, tduty
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from teacher
     where tid = #{tid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from teacher
     where tid = #{tid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.Teacher">
     insert into teacher (tid, id, trank, 
       service, teduexp, tmail, 
@@ -32,6 +51,7 @@
       #{service,jdbcType=VARCHAR}, #{teduexp,jdbcType=VARCHAR}, #{tmail,jdbcType=VARCHAR}, 
       #{workexp,jdbcType=VARCHAR}, #{tduty,jdbcType=VARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.Teacher">
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -87,6 +107,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.Teacher">
     update teacher
     <set>
@@ -114,6 +135,7 @@
     </set>
     where tid = #{tid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.Teacher">
     update teacher
     set id = #{id,jdbcType=INTEGER},
@@ -125,4 +147,8 @@
       tduty = #{tduty,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from teacher t,user u where t.id=u.id
+  </select>
 </mapper>

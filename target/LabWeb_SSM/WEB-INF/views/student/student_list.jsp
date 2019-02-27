@@ -365,7 +365,7 @@
 												</thead>
 
 												<tbody>
-												<c:forEach items="${student}" var="student">
+												<c:forEach items="${students}" var="student">
 													<tr>
 														<td class="center">
 															<label>
@@ -374,38 +374,38 @@
 															</label>
 														</td>
 														<td>${student.id}</td>
-														<td>${student.username}</td>
+														<td>${student.user.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${student.sex==1}">
-																	男
+																<c:when test="${student.user.sex==1}">
+																	女
 																</c:when>
 																<c:otherwise>
-																	女
+																	男
 																</c:otherwise>
 															</c:choose>
 														</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${student.trank == 1}">
+																<c:when test="${student.srank == 0}">
 																	本科生
 																</c:when>
-																<c:when test="${student.trank == 2}">
+																<c:when test="${student.srank == 1}">
 																	硕士生
 																</c:when>
-																<c:when test="${student.trank == 3}">
-																	研究生
+																<c:when test="${student.srank == 2}">
+																	博士生
 																</c:when>
 															</c:choose>
 														</td>
-														<td>${student.tmail}</td>
+														<td>${student.smail}</td>
 														<td>${student.entertime}</td>
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${student.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${student.user.imgurl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
@@ -416,11 +416,11 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${student.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${student.user.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${student.id}" title="delete">
+																<a class="red" href="/admin/delete?id=${student.user.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
@@ -589,7 +589,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/student/delete?id="+id;
+						location.href="/admin/delete?id="+id;
 					}
 			    } );
 

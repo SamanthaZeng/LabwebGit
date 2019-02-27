@@ -80,7 +80,6 @@
 
     <div class="main-container-inner">
 
-
         <div class="sidebar" id="sidebar">
             <script type="text/javascript">
                 try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
@@ -212,9 +211,9 @@
                                 <div class="col-sm-9">
                                     <select class="col-xs-10 col-sm-5" id="selectpicker" name="srank" >
                                         <option value="-1">-----------请选择学位----------</option>
-                                        <option value="3" >本科</option>
-                                        <option value="2" >研究生</option>
-                                        <option value="1" >博士</option>
+                                        <option value="0" >本科</option>
+                                        <option value="1" >研究生</option>
+                                        <option value="2" >博士</option>
                                     </select>
                                 </div>
                             </div>
@@ -245,7 +244,6 @@
                                 </div>
                             </div>
                         </form>
-
 
                     </div><!-- /.col -->
                 </div><!-- /.row -->

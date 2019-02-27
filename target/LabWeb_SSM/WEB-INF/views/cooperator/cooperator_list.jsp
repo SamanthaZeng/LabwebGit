@@ -372,12 +372,12 @@
 																<span class="lbl"></span>
 															</label>
 														</td>
-														<td>${cooperator.id}</td>
-														<td>${cooperator.username}</td>
+														<td>${cooperator.user.id}</td>
+														<td>${cooperator.user.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${cooperator.sex}">
+																<c:when test="${cooperator.user.sex == 0}">
 																	男
 																</c:when>
 																<c:otherwise>
@@ -386,14 +386,14 @@
 															</c:choose>
 														</td>
 														<td class="hidden-480">
-															${cooperator.coname}
+															${cooperator.coid}
 														</td>
 														<td>${cooperator.cduty}</td>
 
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${cooperator.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${cooperator.user.imgurl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>

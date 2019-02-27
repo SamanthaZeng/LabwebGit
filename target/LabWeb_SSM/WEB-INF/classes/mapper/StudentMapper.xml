@@ -7,6 +7,7 @@
     <select id="queryAll"  resultMap="studentMap">
  		select u.id,u.name,u.pwd,u.stunum,u.imgUrl,u.sex,d.id did,d.class_name dname from t_student u,t_class d where u.classid=d.id
  	</select>
+
     <resultMap id="studentMap" type="student">
         <id column="id" property="id"/>
         <result column="name" property="name"/>

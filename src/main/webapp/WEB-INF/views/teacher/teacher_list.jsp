@@ -414,17 +414,16 @@
 																<a class="blue" href="#">
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
+																</a>
 
-																<a class="green" href="/admin/edit?id=${teacher.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${teacher.user.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${teacher.id}" title="delete">
+																<a class="red" href="/admin/delete?id=${teacher.user.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
-
-
 														</td>
 														</td>
 													</tr>
@@ -589,7 +588,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/teacher/delete?id="+id;
+						location.href="/admin/delete?id="+id;
 					}
 			    } );
 

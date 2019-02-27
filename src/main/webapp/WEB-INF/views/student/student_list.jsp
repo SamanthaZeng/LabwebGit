@@ -396,7 +396,7 @@
 																	硕士生
 																</c:when>
 																<c:when test="${student.srank == 2}">
-																	研究生
+																	博士生
 																</c:when>
 															</c:choose>
 														</td>
@@ -416,11 +416,11 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${student.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${student.user.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${student.id}" title="delete">
+																<a class="red" href="/admin/delete?id=${student.user.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
@@ -589,7 +589,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/student/delete?id="+id;
+						location.href="/admin/delete?id="+id;
 					}
 			    } );
 

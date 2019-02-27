@@ -120,10 +120,10 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li>
+						<li >
 							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text"> 个人信息管理</span>
+								<span class="menu-text" > 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -138,15 +138,15 @@
 
 						</li>
 
-						<li  class="active open">
+						<li class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">人员管理</span>
+								<span class="menu-text" class="active open">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
-								<li  class="active open">
+								<li class="active open">
 									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
 										教师管理
@@ -373,28 +373,28 @@
 															</label>
 														</td>
 														<td>${teacher.id}</td>
-														<td>${teacher.username}</td>
+														<td>${teacher.user.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.sex}">
-																	男
+																<c:when test="${teacher.user.sex==1}">
+																	女
 																</c:when>
 																<c:otherwise>
-																	女
+																	男
 																</c:otherwise>
 															</c:choose>
 														</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.trank == 1}">
+																<c:when test="${teacher.trank == 2}">
 																	讲师
 																</c:when>
-																<c:when test="${teacher.trank == 2}">
+																<c:when test="${teacher.trank == 1}">
 																	副教授
 																</c:when>
-																<c:when test="${teacher.trank == 3}">
+																<c:when test="${teacher.trank == 0}">
 																	教授
 																</c:when>
 															</c:choose>
@@ -404,7 +404,7 @@
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${teacher.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${teacher.user.imgurl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
@@ -414,17 +414,17 @@
 																<a class="blue" href="#">
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
+																</a>
 
-																<a class="green" href="/admin/edit?id=${teacher.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${teacher.user.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/teacher/delete?id=${teacher.id}" title="delete">
+																<a class="red" href="/admin/delete?id=${teacher.user.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
-
-
+														</td>
 														</td>
 													</tr>
 
@@ -588,7 +588,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/teacher/delete?id="+id;
+						location.href="/admin/delete?id="+id;
 					}
 			    } );
 
