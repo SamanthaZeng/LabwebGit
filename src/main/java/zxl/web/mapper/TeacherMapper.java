@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Teacher;
 
+import java.util.List;
+
 public interface TeacherMapper {
     int deleteByPrimaryKey(Integer tid);
 
@@ -14,4 +16,6 @@ public interface TeacherMapper {
     int updateByPrimaryKeySelective(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
+
+    List<Teacher> queryAll();
 }

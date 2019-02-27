@@ -14,7 +14,6 @@ import zxl.web.service.ITeacherService;
 import zxl.web.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.sql.Date;
 
 @Controller
@@ -32,13 +31,13 @@ public class UserController {
 
     //WEB-INF/login.jsp
     @RequestMapping("/register")
-    public String register(String username, String pwd, @DateTimeFormat(pattern="yyyy-MM-dd")Date birthday, int sex, int usertype, boolean isadmin, Model model)
+    public String register(String username, String pwd, @DateTimeFormat(pattern="yyyy-MM-dd")Date time, int sex, int usertype, boolean isadmin, Model model)
     {
-        System.out.println(username+pwd+birthday+sex+usertype+isadmin);
+        System.out.println(username+pwd+time+sex+usertype+isadmin);
         User user = new User();
         user.setUsername(username);
         user.setPwd(pwd);
-        user.setBirthday(birthday);
+        user.setBirthday(time);
         user.setSex(sex);
         user.setUsertype(usertype);
         user.setIsadmin(isadmin);

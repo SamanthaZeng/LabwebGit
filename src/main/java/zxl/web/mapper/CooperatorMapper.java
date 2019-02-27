@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Cooperator;
 
+import java.util.List;
+
 public interface CooperatorMapper {
     int deleteByPrimaryKey(Integer cid);
 
@@ -14,4 +16,6 @@ public interface CooperatorMapper {
     int updateByPrimaryKeySelective(Cooperator record);
 
     int updateByPrimaryKey(Cooperator record);
+
+    List<Cooperator> queryAll();
 }

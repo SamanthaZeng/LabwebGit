@@ -8,6 +8,8 @@ import zxl.web.mapper.StudentsMapper;
 import zxl.web.mapper.UserMapper;
 import zxl.web.service.IStudentsService;
 
+import java.util.List;
+
 @Service
 public class StudentsServiceImpl implements IStudentsService {
     @Autowired
@@ -25,6 +27,11 @@ public class StudentsServiceImpl implements IStudentsService {
     @Override
     public Students select(int sid) {
         return mapper.selectByPrimaryKey(sid);
+    }
+
+    @Override
+    public List<Students> queryAll() {
+        return mapper.queryAll();
     }
 
 }

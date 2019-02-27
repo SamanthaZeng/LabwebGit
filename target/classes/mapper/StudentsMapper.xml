@@ -9,6 +9,21 @@
     <result column="wheretogo" jdbcType="VARCHAR" property="wheretogo" />
     <result column="entertime" jdbcType="DATE" property="entertime" />
     <result column="stueduexp" jdbcType="VARCHAR" property="stueduexp" />
+
+    <association property="user" javaType="User">
+      <id column="id" property="id"/>
+      <id column="tid" property="tid"/>
+      <id column="cid" property="cid"/>
+      <id column="sid" property="sid"/>
+      <id column="username" property="username"/>
+      <id column="pwd" property="pwd"/>
+      <id column="sex" property="sex"/>
+      <id column="imgurl" property="imgurl"/>
+      <id column="isadmin" property="isadmin"/>
+      <id column="usertype" property="usertype"/>
+      <id column="birthday" property="birthday"/>
+    </association>
+
   </resultMap>
   <sql id="Base_Column_List">
     sid, id, srank, smail, wheretogo, entertime, stueduexp
@@ -114,4 +129,9 @@
       stueduexp = #{stueduexp,jdbcType=VARCHAR}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
+
+  <!--返回全部学生-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from student s,user u where s.id=u.id
+  </select>
 </mapper>

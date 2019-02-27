@@ -45,10 +45,9 @@ public class StudentController {
     @RequestMapping("/index")
     public String index(Model model)
     {
-        System.out.println("SpringMVC配置成功");
         //WEB-INF/views/student/index.jsp
-        List<Student>lists=studentService.queryAll();
-        model.addAttribute("students",lists);//存到model里面，页面可以取出来
+        List<Students>students=studentsService.queryAll();
+        model.addAttribute("students",students);//存到model里面，页面可以取出来
        // System.out.println(lists);
         return "student/student_list";
     }

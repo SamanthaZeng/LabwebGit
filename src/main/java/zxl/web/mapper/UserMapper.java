@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,4 +20,6 @@ public interface UserMapper {
     public void register(User user); //注册方法
 
     public User login(User user);//登陆方法
+
+    public List<User> queryAllTeacher();
 }

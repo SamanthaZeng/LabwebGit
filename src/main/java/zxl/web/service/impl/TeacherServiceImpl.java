@@ -9,6 +9,8 @@ import zxl.web.mapper.TeacherMapper;
 import zxl.web.mapper.UserMapper;
 import zxl.web.service.ITeacherService;
 
+import java.util.List;
+
 @Service
 public class TeacherServiceImpl implements ITeacherService {
     @Autowired
@@ -25,5 +27,10 @@ public class TeacherServiceImpl implements ITeacherService {
     @Override
     public Teacher select(int tid) {
        return mapper.selectByPrimaryKey(tid);
+    }
+
+    @Override
+    public List<Teacher> queryAll() {
+        return mapper.queryAll();
     }
 }
