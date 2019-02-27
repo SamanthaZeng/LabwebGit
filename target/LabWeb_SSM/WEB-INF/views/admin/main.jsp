@@ -357,7 +357,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
 
                                     <div class="col-sm-9">
-                                        <input type="date"  readonly="readonly" name="time" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
+                                        <input type="text"  readonly="readonly" name="birthday" value="${user.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
                                     </div>
                                 </div>
 
@@ -416,7 +416,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                         <div class="col-sm-9">
-                                            <textarea name="teduexp" cols="53" rows="10" placeholder="教育经历" <c:if test="${0 == user.usertype}">value="${teacher.teduexp}"</c:if>>教育经历</textarea>
+                                            <textarea name="teduexp" class="col-sm-5" rows="10" placeholder="教育经历" style="resize:none;"<c:if test="${0 == user.usertype}">value="${teacher.teduexp}"</c:if>></textarea>
                                         </div>
                                     </div>
 
@@ -424,7 +424,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" > 工作经历 </label>
 
                                         <div class="col-sm-9">
-                                            <textarea name="workexp" cols="53" rows="10" placeholder="工作经历" <c:if test="${0 == user.usertype}">value="${teacher.workexp}"</c:if>>工作经历</textarea>
+                                            <textarea name="workexp" class="col-sm-5" rows="10" style="resize:none;" placeholder="工作经历" <c:if test="${0 == user.usertype}">value="${teacher.workexp}"</c:if>></textarea>
                                         </div>
                                     </div>
 
@@ -432,7 +432,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" > 社会服务 </label>
 
                                         <div class="col-sm-9">
-                                            <textarea name="service" cols="53" rows="10" placeholder="社会服务"  <c:if test="${0 == user.usertype}">value="${teacher.service}"</c:if>>社会服务</textarea>
+                                            <textarea name="service" style="resize:none;" class="col-sm-5" rows="10" placeholder="社会服务"  <c:if test="${0 == user.usertype}">value="${teacher.service}"</c:if>></textarea>
                                         </div>
                                     </div>
 
@@ -475,7 +475,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                         <div class="col-sm-9">
-                                            <textarea name="stueduexp" cols="53" rows="10" <c:if test="${1 == user.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
+                                            <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == user.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
                                         </div>
                                     </div>
 
@@ -509,6 +509,47 @@
 
                                 </div><!--student-->
 
+
+                                <!--cooperator   style="display: none"  -->
+
+
+
+                                <div class="cooperator"  style="display: none" >
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
+                                        <div class="col-sm-9">
+                                            <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" >
+                                                <option value="-1">-----------请选择任职单位----------</option>
+                                                <c:forEach items="${companies}" var="com">
+
+                                                    <option value="${com.coid}">${com.coname}</option>
+
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 合作者头衔 </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="title" id="form-field-9" placeholder="合作者头衔" class="col-xs-10 col-sm-5" <c:if test="${2 == user.usertype}">value="${cooperator.title}"</c:if>/>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-5">合作者职务</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" name="cduty" id="form-field-10" placeholder="合作者职务" class="col-xs-10 col-sm-5" <c:if test="${2 == user.usertype}">value="${cooperator.cduty}"</c:if>/>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div><!--cooperator-->
 
                                 <div class="clearfix form-actions">
                                     <div class="col-md-offset-3 col-md-9">
@@ -937,6 +978,12 @@
             if(usertype==1)
             {
                 $(".student").show();
+            }
+            else{
+                if(usertype==2)
+                {
+                    $(".cooperator").show();
+                }
             }
         }
     }

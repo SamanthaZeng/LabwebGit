@@ -13,7 +13,8 @@
 
 		<link href="/bootstrap/assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/bootstrap/assets/css/font-awesome.min.css" />
-		
+		<link rel="stylesheet" href="/bootstrap/assets/css/datepicker.css" />
+		<link rel="stylesheet" href="/bootstrap/assets/css/jquery-ui-1.10.3.custom.min.css" />
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
 
@@ -186,7 +187,7 @@
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="date" name="birthday" class="form-control" placeholder="生日" />
+															<input type="text" name="birthday" class="form-control date-picker" placeholder="生日 YYYY-MM-DD" />
 															<i class="icon-calendar"></i>
 														</span>
 													</label>
@@ -253,6 +254,20 @@
 
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="/bootstrap/assets/js/chosen.jquery.min.js"></script>
+		<script src="/bootstrap/assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="/bootstrap/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="/bootstrap/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="/bootstrap/assets/js/date-time/moment.min.js"></script>
+		<script src="/bootstrap/assets/js/date-time/daterangepicker.min.js"></script>
+		<script src="/bootstrap/assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery.knob.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery.autosize.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="/bootstrap/assets/js/jquery.maskedinput.min.js"></script>
+		<script src="/bootstrap/assets/js/bootstrap-tag.min.js"></script>
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='/bootstrap/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
 		</script>
