@@ -73,12 +73,3 @@ public class TeacherController {
         return "redirect:/admin/main";
     }
 }
-class TeacherModel
-    {
-        Teacher teacher;
-        User user;
-        TeacherModel(Teacher teacher, User user){
-            this.teacher = teacher;
-            this.user = user;
-        }
-    }
