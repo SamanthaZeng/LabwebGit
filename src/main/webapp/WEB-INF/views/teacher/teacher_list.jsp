@@ -120,10 +120,10 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active open">
+						<li>
 							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text" class="active open"> 个人信息管理</span>
+								<span class="menu-text"> 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -138,7 +138,7 @@
 
 						</li>
 
-						<li>
+						<li  class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
 								<span class="menu-text">人员管理</span>
@@ -146,7 +146,7 @@
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
-								<li>
+								<li  class="active open">
 									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
 										教师管理
@@ -415,7 +415,7 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${teacher.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${teacher.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
@@ -605,7 +605,7 @@
 					if(id == 0){
 						alert("请选中一行数据");
 					}else{
-						location.href="/teacher/edit?id="+id;
+						location.href="/admin/edit?id="+id;
 					}
 			    } );
 				

@@ -104,15 +104,6 @@ public class StudentController {
     }
 
     //修改数据方法---跳转方法---把修改数据显示到页面
-    @RequestMapping("/edit")
-    public String edit(Student student,Model model){
-        //根据stu里面的id 查询数据 放到页面进行回显操作
-        Student student1=studentService.queryOne(student);
-        //查询班级
-        model.addAttribute("classes",classesService.queryAll());
-        model.addAttribute("student",student1);//在script，JQuery中已经通过student取出,var selectVal = "${student.classes.id}";,所以命名为student
-        return "student/student_input";
-    }
 
     //登陆方法
     @RequestMapping("/login")

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import zxl.web.domain.Student;
+import zxl.web.domain.Students;
 import zxl.web.domain.User;
 import zxl.web.service.IClassesService;
 import zxl.web.service.IStudentService;
@@ -22,6 +23,8 @@ public class AdminController {
     private IClassesService classesService;
     @Autowired
     private IStudentService studentService;
+    @Autowired
+    private  IUserService userService;
 
     @RequestMapping("/main") // 个人主页面
     public String mainInfo(Model model, HttpServletRequest request)
@@ -30,5 +33,18 @@ public class AdminController {
         //model.addAttribute("student",lists);//存到model里面，页面可以取出来
        // System.out.println(request.getSession().getAttribute("user"));
         return "admin/main";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(HttpServletRequest req, Model model){
+        //根据url参数里面的id 查询user，同时对user的类别进行判断
+        //判断功能还未完成，暂时只提供跳转功能用来测试
+        String id = req.getParameter("id");
+        System.out.println(id);
+        int idNum = Integer.parseInt(id);
+        User userForEdit = userService.selectuser(idNum);
+        model.addAttribute("userForEdit", userForEdit);
+//        model.addAttribute("student",student1);//在script，JQuery中已经通过student取出,var selectVal = selectVal"${student.classes.id}";,所以命名为student
+        return "admin/edit";
     }
 }

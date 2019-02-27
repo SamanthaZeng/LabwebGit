@@ -606,7 +606,7 @@
 					if(id == 0){
 						alert("请选中一行数据");
 					}else{
-						location.href="/student/edit?id="+id;
+						location.href="/admin/edit?id="+id;
 					}
 			    } );
 				

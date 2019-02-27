@@ -404,7 +404,7 @@
 																	<i class="icon-zoom-in bigger-130"></i>
 																</a>
 
-																<a class="green" href="/teacher/edit?id=${cooperator.id}" title="edit">
+																<a class="green" href="/admin/edit?id=${cooperator.id}" title="edit">
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
@@ -594,7 +594,7 @@
 					if(id == 0){
 						alert("请选中一行数据");
 					}else{
-						location.href="/teacher/edit?id="+id;
+						location.href="/admin/edit?id="+id;
 					}
 			    } );
 				
