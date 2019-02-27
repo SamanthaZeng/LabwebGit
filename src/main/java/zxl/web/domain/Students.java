@@ -9,18 +9,7 @@ public class Students {
 
     private Integer srank;
 
-    @Override
-    public String toString() {
-        return "Students{" +
-                "sid=" + sid +
-                ", id=" + id +
-                ", srank=" + srank +
-                ", smail='" + smail + '\'' +
-                ", wheretogo='" + wheretogo + '\'' +
-                ", entertime=" + entertime +
-                ", stueduexp='" + stueduexp + '\'' +
-                '}';
-    }
+    private User user;
 
     private String smail;
 
@@ -84,5 +73,26 @@ public class Students {
 
     public void setStueduexp(String stueduexp) {
         this.stueduexp = stueduexp == null ? null : stueduexp.trim();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Students{" +
+                "sid=" + sid +
+                ", id=" + id +
+                ", srank=" + srank +
+                ", smail='" + smail + '\'' +
+                ", wheretogo='" + wheretogo + '\'' +
+                ", entertime=" + entertime +
+                ", stueduexp='" + stueduexp + '\'' +
+                '}';
     }
 }

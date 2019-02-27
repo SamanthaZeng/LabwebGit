@@ -161,7 +161,6 @@
 
 											<form action="/user/register" method="post" accept-charset="UTF-8">
 												<fieldset>
-
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="text" name="username" class="form-control" placeholder="用户名" />
@@ -182,11 +181,12 @@
 															<i class="icon-retweet"></i>
 														</span>
 													</label>
+
 													<span id="tishi"></span>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="date" name="birthday" class="form-control" placeholder="生日" />
+															<input type="date" name="time" class="form-control" placeholder="生日" />
 															<i class="icon-calendar"></i>
 														</span>
 													</label>

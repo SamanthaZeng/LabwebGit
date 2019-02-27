@@ -120,10 +120,10 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active open">
+						<li >
 							<a class="dropdown-toggle">
 								<i class="icon-desktop"></i>
-								<span class="menu-text" class="active open"> 个人信息管理</span>
+								<span class="menu-text" > 个人信息管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -138,15 +138,15 @@
 
 						</li>
 
-						<li>
+						<li class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-user"></i>
-								<span class="menu-text">人员管理</span>
+								<span class="menu-text" class="active open">人员管理</span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 							<ul class="submenu">
-								<li>
+								<li class="active open">
 									<a href="/teacher/index">
 										<i class="icon-double-angle-right"></i>
 										教师管理
@@ -373,28 +373,28 @@
 															</label>
 														</td>
 														<td>${teacher.id}</td>
-														<td>${teacher.username}</td>
+														<td>${teacher.user.username}</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.sex}">
-																	男
+																<c:when test="${teacher.user.sex==1}">
+																	女
 																</c:when>
 																<c:otherwise>
-																	女
+																	男
 																</c:otherwise>
 															</c:choose>
 														</td>
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.trank == 1}">
+																<c:when test="${teacher.trank == 2}">
 																	讲师
 																</c:when>
-																<c:when test="${teacher.trank == 2}">
+																<c:when test="${teacher.trank == 1}">
 																	副教授
 																</c:when>
-																<c:when test="${teacher.trank == 3}">
+																<c:when test="${teacher.trank == 0}">
 																	教授
 																</c:when>
 															</c:choose>
@@ -404,7 +404,7 @@
 														<td class="hidden-480">
 															<span >
 
-																<img style="width:60px;height:60px;"  src="${teacher.imgUrl}" />
+																<img style="width:60px;height:60px;"  src="${teacher.user.imgurl}" />
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
@@ -425,6 +425,7 @@
 															</div>
 
 
+														</td>
 														</td>
 													</tr>
 

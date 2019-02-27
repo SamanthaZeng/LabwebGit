@@ -11,6 +11,8 @@ public class Cooperator {
 
     private String cduty;
 
+    private User user;
+
     public Integer getCid() {
         return cid;
     }
@@ -49,5 +51,25 @@ public class Cooperator {
 
     public void setCduty(String cduty) {
         this.cduty = cduty == null ? null : cduty.trim();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Cooperator{" +
+                "cid=" + cid +
+                ", coid=" + coid +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", cduty='" + cduty + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

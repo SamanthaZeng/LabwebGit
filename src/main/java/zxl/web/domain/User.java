@@ -2,6 +2,7 @@ package zxl.web.domain;
 
 import java.sql.Date;
 
+
 public class User {
     private Integer id;
 

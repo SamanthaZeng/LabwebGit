@@ -6,6 +6,8 @@ import zxl.web.domain.User;
 import zxl.web.mapper.UserMapper;
 import zxl.web.service.IUserService;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -23,6 +25,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User login(User user) {
         return mapper.login(user);
+    }
+
+    @Override
+    public List<User> queryAllTeacher() {
+        return mapper.queryAllTeacher();
     }
 
 

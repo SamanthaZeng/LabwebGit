@@ -1,6 +1,9 @@
 package zxl.web.mapper;
 
+import zxl.web.domain.Student;
 import zxl.web.domain.Students;
+
+import java.util.List;
 
 public interface StudentsMapper {
     int deleteByPrimaryKey(Integer sid);
@@ -14,4 +17,6 @@ public interface StudentsMapper {
     int updateByPrimaryKeySelective(Students record);
 
     int updateByPrimaryKey(Students record);
+
+    List<Students> queryAll();
 }

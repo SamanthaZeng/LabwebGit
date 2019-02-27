@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zxl.web.domain.Student;
 import zxl.web.domain.User;
 import zxl.web.service.IClassesService;
 import zxl.web.service.IStudentService;
@@ -28,7 +27,7 @@ public class AdminController {
     {
         //List<Student> lists=studentService.queryAll();
         //model.addAttribute("student",lists);//存到model里面，页面可以取出来
-       // System.out.println(request.getSession().getAttribute("user"));
+        // System.out.println(request.getSession().getAttribute("user"));
         return "admin/main";
     }
 }
