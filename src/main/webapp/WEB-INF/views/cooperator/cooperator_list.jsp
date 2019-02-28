@@ -176,15 +176,15 @@
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/paper/index">
 										<i class="icon-double-angle-right"></i>
-										新增论文
+										论文列表
 									</a>
 								</li>
 								<li>
-									<a href="tables.html">
+									<a href="/paper/index">
 										<i class="icon-double-angle-right"></i>
-										更新论文
+										本人论文
 									</a>
 								</li>
 							</ul>

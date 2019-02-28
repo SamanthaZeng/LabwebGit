@@ -31,18 +31,12 @@ public class UserController {
 
     //WEB-INF/login.jsp
     @RequestMapping("/register")
-    public String register(String username, String pwd, @DateTimeFormat(pattern="yyyy-MM-dd")Date time, int sex, int usertype, boolean isadmin, Model model)
+    public String register(User user, Model model)
     {
-        System.out.println(username+pwd+time+sex+usertype+isadmin);
-        User user = new User();
-        user.setUsername(username);
-        user.setPwd(pwd);
-        user.setBirthday(time);
-        user.setSex(sex);
-        user.setUsertype(usertype);
-        user.setIsadmin(isadmin);
+        System.out.println(user.getUsername()+user.getPwd()+user.getBirthday()+user.getSex()+user.getUsertype()+user.getIsadmin());
         userService.register(user);
         model.addAttribute("user",user);
+        int usertype = user.getUsertype();
         if(usertype==0)
             return "teacher/register";
         if(usertype==1)

@@ -187,7 +187,7 @@
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="date" name="time" class="form-control" placeholder="生日" />
+															<input type="text" name="birthday" class="form-control date-picker" placeholder="生日 YYYY-MM-DD" />
 															<i class="icon-calendar"></i>
 														</span>
 													</label>
@@ -286,6 +286,16 @@
 
 		<!--判断重复的密码是否与密码一致-->
 		<script>
+			jQuery(function($)
+			{
+				$(".date-picker").datepicker({
+					format: "yyyy-mm-dd", //显示日期格式
+					autoclose: true,
+					todayBtn: true,
+					minView: "month",//只选择到天自动关闭
+					language: 'zh-CN',
+				});
+			});
 			function checkpwd()
 			{
 				var x=document.getElementById("pwd").value;
