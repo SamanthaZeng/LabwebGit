@@ -21,6 +21,11 @@
       <id column="usertype" property="usertype"/>
       <id column="birthday" property="birthday"/>
     </association>
+
+    <association property="company" javaType="Company">
+      <id column="coid" property="coid"/>
+      <id column="coname" property="coname"/>
+    </association>
   </resultMap>
 
   <sql id="Base_Column_List">
@@ -114,6 +119,6 @@
 
   <!--返回全部合作者-->
   <select id="queryAll" resultMap="BaseResultMap">
-    select * from cooperator c,user u where c.id=u.id
+    select * from cooperator c,user u, company co where c.id=u.id and c.coid=co.coid
   </select>
 </mapper>

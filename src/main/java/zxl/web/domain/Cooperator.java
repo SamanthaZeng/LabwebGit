@@ -13,6 +13,8 @@ public class Cooperator {
 
     private User user;
 
+    private Company company;
+
     public Integer getCid() {
         return cid;
     }
@@ -61,6 +63,9 @@ public class Cooperator {
         this.user = user;
     }
 
+    public Company getCompany() { return company; }
+
+    public void setCompany(Company company) { this.company = company; }
     @Override
     public String toString() {
         return "Cooperator{" +
@@ -70,6 +75,7 @@ public class Cooperator {
                 ", title='" + title + '\'' +
                 ", cduty='" + cduty + '\'' +
                 ", user=" + user +
+                ", companyName=" + company.getConame() +
                 '}';
     }
 }

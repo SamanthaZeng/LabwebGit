@@ -386,7 +386,7 @@
 															</c:choose>
 														</td>
 														<td class="hidden-480">
-															${cooperator.coid}
+															${cooperator.company.coname}
 														</td>
 														<td>${cooperator.cduty}</td>
 
@@ -509,7 +509,6 @@
 		<script type="text/javascript">
 			
 			jQuery(function($) {
-
 				var stuTable = $('#stuTable').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
@@ -547,7 +546,7 @@
 					});
 						
 				});
-				
+
 				  $('#stuTable tbody').on( 'click', 'tr', function () {
 				        if ( $(this).hasClass('selected') ) {
 				            $(this).removeClass('selected');
@@ -597,7 +596,6 @@
 						location.href="/admin/edit?id="+id;
 					}
 			    } );
-				
 			
 				
 				

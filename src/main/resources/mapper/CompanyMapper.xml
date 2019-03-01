@@ -79,4 +79,7 @@
       logourl = #{logourl,jdbcType=VARCHAR}
     where coid = #{coid,jdbcType=INTEGER}
   </update>
+  <select id="queryAll"  resultMap="BaseResultMap">
+ 		select * from company
+  </select>
 </mapper>

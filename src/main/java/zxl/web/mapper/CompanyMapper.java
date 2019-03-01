@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Company;
 
+import java.util.List;
+
 public interface CompanyMapper {
     int deleteByPrimaryKey(Integer coid);
 
@@ -14,4 +16,6 @@ public interface CompanyMapper {
     int updateByPrimaryKeySelective(Company record);
 
     int updateByPrimaryKey(Company record);
+
+    List<Company> queryAll();
 }

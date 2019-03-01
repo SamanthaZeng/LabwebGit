@@ -7,9 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import zxl.web.domain.Company;
 import zxl.web.domain.Cooperator;
 import zxl.web.domain.Teacher;
 import zxl.web.domain.User;
+import zxl.web.service.ICompanyService;
 import zxl.web.service.ICooperatorService;
 import zxl.web.service.IUserService;
 
@@ -34,6 +36,10 @@ public class CooperatorController {
     {
         List<Cooperator>cooperators=cooperatorService.queryAll();
         model.addAttribute("cooperators",cooperators);
+        for(int i=0; i<cooperators.size();i++)
+        {
+            System.out.println(cooperators.get(i));
+        }
         return "cooperator/cooperator_list";
     }
 
