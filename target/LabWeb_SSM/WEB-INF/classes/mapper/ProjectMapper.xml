@@ -125,4 +125,8 @@
       prosource = #{prosource,jdbcType=VARCHAR}
     where proid = #{proid,jdbcType=INTEGER}
   </update>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from project
+  </select>
 </mapper>

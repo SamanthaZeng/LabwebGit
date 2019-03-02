@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Project;
 
+import java.util.List;
+
 public interface ProjectMapper {
     int deleteByPrimaryKey(Integer proid);
 
@@ -14,4 +16,6 @@ public interface ProjectMapper {
     int updateByPrimaryKeySelective(Project record);
 
     int updateByPrimaryKey(Project record);
+
+    List<Project> queryAll();
 }

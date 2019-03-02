@@ -14,26 +14,28 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/paper")//路径
-public class PaperController {
+@RequestMapping("/project")//路径
+public class ProjectController {
 
     @Autowired
     private IUserService userService;
 
     @Autowired
-    private IPaperService paperService;
+    private IProjectService projectService;
 
     @RequestMapping("/index")
     public String index(Model model)
     {
-        List<Paper> papers = paperService.queryAll();
-        model.addAttribute("papers", papers);
-        return "paper/paper_list";
+        List<Project> projects = projectService.queryAll();
+        for(int i=0;i<projects.size();i++)
+        {
+            System.out.println(projects.get(i).getProname());
+        }
+        model.addAttribute("projects", projects);
+        return "project/project_list";
     }
 }
