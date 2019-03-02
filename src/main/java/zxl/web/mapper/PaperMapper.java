@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Paper;
 
+import java.util.List;
+
 public interface PaperMapper {
     int deleteByPrimaryKey(Integer pid);
 
@@ -14,4 +16,6 @@ public interface PaperMapper {
     int updateByPrimaryKeySelective(Paper record);
 
     int updateByPrimaryKey(Paper record);
+
+    List<Paper> queryAll();
 }

@@ -7,18 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import zxl.web.domain.Classes;
-import zxl.web.domain.Student;
-import zxl.web.domain.Students;
-import zxl.web.domain.User;
-import zxl.web.service.IClassesService;
-import zxl.web.service.IStudentService;
-import zxl.web.service.IStudentsService;
-import zxl.web.service.IUserService;
+import zxl.web.domain.*;
+import zxl.web.service.*;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -30,10 +26,19 @@ public class PaperController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IPaperService paperService;
+
     @RequestMapping("/index")
     public String index(Model model)
     {
-
+        List<Paper> papers = paperService.queryAll();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        for(int i=0;i<papers.size();i++)
+        {
+            System.out.println(papers.get(i).getPublictime());
+        }
+        model.addAttribute("papers", papers);
         return "paper/paper_list";
     }
 }

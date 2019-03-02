@@ -120,7 +120,7 @@
             </div><!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li>
+                <li >
                     <a class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text" > 个人信息管理</span>
@@ -167,7 +167,7 @@
                         </li>
                     </ul>
                 </li>
-                <li  class="active open">
+                <li class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 论文管理</span>
@@ -176,7 +176,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="active open">
-                            <a href="/paper/index" >
+                            <a href="/paper/index">
                                 <i class="icon-double-angle-right"></i>
                                 论文列表
                             </a>
@@ -310,7 +310,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/student/add">
+                                    <a href="/teacher/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
@@ -348,12 +348,12 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>论文编号</th>
-                                            <th>论文标题</th>
+                                            <th>论文标号</th>
+                                            <th>论文题目</th>
                                             <th>关键词</th>
-                                            <th class="hidden-480">公布时间</th>
-
-
+                                            <th>论文等级</th>
+                                            <th class="hidden-480">发布时间</th>
+                                            <th class="hidden-480">概述</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
@@ -368,26 +368,27 @@
                                                     </label>
                                                 </td>
                                                 <td>${paper.pid}</td>
-                                                <td>${paper.ptitle}</td>
+                                                <td>${paper.ptitile}</td>
                                                 <td>${paper.keyword}</td>
-                                                <td class="hidden-480">${paper.publicname}</td>
+                                                <td>${paper.paperrank}</td>
+                                                <td class="hidden-480">${paper.publictime}</td>
+                                                <td class="hidden-480">${paper.pabstract}</td>
 
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                         <a class="blue" href="#">
                                                             <i class="icon-zoom-in bigger-130"></i>
                                                         </a>
+                                                        </a>
 
-                                                        <a class="green" href="/admin/edit?id=${student.user.id}" title="edit">
+                                                        <a class="green" href="/admin/edit?id=${teacher.user.id}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/admin/delete?id=${student.user.id}" title="delete">
+                                                        <a class="red" href="/admin/delete?id=${teacher.user.id}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
-
-
                                                 </td>
                                             </tr>
 

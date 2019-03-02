@@ -125,4 +125,7 @@
       paperrank = #{paperrank,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=INTEGER}
   </update>
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from paper
+  </select>
 </mapper>
