@@ -16,4 +16,18 @@ public class ProjectServiceImpl implements IProjectService {
     public List<Project> queryAll() {
         return mapper.queryAll();
     }
+    @Override
+    public Project selectProject(int proid) { return mapper.selectByPrimaryKey(proid); }
+
+    @Override
+    public int save(Project project) {
+        return mapper.insert(project);
+    }
+
+    @Override
+    public int update(Project project) {
+        return mapper.updateByPrimaryKey(project);
+    }
+
+    ;
 }

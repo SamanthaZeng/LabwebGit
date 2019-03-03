@@ -16,6 +16,11 @@
     where pid = #{pid,jdbcType=INTEGER}
       and proid = #{proid,jdbcType=INTEGER}
   </select>
+  <select id="selectByProid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from paperproject
+    where proid=#{pid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.PaperProjectKey">
     delete from paperproject
     where pid = #{pid,jdbcType=INTEGER}

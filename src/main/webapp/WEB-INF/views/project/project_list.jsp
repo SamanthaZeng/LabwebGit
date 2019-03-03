@@ -310,7 +310,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/teacher/add">
+                                    <a href="/project/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
@@ -381,11 +381,11 @@
                                                         </a>
                                                         </a>
 
-                                                        <a class="green" href="/admin/edit?id=${teacher.user.id}" title="edit">
+                                                        <a class="green" href="/project/edit?proid=${project.proid}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/admin/delete?id=${teacher.user.id}" title="delete">
+                                                        <a class="red" href="/project/delete?proid=${project.proid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
@@ -552,7 +552,7 @@
                 alert("请选中一行数据");
             }else{
                 //调用controller层中写的方法
-                location.href="/admin/delete?id="+id;
+                location.href="/project/delete?proid="+id;
             }
         } );
 
@@ -569,7 +569,7 @@
             if(id == 0){
                 alert("请选中一行数据");
             }else{
-                location.href="/admin/edit?id="+id;
+                location.href="/project/project?proid="+id;
             }
         } );
 

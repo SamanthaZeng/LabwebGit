@@ -1,3 +1,7 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="zxl.web.controller.ProjectController" %>
+<%@ page import="zxl.web.domain.Paper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -192,7 +196,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active open">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 论文管理</span>
@@ -200,7 +204,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li class="active open">
+                        <li>
                             <a href="/paper/index">
                                 <i class="icon-double-angle-right"></i>
                                 论文列表
@@ -214,7 +218,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li  class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 项目管理</span>
@@ -222,16 +226,16 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
-                            <a href="tables.html">
+                        <li class="active open">
+                            <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
-                                新增项目
+                                项目列表
                             </a>
                         </li>
                         <li>
-                            <a href="tables.html">
+                            <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
-                                更新项目
+                                本人项目
                             </a>
                         </li>
                     </ul>
@@ -307,10 +311,10 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">论文管理</a>
+                        <a href="">项目管理</a>
                     </li>
                     <li>
-                        <a href="">论文信息编辑</a>
+                        <a href="">项目信息编辑</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
@@ -320,70 +324,94 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" method="post" action="/project/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
+                            <input type="hidden" name="proid" value="${projectForEdit.proid}"/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 论文标题 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 项目名称 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="ptitile" id="form-field-1" placeholder="论文标题" class="col-xs-10 col-sm-5" value="${paperForEdit.ptitile}"/>
+                                    <input type="text" name="proname" id="form-field-1" placeholder="项目名称" class="col-xs-10 col-sm-5" value="${projectForEdit.proname}"/>
                                 </div>
                             </div>
 
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文级别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目编号 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="paperrank" value="${paperForEdit.paperrank}" id="form-field-2" placeholder="论文级别" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="number" value="${projectForEdit.number}" id="form-field-2" placeholder="项目编号" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文来源 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目类别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="protype" value="${projectForEdit.protype}" id="form-field-3" placeholder="项目类别" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目等级 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="keyword" value="${paperForEdit.keyword}" id="form-field-4" placeholder="关键词" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="prorank" value="${projectForEdit.prorank}" id="form-field-4" placeholder="项目等级" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文摘要 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目资金 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="pabstract" value="${paperForEdit.pabstract}" id="form-field-5" placeholder="论文摘要" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="funding" value="${projectForEdit.funding}" id="form-field-5" placeholder="项目资金" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目概述 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
+                                    <input type="text" name="proabstract" value="${projectForEdit.proabstract}" id="form-field-6" placeholder="项目概述" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 论文文件上传 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目来源 </label>
 
                                 <div class="col-sm-9">
-                                    <input  multiple="" type="file" accept="application/pdf" name="pdfFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
+                                    <input type="text" name="prosource" value="${projectForEdit.prosource}" id="form-field-7" placeholder="项目来源" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>
+
+                                <%!
+
+                                %>
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关论文">
+                                        <c:forEach items="${papers}" var="paper">
+                                            <c:if test="${associations==null}">
+                                                <option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>
+                                            </c:if>
+                                            <c:if test="${associations!=null}">
+                                                <c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == true}">
+                                                    <option class="paperAssociation" selected="selected" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>
+                                                </c:if>
+                                                <c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == false}">
+                                                    <option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
 
@@ -501,8 +529,6 @@
 <script type="text/javascript">
     jQuery(function($) {
 
-        //初始化选择菜单的值
-        
         //alert(selectVal);
 
         //初始化拓展表单
