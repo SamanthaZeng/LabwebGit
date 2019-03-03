@@ -163,7 +163,7 @@
 
                 </li>
 
-                <li class="active open">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-user"></i>
                         <span class="menu-text">人员管理</span>
@@ -171,20 +171,20 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li id="teacherSidebar">
+                        <li>
                             <a href="/teacher/index">
                                 <i class="icon-double-angle-right"></i>
                                 教师管理
                             </a>
                         </li>
 
-                        <li id="studentSidebar">
+                        <li>
                             <a href="/student/index">
                                 <i class="icon-double-angle-right"></i>
                                 学生管理
                             </a>
                         </li>
-                        <li id="cooperatorSidebar">
+                        <li>
                             <a href="/cooperator/index">
                                 <i class="icon-double-angle-right"></i>
                                 合作者管理
@@ -192,7 +192,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 论文管理</span>
@@ -200,7 +200,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="active open">
                             <a href="/paper/index">
                                 <i class="icon-double-angle-right"></i>
                                 论文列表
@@ -307,28 +307,12 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">人员管理</a>
+                        <a href="">论文管理</a>
                     </li>
-                    <li id="breadcrumbTeacher"style="display: none">
-                        <a href="">教师管理</a>
+                    <li>
+                        <a href="">论文信息编辑</a>
                     </li>
-                    <li id="breadcrumbStudent"style="display: none">
-                        <a href="">学生管理</a>
-                    </li>
-                    <li id="breadcrumbCooperator"style="display: none">
-                        <a href="">合作者管理</a>
-                    </li>
-
                 </ul><!-- .breadcrumb -->
-                <%-- 搜索栏 --%>
-                <%--<div class="nav-search" id="nav-search">--%>
-                <%--<form class="form-search">--%>
-                <%--<span class="input-icon">--%>
-                <%--<input type="text" placeholder="搜索" class="nav-search-input" id="nav-search-input" autocomplete="off" />--%>
-                <%--<i class="icon-search nav-search-icon"></i>--%>
-                <%--</span>--%>
-                <%--</form>--%>
-                <%--</div><!-- #nav-search -->--%>
             </div>
 
             <div class="page-content">
@@ -338,228 +322,70 @@
                     <div class="col-xs-12">
                         <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="id" value="${userForEdit.id}"/>
-                            <!--根据不同的用户类型，显示不同的表单页面-->
-                            <input type="hidden" name="usertype" value="${userForEdit.usertype}"/>
-
+                            <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 论文标题 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
+                                    <input type="text" name="ptitile" id="form-field-1" placeholder="论文标题" class="col-xs-10 col-sm-5" value="${paperForEdit.ptitile}"/>
                                 </div>
                             </div>
 
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 密码 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文级别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="password" name="pwd" value="${userForEdit.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="paperrank" value="${paperForEdit.paperrank}" id="form-field-2" placeholder="论文级别" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文来源 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text"  readonly="readonly" name="birthday" value="${userForEdit.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
+                                    <input type="text" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
+
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 头像 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词 </label>
 
                                 <div class="col-sm-9">
-                                    <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
+                                    <input type="text" name="keyword" value="${paperForEdit.keyword}" id="form-field-4" placeholder="关键词" class="col-xs-10 col-sm-5" />
+
                                 </div>
                             </div>
 
                             <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文摘要 </label>
 
-                                <label class="col-sm-3 control-label no-padding-right">性别</label>
                                 <div class="col-sm-9">
-
-                                    <div class="radio" id="radio_sex">
-                                        <label>
-                                            <input  type="radio" class="ace" name="sex" value="true" <c:if test="${0 == userForEdit.sex}">checked</c:if>/>
-                                            <span class="lbl"> 男</span>
-                                        </label>
-                                        <label>
-                                            <input  type="radio" class="ace" name="sex" value="false" <c:if test="${1 == userForEdit.sex}">checked</c:if>/>
-                                            <span class="lbl"> 女</span>
-                                        </label>
-                                    </div>
+                                    <input type="text" name="pabstract" value="${paperForEdit.pabstract}" id="form-field-5" placeholder="论文摘要" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
-                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
 
-
-
-                            <!--教师   style="display: none"  -->
-                            <div class="teacher"  style="display: none" >
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 教师邮箱 </label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="tmail" id="form-field-4" placeholder="教师邮箱" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.tmail}"</c:if>/>
-                                    </div>
+                                <div class="col-sm-9">
+                                    <input type="text" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
                                 </div>
+                            </div>
 
-                                <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 论文文件上传 </label>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">教师职务</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="tduty" id="form-field-5" placeholder="教师职务" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.tduty}"</c:if>/>
-                                    </div>
+                                <div class="col-sm-9">
+                                    <input  multiple="" type="file" accept="application/pdf" name="pdfFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
-
-                                    <div class="col-sm-9">
-                                        <textarea name="teduexp" class="col-sm-5" rows="10" placeholder="教育经历" style="resize:none;"<c:if test="${0 == userForEdit.usertype}">value="${teacher.teduexp}"</c:if>></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" > 工作经历 </label>
-
-                                    <div class="col-sm-9">
-                                        <textarea name="workexp" class="col-sm-5" rows="10" style="resize:none;" placeholder="工作经历" <c:if test="${0 == userForEdit.usertype}">value="${teacher.workexp}"</c:if>></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" > 社会服务 </label>
-
-                                    <div class="col-sm-9">
-                                        <textarea name="service" style="resize:none;" class="col-sm-5" rows="10" placeholder="社会服务"  <c:if test="${0 == userForEdit.usertype}">value="${teacher.service}"</c:if>></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" >教师职称</label>
-                                    <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectteacher" name="trank" >
-                                            <option value="-1">-----------请选择职称----------</option>
-                                            <option value="0" >教授</option>
-                                            <option value="1" >副教授</option>
-                                            <option value="2" >助理教授</option>
-                                            <option value="3" >讲师</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!--teacher-->
-
-
-                            <!--student      style="display: none"    -->
-                            <div class="student" style="display: none" >
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 学生邮箱 </label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${students.smail}"</c:if>/>
-                                    </div>
-                                </div>
-
-                                <div class="space-4"></div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-7">毕业去向</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${students.wheretogo}"</c:if> />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
-
-                                    <div class="col-sm-9">
-                                        <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == userForEdit.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 学生头像 </label>
-
-                                    <div class="col-sm-9">
-                                        <input  multiple="" type="file" name="imgFile" id="id-input-file-4" class="col-xs-10 col-sm-5" style="width:200px"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
-                                    <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" >
-                                            <option value="-1">-----------请选择学位----------</option>
-                                            <option value="0" >本科</option>
-                                            <option value="1" >研究生</option>
-                                            <option value="2" >博士</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
-
-                                    <div class="col-sm-9">
-                                        <input type="date" name="time" id="form-field-8" class="col-xs-10 col-sm-5" />
-                                    </div>
-                                </div>
-
-                            </div><!--student-->
-
-
-                            <!--cooperator   style="display: none"  -->
-
-
-
-                            <div class="cooperator"  style="display: none" >
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
-                                    <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" >
-                                            <option value="-1">-----------请选择任职单位----------</option>
-                                            <c:forEach items="${companies}" var="com">
-
-                                                <option value="${com.coid}">${com.coname}</option>
-
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 合作者头衔 </label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="title" id="form-field-9" placeholder="合作者头衔" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.title}"</c:if>/>
-                                    </div>
-                                </div>
-
-                                <div class="space-4"></div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">合作者职务</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" name="cduty" id="form-field-10" placeholder="合作者职务" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.cduty}"</c:if>/>
-                                    </div>
-                                </div>
-
-
-
-
-                            </div><!--cooperator-->
+                            </div>
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">
@@ -676,24 +502,8 @@
     jQuery(function($) {
 
         //初始化选择菜单的值
-        var usertype="${userForEdit.usertype}";
-        if(usertype==0)//是老师
-        {
-            var selectval= "${teacher.trank}";
-            if(selectval!=null&&selectval!=""){
-                $('#selectteacher').find("option[value='"+selectval+"']").attr("selected", "true");
-                //alert(selectval);
-            }
-        }else{
-            if(usertype==1)
-            {
-                var selectval= "${student.srank}";
-                if(selectval!=null&&selectval!=""){
-                    $('#selectstudent').find("option[value='"+selectval+"']").attr("selected", "true");
-                    //alert(selectval);
-                }
-            }
-        }
+
+
         //alert(selectVal);
 
         //初始化拓展表单
@@ -978,32 +788,6 @@
 
 
     });
-    /*显示对应拓展表单*/
-    function showExpandDiv(usertype) {
-        if(usertype==0)//是老师
-        {//显示老师表单
-            $(".teacher").show();//一定要加.
-            $("#teacherSidebar").addClass("active open");
-            $("#breadcrumbTeacher").show();
-
-        }else{
-            if(usertype==1)
-            {
-                $(".student").show();
-                $("#studentSidebar").addClass("active open");
-                $("#breadcrumbStudent").show();
-            }
-            else{
-                if(usertype==2)
-                {
-                    $(".cooperator").show();
-                    $("#cooperatorSidebar").addClass("active open");
-                    $("#breadcrumbCooperator").show();
-                }
-
-            }
-        }
-    }
 </script>
 
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>

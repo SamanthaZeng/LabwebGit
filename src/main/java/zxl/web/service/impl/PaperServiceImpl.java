@@ -13,8 +13,20 @@ import java.util.List;
 public class PaperServiceImpl implements IPaperService {
     @Autowired
     PaperMapper mapper;
+
     @Override
     public List<Paper> queryAll() {
         return mapper.queryAll();
     }
+
+    @Override
+    public Paper selectuser(int pid) {
+        return mapper.selectByPrimaryKey(pid);
+    }
+
+    @Override
+    public int update(Paper paper) { return mapper.updateByPrimaryKey(paper);}
+
+    @Override
+    public int save(Paper paper) { return mapper.insert(paper);}
 }

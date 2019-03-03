@@ -1,6 +1,6 @@
 
 .idea/workspace.xml
-target/classes/zxl/web/controller/AdminController.class
+target
 *.class
 *.null
 src/main/webapp/uploadFile

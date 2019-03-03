@@ -36,4 +36,43 @@ public class PaperController {
         model.addAttribute("papers", papers);
         return "paper/paper_list";
     }
+
+    @RequestMapping("/add")
+    public String add(Model model)
+    {
+        return "/paper/edit";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(HttpServletRequest req, Model model)
+    {
+        String pid = req.getParameter("pid");
+        System.out.println(pid);
+        Paper paperForEdit = paperService.selectuser(Integer.parseInt(pid));
+        System.out.println(paperForEdit.getPtitile());
+        model.addAttribute("paperForEdit", paperForEdit);
+        return "/paper/edit";
+    }
+
+    @RequestMapping("/save")
+    public String edit(Paper paper, HttpServletRequest req, Model model, MultipartFile pdfFile) throws IOException {
+        if(pdfFile !=null){
+            //获取文件夹路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            //文件名称UID解决文件名称问题
+            String filename=pdfFile.getOriginalFilename();
+            String newFileName=UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            org.apache.commons.io.IOUtils.copy(pdfFile.getInputStream(),new FileOutputStream(file));
+            paper.setPaperurl("/uploadFile/"+newFileName);
+        }
+        if(paper!=null && paper.getPid()!=null&&!"".equals(paper.getPid())){
+            paperService.update(paper);
+        }else{
+            //把数据保存到数据
+            paperService.save(paper);
+        }
+        return "redirect:/paper/index";
+    }
 }
