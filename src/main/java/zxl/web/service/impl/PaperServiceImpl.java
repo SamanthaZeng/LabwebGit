@@ -20,7 +20,7 @@ public class PaperServiceImpl implements IPaperService {
     }
 
     @Override
-    public Paper selectuser(int pid) {
+    public Paper selectPaper(int pid) {
         return mapper.selectByPrimaryKey(pid);
     }
 

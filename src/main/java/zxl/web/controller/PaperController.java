@@ -48,7 +48,7 @@ public class PaperController {
     {
         String pid = req.getParameter("pid");
         System.out.println(pid);
-        Paper paperForEdit = paperService.selectuser(Integer.parseInt(pid));
+        Paper paperForEdit = paperService.selectPaper(Integer.parseInt(pid));
         System.out.println(paperForEdit.getPtitile());
         model.addAttribute("paperForEdit", paperForEdit);
         return "/paper/edit";

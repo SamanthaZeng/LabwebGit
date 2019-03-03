@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPaperService {
     public List<Paper> queryAll();
 
-    public Paper selectuser(int pid);
+    public Paper selectPaper(int pid);
 
     public int update(Paper paper);
 
