@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Course;
 
+import java.util.List;
+
 public interface CourseMapper {
     int deleteByPrimaryKey(Integer clsid);
 
@@ -14,4 +16,6 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+
+    List<Course> queryAll();
 }

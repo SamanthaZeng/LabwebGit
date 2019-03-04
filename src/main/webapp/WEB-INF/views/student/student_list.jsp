@@ -353,7 +353,7 @@
 													<th >学生性别</th>
 													<th class="hidden-480">学生类别</th>
 													<th class="hidden-480">学生邮箱</th>
-													<th class="hidden-480">入学时间</th>
+													<%--<th class="hidden-480">入学时间</th>--%>
 													<th>
 														<i class="icon-time bigger-110 hidden-480"></i>
 														用户头像
@@ -401,7 +401,7 @@
 															</c:choose>
 														</td>
 														<td>${student.smail}</td>
-														<td>${student.entertime}</td>
+														<%--<td>${student.entertime}</td>--%>
 														<td class="hidden-480">
 															<span >
 
@@ -409,7 +409,6 @@
 																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
 															</span>
 														</td>
-
 														<td>
 															<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 																<a class="blue" href="#">
