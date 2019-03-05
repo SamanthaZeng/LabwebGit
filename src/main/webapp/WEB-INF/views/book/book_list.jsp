@@ -167,7 +167,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active open">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 论文管理</span>
@@ -175,7 +175,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li class="active open">
+                        <li>
                             <a href="/paper/index">
                                 <i class="icon-double-angle-right"></i>
                                 论文列表
@@ -233,7 +233,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 著作管理 </span>
@@ -241,14 +241,14 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="active open">
                             <a href="/book/index">
                                 <i class="icon-double-angle-right"></i>
                                 著作列表
                             </a>
                         </li>
                         <li>
-                            <a href="tables.html">
+                            <a href="">
                                 <i class="icon-double-angle-right"></i>
                                 著作信息更新
                             </a>
@@ -282,9 +282,9 @@
                     </li>
 
                     <li>
-                        <a href="#">论文管理</a>
+                        <a href="#">著作管理</a>
                     </li>
-                    <li class="active">论文列表</li>
+                    <li class="active">著作列表</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -310,7 +310,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/paper/add">
+                                    <a href="/project/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
@@ -348,18 +348,18 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>论文标号</th>
-                                            <th>论文题目</th>
-                                            <th>关键词</th>
-                                            <th>论文等级</th>
-                                            <th class="hidden-480">发布时间</th>
-                                            <th class="hidden-480">概述</th>
+                                            <th>著作标号</th>
+                                            <th>著作名称</th>
+                                            <th>著作类型</th>
+                                            <th>著作概述</th>
+                                            <th class="hidden-480">出版社</th>
+                                            <th class="hidden-480">出版日期</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        <c:forEach items="${papers}" var="paper">
+                                        <c:forEach items="${books}" var="book">
                                             <tr>
                                                 <td class="center">
                                                     <label>
@@ -367,12 +367,12 @@
                                                         <span class="lbl"></span>
                                                     </label>
                                                 </td>
-                                                <td>${paper.pid}</td>
-                                                <td>${paper.ptitile}</td>
-                                                <td>${paper.keyword}</td>
-                                                <td>${paper.paperrank}</td>
-                                                <td class="hidden-480">${paper.publictime}</td>
-                                                <td class="hidden-480">${paper.pabstract}</td>
+                                                <td>${book.bid}</td>
+                                                <td>${book.bookname}</td>
+                                                <td>${book.classification}</td>
+                                                <td>${book.babstract}</td>
+                                                <td class="hidden-480">${book.press}</td>
+                                                <td class="hidden-480">${book.time}</td>
 
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -381,11 +381,11 @@
                                                         </a>
                                                         </a>
 
-                                                        <a class="green" href="/paper/edit?pid=${paper.pid}" title="edit">
+                                                        <a class="green" href="/book/edit?bid=${book.bid}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/paper/delete?id=${paper.pid}" title="delete">
+                                                        <a class="red" href="/book/delete?bid=${book.bid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
@@ -552,7 +552,7 @@
                 alert("请选中一行数据");
             }else{
                 //调用controller层中写的方法
-                location.href="/paper/delete?pid="+id;
+                location.href="/book/delete?bid="+id;
             }
         } );
 
@@ -569,7 +569,7 @@
             if(id == 0){
                 alert("请选中一行数据");
             }else{
-                location.href="/paper/edit?pid="+id;
+                location.href="/book/edit?bid="+id;
             }
         } );
 

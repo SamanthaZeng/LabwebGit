@@ -198,13 +198,13 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
                                 项目列表
                             </a>
                         </li>
                         <li>
-                            <a href="tables.html">
+                            <a href="">
                                 <i class="icon-double-angle-right"></i>
                                 本人项目
                             </a>
@@ -220,13 +220,13 @@
                     </a>
                     <ul class="submenu">
                         <li  class="active open">
-                            <a href="tables.html">
+                            <a href="/course/index">
                                 <i class="icon-double-angle-right"></i>
                                 课程列表
                             </a>
                         </li>
                         <li>
-                            <a href="tables.html">
+                            <a href="">
                                 <i class="icon-double-angle-right"></i>
                                 课程信息更改
                             </a>
@@ -242,9 +242,9 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="/book/index">
                                 <i class="icon-double-angle-right"></i>
-                                新增著作
+                                著作列表
                             </a>
                         </li>
                         <li>
@@ -370,7 +370,18 @@
                                                 <td>${course.clsid}</td>
                                                 <td>${course.name}</td>
                                                 <td>${course.courseType}</td>
-                                                <td>${course.teachingobject}</td>
+                                                <td><c:choose>
+                                                    <%--得导入user--%>
+                                                    <c:when test="${course.teachingobject == 0}">
+                                                        本科生
+                                                    </c:when>
+                                                    <c:when test="${course.teachingobject == 1}">
+                                                        硕士生
+                                                    </c:when>
+                                                    <c:when test="${course.teachingobject == 2}">
+                                                        博士生
+                                                    </c:when>
+                                                </c:choose></td>
                                                 <td class="hidden-480">${course.classhour}</td>
                                                 <td class="hidden-480">${course['abstract']}</td>
 

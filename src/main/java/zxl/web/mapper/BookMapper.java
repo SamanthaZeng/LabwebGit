@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Book;
 
+import java.util.List;
+
 public interface BookMapper {
     int deleteByPrimaryKey(Integer bid);
 
@@ -14,4 +16,6 @@ public interface BookMapper {
     int updateByPrimaryKeySelective(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    List<Book> queryAll();
 }

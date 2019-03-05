@@ -103,4 +103,7 @@
       time = #{time,jdbcType=DATE}
     where bid = #{bid,jdbcType=INTEGER}
   </update>
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from book
+  </select>
 </mapper>

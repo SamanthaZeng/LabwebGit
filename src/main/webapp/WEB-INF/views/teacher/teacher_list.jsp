@@ -198,15 +198,15 @@
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/project/index">
 										<i class="icon-double-angle-right"></i>
-										新增项目
+										项目列表
 									</a>
 								</li>
 								<li>
-									<a href="tables.html">
+									<a href="">
 										<i class="icon-double-angle-right"></i>
-										更新项目
+										本人项目
 									</a>
 								</li>
 							</ul>
@@ -220,13 +220,13 @@
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/course/index">
 										<i class="icon-double-angle-right"></i>
-										新增课程
+										课程列表
 									</a>
 								</li>
 								<li>
-									<a href="tables.html">
+									<a href="">
 										<i class="icon-double-angle-right"></i>
 										课程信息更改
 									</a>
@@ -242,9 +242,9 @@
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="tables.html">
+									<a href="/book/index">
 										<i class="icon-double-angle-right"></i>
-										新增著作
+										著作列表
 									</a>
 								</li>
 								<li>
