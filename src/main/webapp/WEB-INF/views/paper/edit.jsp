@@ -1,3 +1,4 @@
+<%@ page import="zxl.web.controller.PaperController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -386,6 +387,29 @@
                                     <input  multiple="" type="file" accept="application/pdf" name="pdfFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>
+
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关项目">
+                                        <c:forEach items="${projects}" var="project">
+                                            <c:if test="${associations==null}">
+                                                <option class="projectAssociation" value="${project.proid}">${project.proname}</option>
+                                            </c:if>
+                                            <c:if test="${associations!=null}">
+                                                <c:if test="${PaperController.ifInPid(associations, Integer.parseInt(project.proid)) == true}">
+                                                    <option class="projectAssociation" selected="selected" value="${project.proid}">${project.proname}</option>
+                                                </c:if>
+                                                <c:if test="${PaperController.ifInPid(associations, Integer.parseInt(project.proid)) == false}">
+                                                    <option class="projectAssociation" value="${project.proid}">${project.proname}</option>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">

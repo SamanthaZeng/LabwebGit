@@ -24,10 +24,13 @@ import java.util.UUID;
 public class PaperController {
 
     @Autowired
-    private IUserService userService;
+    private IPaperProjectService paperProjectService;
 
     @Autowired
     private IPaperService paperService;
+
+    @Autowired
+    private IProjectService projectService;
 
     @RequestMapping("/index")
     public String index(Model model)
@@ -49,7 +52,10 @@ public class PaperController {
         String pid = req.getParameter("pid");
         System.out.println(pid);
         Paper paperForEdit = paperService.selectPaper(Integer.parseInt(pid));
-        System.out.println(paperForEdit.getPtitile());
+        List<Project> projects = projectService.queryAll();
+        List<Project> associations = paperProjectService.selectAssociationProject(Integer.parseInt(pid));
+        model.addAttribute("associations", associations);
+        model.addAttribute("projects", projects);
         model.addAttribute("paperForEdit", paperForEdit);
         return "/paper/edit";
     }
@@ -67,12 +73,38 @@ public class PaperController {
             org.apache.commons.io.IOUtils.copy(pdfFile.getInputStream(),new FileOutputStream(file));
             paper.setPaperurl("/uploadFile/"+newFileName);
         }
+        String[] proid = req.getParameterValues("paperproject");
+        if(proid != null)
+        {
+            for(int i=0;i<proid.length;i++)
+                System.out.println(proid[i]);
+        }
         if(paper!=null && paper.getPid()!=null&&!"".equals(paper.getPid())){
+            List<Project> uselessRecord = paperProjectService.selectAssociationProject(paper.getPid());
+            if(uselessRecord != null)
+                for(int i=0; i<uselessRecord.size(); i++)
+                    paperProjectService.deleteAssociation(new PaperProject(paper, uselessRecord.get(i)));
+            if(proid != null)
+                for(int i=0; i<proid.length; i++)
+                    paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
             paperService.update(paper);
         }else{
-            //把数据保存到数据
+            //把数据保存到数据库
+            if(proid != null)
+                for(int i=0; i<proid.length; i++)
+                    paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
             paperService.save(paper);
         }
         return "redirect:/paper/index";
+    }
+
+    public static boolean ifInPid(List<Project> associations, int forTest)
+    {
+        for(int i=0; i<associations.size(); i++)
+        {
+            if(forTest == associations.get(i).getProid())
+                return true;
+        }
+        return false;
     }
 }

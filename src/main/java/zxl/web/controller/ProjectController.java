@@ -48,14 +48,14 @@ public class ProjectController {
     {
         String proid = req.getParameter("proid");
         Project projectForEdit = projectService.selectProject(Integer.parseInt(proid));
-        List<Paper> papers = paperService.queryAll();
-        List<Paper> associations = paperProjectService.selectAssociation(Integer.parseInt(proid));
-        for(int i=0;i<papers.size();i++)
-        {
-            System.out.println(papers.get(i).getPtitile());
-        }
-        model.addAttribute("associations", associations);
-        model.addAttribute("papers", papers);
+//        List<Paper> papers = paperService.queryAll();
+//        List<Paper> associations = paperProjectService.selectAssociation(Integer.parseInt(proid));
+//        for(int i=0;i<papers.size();i++)
+//        {
+//            System.out.println(papers.get(i).getPtitile());
+//        }
+//        model.addAttribute("associations", associations);
+//        model.addAttribute("papers", papers);
         model.addAttribute("projectForEdit", projectForEdit);
         return "project/edit";
     }
@@ -63,38 +63,38 @@ public class ProjectController {
     @RequestMapping("/add")
     public String add(HttpServletRequest req, Model model)
     {
-        List<Paper> papers = paperService.queryAll();
-        List<Paper> associations = null;
-        model.addAttribute("associations", associations);
-        model.addAttribute("papers", papers);
+//        List<Paper> papers = paperService.queryAll();
+//        List<Paper> associations = null;
+//        model.addAttribute("associations", associations);
+//        model.addAttribute("papers", papers);
         return "project/edit";
     }
 
 
     @RequestMapping("/save")
     public String save(Project project, HttpServletRequest req, Model model) {
-        String[] pid = req.getParameterValues("paperproject");
-        if(pid != null)
-        {
-            for(int i=0;i<pid.length;i++)
-                System.out.println(pid[i]);
-        }
+//        String[] pid = req.getParameterValues("paperproject");
+//        if(pid != null)
+//        {
+//            for(int i=0;i<pid.length;i++)
+//                System.out.println(pid[i]);
+//        }
         if(project!=null && project.getProid()!=null&&!"".equals(project.getProid())){
-            List<Paper> uselessRecord = paperProjectService.selectAssociation(project.getProid());
-            for(int i=0; i<uselessRecord.size();i++) {
-                paperProjectService.deleteAssociation(new PaperProject(uselessRecord.get(i), project));
-            }
-            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
-            {
-                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
-            }
+//            List<Paper> uselessRecord = paperProjectService.selectAssociation(project.getProid());
+//            for(int i=0; i<uselessRecord.size();i++) {
+//                paperProjectService.deleteAssociation(new PaperProject(uselessRecord.get(i), project));
+//            }
+//            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
+//            {
+//                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
+//            }
             projectService.update(project);
         }else{
             //把数据保存到数据
-            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
-            {
-                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
-            }
+//            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
+//            {
+//                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
+//            }
             projectService.save(project);
         }
         return "redirect:/project/index";

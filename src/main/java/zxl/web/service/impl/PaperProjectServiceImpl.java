@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import zxl.web.domain.Paper;
 import zxl.web.domain.PaperProject;
 import zxl.web.domain.PaperProjectKey;
+import zxl.web.domain.Project;
 import zxl.web.mapper.PaperMapper;
 import zxl.web.mapper.PaperProjectMapper;
+import zxl.web.mapper.ProjectMapper;
 import zxl.web.service.IPaperProjectService;
 
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class PaperProjectServiceImpl implements IPaperProjectService  {
     @Autowired
     PaperMapper paperMapper;
 
+    @Autowired
+    ProjectMapper projectMapper;
+
     @Override
     public List<Paper> selectAssociation(int proid) {
         List<PaperProject> paperProjects = mapper.selectByProid(proid);
@@ -30,6 +35,19 @@ public class PaperProjectServiceImpl implements IPaperProjectService  {
         for(int i=0;i<paperProjects.size();i++)
         {
             arr.add(paperMapper.selectByPrimaryKey(paperProjects.get(i).getPid()));
+        }
+        return arr;
+    }
+
+    @Override
+    public List<Project> selectAssociationProject(int pid) {
+        List<PaperProject> paperProjects = mapper.selectByPid(pid);
+        List<Project> arr = new ArrayList<>();
+        if(paperProjects == null)
+            return null;
+        for(int i=0;i<paperProjects.size();i++)
+        {
+            arr.add(projectMapper.selectByPrimaryKey(paperProjects.get(i).getProid()));
         }
         return arr;
     }

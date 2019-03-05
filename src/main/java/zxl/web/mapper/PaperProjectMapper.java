@@ -20,4 +20,6 @@ public interface PaperProjectMapper {
     int updateByPrimaryKey(PaperProject record);
 
     List<PaperProject> selectByProid(int proid);
+
+    List<PaperProject> selectByPid(int pid);
 }
