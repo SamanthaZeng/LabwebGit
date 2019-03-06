@@ -9,4 +9,5 @@ public interface IBookService {
     public Book selectCourse(int bid);
     public int save(Book book);
     public int update(Book book);
+
 }

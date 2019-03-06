@@ -26,5 +26,14 @@ public class BookController {
         return "book/book_list";
     }
 
+    @RequestMapping("/add")
+    public String add(){
+        return "book/book_input";
+    }
 
+    @RequestMapping("/save")
+    public String save(Book book){
+        bookService.save(book);
+        return "redirect:book/index";
+    }
 }
