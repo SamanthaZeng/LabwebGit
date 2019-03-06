@@ -12,4 +12,6 @@ public interface IPaperService {
     public int update(Paper paper);
 
     public int save(Paper paper);
+
+    public List<Paper> selectPaperId(Paper paper);
 }

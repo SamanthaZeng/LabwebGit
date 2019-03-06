@@ -29,4 +29,9 @@ public class PaperServiceImpl implements IPaperService {
 
     @Override
     public int save(Paper paper) { return mapper.insert(paper);}
+
+    @Override
+    public List<Paper> selectPaperId(Paper paper) {
+        return mapper.selectPaperId(paper);
+    }
 }
