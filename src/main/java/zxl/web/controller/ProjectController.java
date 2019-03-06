@@ -110,4 +110,14 @@ public class ProjectController {
         }
         return false;
     }
+
+    public static boolean ifInClsid(List<Course> associations, int forTest)
+    {
+        for(int i=0; i<associations.size(); i++)
+        {
+            if(forTest == associations.get(i).getClsid())
+                return true;
+        }
+        return false;
+    }
 }
