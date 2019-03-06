@@ -19,11 +19,6 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public Book selectCourse(int bid) {
-        return mapper.selectByPrimaryKey(bid);
-    }
-
-    @Override
     public int save(Book book) {
         return mapper.insert(book);
     }
@@ -31,5 +26,15 @@ public class BookServiceImpl implements IBookService {
     @Override
     public int update(Book book) {
         return mapper.updateByPrimaryKey(book);
+    }
+
+    @Override
+    public Book queryOne(Book book) {
+        return mapper.queryOne(book);
+    }
+
+    @Override
+    public void delete(Book book) {
+        mapper.delete(book);
     }
 }

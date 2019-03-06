@@ -115,4 +115,11 @@
     select * from book
   </select>
 
+  <select id="queryOne" resultMap="BaseResultMap" parameterType="Book">
+    select * from book where book.bid=#{bid};
+  </select>
+
+  <delete id="delete" parameterType="Book">
+    delete from book where bid = #{bid}
+  </delete>
 </mapper>

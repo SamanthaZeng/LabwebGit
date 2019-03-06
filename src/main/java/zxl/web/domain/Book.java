@@ -62,4 +62,16 @@ public class Book {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bid=" + bid +
+                ", bookname='" + bookname + '\'' +
+                ", classification='" + classification + '\'' +
+                ", babstract='" + babstract + '\'' +
+                ", press='" + press + '\'' +
+                ", time=" + time +
+                '}';
+    }
 }

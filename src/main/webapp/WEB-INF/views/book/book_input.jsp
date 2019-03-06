@@ -311,11 +311,9 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">书籍管理</a>
+                        <a href="/book/index">著作管理</a>
                     </li>
-                    <li>
-                        <a href="">添加新书籍</a>
-                    </li>
+                    <li class="active">编辑著作</li>
                 </ul><!-- .breadcrumb -->
             </div>
 
@@ -329,31 +327,50 @@
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="bid" value="${book.bid}"/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 书籍名称 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="bookname" id="form-field-1" placeholder="书籍名称" class="col-xs-10 col-sm-5" value="${book.bookname}"/>
+                                    <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-5" value="${book.bookname}"/>
                                 </div>
                             </div>
 
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 书籍分类 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="classification"> 著作类别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="classification" value="${book.classification}" id="form-field-2" placeholder="书籍分类" class="col-xs-10 col-sm-5" />
+                                    <select id="classification"  name="classification"  class="col-xs-10 col-sm-5" >
+                                        <option value="请选择">-------------------请选择---------------</option>
+                                        <option value="计算机理论与基础">计算机理论与基础</option>
+                                        <option value="网络安全">网络安全</option>
+                                        <option value="移动开发">移动开发</option>
+                                        <option value="物联网">物联网</option>
+                                        <option value="架构">架构</option>
+                                        <option value="云计算/大数据">云计算/大数据</option>
+                                        <option value="互联网">互联网</option>
+                                        <option value="运维">运维</option>
+                                        <option value="数据库">数据库</option>
+                                        <option value="前端">前端</option>
+                                        <option value="后端">后端</option>
+                                        <option value="人工智能">人工智能</option>
+                                        <option value="编程语言">编程语言</option>
+                                        <option value="研发管理">研发管理</option>
+                                        <option value="程序人生">程序人生</option>
+                                        <option value="区块链">区块链</option>
+                                        <option value="音视频开发">音视频开发</option>
+                                    </select>
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 书籍摘要 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="babstract" value="${book.babstract}" id="form-field-3" placeholder="书籍摘要" class="col-xs-10 col-sm-5" />
-
+                                    <textarea name="babstract" style="resize:none;" class="col-sm-5" rows="10" id="form-field-3">${book.babstract}</textarea>
                                 </div>
+
                             </div>
 
                             <div class="form-group">
@@ -369,7 +386,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-5"> 出版时间 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="date" name="time" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />
+                                    <input type="date" name="btime" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
@@ -510,7 +527,13 @@
 <script type="text/javascript">
     jQuery(function($) {
 
-        //alert(selectVal);
+        //初始化选择菜单的值
+        var selectval= "${book.classification}";
+        if(selectval!=null&&selectval!=""){
+                $('#classification').find("option[value='"+selectval+"']").attr("selected", "true");
+                //alert(selectval);
+            }
+
 
         //初始化拓展表单
         $(".date-picker").datepicker({

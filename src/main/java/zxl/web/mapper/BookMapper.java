@@ -18,4 +18,8 @@ public interface BookMapper {
     int updateByPrimaryKey(Book record);
 
     List<Book> queryAll();
+
+    Book queryOne(Book book);
+
+    void delete(Book book);
 }
