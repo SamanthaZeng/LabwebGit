@@ -351,7 +351,7 @@
                                             <th>课程标号</th>
                                             <th>课程名称</th>
                                             <th>课程类型</th>
-                                            <th>面向人群</th>
+                                            <th>授课对象</th>
                                             <th class="hidden-480">课程学时</th>
                                             <th class="hidden-480">概述</th>
                                             <th>其他操作</th>
@@ -392,11 +392,11 @@
                                                         </a>
                                                         </a>
 
-                                                        <a class="green" href="/class/edit?clsid=${course.clsid}" title="edit">
+                                                        <a class="green" href="/course/edit?clsid=${course.clsid}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/class/delete?clsid=${course.clsid}" title="delete">
+                                                        <a class="red" href="/course/delete?clsid=${course.clsid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
