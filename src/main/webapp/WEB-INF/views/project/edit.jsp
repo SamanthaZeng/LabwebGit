@@ -348,20 +348,30 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目类别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目类别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="protype" value="${projectForEdit.protype}" id="form-field-3" placeholder="项目类别" class="col-xs-10 col-sm-5" />
-
+                                    <select value="${projectForEdit.protype}" class="col-xs-10 col-sm-5" id="form-field-3" name="protype" >
+                                        <option value="-1">-----------请选择项目类别----------</option>
+                                        <option value="0" >A</option>
+                                        <option value="1" >B</option>
+                                        <option value="2" >C</option>
+                                        <option value="3" >D</option>
+                                        <option value="4" >E</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目等级 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 项目等级 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="prorank" value="${projectForEdit.prorank}" id="form-field-4" placeholder="项目等级" class="col-xs-10 col-sm-5" />
-
+                                    <select value="${projectForEdit.prorank}" class="col-xs-10 col-sm-5" id="form-field-4" name="prorank" >
+                                        <option value="-1">-----------请选择项目等级----------</option>
+                                        <option value="0" >校级</option>
+                                        <option value="1" >市级</option>
+                                        <option value="2" >国家级</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -374,13 +384,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目概述 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="proabstract" value="${projectForEdit.proabstract}" id="form-field-6" placeholder="项目概述" class="col-xs-10 col-sm-5" />
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目来源 </label>
@@ -390,6 +393,13 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目概述 </label>
+
+                                <div class="col-sm-9">
+                                    <textarea name="proabstract" style="resize:none;" class="col-sm-5" rows="8" placeholder="项目概述" values="${projectForEdit.proabstract}" ></textarea>
+                                </div>
+                            </div>
                             <%--<div class="form-group">--%>
                                 <%--<label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>--%>
 
@@ -527,7 +537,10 @@
     jQuery(function($) {
 
         //alert(selectVal);
-
+        $(document).ready(function(){
+            $("#form-field-3").val(${projectForEdit.protype});
+            $("#form-field-4").val(${projectForEdit.prorank});
+        });
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式
