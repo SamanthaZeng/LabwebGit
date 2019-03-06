@@ -1,4 +1,4 @@
-<%@ page import="zxl.web.controller.ProjectController" %>
+<%@ page import="zxl.web.controller.CourseController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -380,7 +380,27 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 开课教师 </label>
 
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="usercourse" class="chosen-select col-xs-10 col-sm-5" id="usercourse" data-placeholder="选择相关项目">
+                                        <c:forEach items="${teachers}" var="teacher">
+                                            <c:if test="${associations==null}">
+                                                <option class="userAssociation" value="${teacher.id}">${teacher.username}</option>
+                                            </c:if>
+                                            <c:if test="${associations!=null}">
+                                                <c:if test="${CourseController.ifInPid(associations, Integer.parseInt(teacher.id)) == true}">
+                                                    <option class="userAssociation" selected="selected" value="${teacher.id}">${teacher.username}</option>
+                                                </c:if>
+                                                <c:if test="${CourseController.ifInPid(associations, Integer.parseInt(teacher.id)) == false}">
+                                                    <option class="userAssociation" value="${teacher.id}">${teacher.username}</option>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">

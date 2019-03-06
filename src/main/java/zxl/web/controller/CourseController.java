@@ -68,7 +68,7 @@ public class CourseController {
     {
         String[] userId = req.getParameterValues("usercourse");
 
-        return "redirect:/paper/index";
+        return "redirect:/course/index";
     }
 
     public static boolean ifInPid(List<User> associations, int forTest)
