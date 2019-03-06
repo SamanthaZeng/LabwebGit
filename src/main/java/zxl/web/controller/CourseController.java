@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import zxl.web.domain.Course;
 import zxl.web.domain.Teacher;
 import zxl.web.domain.User;
+import zxl.web.domain.UserCourse;
 import zxl.web.service.ICourseService;
 import zxl.web.service.IStudentService;
 import zxl.web.service.IUserCourseService;
@@ -33,10 +34,6 @@ public class CourseController {
     {
         List<Course> courses = courseService.queryAll();
         model.addAttribute("courses", courses);
-        for(int i=0;i<courses.size();i++)
-        {
-            System.out.println(courses.get(i).getAbstract());
-        }
         return "course/course_list";
     }
 
@@ -50,30 +47,44 @@ public class CourseController {
         model.addAttribute("associations", associations);
         List<User> teachers = userService.queryAllTeacher();
         model.addAttribute("teachers", teachers);
-        for(int i=0;i<teachers.size();i++)
-        {
-            System.out.println(teachers.get(i).getUsername());
-        }
         return "course/edit";
     }
 
     @RequestMapping("/add")
     public String add(Model model)
     {
-        return "/course/edit";
+        List<User> teachers = userService.queryAllTeacher();
+        model.addAttribute("teachers", teachers);
+        return "course/edit";
     }
 
     @RequestMapping("/save")
     public String save(Course course, HttpServletRequest req, Model model)
     {
         String[] userId = req.getParameterValues("usercourse");
-
+        if(course != null && course.getClsid() != null && !"".equals(course.getClsid()))
+        {
+            List<User> uselessRecord = userCourseService.selectAssociationTeacher(course.getClsid());
+            if(uselessRecord != null)
+                for(int i=0; i<uselessRecord.size(); i++)
+                    userCourseService.deleteAssociation(new UserCourse(uselessRecord.get(i).getId(), course.getClsid()));
+            if(userId != null)
+                for(int i=0; i<userId.length; i++)
+                    userCourseService.save(new UserCourse(Integer.parseInt(userId[i]), course.getClsid()));
+            courseService.update(course);
+        }else{
+            //把数据保存到数据库
+            courseService.save(course);
+            List<Course> queryForId = courseService.selectCourseId(course);
+            if(userId != null)
+                for(int i=0; i<userId.length; i++)
+                    userCourseService.save(new UserCourse(Integer.parseInt(userId[i]), queryForId.get(0).getClsid()));
+        }
         return "redirect:/course/index";
     }
 
     public static boolean ifInPid(List<User> associations, int forTest)
     {
-        System.out.println("In");
         for(int i=0; i<associations.size(); i++)
         {
             if(forTest == associations.get(i).getId())

@@ -10,4 +10,14 @@ public class UserCourse extends UserCourseKey {
     public void setTeachertype(Integer teachertype) {
         this.teachertype = teachertype;
     }
+
+    public UserCourse(int id, int clsid)
+    {
+        super(id, clsid);
+    }
+
+    public UserCourse()
+    {
+        super();
+    }
 }

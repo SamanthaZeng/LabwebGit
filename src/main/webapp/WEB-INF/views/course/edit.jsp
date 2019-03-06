@@ -325,7 +325,7 @@
 
                         <form class="form-horizontal" method="post" action="/course/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="pid" value="${courseForEdit.clsid}"/>
+                            <input type="hidden" name="clsid" value="${courseForEdit.clsid}"/>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 课程名称 </label>
 
@@ -353,7 +353,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 课程类型 </label>
 
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="form-field-3" name="course_type" >
+                                    <select value="${courseForEdit.courseType}" class="col-xs-10 col-sm-5" id="form-field-3" name="courseType" >
                                         <option value="-1">-----------请选择课程类别----------</option>
                                         <option value="0" >A</option>
                                         <option value="1" >B</option>
@@ -368,7 +368,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 课程学时 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="keyword" value="${courseForEdit.classhour}" id="form-field-4" placeholder="课程学时" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="classhour" value="${courseForEdit.classhour}" id="form-field-4" placeholder="课程学时" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 
@@ -381,10 +381,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 开课教师 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="usercourse"> 开课教师 </label>
 
                                 <div class="col-sm-9">
-                                    <select autocomplete="off" multiple="" name="usercourse" class="chosen-select col-xs-10 col-sm-5" id="usercourse" data-placeholder="选择相关项目">
+                                    <select autocomplete="off" multiple="" name="usercourse" class="chosen-select col-xs-10 col-sm-5" id="usercourse" data-placeholder="选择开课教师">
                                         <c:forEach items="${teachers}" var="teacher">
                                             <c:if test="${associations==null}">
                                                 <option class="userAssociation" value="${teacher.id}">${teacher.username}</option>
@@ -516,7 +516,8 @@
 <script type="text/javascript">
     jQuery(function($) {
         $(document).ready(function(){
-            var projectIdList = $("#paperproject").val();
+            $("#form-field-3").val(${courseForEdit.courseType});
+            $("#form-field-2").val(${courseForEdit.teachingobject});
         });
         //初始化选择菜单的值
 
