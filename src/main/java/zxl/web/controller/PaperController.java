@@ -108,6 +108,14 @@ public class PaperController {
         return "redirect:/paper/index";
     }
 
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int pid = Integer.parseInt(req.getParameter("pid"));
+        paperService.delete(pid);
+        return "redirect:/paper/index";
+    }
+
     public static boolean ifInPid(List<Project> associations, int forTest)
     {
         for(int i=0; i<associations.size(); i++)

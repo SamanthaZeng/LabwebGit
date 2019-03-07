@@ -82,7 +82,13 @@ public class CourseController {
         }
         return "redirect:/course/index";
     }
-
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int clsid = Integer.parseInt(req.getParameter("clsid"));
+        courseService.delete(clsid);
+        return "redirect:/course/index";
+    }
     public static boolean ifInPid(List<User> associations, int forTest)
     {
         for(int i=0; i<associations.size(); i++)

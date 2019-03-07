@@ -45,4 +45,19 @@ public class AdminController {
 //        model.addAttribute("student",student1);//在script，JQuery中已经通过student取出,var selectVal = selectVal"${student.classes.id}";,所以命名为student
         return "admin/edit";
     }
+
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int id = Integer.parseInt(req.getParameter("id"));
+        int type = userService.selectuser(id).getUsertype();
+        userService.deleteUser(id);
+        if(type == 0)
+            return "redirect:/teacher/index";
+        if(type == 1)
+            return "redirect:/student/index";
+        if(type == 2)
+            return "redirect:/cooperator/index";
+        return "redirect:/admin/edit";
+    }
 }

@@ -14,4 +14,6 @@ public interface IPaperService {
     public int save(Paper paper);
 
     public List<Paper> selectPaperId(Paper paper);
+
+    public int delete(int pid);
 }

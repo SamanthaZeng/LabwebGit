@@ -12,4 +12,6 @@ public interface IUserService {
     public  User login(User user);//用户登陆
 
     public List<User>queryAllTeacher();//返回所有教师用户
+
+    public int deleteUser(int id);
 }

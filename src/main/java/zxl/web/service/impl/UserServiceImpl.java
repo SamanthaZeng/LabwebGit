@@ -32,5 +32,9 @@ public class UserServiceImpl implements IUserService {
         return mapper.queryAllTeacher();
     }
 
-
+    @Override
+    public int deleteUser(int id)
+    {
+        return mapper.deleteByPrimaryKey(id);
+    }
 }

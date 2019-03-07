@@ -34,4 +34,9 @@ public class PaperServiceImpl implements IPaperService {
     public List<Paper> selectPaperId(Paper paper) {
         return mapper.selectPaperId(paper);
     }
+
+    @Override
+    public int delete(int pid) {
+        return mapper.deleteByPrimaryKey(pid);
+    }
 }
