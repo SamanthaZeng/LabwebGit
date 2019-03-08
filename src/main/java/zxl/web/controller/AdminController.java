@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import zxl.web.domain.User;
-import zxl.web.service.IClassesService;
-import zxl.web.service.IStudentService;
-import zxl.web.service.IUserService;
+import zxl.web.service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -18,18 +16,43 @@ import java.util.List;
 public class AdminController {
     //未完成后端功能，只用来对前端路由和分发进行测试
     @Autowired
-    private IClassesService classesService;
-    @Autowired
-    private IStudentService studentService;
+    private ITeacherService teacherService;
     @Autowired
     private  IUserService userService;
+    @Autowired
+    private IStudentsService studentsService;
+    @Autowired
+    private ICooperatorService cooperatorService;
+
+    @RequestMapping("/add")
+    public String add(Model model, HttpServletRequest req)
+    {
+        int type = Integer.parseInt(req.getParameter("type"));
+        if(type != 0 && type != 1 && type != 2)
+            return "redirect:/admin/main";
+        User userForEdit = new User();
+        userForEdit.setUsertype(type);
+        model.addAttribute("userForEdit", userForEdit);
+        return "admin/edit";
+    }
 
     @RequestMapping("/main") // 个人主页面
     public String mainInfo(Model model, HttpServletRequest request)
     {
-        //List<Student> lists=studentService.queryAll();
-        //model.addAttribute("student",lists);//存到model里面，页面可以取出来
-        // System.out.println(request.getSession().getAttribute("user"));
+        User user = (User)request.getSession().getAttribute("user");
+        System.out.println(user);
+        if(user.getUsertype()==0)
+        {
+            model.addAttribute("teacher", teacherService.select(user.getTid()));
+        }
+        if(user.getUsertype()==1)
+        {
+            model.addAttribute("student", teacherService.select(user.getSid()));
+        }
+        if(user.getUsertype()==2)
+        {
+            model.addAttribute("cooperator", teacherService.select(user.getCid()));
+        }
         return "admin/main";
     }
 

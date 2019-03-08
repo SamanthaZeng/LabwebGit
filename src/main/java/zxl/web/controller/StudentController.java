@@ -141,7 +141,7 @@ public class StudentController {
         }
         students.setEntertime(time);
         studentsService.register(students,user);
-        req.getSession().setAttribute("user",user);
+        req.getSession().setAttribute("user",userService.selectuser(user.getId()));
         return "redirect:/admin/main";
     }
 }
