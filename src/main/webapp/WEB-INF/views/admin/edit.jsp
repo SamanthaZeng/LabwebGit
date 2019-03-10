@@ -506,9 +506,9 @@
                                     <div class="col-sm-9">
                                         <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" value="${student.srank}">
                                             <option value="-1">-----------请选择学位----------</option>
-                                            <option value="0" >本科</option>
-                                            <option value="1" >研究生</option>
-                                            <option value="2" >博士</option>
+                                            <option value="0" >本科生</option>
+                                            <option value="1" >硕士生</option>
+                                            <option value="2" >博士生</option>
                                         </select>
                                     </div>
                                 </div>
