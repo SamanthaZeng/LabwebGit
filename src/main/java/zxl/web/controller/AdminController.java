@@ -35,9 +35,14 @@ public class AdminController {
     private IStudentService studentService;
     @Autowired
     private  IUserService userService;
+    @Autowired
     private ICooperatorService cooperatorService;
     @Autowired
     private ICompanyService companyService;
+    @Autowired
+    private IStudentsService studentsService;
+    @Autowired
+    private ITeacherService teacherService;
 
     @RequestMapping("/add")
     public String add(Model model, HttpServletRequest req)

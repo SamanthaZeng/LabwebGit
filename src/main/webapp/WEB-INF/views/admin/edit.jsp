@@ -498,21 +498,13 @@
                                     <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                     <div class="col-sm-9">
-<<<<<<< HEAD
-                                        <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == userForEdit.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
-=======
                                         <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" placeholder="教育经历">${student.stueduexp}</textarea>
->>>>>>> 0d91a59347715fcfa2349944186f7f92257d8bfa
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
                                     <div class="col-sm-9">
-<<<<<<< HEAD
-                                        <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" >
-=======
                                         <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" value="${student.srank}">
->>>>>>> 0d91a59347715fcfa2349944186f7f92257d8bfa
                                             <option value="-1">-----------请选择学位----------</option>
                                             <option value="0" >本科</option>
                                             <option value="1" >研究生</option>
@@ -525,11 +517,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
 
                                     <div class="col-sm-9">
-<<<<<<< HEAD
-                                        <input type="date" name="time" id="form-field-8" class="col-xs-10 col-sm-5" />
-=======
                                         <input type="date" name="entertime" id="form-field-8" class="col-xs-10 col-sm-5" value="${student.entertime}"/>
->>>>>>> 0d91a59347715fcfa2349944186f7f92257d8bfa
                                     </div>
                                 </div>
 
