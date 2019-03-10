@@ -35,7 +35,6 @@ public class UserController {
     @RequestMapping("/register")
     public String register(User user, Model model)
     {
-        System.out.println(user.getUsername()+user.getPwd()+user.getBirthday()+user.getSex()+user.getUsertype()+user.getIsadmin());
         userService.register(user);
         model.addAttribute("user",user);
         int usertype = user.getUsertype();
