@@ -33,4 +33,9 @@ public class TeacherServiceImpl implements ITeacherService {
     public List<Teacher> queryAll() {
         return mapper.queryAll();
     }
+
+    @Override
+    public int update(Teacher teacher) {
+        return mapper.updateByPrimaryKeySelective(teacher);
+    }
 }

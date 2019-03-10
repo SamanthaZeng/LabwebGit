@@ -1,6 +1,6 @@
 package zxl.web.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Students {
     private Integer sid;

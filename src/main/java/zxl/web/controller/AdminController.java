@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zxl.web.domain.User;
+import zxl.web.domain.*;
 import zxl.web.service.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -23,6 +26,8 @@ public class AdminController {
     private IStudentsService studentsService;
     @Autowired
     private ICooperatorService cooperatorService;
+    @Autowired
+    private ICompanyService companyService;
 
     @RequestMapping("/add")
     public String add(Model model, HttpServletRequest req)
@@ -40,20 +45,21 @@ public class AdminController {
     public String mainInfo(Model model, HttpServletRequest request)
     {
         User user = (User)request.getSession().getAttribute("user");
-        System.out.println(user);
+        model.addAttribute("userForEdit", user);
         if(user.getUsertype()==0)
         {
             model.addAttribute("teacher", teacherService.select(user.getTid()));
         }
         if(user.getUsertype()==1)
         {
-            model.addAttribute("student", teacherService.select(user.getSid()));
+            model.addAttribute("student", studentsService.select(user.getSid()));
         }
         if(user.getUsertype()==2)
         {
-            model.addAttribute("cooperator", teacherService.select(user.getCid()));
+            model.addAttribute("companies", companyService.queryAll());
+            model.addAttribute("cooperator", cooperatorService.select(user.getCid()));
         }
-        return "admin/main";
+        return "admin/edit";
     }
 
     @RequestMapping("/edit")
@@ -67,6 +73,48 @@ public class AdminController {
         model.addAttribute("userForEdit", userForEdit);
 //        model.addAttribute("student",student1);//在script，JQuery中已经通过student取出,var selectVal = selectVal"${student.classes.id}";,所以命名为student
         return "admin/edit";
+    }
+
+    @RequestMapping("/save")
+    public String save(HttpServletRequest req) throws ParseException {
+        if(!req.getParameter("tid").equals(""))
+        {
+            System.out.println(0);
+            Teacher teacher = new Teacher();
+            teacher.setTid(Integer.parseInt(req.getParameter("tid")));
+            teacher.setTmail(req.getParameter("tmail"));
+            teacher.setTduty(req.getParameter("tduty"));
+            teacher.setTeduexp(req.getParameter("teduexp"));
+            teacher.setWorkexp(req.getParameter("workexp"));
+            teacher.setService(req.getParameter("service"));
+            teacher.setTrank(Integer.parseInt(req.getParameter("trank")));
+            teacherService.update(teacher);
+        }else
+            if(!req.getParameter("sid").equals(""))
+            {
+                System.out.println(1);
+                Students student = new Students();
+                student.setSid(Integer.parseInt(req.getParameter("sid")));
+                student.setSmail(req.getParameter("smail"));
+                student.setWheretogo(req.getParameter("wheretogo"));
+                student.setStueduexp(req.getParameter("stueduexp"));
+                student.setSrank(Integer.parseInt(req.getParameter("srank")));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                student.setEntertime(new java.sql.Date(sdf.parse(req.getParameter("entertime")).getTime()));
+                System.out.println(student);
+                studentsService.update(student);
+            }else
+                if(!req.getParameter("cid").equals(""))
+                {
+                    System.out.println(2);
+                    Cooperator cooperator = new Cooperator();
+                    cooperator.setCid(Integer.parseInt(req.getParameter("cid")));
+                    cooperator.setCoid(Integer.parseInt(req.getParameter("coid")));
+                    cooperator.setTitle(req.getParameter("title"));
+                    cooperator.setCduty(req.getParameter("cduty"));
+                    cooperatorService.update(cooperator);
+                }
+        return "redirect:/admin/main";
     }
 
     @RequestMapping("/delete")

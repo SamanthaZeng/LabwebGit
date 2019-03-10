@@ -13,4 +13,6 @@ public interface IStudentsService {
     public Students select(int sid);
     //返回全部学生
     public List<Students> queryAll();
+
+    public int update(Students stu);
 }

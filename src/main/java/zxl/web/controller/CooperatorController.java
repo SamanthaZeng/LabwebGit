@@ -62,7 +62,7 @@ public class CooperatorController {
             //存放图片地址
             user.setImgurl("/uploadFile/"+newFileName);
         }
-//        teacherService.register(teacher,user);
+        cooperatorService.register(cooperator,user);
         req.getSession().setAttribute("user",userService.selectuser(user.getId()));
         return "redirect:/admin/main";
     }

@@ -13,4 +13,6 @@ public interface ITeacherService {
     public Teacher select(int tid);
     //获取全部教师内容
     public List<Teacher> queryAll();
+
+    public int update(Teacher teacher);
 }

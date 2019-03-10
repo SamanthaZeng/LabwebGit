@@ -186,14 +186,14 @@
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 学生头像 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 用户头像 </label>
 
                                 <div class="col-sm-9">
                                     <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">任职单位</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="selectpicker">任职单位</label>
                                 <div class="col-sm-9">
                                     <select class="col-xs-10 col-sm-5" id="selectpicker" name="coid" >
                                         <option value="-1">-----------请选择任职单位----------</option>

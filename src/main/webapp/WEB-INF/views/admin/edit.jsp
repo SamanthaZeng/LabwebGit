@@ -145,7 +145,7 @@
             </div><!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li href="#">
+                <li class="selfManage">
                     <a class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text" class="active open"> 个人信息管理</span>
@@ -153,7 +153,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="selfManage">
                             <a href="/admin/main">
                                 <i class="icon-double-angle-right"></i>
                                 个人信息修改
@@ -163,7 +163,7 @@
 
                 </li>
 
-                <li class="active open">
+                <li class="peopleManage">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-user"></i>
                         <span class="menu-text">人员管理</span>
@@ -306,8 +306,14 @@
                         <i class="icon-home home-icon"></i>
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
-                    <li>
-                        <a href="">人员管理</a>
+                    <li class="breadcrumbSelfManage"style="display: none">
+                        <a href="" >个人信息管理</a>
+                    </li>
+                    <li class="breadcrumbSelfManage"style="display: none">
+                        <a href="">个人信息编辑</a>
+                    </li>
+                    <li id="breadcrumbPeopleManage"style="display: none">
+                        <a href="" >人员管理</a>
                     </li>
                     <li id="breadcrumbTeacher"style="display: none">
                         <a href="">教师管理</a>
@@ -348,7 +354,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
+                                    <input type="text" name="username" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
                                 </div>
                             </div>
 
@@ -389,6 +395,7 @@
                                             <input  type="radio" class="ace" name="sex" value="true" <c:if test="${0 == userForEdit.sex}">checked</c:if>/>
                                             <span class="lbl"> 男</span>
                                         </label>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                         <label>
                                             <input  type="radio" class="ace" name="sex" value="false" <c:if test="${1 == userForEdit.sex}">checked</c:if>/>
                                             <span class="lbl"> 女</span>
@@ -404,6 +411,9 @@
 
                             <!--教师   style="display: none"  -->
                             <div class="teacher"  style="display: none" >
+
+                                <input type="hidden" name="tid" value="${teacher.tid}"/>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 教师邮箱 </label>
 
@@ -426,7 +436,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                     <div class="col-sm-9">
-                                        <textarea name="teduexp" class="col-sm-5" rows="10" placeholder="教育经历" style="resize:none;"<c:if test="${0 == userForEdit.usertype}">value="${teacher.teduexp}"</c:if>></textarea>
+                                        <textarea name="teduexp" class="col-sm-5" rows="10" placeholder="教育经历" style="resize:none;">${teacher.teduexp}</textarea>
                                     </div>
                                 </div>
 
@@ -434,7 +444,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" > 工作经历 </label>
 
                                     <div class="col-sm-9">
-                                        <textarea name="workexp" class="col-sm-5" rows="10" style="resize:none;" placeholder="工作经历" <c:if test="${0 == userForEdit.usertype}">value="${teacher.workexp}"</c:if>></textarea>
+                                        <textarea name="workexp" class="col-sm-5" rows="10" style="resize:none;" placeholder="工作经历">${teacher.workexp}</textarea>
                                     </div>
                                 </div>
 
@@ -442,7 +452,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" > 社会服务 </label>
 
                                     <div class="col-sm-9">
-                                        <textarea name="service" style="resize:none;" class="col-sm-5" rows="10" placeholder="社会服务"  <c:if test="${0 == userForEdit.usertype}">value="${teacher.service}"</c:if>></textarea>
+                                        <textarea name="service" style="resize:none;" class="col-sm-5" rows="10" placeholder="社会服务">${teacher.service}</textarea>
                                     </div>
                                 </div>
 
@@ -463,6 +473,9 @@
 
                             <!--student      style="display: none"    -->
                             <div class="student" style="display: none" >
+
+                                <input type="hidden" name="sid" value="${student.sid}"/>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 学生邮箱 </label>
 
@@ -485,22 +498,13 @@
                                     <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                     <div class="col-sm-9">
-                                        <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == userForEdit.usertype}">value="${student.stueduexp}"</c:if> >教育经历</textarea>
+                                        <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" placeholder="教育经历">${student.stueduexp}</textarea>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 学生头像 </label>
-
-                                    <div class="col-sm-9">
-                                        <input  multiple="" type="file" name="imgFile" id="id-input-file-4" class="col-xs-10 col-sm-5" style="width:200px"/>
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
                                     <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" value="${student.stueduexp}">
+                                        <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" value="${student.srank}">
                                             <option value="-1">-----------请选择学位----------</option>
                                             <option value="0" >本科</option>
                                             <option value="1" >研究生</option>
@@ -513,7 +517,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="date" name="time" id="form-field-8" class="col-xs-10 col-sm-5" value="${student.entertime}"/>
+                                        <input type="date" name="entertime" id="form-field-8" class="col-xs-10 col-sm-5" value="${student.entertime}"/>
                                     </div>
                                 </div>
 
@@ -525,10 +529,13 @@
 
 
                             <div class="cooperator"  style="display: none" >
+
+                                <input type="hidden" name="cid" value="${cooperator.cid}"/>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
                                     <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" >
+                                        <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" value="${cooperator.coid}">
                                             <option value="-1">-----------请选择任职单位----------</option>
                                             <c:forEach items="${companies}" var="com">
 
@@ -691,6 +698,15 @@
                 if(selectval!=null&&selectval!=""){
                     $('#selectstudent').find("option[value='"+selectval+"']").attr("selected", "true");
                     //alert(selectval);
+                }
+            }else{
+                if(usertype==2)
+                {
+                    var selectval= "${cooperator.coid}";
+                    if(selectval!=null&&selectval!=""){
+                        $('#selectcompany').find("option[value='"+selectval+"']").attr("selected", "true");
+                        //alert(selectval);
+                    }
                 }
             }
         }
@@ -980,25 +996,43 @@
     });
     /*显示对应拓展表单*/
     function showExpandDiv(usertype) {
+        if(${userForEdit.id} === ${user.id})
+        {
+            $(".selfManage").addClass("active open");
+            $(".breadcrumbSelfManage").show();
+        }
+        else{
+            $(".peopleManage").addClass("active open");
+        }
         if(usertype==0)//是老师
         {//显示老师表单
             $(".teacher").show();//一定要加.
-            $("#teacherSidebar").addClass("active open");
-            $("#breadcrumbTeacher").show();
+            if(${userForEdit.id} != ${user.id})
+            {
+                $("#teacherSidebar").addClass("active open");
+                $("#breadcrumbTeacher").show();
+            }
 
         }else{
             if(usertype==1)
             {
                 $(".student").show();
-                $("#studentSidebar").addClass("active open");
-                $("#breadcrumbStudent").show();
+                if(${userForEdit.id} != ${user.id})
+                {
+                    $("#studentSidebar").addClass("active open");
+                    $("#breadcrumbStudent").show();
+                }
+
             }
             else{
                 if(usertype==2)
                 {
                     $(".cooperator").show();
-                    $("#cooperatorSidebar").addClass("active open");
-                    $("#breadcrumbCooperator").show();
+                    if(${userForEdit.id} != ${user.id})
+                    {
+                        $("#cooperatorSidebar").addClass("active open");
+                        $("#breadcrumbCooperator").show();
+                    }
                 }
 
             }

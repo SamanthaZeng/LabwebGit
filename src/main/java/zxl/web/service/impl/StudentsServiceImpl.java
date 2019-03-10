@@ -34,4 +34,9 @@ public class StudentsServiceImpl implements IStudentsService {
         return mapper.queryAll();
     }
 
+    @Override
+    public int update(Students stu) {
+        return mapper.updateByPrimaryKeySelective(stu);
+    }
+
 }
