@@ -20,12 +20,4 @@ public class UserCourseKey {
     public void setClsid(Integer clsid) {
         this.clsid = clsid;
     }
-
-    public UserCourseKey(int id, int clsid)
-    {
-        this.setId(id);
-        this.setClsid(clsid);
-    }
-    public UserCourseKey()
-    {}
 }

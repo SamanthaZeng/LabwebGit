@@ -10,4 +10,5 @@ public interface IBookService {
     public int update(Book book);
     public Book queryOne(Book book);
     public void delete(Book book);
+    public int selectBid(Book book);
 }

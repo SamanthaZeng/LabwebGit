@@ -6,9 +6,11 @@
     <id column="bid" jdbcType="INTEGER" property="bid" />
     <result column="booknumber" jdbcType="VARCHAR" property="booknumber" />
   </resultMap>
+
   <sql id="Base_Column_List">
     id, bid, booknumber
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserBookKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -16,22 +18,26 @@
     where id = #{id,jdbcType=INTEGER}
       and bid = #{bid,jdbcType=INTEGER}
   </select>
+
   <select id="selectByBid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select *
     from userbook
     where bid=#{bid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserBookKey">
     delete from userbook
     where id = #{id,jdbcType=INTEGER}
       and bid = #{bid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.UserBook">
     insert into userbook (id, bid, booknumber
       )
     values (#{id,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{booknumber,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.UserBook">
     insert into userbook
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -57,6 +63,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserBook">
     update userbook
     <set>
@@ -67,10 +74,16 @@
     where id = #{id,jdbcType=INTEGER}
       and bid = #{bid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserBook">
     update userbook
     set booknumber = #{booknumber,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
       and bid = #{bid,jdbcType=INTEGER}
   </update>
+
+  <!--根据Bid返回所有书籍-->
+  <select id="selectUBs" parameterType="integer" resultMap="BaseResultMap">
+    select * from userbook where bid=#{bid}
+  </select>
 </mapper>

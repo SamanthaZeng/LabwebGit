@@ -9,5 +9,4 @@ public interface IProjectService {
     public Project selectProject(int proid);
     public int save(Project project);
     public int update(Project project);
-    public int delete(int proid);
 }

@@ -18,6 +18,4 @@ public interface PaperMapper {
     int updateByPrimaryKey(Paper record);
 
     List<Paper> queryAll();
-
-    List<Paper> selectPaperId(Paper record);
 }

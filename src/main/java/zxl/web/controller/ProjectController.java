@@ -101,14 +101,6 @@ public class ProjectController {
     }
 
 
-    @RequestMapping("/delete")
-    public String delete(HttpServletRequest req)
-    {
-        int proid = Integer.parseInt(req.getParameter("proid"));
-        projectService.delete(proid);
-        return "redirect:/project/index";
-    }
-
     public static boolean ifInPid(List<Paper> associations, int forTest)
     {
         for(int i=0; i<associations.size(); i++)

@@ -43,8 +43,6 @@ public class PaperController {
     @RequestMapping("/add")
     public String add(Model model)
     {
-        List<Project> projects = projectService.queryAll();
-        model.addAttribute("projects", projects);
         return "/paper/edit";
     }
 
@@ -64,13 +62,6 @@ public class PaperController {
 
     @RequestMapping("/save")
     public String edit(Paper paper, HttpServletRequest req, Model model, MultipartFile pdfFile) throws IOException {
-        System.out.println(paper.getPtitile());
-        System.out.println(paper.getKeyword());
-        System.out.println(paper.getPublictime());
-        System.out.println(paper.getPid());
-        System.out.println(paper.getPabstract());
-        System.out.println(paper.getPapersource());
-
         if(pdfFile !=null){
             //获取文件夹路径
             String path = req.getServletContext().getRealPath("/uploadFile");
@@ -98,21 +89,12 @@ public class PaperController {
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
             paperService.update(paper);
         }else{
-            paperService.save(paper);
             //把数据保存到数据库
-            List<Paper> queryForId = paperService.selectPaperId(paper);
             if(proid != null)
                 for(int i=0; i<proid.length; i++)
-                    paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), queryForId.get(0).getPid()));
+                    paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
+            paperService.save(paper);
         }
-        return "redirect:/paper/index";
-    }
-
-    @RequestMapping("/delete")
-    public String delete(HttpServletRequest req)
-    {
-        int pid = Integer.parseInt(req.getParameter("pid"));
-        paperService.delete(pid);
         return "redirect:/paper/index";
     }
 

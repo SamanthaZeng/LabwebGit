@@ -350,7 +350,7 @@
                                             </th>
                                             <th>项目标号</th>
                                             <th>项目名称</th>
-                                            <th>项目类别</th>
+                                            <th>项目类型</th>
                                             <th>项目级别</th>
                                             <th class="hidden-480">项目资金</th>
                                             <th class="hidden-480">概述</th>
@@ -369,34 +369,8 @@
                                                 </td>
                                                 <td>${project.proid}</td>
                                                 <td>${project.proname}</td>
-                                                <td><c:choose>
-                                                    <c:when test="${project.protype == 0}">
-                                                        A
-                                                    </c:when>
-                                                    <c:when test="${project.protype == 1}">
-                                                        B
-                                                    </c:when>
-                                                    <c:when test="${project.protype == 2}">
-                                                        C
-                                                    </c:when>
-                                                    <c:when test="${project.protype == 3}">
-                                                        D
-                                                    </c:when>
-                                                    <c:when test="${project.protype == 4}">
-                                                        E
-                                                    </c:when>
-                                                </c:choose></td>
-                                                <td><c:choose>
-                                                    <c:when test="${project.prorank == 0}">
-                                                    校级
-                                                    </c:when>
-                                                    <c:when test="${project.prorank == 1}">
-                                                    市级
-                                                    </c:when>
-                                                    <c:when test="${project.prorank == 2}">
-                                                    国家级
-                                                    </c:when>
-                                                </c:choose></td>
+                                                <td>${project.protype}</td>
+                                                <td>${project.prorank}</td>
                                                 <td class="hidden-480">${project.funding}</td>
                                                 <td class="hidden-480">${project.proabstract}</td>
 

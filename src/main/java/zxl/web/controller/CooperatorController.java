@@ -63,7 +63,7 @@ public class CooperatorController {
             user.setImgurl("/uploadFile/"+newFileName);
         }
 //        teacherService.register(teacher,user);
-        req.getSession().setAttribute("user",userService.selectuser(user.getId()));
+        req.getSession().setAttribute("user",user);
         return "redirect:/admin/main";
     }
 }

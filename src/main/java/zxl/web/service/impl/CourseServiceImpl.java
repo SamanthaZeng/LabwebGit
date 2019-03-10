@@ -32,14 +32,4 @@ public class CourseServiceImpl implements ICourseService {
     public int update(Course course) {
         return mapper.updateByPrimaryKey(course);
     }
-
-    @Override
-    public List<Course> selectCourseId(Course course) {
-        return mapper.selectCourseId(course);
-    }
-
-    @Override
-    public int delete(int clsid) {
-        return mapper.deleteByPrimaryKey(clsid);
-    }
 }

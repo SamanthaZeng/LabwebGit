@@ -340,19 +340,13 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文级别 </label>
 
                                 <div class="col-sm-9">
-                                    <select value="${paperForEdit.paperrank}" class="col-xs-10 col-sm-5" id="form-field-2" name="paperrank" >
-                                        <option value="-1">-----------请选择论文级别----------</option>
-                                        <option value="0" >A</option>
-                                        <option value="1" >B</option>
-                                        <option value="2" >C</option>
-                                        <option value="3" >D</option>
-                                        <option value="4" >E</option>
-                                    </select>
+                                    <input type="text" name="paperrank" value="${paperForEdit.paperrank}" id="form-field-2" placeholder="论文级别" class="col-xs-10 col-sm-5" />
+
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 论文来源 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文来源 </label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
@@ -361,7 +355,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 关键词 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词 </label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="keyword" value="${paperForEdit.keyword}" id="form-field-4" placeholder="关键词" class="col-xs-10 col-sm-5" />
@@ -370,15 +364,16 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-5"> 论文摘要 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文摘要 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="pabstract" style="resize:none;" placeholder="论文摘要" class="col-sm-5" rows="10" value="${paperForEdit.pabstract}" id="form-field-5"></textarea>
+                                    <input type="text" name="pabstract" value="${paperForEdit.pabstract}" id="form-field-5" placeholder="论文摘要" class="col-xs-10 col-sm-5" />
+
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 发布时间</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
@@ -530,23 +525,7 @@
 <script type="text/javascript">
     jQuery(function($) {
         $(document).ready(function(){
-            $("#form-field-2").val(${paperForEdit.paperrank});
-            if($("#form-field-6").val()=='')
-            {
-                var date = new Date();
-                var seperator1 = "-";
-                var year = date.getFullYear();
-                var month = date.getMonth() + 1;
-                var strDate = date.getDate();
-                if (month >= 1 && month <= 9) {
-                    month = "0" + month;
-                }
-                if (strDate >= 0 && strDate <= 9) {
-                    strDate = "0" + strDate;
-                }
-                var currentdate = year + seperator1 + month + seperator1 + strDate;
-                $("#form-field-6").val(currentdate);
-            }
+            var projectIdList = $("#paperproject").val();
         });
         //初始化选择菜单的值
 
@@ -559,6 +538,9 @@
             todayBtn: true,
             minView: "month",//只选择到天自动关闭
             language: 'zh-CN',
+        });
+        $("#paperproject").change(function () {
+            alert($(this).val());
         });
         //单选选中
         $("#radio_sex").on("click",function(){

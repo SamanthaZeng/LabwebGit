@@ -175,4 +175,9 @@
   <select id="queryAllTeacher" resultMap="BaseResultMap">
     select * from user where usertype=0;
   </select>
+
+  <!--返回全部用户-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from user;
+  </select>
 </mapper>

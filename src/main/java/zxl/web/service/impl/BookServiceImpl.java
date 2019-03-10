@@ -37,4 +37,9 @@ public class BookServiceImpl implements IBookService {
     public void delete(Book book) {
         mapper.delete(book);
     }
+
+    @Override
+    public int selectBid(Book book) {
+        return mapper.selectBid(book);
+    }
 }

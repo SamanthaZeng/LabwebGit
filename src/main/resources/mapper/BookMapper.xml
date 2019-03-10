@@ -122,4 +122,13 @@
   <delete id="delete" parameterType="Book">
     delete from book where bid = #{bid}
   </delete>
+
+  <select id="selectBid"  resultType="integer" parameterType="Book">
+    select bid from book where
+     book.bookname = #{bookname,jdbcType=VARCHAR} and
+      book.classification = #{classification,jdbcType=VARCHAR} and
+      book.babstract = #{babstract,jdbcType=VARCHAR} and
+      book.press = #{press,jdbcType=VARCHAR} and
+      book.time = #{time,jdbcType=DATE}
+  </select>
 </mapper>

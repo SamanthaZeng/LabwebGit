@@ -14,11 +14,6 @@
   <sql id="Base_Column_List">
     pid, ptitile, publictime, papersource, keyword, pabstract, paperurl, paperrank
   </sql>
-  <select id="selectPaperId" parameterType="zxl.web.domain.Paper" resultMap="BaseResultMap">
-    select *
-    from paper
-    where ptitile = #{ptitile,jdbcType=VARCHAR}
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -28,24 +23,6 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from paper
     where pid = #{pid,jdbcType=INTEGER}
-    <if test="publictime != null">
-      and publictime = #{ptitile,jdbcType=VARCHAR}
-    </if>
-    <if test="papersource != null">
-      and papersource = #{papersource,jdbcType=VARCHAR}
-    </if>
-    <if test="keyword != null">
-      and keyword = #{keyword,jdbcType=VARCHAR}
-    </if>
-    <if test="pabstract != null">
-      and pabstract = #{pabstract,jdbcType=VARCHAR}
-    </if>
-    <if test="paperurl != null">
-      and paperurl = #{paperurl,jdbcType=VARCHAR}
-    </if>
-    <if test="paperrank != null">
-      and paperrank = #{paperrank,jdbcType=VARCHAR}
-    </if>
   </delete>
   <insert id="insert" parameterType="zxl.web.domain.Paper">
     insert into paper (pid, ptitile, publictime, 

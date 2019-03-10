@@ -457,7 +457,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 学生邮箱 </label>
 
                                         <div class="col-sm-9">
-                                            <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${student.smail}"</c:if>/>
+                                            <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${students.smail}"</c:if>/>
                                         </div>
                                     </div>
 
@@ -467,7 +467,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-7">毕业去向</label>
 
                                         <div class="col-sm-9">
-                                            <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${student.wheretogo}"</c:if> />
+                                            <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == user.usertype}">value="${students.wheretogo}"</c:if> />
                                         </div>
                                     </div>
 
@@ -475,7 +475,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                         <div class="col-sm-9">
-                                            <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == user.usertype}">value="${student.stueduexp}"</c:if> >教育经历</textarea>
+                                            <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10" <c:if test="${1 == user.usertype}">value="${students.stueduexp}"</c:if> >教育经历</textarea>
                                         </div>
                                     </div>
 
@@ -490,7 +490,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
                                         <div class="col-sm-9">
-                                            <select class="col-xs-10 col-sm-5" id="selectstudent" value="${student.trank}" name="srank" >
+                                            <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" >
                                                 <option value="-1">-----------请选择学位----------</option>
                                                 <option value="0" >本科</option>
                                                 <option value="1" >研究生</option>

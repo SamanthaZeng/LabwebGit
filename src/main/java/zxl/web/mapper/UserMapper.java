@@ -22,4 +22,6 @@ public interface UserMapper {
     public User login(User user);//登陆方法
 
     public List<User> queryAllTeacher();
+
+    public List<User>queryAll();
 }

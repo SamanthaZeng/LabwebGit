@@ -22,4 +22,6 @@ public interface BookMapper {
     Book queryOne(Book book);
 
     void delete(Book book);
+
+    int selectBid(Book book);
 }

@@ -385,7 +385,7 @@
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/paper/delete?pid=${paper.pid}" title="delete">
+                                                        <a class="red" href="/paper/delete?id=${paper.pid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>

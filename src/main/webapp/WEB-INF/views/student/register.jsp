@@ -167,85 +167,85 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <!--学生表单 -->
+                    <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/student/register" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="id" value="${user.id}"/>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 学生邮箱 </label>
+                    <form class="form-horizontal" method="post" action="/student/register" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <!--新增点击过来，没有id，修改点过来有id-->
+                        <input type="hidden" name="id" value="${user.id}"/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 学生邮箱 </label>
 
-                                <div class="col-sm-9">
-                                    <input type="text" name="smail" id="form-field-1" placeholder="学生邮箱" class="col-xs-10 col-sm-5"/>
-                                </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="smail" id="form-field-1" placeholder="学生邮箱" class="col-xs-10 col-sm-5"/>
                             </div>
+                        </div>
 
-                            <div class="space-4"></div>
+                        <div class="space-4"></div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2">毕业去向</label>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2">毕业去向</label>
 
-                                <div class="col-sm-9">
-                                    <input type="text" name="wheretogo" id="form-field-2" placeholder="毕业去向" class="col-xs-10 col-sm-5" />
-                                </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="wheretogo" id="form-field-2" placeholder="毕业去向" class="col-xs-10 col-sm-5" />
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
-                                <div class="col-sm-9">
-                                    <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10">教育经历</textarea>
-                                </div>
+                            <div class="col-sm-9">
+                                <textarea name="stueduexp" style="resize:none;" class="col-sm-5" rows="10">教育经历</textarea>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 学生头像 </label>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 学生头像 </label>
 
-                                <div class="col-sm-9">
-                                    <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
-                                </div>
+                            <div class="col-sm-9">
+                                <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">学生学位</label>
-                                <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="selectpicker" name="srank" >
-                                        <option value="-1">-----------请选择学位----------</option>
-                                        <option value="0" >本科</option>
-                                        <option value="1" >研究生</option>
-                                        <option value="2" >博士</option>
-                                    </select>
-                                </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">学生学位</label>
+                            <div class="col-sm-9">
+                                <select class="col-xs-10 col-sm-5" id="selectpicker" name="srank" >
+                                    <option value="-1">-----------请选择学位----------</option>
+                                    <option value="0" >本科</option>
+                                    <option value="1" >研究生</option>
+                                    <option value="2" >博士</option>
+                                </select>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 入学时间 </label>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 入学时间 </label>
 
-                                <div class="col-sm-9">
-                                    <input type="date" name="time" id="id-input-file-4" class="col-xs-10 col-sm-5" />
-                                </div>
+                            <div class="col-sm-9">
+                                <input type="date" name="time" id="id-input-file-4" class="col-xs-10 col-sm-5" />
                             </div>
+                        </div>
 
-                            <div class="space-4"></div>
+                        <div class="space-4"></div>
 
 
-                            <div class="clearfix form-actions">
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button class="btn btn-info" type="submit">
-                                        <i class="icon-ok bigger-110"></i>
-                                        保存
-                                    </button>
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    保存
+                                </button>
 
-                                    &nbsp; &nbsp; &nbsp;
-                                    <button class="btn" type="reset">
-                                        <i class="icon-undo bigger-110"></i>
-                                        重置
-                                    </button>
-                                </div>
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
                             </div>
-                        </form>
+                        </div>
+                    </form>
 
-                    </div><!-- /.col -->
+                </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
         </div><!-- /.main-content -->
