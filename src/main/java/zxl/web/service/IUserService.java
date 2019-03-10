@@ -14,4 +14,6 @@ public interface IUserService {
     public List<User>queryAllTeacher();//返回所有教师用户
 
     public int deleteUser(int id);
+
+    public int update(User user);
 }

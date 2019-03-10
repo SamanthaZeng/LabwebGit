@@ -392,12 +392,12 @@
 
                                     <div class="radio" id="radio_sex">
                                         <label>
-                                            <input  type="radio" class="ace" name="sex" value="true" <c:if test="${0 == userForEdit.sex}">checked</c:if>/>
+                                            <input  type="radio" class="ace" name="sex" value=0 <c:if test="${0 == userForEdit.sex}">checked</c:if>/>
                                             <span class="lbl"> 男</span>
                                         </label>
                                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                         <label>
-                                            <input  type="radio" class="ace" name="sex" value="false" <c:if test="${1 == userForEdit.sex}">checked</c:if>/>
+                                            <input  type="radio" class="ace" name="sex" value=1 <c:if test="${1 == userForEdit.sex}">checked</c:if>/>
                                             <span class="lbl"> 女</span>
                                         </label>
                                     </div>

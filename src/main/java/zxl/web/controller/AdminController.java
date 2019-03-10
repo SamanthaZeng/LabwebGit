@@ -3,16 +3,22 @@ package zxl.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import zxl.web.domain.*;
 import zxl.web.service.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -64,19 +70,49 @@ public class AdminController {
 
     @RequestMapping("/edit")
     public String edit(HttpServletRequest req, Model model){
-        //根据url参数里面的id 查询user，同时对user的类别进行判断
-        //判断功能还未完成，暂时只提供跳转功能用来测试
-        String id = req.getParameter("id");
-        System.out.println(id);
-        int idNum = Integer.parseInt(id);
-        User userForEdit = userService.selectuser(idNum);
-        model.addAttribute("userForEdit", userForEdit);
-//        model.addAttribute("student",student1);//在script，JQuery中已经通过student取出,var selectVal = selectVal"${student.classes.id}";,所以命名为student
+        User user = userService.selectuser(Integer.parseInt(req.getParameter("id")));
+        model.addAttribute("userForEdit", user);
+        if(user.getUsertype()==0)
+        {
+            model.addAttribute("teacher", teacherService.select(user.getTid()));
+        }
+        if(user.getUsertype()==1)
+        {
+            model.addAttribute("student", studentsService.select(user.getSid()));
+        }
+        if(user.getUsertype()==2)
+        {
+            model.addAttribute("companies", companyService.queryAll());
+            model.addAttribute("cooperator", cooperatorService.select(user.getCid()));
+        }
         return "admin/edit";
     }
 
     @RequestMapping("/save")
-    public String save(HttpServletRequest req) throws ParseException {
+    public String save(HttpServletRequest req, MultipartFile imgFile) throws ParseException, IOException {
+        User user = new User();
+        user.setId(Integer.parseInt(req.getParameter("id")));
+        user.setUsername(req.getParameter("username"));
+        user.setPwd(req.getParameter("pwd"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        user.setBirthday(new java.sql.Date(sdf.parse(req.getParameter("birthday")).getTime()));
+        user.setSex(Integer.parseInt(req.getParameter("sex")));
+        if(imgFile !=null && imgFile.getSize()!=0){
+            //获取文件夹路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            //文件名称UID解决文件名称问题
+            String filename=imgFile.getOriginalFilename();
+            String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            //把imgFile写到file里
+            org.apache.commons.io.IOUtils.copy(imgFile.getInputStream(),new FileOutputStream(file));
+            //存放图片地址
+            user.setImgurl("/uploadFile/"+newFileName);
+        }
+        userService.update(user);
+        if(user.getId() == ((User)req.getSession().getAttribute("user")).getId())
+            req.getSession().setAttribute("user", userService.selectuser(user.getId()));
         if(!req.getParameter("tid").equals(""))
         {
             System.out.println(0);
@@ -99,7 +135,6 @@ public class AdminController {
                 student.setWheretogo(req.getParameter("wheretogo"));
                 student.setStueduexp(req.getParameter("stueduexp"));
                 student.setSrank(Integer.parseInt(req.getParameter("srank")));
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 student.setEntertime(new java.sql.Date(sdf.parse(req.getParameter("entertime")).getTime()));
                 System.out.println(student);
                 studentsService.update(student);
