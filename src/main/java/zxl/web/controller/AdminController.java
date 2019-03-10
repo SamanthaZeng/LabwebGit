@@ -132,6 +132,7 @@ public class AdminController {
             }
             else
             {
+                userService.update(user);
                 teacher.setTid(Integer.parseInt(req.getParameter("tid")));
                 teacherService.update(teacher);
             }
@@ -151,6 +152,7 @@ public class AdminController {
                 }
                 else
                 {
+                    userService.update(user);
                     student.setSid(Integer.parseInt(req.getParameter("sid")));
                     studentsService.update(student);
                 }
@@ -168,7 +170,8 @@ public class AdminController {
                     }
                     else
                     {
-                        cooperator.setCid(Integer.parseInt(req.getParameter("sid")));
+                        userService.update(user);
+                        cooperator.setCid(Integer.parseInt(req.getParameter("cid")));
                         cooperatorService.update(cooperator);
                     }
                 }

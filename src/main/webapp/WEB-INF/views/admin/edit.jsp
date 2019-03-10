@@ -373,7 +373,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text"  readonly="readonly" name="birthday" value="${userForEdit.birthday}" id="form-field-3" class="col-xs-10 col-sm-5 date-picker" />
+                                    <input type="date" name="birthday" id="form-field-3" class="col-xs-10 col-sm-5" value="${userForEdit.birthday}"/>
                                 </div>
                             </div>
 
