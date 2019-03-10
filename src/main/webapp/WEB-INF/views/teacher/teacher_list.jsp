@@ -310,7 +310,7 @@
 									<div class="col-xs-12">
 
 										<p>
-											<a href="/teacher/add">
+											<a href="/admin/add?type=0">
 												<button class="btn btn-lg btn-success">
 													<i class="icon-ok"></i>
 													新增

@@ -5,16 +5,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zxl.web.domain.Cooperator;
-import zxl.web.domain.Students;
-import zxl.web.domain.Teacher;
-import zxl.web.domain.User;
+import zxl.web.domain.*;
+import zxl.web.service.ICompanyService;
 import zxl.web.service.IStudentsService;
 import zxl.web.service.ITeacherService;
 import zxl.web.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -29,11 +28,13 @@ public class UserController {
     @Autowired
     private IStudentsService studentsService;
 
+    @Autowired
+    private ICompanyService companyService;
+
     //WEB-INF/login.jsp
     @RequestMapping("/register")
     public String register(User user, Model model)
     {
-        System.out.println(user.getUsername()+user.getPwd()+user.getBirthday()+user.getSex()+user.getUsertype()+user.getIsadmin());
         userService.register(user);
         model.addAttribute("user",user);
         int usertype = user.getUsertype();
@@ -42,7 +43,11 @@ public class UserController {
         if(usertype==1)
             return "student/register";
         if(usertype==2)
+        {
+            List<Company> companies = companyService.queryAll();
+            model.addAttribute("companies",companies);
             return "cooperator/register";
+        }
         else
             return "redirect:/login.jsp";
     }

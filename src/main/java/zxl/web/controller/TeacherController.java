@@ -76,7 +76,7 @@ public class TeacherController {
             user.setImgurl("/uploadFile/"+newFileName);
         }
         teacherService.register(teacher,user);
-        req.getSession().setAttribute("user",user);
+        req.getSession().setAttribute("user",userService.selectuser(user.getId()));  //注册完成后会有tid的更新，在之后要用到，所以需要重新载入这个user
         return "redirect:/admin/main";
     }
 }

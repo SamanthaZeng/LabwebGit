@@ -253,7 +253,7 @@
 		</div><!-- /.main-container -->
 
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 		<script src="/bootstrap/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="/bootstrap/assets/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="/bootstrap/assets/js/chosen.jquery.min.js"></script>

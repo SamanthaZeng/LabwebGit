@@ -326,7 +326,6 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <!--学生表单 -->
 
                             <form class="form-horizontal" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                                 <!--新增点击过来，没有id，修改点过来有id-->
@@ -490,7 +489,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" >学生学位</label>
                                         <div class="col-sm-9">
-                                            <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" >
+                                            <select class="col-xs-10 col-sm-5" id="selectstudent" value="${student.srank}" name="srank" >
                                                 <option value="-1">-----------请选择学位----------</option>
                                                 <option value="0" >本科</option>
                                                 <option value="1" >研究生</option>
@@ -503,7 +502,7 @@
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
 
                                         <div class="col-sm-9">
-                                            <input type="date" name="time" id="form-field-8" class="col-xs-10 col-sm-5" />
+                                            <input type="date" name="entertime" value="${student.entertime}" id="form-field-8" class="col-xs-10 col-sm-5" />
                                         </div>
                                     </div>
 
@@ -511,9 +510,6 @@
 
 
                                 <!--cooperator   style="display: none"  -->
-
-
-
                                 <div class="cooperator"  style="display: none" >
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
@@ -681,8 +677,9 @@
                 var selectval= "${student.srank}";
                 if(selectval!=null&&selectval!=""){
                     $('#selectstudent').find("option[value='"+selectval+"']").attr("selected", "true");
-                    //alert(selectval);
+                    //alert(selectval)
                 }
+                var date = "${student.entertime}";
             }
         }
         //alert(selectVal);
