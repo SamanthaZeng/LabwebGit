@@ -17,6 +17,26 @@
     <!--扫描包-->
     <context:component-scan base-package="zxl.web.controller"/>
     <mvc:annotation-driven/>
+    <!--拦截器配置-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <mvc:mapping path="/*/*"/>
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/register"/>
+            <mvc:exclude-mapping path="/teacher/register"/>
+            <mvc:exclude-mapping path="/cooperator/register"/>
+            <mvc:exclude-mapping path="/student/register"/>
+            <bean class="zxl.web.interceptor.LoginInterceptor " />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/add"/>
+            <mvc:mapping path="/admin/edit"/>
+            <mvc:mapping path="/admin/delete"/>
+            <bean class="zxl.web.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 视图解析器配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
