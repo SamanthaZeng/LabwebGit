@@ -86,23 +86,25 @@ public class BookController {
             UserBook author=new UserBook();
             //设置书的id
             author.setBid(bid);
-            for(int i=0;i<authors.length;i++){
-                //设置作者id和书号
-                author.setId(Integer.valueOf(authors[i]));
-                author.setBooknumber(String.valueOf(i));
-                userBookService.insert(author);
-            }
+            if(authors.length != 0)
+                for(int i=0;i<authors.length;i++){
+                    //设置作者id和书号
+                    author.setId(Integer.valueOf(authors[i]));
+                    author.setBooknumber(String.valueOf(i));
+                    userBookService.insert(author);
+                }
         }else{//添加
             System.out.println("I am else");
             UserBook author=new UserBook();
             //设置书的id
             author.setBid(bid);
-            for(int i=0;i<authors.length;i++){
-                //设置作者id和书号
-                author.setId(Integer.valueOf(authors[i]));
-                author.setBooknumber(String.valueOf(i));
-                userBookService.insert(author);
-            }
+            if(authors.length != 0)
+                for(int i=0;i<authors.length;i++){
+                    //设置作者id和书号
+                    author.setId(Integer.valueOf(authors[i]));
+                    author.setBooknumber(String.valueOf(i));
+                    userBookService.insert(author);
+                }
         }
         return "redirect:/book/index";
     }
@@ -112,6 +114,8 @@ public class BookController {
     {
         Book book1=bookService.queryOne(book);
        // String bid = req.getParameter("bid");
+        List<User> users=userService.queryAll();
+        model.addAttribute("users",users);
         model.addAttribute("book", book1);
         return "book/book_input";
     }

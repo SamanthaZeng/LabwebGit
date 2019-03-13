@@ -368,20 +368,20 @@
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="bid" value="${book.bid}"/>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
 
-                                    <div class="col-sm-10">
-                                        <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-5" value="${book.bookname}"/>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-7" value="${book.bookname}"/>
                                     </div>
                                 </div>
 
                                 <div class="space-4"></div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="classification"> 著作类别 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="classification"> 著作类别 </label>
 
-                                    <div class="col-sm-10">
-                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-5" >
+                                    <div class="col-sm-8">
+                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-7" >
                                             <option value="请选择">-------------------请选择---------------</option>
                                             <option value="计算机理论与基础">计算机理论与基础</option>
                                             <option value="网络安全">网络安全</option>
@@ -406,29 +406,29 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
 
-                                    <div class="col-sm-10">
-                                        <textarea name="babstract" style="resize:none;" class="col-sm-5" rows="10" id="form-field-3">${book.babstract}</textarea>
+                                    <div class="col-sm-8">
+                                        <textarea name="babstract" style="resize:none;" class="col-sm-7" rows="10" id="form-field-3">${book.babstract}</textarea>
                                     </div>
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-4"> 出版社 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-4"> 出版社 </label>
 
-                                    <div class="col-sm-10">
-                                        <input type="text" name="press" value="${book.press}" id="form-field-4" placeholder="出版社" class="col-xs-10 col-sm-5" />
+                                    <div class="col-sm-8">
+                                        <input type="text" name="press" value="${book.press}" id="form-field-4" placeholder="出版社" class="col-xs-10 col-sm-7" />
 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-5"> 出版时间 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-5"> 出版时间 </label>
 
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-8">
                                         <!--<input type="date" name="btime" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />-->
-                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="form-field-5" placeholder="出版时间" class="col-xs-10 col-sm-5 date-picker" />
+                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="form-field-5" placeholder="出版时间" class="col-xs-10 col-sm-7 date-picker" />
 
                                     </div>
                                 </div>
