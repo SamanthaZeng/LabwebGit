@@ -34,8 +34,15 @@
             <mvc:mapping path="/admin/add"/>
             <mvc:mapping path="/admin/edit"/>
             <mvc:mapping path="/admin/delete"/>
-            <bean class="zxl.web.interceptor.AdminInterceptor"/>
+            <bean class="zxl.web.interceptor.PeopleManageInterceptor"/>
         </mvc:interceptor>
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/paper/*"/>-->
+            <!--<mvc:mapping path="/project/*"/>-->
+            <!--<mvc:exclude-mapping path="/paper/save"/>-->
+            <!--<mvc:exclude-mapping path="/project/save"/>-->
+            <!--<bean class="zxl.web.interceptor.PaperProjectInterceptor"/>-->
+        <!--</mvc:interceptor>-->
     </mvc:interceptors>
 
     <!-- 视图解析器配置 -->

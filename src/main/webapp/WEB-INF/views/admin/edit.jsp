@@ -409,7 +409,7 @@
 
 
 
-                            <!--教师   style="display: none"  -->
+                            <!--teacher   style="display: none"  -->
                             <div class="teacher"  style="display: none" >
 
                                 <input type="hidden" name="tid" value="${teacher.tid}"/>
@@ -525,9 +525,6 @@
 
 
                             <!--cooperator   style="display: none"  -->
-
-
-
                             <div class="cooperator"  style="display: none" >
 
                                 <input type="hidden" name="cid" value="${cooperator.cid}"/>
