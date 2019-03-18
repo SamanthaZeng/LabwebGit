@@ -616,9 +616,6 @@
             $("option:selected",this).appendTo("#author");
         })
 
-
-
-        
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式

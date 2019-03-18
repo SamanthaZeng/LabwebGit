@@ -51,6 +51,46 @@
             text-align: center;
             width: 350px;
         }
+        ::-webkit-scrollbar{
+            width: 0px;
+        }
+        .select {
+            width: 600px;
+            height: 220px;
+            margin: 100px auto;
+        }
+
+        .select div {
+            float: left;
+        }
+
+        .select .select-item {
+            padding: 5px 20px;
+        }
+
+        .select .select-item select {
+            width: 150px;
+            height: 200px;
+            border: 1px #eee solid;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        .btn-item p {
+            margin-top: 16px;
+        }
+
+        .btn-item p span {
+            display: block;
+            text-align: center;
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            border: 1px solid #EEEEEE;
+            line-height: 30px;
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -300,6 +340,7 @@
                         <!--学生表单 -->
 
                         <form class="form-horizontal" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                            <div class="col-xs-6">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
                             <div class="form-group">
@@ -385,6 +426,29 @@
                                     </select>
                                 </div>
                             </div>
+                            </div><!--<div class="col-xs-6">-->
+
+                            <div class="col-xs-6">
+                                <!--穿梭框的实现-->
+                                <div class="select">
+                                    <div class="select-item">
+                                        <select multiple="multiple" id="author">
+                                            <c:forEach items="${users}" var="user">
+                                                <option value="${user.id}"  >${user.username}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="btn-item">
+                                        <p><span id="add"> > </span></p>
+                                        <p><span id="remove"> < </span></p>
+                                        <p><span id="add_all"> >> </span></p>
+                                        <p><span id="remove_all"> << </span></p>
+                                    </div>
+                                    <div class="select-item">
+                                        <select multiple="multiple" id="selectedauthor" name="authors"></select>
+                                    </div>
+                                </div>
+                            </div><!-- <div class="col-xs-6">-->
 
 
                             <div class="clearfix form-actions">
@@ -507,6 +571,45 @@
 
         //alert(selectVal);
 
+        /*完成穿梭框的设置*/
+        //移动到右边
+        $("#add").on("click",function(){
+            if(!$("#author option").is(":selected")){
+                alert("请选择移动的选项")
+            }else{
+                $("#author option:selected").appendTo("#selectedauthor");
+            }
+        });
+
+        //移动到左边
+        $("#remove").on("click",function(){
+            if(!$("#selectedauthor option").is(":selected")){
+                alert("请选择移动的选项")
+            }else{
+                $("#selectedauthor option:selected").appendTo("#author");
+            }
+        });
+
+        //全部移动到右边
+        $("#add_all").on("click",function() {
+            $("#author option").appendTo("#selectedauthor");
+        });
+
+        //全部移动到左边
+        $("#remove_all").on("click",function(){
+            $("#selectedauthor option").appendTo("#author");
+        });
+
+        //双击选项
+        $("#author").on("dblclick",function(){
+            $("option:selected",this).appendTo("#selectedauthor");
+        })
+
+        //双击选项
+        $("#selectedauthor").on("dblclick",function(){
+            $("option:selected",this).appendTo("#author");
+        })
+        
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式

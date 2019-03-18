@@ -286,7 +286,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/project/add">
+                                    <a href="/course/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
