@@ -47,7 +47,7 @@ public class BookController {
         model.addAttribute("users",users);
         for(int i=0;i<users.size();i++)
             System.out.println(users.get(i).toString());
-        return "book/book_input";
+        return "book/edit";
     }
 
 
@@ -117,7 +117,7 @@ public class BookController {
         List<User> users=userService.queryAll();
         model.addAttribute("users",users);
         model.addAttribute("book", book1);
-        return "book/book_input";
+        return "book/edit";
     }
 
     /*批量删除*/

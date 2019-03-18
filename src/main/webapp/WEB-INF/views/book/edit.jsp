@@ -1,4 +1,7 @@
-<%@ page import="zxl.web.controller.PaperController" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="zxl.web.controller.ProjectController" %>
+<%@ page import="zxl.web.domain.Paper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -50,6 +53,46 @@
             border-radius: 4px;
             text-align: center;
             width: 350px;
+        }
+        ::-webkit-scrollbar{
+            width: 0px;
+        }
+        .select {
+            width: 600px;
+            height: 220px;
+            margin: 100px auto;
+        }
+
+        .select div {
+            float: left;
+        }
+
+        .select .select-item {
+            padding: 5px 20px;
+        }
+
+        .select .select-item select {
+            width: 150px;
+            height: 200px;
+            border: 1px #eee solid;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        .btn-item p {
+            margin-top: 16px;
+        }
+
+        .btn-item p span {
+            display: block;
+            text-align: center;
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            border: 1px solid #EEEEEE;
+            line-height: 30px;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -149,7 +192,7 @@
                 <li href="#">
                     <a class="dropdown-toggle">
                         <i class="icon-desktop"></i>
-                        <span class="menu-text" > 个人信息管理</span>
+                        <span class="menu-text" class="active open"> 个人信息管理</span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>
@@ -207,12 +250,6 @@
                                 论文列表
                             </a>
                         </li>
-                        <li>
-                            <a href="/paper/index">
-                                <i class="icon-double-angle-right"></i>
-                                本人论文
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -227,12 +264,6 @@
                             <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
                                 项目列表
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="icon-double-angle-right"></i>
-                                本人项目
                             </a>
                         </li>
                     </ul>
@@ -251,12 +282,6 @@
                                 课程列表
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <i class="icon-double-angle-right"></i>
-                                课程信息更改
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li class="active open">
@@ -271,12 +296,6 @@
                             <a href="/book/index">
                                 <i class="icon-double-angle-right"></i>
                                 著作列表
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                著作信息更新
                             </a>
                         </li>
                     </ul>
@@ -308,11 +327,9 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">著作管理</a>
+                        <a href="/book/index">著作管理</a>
                     </li>
-                    <li>
-                        <a href="">著作信息编辑</a>
-                    </li>
+                    <li class="active">编辑著作</li>
                 </ul><!-- .breadcrumb -->
             </div>
 
@@ -321,60 +338,126 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="bid" value="${bookForEdit.bid}"/>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
+                        <form class="form-horizontal" method="post" action="/book/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                            <div class="col-xs-6">
+                                <!--新增点击过来，没有id，修改点过来有id-->
+                                <input type="hidden" name="bid" value="${book.bid}"/>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
 
-                                <div class="col-sm-9">
-                                    <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-5" value="${bookForEdit.bookname}"/>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-7" value="${book.bookname}"/>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="classification"> 著作类别 </label>
+
+                                    <div class="col-sm-8">
+                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-7" >
+                                            <option value="请选择">-------------------请选择---------------</option>
+                                            <option value="计算机理论与基础">计算机理论与基础</option>
+                                            <option value="网络安全">网络安全</option>
+                                            <option value="移动开发">移动开发</option>
+                                            <option value="物联网">物联网</option>
+                                            <option value="架构">架构</option>
+                                            <option value="云计算/大数据">云计算/大数据</option>
+                                            <option value="互联网">互联网</option>
+                                            <option value="运维">运维</option>
+                                            <option value="数据库">数据库</option>
+                                            <option value="前端">前端</option>
+                                            <option value="后端">后端</option>
+                                            <option value="人工智能">人工智能</option>
+                                            <option value="编程语言">编程语言</option>
+                                            <option value="研发管理">研发管理</option>
+                                            <option value="程序人生">程序人生</option>
+                                            <option value="区块链">区块链</option>
+                                            <option value="音视频开发">音视频开发</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
+
+                                    <div class="col-sm-8">
+                                        <textarea name="babstract" style="resize:none;" class="col-sm-7" rows="10" id="form-field-3">${book.babstract}</textarea>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-4"> 出版社 </label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" name="press" value="${book.press}" id="form-field-4" placeholder="出版社" class="col-xs-10 col-sm-7" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-5"> 出版时间 </label>
+
+                                    <div class="col-sm-8">
+                                        <!--<input type="date" name="btime" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />-->
+                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="form-field-5" placeholder="出版时间" class="col-xs-10 col-sm-7 date-picker" />
+
+                                    </div>
+                                </div>
+
+                           </div>
+
+                            <%--<div class="form-group">--%>
+                            <%--<label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>--%>
+
+                            <%--<div class="col-sm-9">--%>
+                            <%--<select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关论文">--%>
+                            <%--<c:forEach items="${papers}" var="paper">--%>
+                            <%--<c:if test="${associations==null}">--%>
+                            <%--<option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
+                            <%--</c:if>--%>
+                            <%--<c:if test="${associations!=null}">--%>
+                            <%--<c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == true}">--%>
+                            <%--<option class="paperAssociation" selected="selected" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
+                            <%--</c:if>--%>
+                            <%--<c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == false}">--%>
+                            <%--<option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
+                            <%--</c:if>--%>
+                            <%--</c:if>--%>
+                            <%--</c:forEach>--%>
+                            <%--</select>--%>
+                            <%--</div>--%>
+                            <%--</div>--%>
+
+                        <div class="col-xs-6">
+                            <!--穿梭框的实现-->
+                            <div class="select">
+                                <div class="select-item">
+                                    <select multiple="multiple" id="author">
+                                        <c:forEach items="${users}" var="user">
+                                            <option value="${user.id}"  >${user.username}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="btn-item">
+                                    <p><span id="add"> > </span></p>
+                                    <p><span id="remove"> < </span></p>
+                                    <p><span id="add_all"> >> </span></p>
+                                    <p><span id="remove_all"> << </span></p>
+                                </div>
+                                <div class="select-item">
+                                    <select multiple="multiple" id="selectedauthor" name="authors"></select>
                                 </div>
                             </div>
 
-                            <div class="space-4"></div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 著作类别 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="classification" value="${bookForEdit.classification}" id="form-field-2" placeholder="著作类别" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 出版社 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="press" value="${bookForEdit.press}" id="form-field-3" placeholder="出版社" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 出版时间 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text"  readonly="readonly" name="press" value="${bookForEdit.time}" id="form-field-4" placeholder="出版时间" class="col-xs-10 col-sm-5 date-picker" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 著作概述 </label>
-
-                                <div class="col-sm-9">
-                                    <textarea name="babstract" style="resize:none;" class="col-sm-5" rows="10">${bookForEdit.babstract}</textarea>
-                                </div>
-                            </div>
-
-
+                        </div>
 
                             <div class="clearfix form-actions">
-                                <div class="col-md-offset-3 col-md-9">
+                                <div class="col-md-offset-5 col-md-9">
                                     <button class="btn btn-info" type="submit">
                                         <i class="icon-ok bigger-110"></i>
                                         保存
@@ -488,9 +571,54 @@
     jQuery(function($) {
 
         //初始化选择菜单的值
+        var selectval= "${book.classification}";
+        if(selectval!=null&&selectval!=""){
+                $('#classification').find("option[value='"+selectval+"']").attr("selected", "true");
+                //alert(selectval);
+            }
 
-        //alert(selectVal);
+        /*完成穿梭框的设置*/
+        //移动到右边
+        $("#add").on("click",function(){
+            if(!$("#author option").is(":selected")){
+                alert("请选择移动的选项")
+            }else{
+                $("#author option:selected").appendTo("#selectedauthor");
+            }
+        });
 
+        //移动到左边
+        $("#remove").on("click",function(){
+            if(!$("#selectedauthor option").is(":selected")){
+                alert("请选择移动的选项")
+            }else{
+                $("#selectedauthor option:selected").appendTo("#author");
+            }
+        });
+
+        //全部移动到右边
+        $("#add_all").on("click",function() {
+            $("#author option").appendTo("#selectedauthor");
+        });
+
+        //全部移动到左边
+        $("#remove_all").on("click",function(){
+            $("#selectedauthor option").appendTo("#author");
+        });
+
+        //双击选项
+        $("#author").on("dblclick",function(){
+            $("option:selected",this).appendTo("#selectedauthor");
+        })
+
+        //双击选项
+        $("#selectedauthor").on("dblclick",function(){
+            $("option:selected",this).appendTo("#author");
+        })
+
+
+
+        
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式
@@ -499,6 +627,7 @@
             minView: "month",//只选择到天自动关闭
             language: 'zh-CN',
         });
+
         //单选选中
         $("#radio_sex").on("click",function(){
             $('input[type="radio"]:checked').parent('label').addClass('active');
@@ -518,6 +647,45 @@
             }
         });
 
+        //初始化author的值
+        var temp1=-1;
+        var temp2=-1;
+        var temp3=-1;
+        var temp4=-1;
+        //点击author
+        $("#author1").change(function(){
+            var temp;
+            temp=$("#author1").get(0).selectedIndex;
+            if(temp!=temp2&&temp!=temp3&&temp!=temp4)
+                temp1=temp;
+            else
+                $("#tishi").html("重复选中同一个人</>").css("color","red") ;;
+        })
+
+        $("#author2").change(function(){
+            var temp;
+            temp=$("#author2").get(0).selectedIndex;
+            if(temp!=temp1&&temp!=temp3&&temp!=temp4)
+                temp2=temp;
+            else
+                $("#tishi").html("重复选中同一个人</>").css("color","red") ;
+        })
+        $("#author3").change(function(){
+            var temp;
+            temp=$("#author3").get(0).selectedIndex;
+            if(temp!=temp2&&temp!=temp1&&temp!=temp4)
+                temp3=temp;
+            else
+                $("#tishi").html("重复选中同一个人</>").css("color","red") ;
+        })
+        $("#author4").change(function(){
+            var temp;
+            temp=$("#author4").get(0).selectedIndex;
+            if(temp!=temp2&&temp!=temp3&&temp!=temp1)
+                temp4=temp;
+            else
+                $("#tishi").html("重复选中同一个人</>").css("color","red") ;
+        })
 
 
         $(".chosen-select").chosen();
@@ -772,6 +940,8 @@
 
 
     })
+
+
 </script>
 
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>

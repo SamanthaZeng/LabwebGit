@@ -210,12 +210,6 @@
                                 论文列表
                             </a>
                         </li>
-                        <li>
-                            <a href="/paper/index">
-                                <i class="icon-double-angle-right"></i>
-                                本人论文
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li  class="active open">
@@ -230,12 +224,6 @@
                             <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
                                 项目列表
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="icon-double-angle-right"></i>
-                                本人项目
                             </a>
                         </li>
                     </ul>
@@ -254,12 +242,6 @@
                                 课程列表
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <i class="icon-double-angle-right"></i>
-                                课程信息更改
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -274,12 +256,6 @@
                             <a href="/book/index">
                                 <i class="icon-double-angle-right"></i>
                                 著作列表
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                著作信息更新
                             </a>
                         </li>
                     </ul>
