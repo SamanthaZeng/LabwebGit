@@ -437,10 +437,10 @@
                                     <div class="col-sm-9">
                                         <select class="col-xs-10 col-sm-5" id="selectteacher" name="trank" >
                                             <option value="-1">-----------请选择职称----------</option>
-                                            <option value="0" >教授</option>
-                                            <option value="1" >副教授</option>
-                                            <option value="2" >助理教授</option>
-                                            <option value="3" >讲师</option>
+                                            <option value="0" >讲师</option>
+                                            <option value="1" >助理教授</option>
+                                            <option value="2" >副教授</option>
+                                            <option value="3" >教授</option>
                                         </select>
                                     </div>
                                 </div>
@@ -483,7 +483,7 @@
                                         <select class="col-xs-10 col-sm-5" id="selectstudent" name="srank" value="${student.srank}">
                                             <option value="-1">-----------请选择学位----------</option>
                                             <option value="0" >本科生</option>
-                                            <option value="1" >硕士生</option>
+                                            <option value="1" >研究生</option>
                                             <option value="2" >博士生</option>
                                         </select>
                                     </div>
