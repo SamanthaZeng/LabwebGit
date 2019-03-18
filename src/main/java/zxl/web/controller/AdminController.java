@@ -75,7 +75,8 @@ public class AdminController {
             model.addAttribute("companies", companyService.queryAll());
             model.addAttribute("cooperator", cooperatorService.select(user.getCid()));
         }
-        return "admin/edit";
+       return "admin/edit";
+       // return "admin/main";
     }
 
     @RequestMapping("/edit")
