@@ -31,6 +31,9 @@ public class ProjectController {
     @Autowired
     private IPaperService paperService;
 
+    @Autowired
+    private  IUserService userService;
+
     @RequestMapping("/index")
     public String index(Model model)
     {
@@ -67,6 +70,8 @@ public class ProjectController {
 //        List<Paper> associations = null;
 //        model.addAttribute("associations", associations);
 //        model.addAttribute("papers", papers);
+        List<User> users=userService.queryAll();
+        model.addAttribute("users",users);
         return "project/edit";
     }
 

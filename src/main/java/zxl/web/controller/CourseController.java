@@ -60,6 +60,8 @@ public class CourseController {
     @RequestMapping("/add")
     public String add(Model model)
     {
+        List<User> users=userService.queryAll();
+        model.addAttribute("users",users);
         return "/course/edit";
     }
 

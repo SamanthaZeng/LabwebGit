@@ -32,6 +32,9 @@ public class PaperController {
     @Autowired
     private IProjectService projectService;
 
+    @Autowired
+    private IUserService userService;
+
     @RequestMapping("/index")
     public String index(Model model)
     {
@@ -43,6 +46,8 @@ public class PaperController {
     @RequestMapping("/add")
     public String add(Model model)
     {
+        List<User> users=userService.queryAll();
+        model.addAttribute("users",users);
         return "/paper/edit";
     }
 
