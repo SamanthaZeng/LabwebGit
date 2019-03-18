@@ -369,7 +369,7 @@
 																	本科生
 																</c:when>
 																<c:when test="${student.srank == 1}">
-																	研究生
+																	硕士生
 																</c:when>
 																<c:when test="${student.srank == 2}">
 																	博士生

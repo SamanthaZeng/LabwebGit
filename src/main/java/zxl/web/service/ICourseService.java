@@ -9,4 +9,6 @@ public interface ICourseService {
     public Course selectCourse(int clsid);
     public int save(Course course);
     public int update(Course course);
+    //获取课程id
+    public int selectClsid(Course course);
 }

@@ -34,6 +34,8 @@ public class ProjectController {
     @Autowired
     private  IUserService userService;
 
+    @Autowired IUserProService userProService;
+
     @RequestMapping("/index")
     public String index(Model model)
     {
@@ -77,30 +79,50 @@ public class ProjectController {
 
 
     @RequestMapping("/save")
-    public String save(Project project, HttpServletRequest req, Model model) {
-//        String[] pid = req.getParameterValues("paperproject");
-//        if(pid != null)
-//        {
-//            for(int i=0;i<pid.length;i++)
-//                System.out.println(pid[i]);
-//        }
+    public String save(Project project, HttpServletRequest req) {
+        String authors[]=req.getParameterValues("authors");
+        /*增加/更新project表*/
         if(project!=null && project.getProid()!=null&&!"".equals(project.getProid())){
-//            List<Paper> uselessRecord = paperProjectService.selectAssociation(project.getProid());
-//            for(int i=0; i<uselessRecord.size();i++) {
-//                paperProjectService.deleteAssociation(new PaperProject(uselessRecord.get(i), project));
-//            }
-//            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
-//            {
-//                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
-//            }
             projectService.update(project);
         }else{
-            //把数据保存到数据
-//            for(int i=0; i<pid.length;i++) // 添加项目关联的论文
-//            {
-//                paperProjectService.save(new PaperProject(project, Integer.parseInt(pid[i])));
-//            }
             projectService.save(project);
+        }
+
+        /*增加或更新userpro表*/
+        //1.获取项目Id
+        int proid;
+        proid=projectService.selectProid(project);
+
+        //2.添加或更新Userpro表
+        List<UserPro> userPros=userProService.selectUPs(proid);
+        UserProKey userProKey=new UserProKey();
+        userProKey.setProid(proid);
+        int id;
+        if(userPros.size()!=0)//更新
+        {
+            for(int i=0;i<userPros.size();i++){
+                id=userPros.get(i).getId();
+                userProKey.setId(id);
+                //删除掉所有proid=#{proid}的值
+                userProService.deleteproid(userProKey);
+            }
+            UserPro author=new UserPro();
+            author.setProid(proid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    author.setId(Integer.valueOf(authors[i]));
+                    userProService.insert(author);
+                }
+            }
+        }else {//添加
+            UserPro author=new UserPro();
+            author.setProid(proid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    author.setId(Integer.valueOf(authors[i]));
+                    userProService.insert(author);
+                }
+            }
         }
         return "redirect:/project/index";
     }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import zxl.web.domain.Teacher;
 import zxl.web.domain.User;
 import zxl.web.domain.UserCourse;
+import zxl.web.domain.UserCourseKey;
 import zxl.web.mapper.UserCourseMapper;
 import zxl.web.mapper.UserMapper;
 import zxl.web.service.IUserCourseService;
@@ -14,7 +15,6 @@ import java.util.List;
 
 @Service
 public class UserCourseServiceImpl implements IUserCourseService {
-
     @Autowired
     UserCourseMapper mapper;
 
@@ -42,5 +42,20 @@ public class UserCourseServiceImpl implements IUserCourseService {
     @Override
     public int save(UserCourse userCourse) {
         return mapper.insert(userCourse);
+    }
+
+    @Override
+    public List<UserCourse> selectUCls(int clsid) {
+        return mapper.selectUCls(clsid);
+    }
+
+    @Override
+    public void deleteClsid(UserCourseKey userCourseKey) {
+        mapper.deleteByPrimaryKey(userCourseKey);
+    }
+
+    @Override
+    public void insert(UserCourse userCourse) {
+        mapper.insert(userCourse);
     }
 }

@@ -10,12 +10,6 @@
   <sql id="Base_Column_List">
     id, pid, papernumber, iscorrespondingauthor
   </sql>
-  <select id="selectByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    *
-    from userpaper
-    where pid = #{pid,jdbcType=INTEGER}
-  </select>
   <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserPaperKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

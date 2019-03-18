@@ -73,4 +73,9 @@
     where id = #{id,jdbcType=INTEGER}
       and clsid = #{clsid,jdbcType=INTEGER}
   </update>
+
+  <!--根据clsid返回所有书籍-->
+  <select id="selectUCls" parameterType="integer" resultMap="BaseResultMap">
+    select * from usercourse where clsid=#{clsid};
+  </select>
 </mapper>

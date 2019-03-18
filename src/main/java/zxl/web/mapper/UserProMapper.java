@@ -18,5 +18,6 @@ public interface UserProMapper {
 
     int updateByPrimaryKey(UserPro record);
 
-    List<UserPro> selectByProid(int proid);
+    //根据项目号返回所有userpro项
+    List<UserPro> selectUPs(int proid);
 }

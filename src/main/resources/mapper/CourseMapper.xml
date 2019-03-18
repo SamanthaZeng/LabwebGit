@@ -103,7 +103,17 @@
       classhour = #{classhour,jdbcType=INTEGER}
     where clsid = #{clsid,jdbcType=INTEGER}
   </update>
+
   <select id="queryAll" resultMap="BaseResultMap">
     select * from course
+  </select>
+
+  <select id="selectClsid" resultType="integer" parameterType="Course">
+     select clsid from course where
+      name = #{name,jdbcType=VARCHAR} and
+      abstract = #{abstract,jdbcType=VARCHAR} and
+      teachingobject = #{teachingobject,jdbcType=INTEGER} and
+      course_type = #{courseType,jdbcType=INTEGER} and
+      classhour = #{classhour,jdbcType=INTEGER}
   </select>
 </mapper>

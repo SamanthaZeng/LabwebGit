@@ -60,7 +60,7 @@ public class BookController {
                System.out.println("authorid= "+authors[i]);
         }
         System.out.println("进入save");
-        /*增加/更新 user表*/
+        /*增加/更新 book表*/
         if(book!=null&&book.getBid()!=null&&!"".equals(book.getBid()))
             bookService.update(book);
         else

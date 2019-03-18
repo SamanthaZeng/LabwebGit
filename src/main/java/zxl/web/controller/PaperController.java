@@ -66,7 +66,7 @@ public class PaperController {
     }
 
     @RequestMapping("/save")
-    public String edit(Paper paper, HttpServletRequest req, Model model, MultipartFile pdfFile) throws IOException {
+    public String edit(Paper paper, HttpServletRequest req, MultipartFile pdfFile) throws IOException {
         if(pdfFile !=null){
             //获取文件夹路径
             String path = req.getServletContext().getRealPath("/uploadFile");
@@ -79,6 +79,7 @@ public class PaperController {
             paper.setPaperurl("/uploadFile/"+newFileName);
         }
         String[] proid = req.getParameterValues("paperproject");
+
         if(proid != null)
         {
             for(int i=0;i<proid.length;i++)

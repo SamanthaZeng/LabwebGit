@@ -384,7 +384,7 @@
 																	<i class="icon-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="/admin/delete?id=${cooperator.id}" title="delete">
+																<a class="red" href="/teacher/delete?id=${cooperator.id}" title="delete">
 																	<i class="icon-trash bigger-130"></i>
 																</a>
 															</div>
@@ -552,7 +552,7 @@
 						alert("请选中一行数据");
 					}else{
 					    //调用controller层中写的方法
-						location.href="/admin/delete?id="+id;
+						location.href="/teacher/delete?id="+id;
 					}
 			    } );
 

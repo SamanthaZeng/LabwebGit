@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="zxl.web.mapper.UserProMapper">
+
   <resultMap id="BaseResultMap" type="zxl.web.domain.UserPro">
     <id column="id" jdbcType="INTEGER" property="id" />
     <id column="proid" jdbcType="INTEGER" property="proid" />
@@ -10,12 +11,7 @@
   <sql id="Base_Column_List">
     id, proid, pronumber, isleader
   </sql>
-  <select id="selectByProid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    *
-    from userpro
-    where proid = #{proid,jdbcType=INTEGER}
-  </select>
+
   <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserProKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -23,17 +19,20 @@
     where id = #{id,jdbcType=INTEGER}
       and proid = #{proid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserProKey">
     delete from userpro
     where id = #{id,jdbcType=INTEGER}
       and proid = #{proid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.UserPro">
     insert into userpro (id, proid, pronumber, 
       isleader)
     values (#{id,jdbcType=INTEGER}, #{proid,jdbcType=INTEGER}, #{pronumber,jdbcType=VARCHAR}, 
       #{isleader,jdbcType=BIT})
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.UserPro">
     insert into userpro
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -65,6 +64,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserPro">
     update userpro
     <set>
@@ -78,6 +78,7 @@
     where id = #{id,jdbcType=INTEGER}
       and proid = #{proid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserPro">
     update userpro
     set pronumber = #{pronumber,jdbcType=VARCHAR},
@@ -85,4 +86,8 @@
     where id = #{id,jdbcType=INTEGER}
       and proid = #{proid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectUPs" parameterType="integer" resultMap="BaseResultMap">
+    select * from userpro where proid=#{proid}
+  </select>
 </mapper>

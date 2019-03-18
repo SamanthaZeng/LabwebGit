@@ -129,4 +129,29 @@
   <select id="queryAll" resultMap="BaseResultMap">
     select * from project
   </select>
+
+  <select id="selectProid" parameterType="Project" resultType="integer">
+    select proid FROM project where
+    <if test="number != null">
+      number = #{number,jdbcType=VARCHAR} and
+    </if>
+    <if test="prorank != null">
+      prorank = #{prorank,jdbcType=INTEGER} and
+    </if>
+    <if test="protype != null">
+      protype = #{protype,jdbcType=INTEGER} and
+    </if>
+    <if test="funding != null">
+      funding = #{funding,jdbcType=VARCHAR} and
+    </if>
+    <if test="proname != null">
+      proname = #{proname,jdbcType=VARCHAR} and
+    </if>
+    <if test="proabstract != null">
+      proabstract = #{proabstract,jdbcType=VARCHAR} and
+    </if>
+    <if test="prosource != null">
+      prosource = #{prosource,jdbcType=VARCHAR}
+    </if>
+  </select>
 </mapper>

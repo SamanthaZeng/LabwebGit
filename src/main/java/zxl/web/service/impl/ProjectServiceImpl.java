@@ -29,5 +29,10 @@ public class ProjectServiceImpl implements IProjectService {
         return mapper.updateByPrimaryKey(project);
     }
 
+    @Override
+    public int selectProid(Project project) {
+        return mapper.selectProid(project);
+    }
+
     ;
 }

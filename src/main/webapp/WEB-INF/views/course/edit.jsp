@@ -358,7 +358,7 @@
 
                                 <div class="col-sm-9">
                                     <select class="col-xs-10 col-sm-5" id="form-field-2" name="teachingobject" >
-                                        <option value="-1">-----------请选择授课对象----------</option>
+                                        <option value="-1">----请选择授课对象----</option>
                                         <option value="0" >本科生</option>
                                         <option value="1" >硕士生</option>
                                         <option value="2" >博士生</option>
@@ -370,8 +370,8 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 课程类型 </label>
 
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="form-field-3" name="course_type" >
-                                        <option value="-1">-----------请选择课程类别----------</option>
+                                    <select class="col-xs-10 col-sm-5" id="form-field-3" name="courseType" >
+                                        <option value="-1">-----请选择课程类别-----</option>
                                         <option value="0" >A</option>
                                         <option value="1" >B</option>
                                         <option value="2" >C</option>
@@ -385,7 +385,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 课程学时 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="keyword" value="${courseForEdit.classhour}" id="form-field-4" placeholder="课程学时" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="classhour" value="${courseForEdit.classhour}" id="form-field-4" placeholder="每学期总小时数，无单位" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 

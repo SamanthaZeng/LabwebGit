@@ -20,4 +20,6 @@ public interface UserCourseMapper {
     int updateByPrimaryKey(UserCourse record);
 
     List<UserCourse> selectByClsid(int clsid);
+
+    List<UserCourse>selectUCls(int clsid);
 }

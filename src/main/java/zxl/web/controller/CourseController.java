@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zxl.web.domain.Course;
-import zxl.web.domain.Teacher;
-import zxl.web.domain.User;
+import zxl.web.domain.*;
 import zxl.web.service.ICourseService;
 import zxl.web.service.IStudentService;
 import zxl.web.service.IUserCourseService;
@@ -66,10 +64,58 @@ public class CourseController {
     }
 
     @RequestMapping("/save")
-    public String save(Course course, HttpServletRequest req, Model model)
+    public String save(Course course, HttpServletRequest req)
     {
-        String[] userId = req.getParameterValues("usercourse");
+       // String[] userId = req.getParameterValues("usercourse");
 
+        /*new version*/
+        String authors[]=req.getParameterValues("authors");
+        //增加/更新course表
+        if(course!=null&&course.getClsid()!=null&&!"".equals(course.getClsid()))
+            courseService.update(course);
+        else
+            courseService.save(course);
+        //增加/更新usercourse 表
+        //1.获取course id
+        int clsid;
+        clsid=courseService.selectClsid(course);
+        System.out.println("Clsid= "+clsid);
+        //2.添加/更新usercourse表
+        List<UserCourse> userCourses=userCourseService.selectUCls(clsid);
+        UserCourseKey userCourseKey=new UserCourseKey();
+        userCourseKey.setClsid(clsid);
+        int id;
+        if(userCourses.size()!=0)//更新
+        {
+            for(int i=0;i<userCourses.size();i++) {
+                id = userCourses.get(i).getId();
+                userCourseKey.setId(id);
+                //删除掉所有bid=#{bid}的记录
+                userCourseService.deleteClsid(userCourseKey);
+            }
+            UserCourse author=new UserCourse();
+            //设置课程Id
+            author.setClsid(clsid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    //设置任课教师Id和课程号
+                    author.setId(Integer.valueOf(authors[i]));
+                    userCourseService.insert(author);
+                }
+            }
+        }
+        else{//添加
+            System.out.println("添加新的usercourse项");
+            UserCourse author=new UserCourse();
+            author.setClsid(clsid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    //设置作者id和clsid
+                    author.setId(Integer.valueOf(authors[i]));
+                    userCourseService.insert(author);
+                }
+            }
+        }
         return "redirect:/course/index";
     }
 

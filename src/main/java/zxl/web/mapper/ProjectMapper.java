@@ -18,4 +18,7 @@ public interface ProjectMapper {
     int updateByPrimaryKey(Project record);
 
     List<Project> queryAll();
+
+    //返回proid
+    int selectProid(Project project);
 }

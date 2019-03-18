@@ -364,16 +364,16 @@
 														<td class="hidden-480">
 															<c:choose>
 																<%--得导入user--%>
-																<c:when test="${teacher.trank == 0}">
+																<c:when test="${teacher.trank == 3}">
 																	讲师
 																</c:when>
-																<c:when test="${teacher.trank == 1}">
+																<c:when test="${teacher.trank == 2}">
 																	助理教授
 																</c:when>
-																<c:when test="${teacher.trank == 2}">
+																<c:when test="${teacher.trank == 1}">
 																	副教授
 																</c:when>
-																<c:when test="${teacher.trank == 3}">
+																<c:when test="${teacher.trank == 0}">
 																	教授
 																</c:when>
 															</c:choose>
