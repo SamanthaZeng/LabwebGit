@@ -18,4 +18,7 @@ public interface PaperMapper {
     int updateByPrimaryKey(Paper record);
 
     List<Paper> queryAll();
+
+    //返回paperid
+    int selectPid(Paper paper);
 }

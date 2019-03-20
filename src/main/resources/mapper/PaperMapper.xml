@@ -128,4 +128,29 @@
   <select id="queryAll" resultMap="BaseResultMap">
     select * from paper
   </select>
+
+  <select id="selectPid" parameterType="Paper" resultType="integer">
+    select pid from paper where
+    <if test="ptitile != null">
+    ptitile = #{ptitile,jdbcType=VARCHAR} and
+    </if>
+    <if test="publictime != null">
+      publictime = #{publictime,jdbcType=DATE} and
+    </if>
+    <if test="papersource != null">
+      papersource = #{papersource,jdbcType=VARCHAR} and
+    </if>
+    <if test="keyword != null">
+      keyword = #{keyword,jdbcType=VARCHAR} and
+    </if>
+    <if test="pabstract != null">
+      pabstract = #{pabstract,jdbcType=VARCHAR} and
+    </if>
+    <if test="paperurl != null">
+      paperurl = #{paperurl,jdbcType=VARCHAR} and
+    </if>
+    <if test="paperrank != null">
+      paperrank = #{paperrank,jdbcType=VARCHAR}
+    </if>
+  </select>
 </mapper>

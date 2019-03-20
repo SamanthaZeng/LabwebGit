@@ -6,15 +6,13 @@ import zxl.web.domain.UserPaperKey;
 import java.util.List;
 
 public interface IUserPaperService {
-    /*获取所有该pid的USERPAPER项*/
-    public List<UserPaper> selectUPs(int pid);
 
-    /*更新UP的项*/
-    public void updateUBs(int bid,int id);
+    //根据论文Id返回所有包含该Id的项
+    public List<UserPaper> selectUPps(int pid);
 
-    /*删除有该pid的所有值*/
-    public void deletebid(UserPaperKey userPaperKey);
+    //根据论文ID删除所有包含该id的项
+    public void deletepid(UserPaperKey userPaperKey);
 
-    //添加新项
+    //插入新项
     public void insert(UserPaper userPaper);
 }

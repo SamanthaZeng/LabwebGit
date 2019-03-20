@@ -3,21 +3,21 @@ package zxl.web.domain;
 public class UserPaper extends UserPaperKey {
     private String papernumber;
 
-    private Boolean iscorrespondingauthor;
+    private int authornumber;
 
     public String getPapernumber() {
         return papernumber;
     }
 
     public void setPapernumber(String papernumber) {
-        this.papernumber = papernumber == null ? null : papernumber.trim();
+        this.papernumber = papernumber;
     }
 
-    public Boolean getIscorrespondingauthor() {
-        return iscorrespondingauthor;
+    public int getAuthornumber() {
+        return authornumber;
     }
 
-    public void setIscorrespondingauthor(Boolean iscorrespondingauthor) {
-        this.iscorrespondingauthor = iscorrespondingauthor;
+    public void setAuthornumber(int authornumber) {
+        this.authornumber = authornumber;
     }
 }

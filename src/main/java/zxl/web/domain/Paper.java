@@ -32,7 +32,7 @@ public class Paper {
     }
 
     public void setPtitile(String ptitile) {
-        this.ptitile = ptitile == null ? null : ptitile.trim();
+        this.ptitile = ptitile;
     }
 
     public Date getPublictime() {
@@ -48,7 +48,7 @@ public class Paper {
     }
 
     public void setPapersource(String papersource) {
-        this.papersource = papersource == null ? null : papersource.trim();
+        this.papersource = papersource;
     }
 
     public String getKeyword() {
@@ -56,7 +56,7 @@ public class Paper {
     }
 
     public void setKeyword(String keyword) {
-        this.keyword = keyword == null ? null : keyword.trim();
+        this.keyword = keyword;
     }
 
     public String getPabstract() {
@@ -64,7 +64,7 @@ public class Paper {
     }
 
     public void setPabstract(String pabstract) {
-        this.pabstract = pabstract == null ? null : pabstract.trim();
+        this.pabstract = pabstract;
     }
 
     public String getPaperurl() {
@@ -72,7 +72,7 @@ public class Paper {
     }
 
     public void setPaperurl(String paperurl) {
-        this.paperurl = paperurl == null ? null : paperurl.trim();
+        this.paperurl = paperurl;
     }
 
     public String getPaperrank() {
@@ -80,6 +80,6 @@ public class Paper {
     }
 
     public void setPaperrank(String paperrank) {
-        this.paperrank = paperrank == null ? null : paperrank.trim();
+        this.paperrank = paperrank;
     }
 }

@@ -5,10 +5,10 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <id column="pid" jdbcType="INTEGER" property="pid" />
     <result column="papernumber" jdbcType="VARCHAR" property="papernumber" />
-    <result column="iscorrespondingauthor" jdbcType="BIT" property="iscorrespondingauthor" />
+    <result column="authornumber" jdbcType="INTEGER" property="authornumber" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, pid, papernumber, iscorrespondingauthor
+    id, pid, papernumber, authornumber
   </sql>
   <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserPaperKey" resultMap="BaseResultMap">
     select 
@@ -24,9 +24,9 @@
   </delete>
   <insert id="insert" parameterType="zxl.web.domain.UserPaper">
     insert into userpaper (id, pid, papernumber, 
-      iscorrespondingauthor)
+      authornumber)
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{papernumber,jdbcType=VARCHAR}, 
-      #{iscorrespondingauthor,jdbcType=BIT})
+      #{authornumber,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="zxl.web.domain.UserPaper">
     insert into userpaper
@@ -40,8 +40,8 @@
       <if test="papernumber != null">
         papernumber,
       </if>
-      <if test="iscorrespondingauthor != null">
-        iscorrespondingauthor,
+      <if test="authornumber != null">
+        authornumber,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -54,8 +54,8 @@
       <if test="papernumber != null">
         #{papernumber,jdbcType=VARCHAR},
       </if>
-      <if test="iscorrespondingauthor != null">
-        #{iscorrespondingauthor,jdbcType=BIT},
+      <if test="authornumber != null">
+        #{authornumber,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -65,8 +65,8 @@
       <if test="papernumber != null">
         papernumber = #{papernumber,jdbcType=VARCHAR},
       </if>
-      <if test="iscorrespondingauthor != null">
-        iscorrespondingauthor = #{iscorrespondingauthor,jdbcType=BIT},
+      <if test="authornumber != null">
+        authornumber = #{authornumber,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -75,8 +75,13 @@
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserPaper">
     update userpaper
     set papernumber = #{papernumber,jdbcType=VARCHAR},
-      iscorrespondingauthor = #{iscorrespondingauthor,jdbcType=BIT}
+      authornumber = #{authornumber,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
       and pid = #{pid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectUPps" parameterType="integer" resultMap="BaseResultMap">
+    select * from userpaper where pid=#{pid}
+  </select>
+
 </mapper>

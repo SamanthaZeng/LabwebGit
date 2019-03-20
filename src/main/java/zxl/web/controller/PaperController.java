@@ -35,6 +35,9 @@ public class PaperController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IUserPaperService userPaperService;
+
     @RequestMapping("/index")
     public String index(Model model)
     {
@@ -67,6 +70,8 @@ public class PaperController {
 
     @RequestMapping("/save")
     public String edit(Paper paper, HttpServletRequest req, MultipartFile pdfFile) throws IOException {
+       System.out.println("进入papersave, pid= "+paper.getPid());
+        /*获取上传的论文文件*/
         if(pdfFile !=null){
             //获取文件夹路径
             String path = req.getServletContext().getRealPath("/uploadFile");
@@ -78,13 +83,16 @@ public class PaperController {
             org.apache.commons.io.IOUtils.copy(pdfFile.getInputStream(),new FileOutputStream(file));
             paper.setPaperurl("/uploadFile/"+newFileName);
         }
+        /*获取相关项目、作者*/
         String[] proid = req.getParameterValues("paperproject");
-
         if(proid != null)
         {
             for(int i=0;i<proid.length;i++)
                 System.out.println(proid[i]);
         }
+        String authors[]=req.getParameterValues("authors");
+
+        /*增加/更新paper表*/
         if(paper!=null && paper.getPid()!=null&&!"".equals(paper.getPid())){
             List<Project> uselessRecord = paperProjectService.selectAssociationProject(paper.getPid());
             if(uselessRecord != null)
@@ -100,6 +108,41 @@ public class PaperController {
                 for(int i=0; i<proid.length; i++)
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
             paperService.save(paper);
+        }
+
+        /*增加/更新userpaper表*/
+        //获取Paperid
+        int pid=paperService.selectPid(paper);
+        //添加/更新userpaper表
+        List<UserPaper> userPapers=userPaperService.selectUPps(pid);
+        UserPaperKey userPaperKey=new UserPaperKey();
+        userPaperKey.setPid(pid);
+        int id;
+        if(userPapers.size()!=0) {//更新
+            for(int i=0;i<userPapers.size();i++){
+                id=userPapers.get(i).getId();
+                userPaperKey.setId(id);
+                userPaperService.deletepid(userPaperKey);
+            }
+            UserPaper author=new UserPaper();
+            author.setPid(pid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    author.setId(Integer.valueOf(authors[i]));
+                    author.setAuthornumber(i);
+                    userPaperService.insert(author);
+                }
+            }
+        }else{//添加
+            UserPaper author=new UserPaper();
+            author.setPid(pid);
+            if(authors.length!=0){
+                for(int i=0;i<authors.length;i++){
+                    author.setId(Integer.valueOf(authors[i]));
+                    author.setAuthornumber(i);
+                    userPaperService.insert(author);
+                }
+            }
         }
         return "redirect:/paper/index";
     }

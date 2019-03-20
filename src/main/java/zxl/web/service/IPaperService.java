@@ -12,4 +12,7 @@ public interface IPaperService {
     public int update(Paper paper);
 
     public int save(Paper paper);
+
+    //返回paperid
+    public int selectPid(Paper paper);
 }

@@ -11,28 +11,21 @@ import java.util.List;
 
 @Service
 public class UserPaperServiceImpl implements IUserPaperService {
-
     @Autowired
     UserPaperMapper mapper;
 
     @Override
-    public List<UserPaper> selectUPs(int pid) {
-        List<UserPaper> userPapers = mapper.selectByPid(pid);
-        return userPapers;
+    public List<UserPaper> selectUPps(int pid) {
+        return mapper.selectUPps(pid);
     }
 
     @Override
-    public void updateUBs(int bid, int id) {
-
-    }
-
-    @Override
-    public void deletebid(UserPaperKey userPaperKey) {
+    public void deletepid(UserPaperKey userPaperKey) {
         mapper.deleteByPrimaryKey(userPaperKey);
     }
 
     @Override
     public void insert(UserPaper userPaper) {
-        mapper.insertSelective(userPaper);
+        mapper.insert(userPaper);
     }
 }
