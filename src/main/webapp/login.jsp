@@ -21,9 +21,18 @@
 		<link rel="stylesheet" href="/bootstrap/assets/css/ace.min.css" />
 		<link rel="stylesheet" href="/bootstrap/assets/css/ace-rtl.min.css" />
 
+		<!--pingendo-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="css/theme.css" type="text/css">
+
+		<style>
+			.heading{
+				padding-top: 40px;
+			}
+		</style>
 	</head>
 
-	<body class="login-layout">
+	<body class="login-layout" style="background-image:linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: cover;" >
 	
 		<div class="main-container">
 			<div class="main-content">
@@ -31,13 +40,14 @@
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="login-container">
 							<div class="center">
-								<h1>
-									<i class="icon-leaf green"></i>
-									<span class="red">计算机网络与信息安全研究室</span>
-									<br>
-									<span class="white">后台管理系统</span>
-								</h1>
-								<h4 class="blue">Computer Networks & Information Security Lab</h4>
+								<div class="heading">
+									<h1>
+										<span class="white">计算机网络与信息安全研究室</span>
+										<br>
+										<span class="white">后台管理系统</span>
+									</h1>
+									<h4 class="blue">Computer Networks & Information Security Lab</h4>
+								</div>
 							</div>
 
 							<div class="space-6"></div>

@@ -44,6 +44,13 @@ public class AdminController {
     @Autowired
     private ITeacherService teacherService;
 
+    @RequestMapping("/index")
+    public String index(Model model,HttpServletRequest request)//首页
+    {
+        User user = (User)request.getSession().getAttribute("user");
+        return "admin/index";
+    }
+
     @RequestMapping("/add")
     public String add(Model model, HttpServletRequest req)
     {
@@ -75,8 +82,8 @@ public class AdminController {
             model.addAttribute("companies", companyService.queryAll());
             model.addAttribute("cooperator", cooperatorService.select(user.getCid()));
         }
+       //return "admin/index";
        return "admin/edit";
-       // return "admin/main";
     }
 
     @RequestMapping("/edit")

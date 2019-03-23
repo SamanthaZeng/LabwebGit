@@ -28,6 +28,10 @@
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Exo+2|ZCOOL+XiaoWei" rel="stylesheet">
 
+    <!--pingendo-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/theme.css" type="text/css">
+
     <style>
         .first{
             font-family: 'ZCOOL XiaoWei', serif;
@@ -279,12 +283,15 @@
                 <%--</div><!-- #nav-search -->--%>
             </div>
 
-            <div class="page-content">
-
-
+            <div class="page-content" style="background-image:linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">">
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
+                        <div class="col-md-8 mx-auto"> <i class="d-block fa fa-stop-circle mb-3 text-muted fa-5x"></i>
+
+                            <h1 class="display-3 mb-4">Welcome to</h1>
+                            <p class="lead mb-5">Computer Networks &amp; Information Security Lab </p>
+                        </div>
 
                         <div class="second"> Welcome to </div>
                         <div class="second">Computer Networks & Information Security Lab </div>

@@ -77,18 +77,10 @@ public class UserController {
                     request.getSession().setAttribute("students",students);
                 }
             }
-            return "redirect:/admin/main";
+            return "redirect:/admin/index";
         }
-
     //返回登陆页面
         return "redirect:/login.jsp";
     }
-
-    @RequestMapping("/save")
-    public String save(User user)
-    {
-        return null;
-    }
-
 
 }
