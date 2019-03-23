@@ -17,7 +17,7 @@ public class UserProjectServiceImpl implements IUserProjectService {
 
     @Override
     public List<UserPro> selectUPs(int proid) {
-        return mapper.selectByProid(proid);
+        return mapper.selectUPs(proid);
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -28,7 +28,6 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    //未完成后端功能，只用来对前端路由和分发进行测试
     @Autowired
     private IClassesService classesService;
     @Autowired
