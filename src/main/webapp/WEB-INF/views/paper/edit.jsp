@@ -195,7 +195,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/main">
+                            <a href="/admin/edit?id=${user.id}">
                                 <i class="icon-double-angle-right"></i>
                                 个人信息修改
                             </a>
@@ -204,7 +204,7 @@
 
                 </li>
 
-                <li>
+                <li class="studentHidden">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-user"></i>
                         <span class="menu-text">人员管理</span>
@@ -212,20 +212,20 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="teacherHidden">
                             <a href="/teacher/index">
                                 <i class="icon-double-angle-right"></i>
                                 教师管理
                             </a>
                         </li>
 
-                        <li>
+                        <li class="studentHidden">
                             <a href="/student/index">
                                 <i class="icon-double-angle-right"></i>
                                 学生管理
                             </a>
                         </li>
-                        <li>
+                        <li class="teacherHidden">
                             <a href="/cooperator/index">
                                 <i class="icon-double-angle-right"></i>
                                 合作者管理
@@ -265,7 +265,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="studentHidden">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 课程管理 </span>
@@ -281,7 +281,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="studentHidden">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 著作管理 </span>
@@ -564,6 +564,18 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        if("${user.isadmin}" == "false")
+        {
+            if("${user.usertype}" == "0")
+            {
+                $(".teacherHidden").css("display", "none");
+            }
+            if("${user.usertype}" == "1")
+            {
+                $(".teacherHidden").css("display", "none");
+                $(".studentHidden").css("display", "none");
+            }
+        }
         $(document).ready(function(){
             var projectIdList = $("#paperproject").val();
         });

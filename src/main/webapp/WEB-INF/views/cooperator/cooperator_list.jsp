@@ -129,7 +129,7 @@
 							</a>
 							<ul class="submenu">
 								<li>
-									<a href="/admin/main">
+									<a href="/admin/edit?id=${user.id}">
 										<i class="icon-double-angle-right"></i>
 										个人信息修改
 									</a>

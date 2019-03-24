@@ -129,7 +129,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/main">
+                            <a href="/admin/edit?id=${user.id}">
                                 <i class="icon-double-angle-right"></i>
                                 个人信息修改
                             </a>
@@ -146,7 +146,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="teacherHidden">
                             <a href="/teacher/index">
                                 <i class="icon-double-angle-right"></i>
                                 教师管理
@@ -159,7 +159,7 @@
                                 学生管理
                             </a>
                         </li>
-                        <li>
+                        <li class="teacherHidden">
                             <a href="/cooperator/index">
                                 <i class="icon-double-angle-right"></i>
                                 合作者管理
@@ -471,7 +471,13 @@
 <script type="text/javascript">
 
     jQuery(function($) {
-
+        if("${user.isadmin}" == "false")
+        {
+            if("${user.usertype}" == "0")
+            {
+                $(".teacherHidden").css("display", "none");
+            }
+        }
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },

@@ -77,7 +77,7 @@ public class UserController {
                     request.getSession().setAttribute("students",students);
                 }
             }
-            return "redirect:/admin/index";
+            return "redirect:/admin/main";
         }
     //返回登陆页面
         return "redirect:/login.jsp";

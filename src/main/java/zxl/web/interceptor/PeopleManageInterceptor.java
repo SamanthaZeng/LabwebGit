@@ -42,6 +42,9 @@ public class PeopleManageInterceptor implements HandlerInterceptor {
                     {
                         return true;
                     }
+                    else
+                        if(user.getId() == userForEditId)
+                            return true;
                 }
                 catch (Exception e)
                 {
