@@ -89,6 +89,7 @@ public class CourseBookInterceptor implements HandlerInterceptor {
                     res.sendRedirect(MAIN_URL);
                     return false;
                 }
+                return true;
             }
 
         }

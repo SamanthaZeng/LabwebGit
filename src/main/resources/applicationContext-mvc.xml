@@ -31,6 +31,9 @@
             <bean class="zxl.web.interceptor.LoginInterceptor " />
         </mvc:interceptor>
         <mvc:interceptor>
+            <mvc:mapping path="/teacher/index"/>
+            <mvc:mapping path="/student/index"/>
+            <mvc:mapping path="/cooperator/index"/>
             <mvc:mapping path="/admin/add"/>
             <mvc:mapping path="/admin/edit"/>
             <mvc:mapping path="/admin/delete"/>
@@ -44,9 +47,11 @@
             <bean class="zxl.web.interceptor.PaperProjectInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
+            <mvc:mapping path="/course/index"/>
             <mvc:mapping path="/course/edit"/>
             <mvc:mapping path="/course/add"/>
             <mvc:mapping path="/course/delete"/>
+            <mvc:mapping path="/book/index"/>
             <mvc:mapping path="/book/edit"/>
             <mvc:mapping path="/book/add"/>
             <mvc:mapping path="/book/delete"/>

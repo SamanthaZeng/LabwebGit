@@ -51,6 +51,10 @@ public class PeopleManageInterceptor implements HandlerInterceptor {
                     res.sendRedirect(MAIN_URL);
                     return false;
                 }
+            if(req.getRequestURI().equals("/student/index") && user.getUsertype() == 0)
+            {
+                return true;
+            }
             res.sendRedirect(MAIN_URL);
             return false;
         }
