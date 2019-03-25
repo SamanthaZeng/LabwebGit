@@ -207,7 +207,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">学生学位</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="selectpicker">学生学位</label>
                             <div class="col-sm-9">
                                 <select class="col-xs-10 col-sm-5" id="selectpicker" name="srank" >
                                     <option value="-1">-----------请选择学位----------</option>
@@ -219,10 +219,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="id-input-file-4"> 入学时间 </label>
-
+                            <label class="col-sm-3 control-label no-padding-right">入学时间</label>
                             <div class="col-sm-9">
-                                <input type="date" name="time" id="id-input-file-4" class="col-xs-10 col-sm-5" />
+                                <input   class="col-xs-10 col-sm-5"  type="text" name="entertime" class="form-control date-picker " placeholder="入学时间  YYYY-MM-DD" />
                             </div>
                         </div>
 
@@ -298,6 +297,14 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+
+        $(".date-picker").datepicker({
+            format: "yyyy-mm-dd", //显示日期格式
+            autoclose: true,
+            todayBtn: true,
+            minView: "month",//只选择到天自动关闭
+            language: 'zh-CN',
+        });
 
         //修改 的时候 默认下来选中
         var selectVal = "${student.classes.id}";

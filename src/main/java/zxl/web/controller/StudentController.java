@@ -120,9 +120,9 @@ public class StudentController {
 
     //学生注册内容
     @RequestMapping("/register")
-    public String register(Students students, @DateTimeFormat(pattern="yyyy-MM-dd") Date time,MultipartFile imgFile, HttpServletRequest req) throws IOException//imgFile要与Student_list上的Imgfile对上
+    public String register(Students students,MultipartFile imgFile, HttpServletRequest req) throws IOException//imgFile要与Student_list上的Imgfile对上
     {
-        System.out.println("成功进入register");
+        System.out.println("成功进入student register");
         //获取USER对象
         User user=userService.selectuser(students.getId());
         //完成上传功能
@@ -139,7 +139,6 @@ public class StudentController {
             //存放图片地址
             user.setImgurl("/uploadFile/"+newFileName);
         }
-        students.setEntertime(time);
         studentsService.register(students,user);
         req.getSession().setAttribute("user",user);
         return "redirect:/admin/main";
