@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,9 +40,22 @@ public class PaperController {
     private IUserPaperService userPaperService;
 
     @RequestMapping("/index")
-    public String index(Model model)
+    public String index(Model model, HttpServletRequest req)
     {
-        List<Paper> papers = paperService.queryAll();
+        List<Paper> papers = null;
+        User user = (User) req.getSession().getAttribute("user");
+        if(user.getIsadmin() == true)
+        {
+            papers = paperService.queryAll();
+        }
+        else{
+            papers = new ArrayList<>();
+            List<UserPaper> userPaperList = userPaperService.selectUPpsById(user.getId());
+            for(int i=0; i<userPaperList.size();i++)
+            {
+                papers.add(paperService.selectPaper(userPaperList.get(i).getPid()));
+            }
+        }
         model.addAttribute("papers", papers);
         return "paper/paper_list";
     }

@@ -83,5 +83,8 @@
   <select id="selectUPps" parameterType="integer" resultMap="BaseResultMap">
     select * from userpaper where pid=#{pid}
   </select>
+  <select id="selectUPpsById" parameterType="integer" resultMap="BaseResultMap">
+    select * from userpaper where id=#{id}
+  </select>
 
 </mapper>

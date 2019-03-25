@@ -20,6 +20,11 @@ public class UserPaperServiceImpl implements IUserPaperService {
     }
 
     @Override
+    public List<UserPaper> selectUPpsById(int id) {
+        return mapper.selectUPpsById(id);
+    }
+
+    @Override
     public void deletepid(UserPaperKey userPaperKey) {
         mapper.deleteByPrimaryKey(userPaperKey);
     }

@@ -20,4 +20,6 @@ public interface UserPaperMapper {
 
     //根据论文号返回所有userpaper项
     List<UserPaper> selectUPps(int pid);
+
+    List<UserPaper> selectUPpsById(int id);
 }
