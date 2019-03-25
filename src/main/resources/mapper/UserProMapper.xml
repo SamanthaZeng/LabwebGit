@@ -90,4 +90,7 @@
   <select id="selectUPs" parameterType="integer" resultMap="BaseResultMap">
     select * from userpro where proid=#{proid}
   </select>
+  <select id="selectUPsById" parameterType="integer" resultMap="BaseResultMap">
+    select * from userpro where id=#{id}
+  </select>
 </mapper>

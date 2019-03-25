@@ -20,4 +20,7 @@ public interface UserProMapper {
 
     //根据项目号返回所有userpro项
     List<UserPro> selectUPs(int proid);
+
+    //根据用户Id返回所有userpro项
+    List<UserPro> selectUPsById(int id);
 }

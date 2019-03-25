@@ -37,12 +37,21 @@ public class ProjectController {
     @Autowired IUserProService userProService;
 
     @RequestMapping("/index")
-    public String index(Model model)
+    public String index(Model model, HttpServletRequest req)
     {
-        List<Project> projects = projectService.queryAll();
-        for(int i=0;i<projects.size();i++)
+        List<Project> projects = null;
+        User user = (User) req.getSession().getAttribute("user");
+        if(user.getIsadmin() == true)
         {
-            System.out.println(projects.get(i).getProname());
+            projects = projectService.queryAll();
+        }
+        else{
+            projects = new ArrayList<>();
+            List<UserPro> userProList = userProService.selectUPsById(user.getId());
+            for(int i=0; i<userProList.size();i++)
+            {
+                projects.add(projectService.selectProject(userProList.get(i).getProid()));
+            }
         }
         model.addAttribute("projects", projects);
         return "/project/project_list";

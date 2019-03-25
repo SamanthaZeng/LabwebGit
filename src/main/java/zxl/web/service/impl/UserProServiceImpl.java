@@ -20,6 +20,11 @@ public class UserProServiceImpl implements IUserProService {
     }
 
     @Override
+    public List<UserPro> selectUPsById(int id) {
+        return mapper.selectUPsById(id);
+    }
+
+    @Override
     public void deleteproid(UserProKey userProKey) {
         mapper.deleteByPrimaryKey(userProKey);
     }

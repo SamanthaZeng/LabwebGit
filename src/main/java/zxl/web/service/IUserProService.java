@@ -9,6 +9,9 @@ public interface IUserProService {
     //返回所有userpro项
     public List<UserPro> selectUPs(int proid);
 
+    /*获取所有该id的USERPAPER项*/
+    public List<UserPro> selectUPsById(int id);
+
     //删除所有proid=#{proid}
     public void deleteproid(UserProKey userProKey);
 
