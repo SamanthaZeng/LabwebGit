@@ -52,7 +52,6 @@ public class TeacherController {
         User user = (User)req.getSession().getAttribute("user");
         userService.register(user);
         teacher.setId(user.getId());
-        System.out.println(teacher);
         //完成上传功能
         if(imgFile !=null){
             //获取文件夹路径

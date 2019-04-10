@@ -169,7 +169,7 @@
                     <div class="col-xs-12">
                     <!--学生表单 -->
 
-                    <form class="form-horizontal" method="post" action="/student/register" enctype="multipart/form-data"  accept-charset="UTF-8">
+                    <form id="studentForm" class="form-horizontal" method="post" action="/student/register" enctype="multipart/form-data"  accept-charset="UTF-8">
                         <!--新增点击过来，没有id，修改点过来有id-->
                         <input type="hidden" name="id" value="${user.id}"/>
                         <div class="form-group">
@@ -221,7 +221,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right">入学时间</label>
                             <div class="col-sm-9">
-                                <input   class="col-xs-10 col-sm-5"  type="text" name="entertime" class="form-control date-picker " placeholder="入学时间  YYYY-MM-DD" />
+                                <input type="text" name="entertime" id="entertime" class="col-xs-10 col-sm-5 date-picker " placeholder="默认为今天日期" />
                             </div>
                         </div>
 
@@ -298,6 +298,14 @@
 <script type="text/javascript">
     jQuery(function($) {
 
+        $("#studentForm").on("submit", function () {
+            if($("#entertime").val() === "")
+            {
+                var date = new Date();
+                $("#entertime").val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay())
+            }
+        })
+
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式
             autoclose: true,
@@ -342,7 +350,6 @@
             if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
             else $('#form-field-select-4').removeClass('tag-input-style');
         });
-
 
         $('[data-rel=tooltip]').tooltip({container:'body'});
         $('[data-rel=popover]').popover({container:'body'});

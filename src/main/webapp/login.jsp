@@ -221,9 +221,9 @@
 														<label class="radio-inline">
 															<input type="radio" name="usertype" id="student" value="1">学生
 														</label>
-														<label class="radio-inline">
-															<input type="radio" name="usertype" id="coop" value="2">合作伙伴
-														</label>
+														<%--<label class="radio-inline">--%>
+															<%--<input type="radio" name="usertype" id="coop" value="2">合作伙伴--%>
+														<%--</label>--%>
 													</div>
 
 													<label>

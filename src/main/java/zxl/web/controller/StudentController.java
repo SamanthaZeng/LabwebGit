@@ -122,9 +122,9 @@ public class StudentController {
     @RequestMapping("/register")
     public String register(Students students,MultipartFile imgFile, HttpServletRequest req) throws IOException//imgFile要与Student_list上的Imgfile对上
     {
-        System.out.println("成功进入student register");
         //获取USER对象
-        User user=userService.selectuser(students.getId());
+        User user = (User)req.getSession().getAttribute("user");userService.register(user);
+        students.setId(user.getId());
         //完成上传功能
         if(imgFile !=null){
             //获取文件夹路径
@@ -140,7 +140,7 @@ public class StudentController {
             user.setImgurl("/uploadFile/"+newFileName);
         }
         studentsService.register(students,user);
-        req.getSession().setAttribute("user",user);
+        req.getSession().setAttribute("user",userService.selectuser(user.getId()));
         return "redirect:/admin/main";
     }
 }
