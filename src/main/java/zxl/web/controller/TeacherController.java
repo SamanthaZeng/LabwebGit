@@ -44,23 +44,15 @@ public class TeacherController {
         // System.out.println(lists)
         return "teacher/teacher_list";
     }
-    @RequestMapping("/edit")
-    public String edit(Teacher teacher,Model model){
-        //根据stu里面的id 查询数据 放到页面进行回显操作
-        Teacher testTeacher = new Teacher();
-        testTeacher.setId(10086);
-        testTeacher.setTid(5);
-        testTeacher.setTmail("test@qq.com");
-        model.addAttribute("teacher",teacher);
-        User testUser = new User();
-        return "teacher/teacher_input";
-    }
     /*教师注册*/
     @RequestMapping("/register")
     public String register(Teacher teacher, MultipartFile imgFile, HttpServletRequest req) throws IOException{
       //  System.out.println("teacher-registration succeed!");
         //获取USER对象
-        User user=userService.selectuser(teacher.getId());
+        User user = (User)req.getSession().getAttribute("user");
+        userService.register(user);
+        teacher.setId(user.getId());
+        System.out.println(teacher);
         //完成上传功能
         if(imgFile !=null){
             //获取文件夹路径
@@ -72,8 +64,8 @@ public class TeacherController {
             File file=new File(path,newFileName);
             //把imgFile写到file里
             org.apache.commons.io.IOUtils.copy(imgFile.getInputStream(),new FileOutputStream(file));
-            //存放图片地址
             user.setImgurl("/uploadFile/"+newFileName);
+            //存放图片地址
         }
         teacherService.register(teacher,user);
         req.getSession().setAttribute("user",userService.selectuser(user.getId()));  //注册完成后会有tid的更新，在之后要用到，所以需要重新载入这个user

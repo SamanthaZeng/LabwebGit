@@ -33,10 +33,10 @@ public class UserController {
 
     //WEB-INF/login.jsp
     @RequestMapping("/register")
-    public String register(User user, Model model)
+    public String register(User user, Model model, HttpServletRequest req)
     {
-        userService.register(user);
-        model.addAttribute("user",user);
+        req.getSession().setAttribute("user", user);
+        System.out.println(user);
         int usertype = user.getUsertype();
         if(usertype==0)
             return "teacher/register";

@@ -24,6 +24,10 @@ public class User {
 
     private Integer usertype;
 
+    private String realname;
+
+    private String engname;
+
     private Date birthday;
 
     public Integer getId() {
@@ -105,6 +109,14 @@ public class User {
     public void setUsertype(Integer usertype) {
         this.usertype = usertype;
     }
+
+    public String getRealname() { return realname; }
+
+    public void setRealname(String realname) { this.realname = realname; }
+
+    public String getEngname() { return engname; }
+
+    public void setEngname(String engname) { this.engname = engname; }
 
     @Override
     public String toString() {

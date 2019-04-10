@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LabWeb_SSM:war for origin archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/LabWeb_SSM_war_for_origin_archive</output-path>
+    <root id="archive" name="LabWeb_SSM_war for origin archive.war">
+      <element id="artifact" artifact-name="LabWeb_SSM:war for origin" />
+    </root>
+  </artifact>
+</component>

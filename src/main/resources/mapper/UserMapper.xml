@@ -13,9 +13,11 @@
     <result column="isadmin" jdbcType="BIT" property="isadmin" />
     <result column="usertype" jdbcType="INTEGER" property="usertype" />
     <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="realname" jdbcType="VARCHAR" property="username" />
+    <result column="engname" jdbcType="VARCHAR" property="username" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, tid, cid, sid, username, pwd, sex, imgurl, isadmin, usertype, birthday
+    id, tid, cid, sid, username, pwd, sex, imgurl, isadmin, usertype, birthday, realname, engname
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -31,11 +33,11 @@
     insert into user (id, tid, cid, 
       sid, username, pwd, 
       sex, imgurl, isadmin, usertype, 
-      birthday)
+      birthday, realname, engname)
     values (#{id,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
       #{sid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{imgurl,jdbcType=VARCHAR}, #{isadmin,jdbcType=BIT}, #{usertype,jdbcType=INTEGER}, 
-      #{birthday,jdbcType=DATE})
+      #{birthday,jdbcType=DATE}, #{realname,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="zxl.web.domain.User">
     insert into user
@@ -73,6 +75,12 @@
       <if test="birthday != null">
         birthday,
       </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="engname != null">
+        engname,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -107,6 +115,12 @@
       </if>
       <if test="birthday != null">
         #{birthday,jdbcType=DATE},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null">
+        #{engname,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -143,6 +157,12 @@
       <if test="birthday != null">
         birthday = #{birthday,jdbcType=DATE},
       </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null">
+        engname = #{engname,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -158,17 +178,19 @@
       isadmin = #{isadmin,jdbcType=BIT},
       usertype = #{usertype,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE}
+      realname = #{username,jdbcType=VARCHAR},
+      engname = #{username,jdbcType=VARCHAR},
     where id = #{id,jdbcType=INTEGER}
   </update>
 
   <!--注册方法-->
   <insert id="register" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-    insert into user(username,pwd,sex,isadmin,usertype,birthday) values(#{username},#{pwd},#{sex},#{isadmin},#{usertype},#{birthday});
+    insert into user(username,pwd,sex,isadmin,usertype,birthday,realname,engname) values(#{username},#{pwd},#{sex},#{isadmin},#{usertype},#{birthday},#{realname},#{engname});
   </insert>
 
   <!--登陆方法-->
   <select id="login" parameterType="User" resultType="User" >
-    select id,tid,cid,sid,username,pwd,sex,imgurl,isadmin,usertype,birthday from user where username=#{username} and pwd=#{pwd}
+    select * from user where username=#{username} and pwd=#{pwd}
   </select>
 
   <!--返回所有教师用户-->
