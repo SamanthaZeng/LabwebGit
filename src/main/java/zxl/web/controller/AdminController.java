@@ -100,6 +100,7 @@ public class AdminController {
         user.setBirthday(new java.sql.Date(sdf.parse(req.getParameter("birthday")).getTime()));
         //sex
         user.setSex(Integer.parseInt(req.getParameter("sex")));
+        user.setRealname(req.getParameter("realname"));
         //imgfile
         if(imgFile !=null && imgFile.getSize()!=0){
             //获取文件夹路径

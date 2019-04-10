@@ -13,8 +13,8 @@
     <result column="isadmin" jdbcType="BIT" property="isadmin" />
     <result column="usertype" jdbcType="INTEGER" property="usertype" />
     <result column="birthday" jdbcType="DATE" property="birthday" />
-    <result column="realname" jdbcType="VARCHAR" property="username" />
-    <result column="engname" jdbcType="VARCHAR" property="username" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="engname" jdbcType="VARCHAR" property="engname" />
   </resultMap>
   <sql id="Base_Column_List">
     id, tid, cid, sid, username, pwd, sex, imgurl, isadmin, usertype, birthday, realname, engname
@@ -178,8 +178,8 @@
       isadmin = #{isadmin,jdbcType=BIT},
       usertype = #{usertype,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE}
-      realname = #{username,jdbcType=VARCHAR},
-      engname = #{username,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      engname = #{engname,jdbcType=VARCHAR},
     where id = #{id,jdbcType=INTEGER}
   </update>
 

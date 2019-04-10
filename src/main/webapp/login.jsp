@@ -178,7 +178,12 @@
 															<i class="icon-user"></i>
 														</span>
 													</label>
-
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" name="realname" class="form-control" placeholder="真实姓名" />
+															<i class="icon-user"></i>
+														</span>
+													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="password" name="pwd" id="pwd" class="form-control" placeholder="密码" />

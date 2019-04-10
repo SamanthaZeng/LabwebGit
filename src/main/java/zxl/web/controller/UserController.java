@@ -57,9 +57,8 @@ public class UserController {
     {
         System.out.println("user-login success");
         User newuser=userService.login(user);
-        System.out.println(newuser.toString());
         if(newuser!=null){
-            //把信息存入session里面 页面
+            //把信息存入session里面
             System.out.println("newuser is not null");
             request.getSession().setAttribute("user",newuser);
             if(newuser.getUsertype()==0)//老师

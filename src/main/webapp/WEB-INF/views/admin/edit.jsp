@@ -327,10 +327,18 @@
                             <input type="hidden" name="usertype" value="${userForEdit.usertype}"/>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 用户名 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="username" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
+                                    <input type="text" name="username" id="username" disabled="disabled" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 真实姓名 </label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" name="realname" id="form-field-1" placeholder="真实姓名" class="col-xs-10 col-sm-5" value="${userForEdit.realname}"/>
                                 </div>
                             </div>
 
