@@ -427,7 +427,7 @@
                                     <div class="select-item">
                                         <select multiple="multiple" id="author">
                                             <c:forEach items="${users}" var="user">
-                                                <option value="${user.id}"  >${user.username}</option>
+                                                <option value="${user.id}"  >${user.username}/${user.realname}</option>
                                             </c:forEach>
                                         </select>
                                     </div>

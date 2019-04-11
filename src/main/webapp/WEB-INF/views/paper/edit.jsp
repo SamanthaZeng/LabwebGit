@@ -339,7 +339,7 @@
                     <div class="col-xs-12">
                         <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" id="paperForm" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <div class="col-xs-6">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
@@ -393,7 +393,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
+                                    <input type="text" id="publictime" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
                                 </div>
                             </div>
 
@@ -434,7 +434,7 @@
                                     <div class="select-item">
                                         <select multiple="multiple" id="author">
                                             <c:forEach items="${users}" var="user">
-                                                <option value="${user.id}"  >${user.username}</option>
+                                                <option value="${user.id}"  >${user.username}/${user.realname}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -564,6 +564,13 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        $("#paperForm").on("submit", function () {
+            if($("#publictime").val() === "")
+            {
+                var date = new Date();
+                $("#publictime").val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay())
+            }
+        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")

@@ -140,7 +140,7 @@ public class PaperController {
             }
             UserPaper author=new UserPaper();
             author.setPid(pid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     author.setId(Integer.valueOf(authors[i]));
                     author.setAuthornumber(i);
@@ -150,7 +150,7 @@ public class PaperController {
         }else{//添加
             UserPaper author=new UserPaper();
             author.setPid(pid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     author.setId(Integer.valueOf(authors[i]));
                     author.setAuthornumber(i);
