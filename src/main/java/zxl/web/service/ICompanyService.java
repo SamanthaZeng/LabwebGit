@@ -8,4 +8,10 @@ public interface ICompanyService {
 
     public List<Company> queryAll();
 
+    public Company selectCompany(int coid);
+
+    public void insert(Company company);
+
+    public void update(Company company);
+
 }

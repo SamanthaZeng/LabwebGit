@@ -141,7 +141,7 @@
                 <li class="studentHidden">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-user"></i>
-                        <span class="menu-text" class="active open">人员管理</span>
+                        <span class="menu-text">人员管理</span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>
@@ -153,7 +153,7 @@
                             </a>
                         </li>
 
-                        <li class="studentHidden">
+                        <li>
                             <a href="/student/index">
                                 <i class="icon-double-angle-right"></i>
                                 学生管理
@@ -167,7 +167,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="teacherHidden">
+                <li class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-building"></i>
                         <span class="menu-text"> 合作企业管理 </span>
@@ -175,7 +175,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li>
+                        <li class="active open">
                             <a href="/book/index">
                                 <i class="icon-double-angle-right"></i>
                                 企业列表
@@ -199,7 +199,7 @@
                         </li>
                     </ul>
                 </li>
-                <li  class="active open">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 项目管理</span>
@@ -207,7 +207,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li class="active open">
+                        <li>
                             <a href="/project/index">
                                 <i class="icon-double-angle-right"></i>
                                 项目列表
@@ -215,7 +215,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="studentHidden">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 课程管理 </span>
@@ -231,7 +231,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="studentHidden">
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
                         <span class="menu-text"> 著作管理 </span>
@@ -274,9 +274,9 @@
                     </li>
 
                     <li>
-                        <a href="#">论文管理</a>
+                        <a href="#">合作企业管理</a>
                     </li>
-                    <li class="active">论文列表</li>
+                    <li class="active">企业列表</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -302,7 +302,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/project/add">
+                                    <a href="/company/add/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
@@ -340,18 +340,16 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>项目标号</th>
-                                            <th>项目名称</th>
-                                            <th>项目类型</th>
-                                            <th>项目级别</th>
-                                            <th class="hidden-480">项目资金</th>
-                                            <th class="hidden-480">概述</th>
+                                            <th>企业编号</th>
+                                            <th>企业名称</th>
+                                            <th>企业类型</th>
+                                            <th>Logo</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        <c:forEach items="${projects}" var="project">
+                                        <c:forEach items="${companyList}" var="company">
                                             <tr>
                                                 <td class="center">
                                                     <label>
@@ -359,12 +357,14 @@
                                                         <span class="lbl"></span>
                                                     </label>
                                                 </td>
-                                                <td>${project.proid}</td>
-                                                <td>${project.proname}</td>
-                                                <td>${project.protype}</td>
-                                                <td>${project.prorank}</td>
-                                                <td class="hidden-480">${project.funding}</td>
-                                                <td class="hidden-480">${project.proabstract}</td>
+                                                <td>${company.coid}</td>
+                                                <td>${company.coname}</td>
+                                                <td>${company.cotype}</td>
+                                                <td><span >
+
+																<img style="width:60px;height:60px;"  src="${company.logourl}" />
+                                                    <!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
+															</span></td>
 
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -373,11 +373,11 @@
                                                         </a>
                                                         </a>
 
-                                                        <a class="green" href="/project/edit?proid=${project.proid}" title="edit">
+                                                        <a class="green" href="/company/edit?coid=${company.coid}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/project/delete?proid=${project.proid}" title="delete">
+                                                        <a class="red" href="/company/delete?coid=${company.coid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
@@ -482,16 +482,11 @@
             {
                 $(".teacherHidden").css("display", "none");
             }
-            if("${user.usertype}" == "1")
-            {
-                $(".teacherHidden").css("display", "none");
-                $(".studentHidden").css("display", "none");
-            }
         }
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },
-                null, null,null, null, null,null,
+                null, null,null, null,
                 { "bSortable": false }
             ],
             "iDisplayLength": 5,
@@ -555,7 +550,7 @@
                 alert("请选中一行数据");
             }else{
                 //调用controller层中写的方法
-                location.href="/project/delete?proid="+id;
+                location.href="/book/delete?bid="+id;
             }
         } );
 
@@ -572,7 +567,7 @@
             if(id == 0){
                 alert("请选中一行数据");
             }else{
-                location.href="/project/project?proid="+id;
+                location.href="/company/edit?coid="+id;
             }
         } );
 

@@ -167,6 +167,22 @@
                         </li>
                     </ul>
                 </li>
+                <li class="teacherHidden">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-building"></i>
+                        <span class="menu-text"> 合作企业管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/book/index">
+                                <i class="icon-double-angle-right"></i>
+                                企业列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="active open">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>

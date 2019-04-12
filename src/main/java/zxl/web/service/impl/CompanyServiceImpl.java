@@ -16,4 +16,19 @@ public class CompanyServiceImpl implements ICompanyService {
     public List<Company> queryAll() {
         return mapper.queryAll();
     }
+
+    @Override
+    public Company selectCompany(int coid) {
+        return mapper.selectByPrimaryKey(coid);
+    }
+
+    @Override
+    public void insert(Company company) {
+        mapper.insertSelective(company);
+    }
+
+    @Override
+    public void update(Company company) {
+        mapper.updateByPrimaryKeySelective(company);
+    }
 }
