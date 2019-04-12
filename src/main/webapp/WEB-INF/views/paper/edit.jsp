@@ -242,7 +242,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/book/index">
+                            <a href="/company/index">
                                 <i class="icon-double-angle-right"></i>
                                 企业列表
                             </a>

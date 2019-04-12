@@ -57,6 +57,10 @@
             <mvc:mapping path="/book/delete"/>
             <bean class="zxl.web.interceptor.CourseBookInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/company/*"/>
+            <bean class="zxl.web.interceptor.CompanyInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 视图解析器配置 -->

@@ -176,7 +176,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="active open">
-                            <a href="/book/index">
+                            <a href="/company/index">
                                 <i class="icon-double-angle-right"></i>
                                 企业列表
                             </a>
@@ -359,7 +359,25 @@
                                                 </td>
                                                 <td>${company.coid}</td>
                                                 <td>${company.coname}</td>
-                                                <td>${company.cotype}</td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${company.cotype == -1}">
+                                                            其他
+                                                        </c:when>
+                                                        <c:when test="${company.cotype == 0}">
+                                                            互联网公司
+                                                        </c:when>
+                                                        <c:when test="${company.cotype == 1}">
+                                                            金融公司
+                                                        </c:when>
+                                                        <c:when test="${company.cotype == 2}">
+                                                            教育类公司
+                                                        </c:when>
+                                                        <c:when test="${company.cotype == 3}">
+                                                            自媒体公司
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
                                                 <td><span >
 
 																<img style="width:60px;height:60px;"  src="${company.logourl}" />
