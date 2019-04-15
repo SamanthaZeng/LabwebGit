@@ -38,6 +38,8 @@ public class PeopleManageInterceptor implements HandlerInterceptor {
                 try
                 {
                     int userForEditId = Integer.parseInt(req.getParameter("id"));
+                    if(userForEditId == -1) // 不拦截自己
+                        return true;
                     if(user.getUsertype()==0 && userService.selectuser(userForEditId).getUsertype() == 1)
                     {
                         return true;

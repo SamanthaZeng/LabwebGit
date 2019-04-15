@@ -66,7 +66,16 @@ public class AdminController {
 
     @RequestMapping("/edit")
     public String edit(HttpServletRequest req, Model model){
-        User user = userService.selectuser(Integer.parseInt(req.getParameter("id")));
+        int id = Integer.parseInt(req.getParameter("id"));
+        User user;
+        if(id == -1)
+        {
+            user = userService.selectuser(((User)req.getSession().getAttribute("user")).getId());
+        }
+        else
+        {
+            user = userService.selectuser(id);
+        }
         model.addAttribute("userForEdit", user);
         List<Researcharea> researchareaList = researchareaService.queryAll();
         model.addAttribute("researchareaList", researchareaList);
