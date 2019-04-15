@@ -372,10 +372,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 生日</label>
+                                <label class="col-sm-3 control-label no-padding-right" for="birthday"> 生日</label>
 
                                 <div class="col-sm-9">
-                                    <input type="date" name="birthday" id="form-field-3" class="col-xs-10 col-sm-5" value="${userForEdit.birthday}"/>
+                                    <input type="text" name="birthday" id="birthday"
+                                           class="col-xs-10 col-sm-5 date-picker " placeholder="默认为今天日期"
+                                           value="${userForEdit.birthday}"/>
                                 </div>
                             </div>
 
@@ -536,10 +538,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-8"> 入学时间 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="entertime"> 入学时间 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="date" name="entertime" id="form-field-8" class="col-xs-10 col-sm-5" value="${student.entertime}"/>
+                                        <input type="text" name="entertime" id="entertime" class="col-xs-10 col-sm-5 date-picker " placeholder="默认为今天日期" value="${student.entertime}"/>
                                     </div>
                                 </div>
 
@@ -700,6 +702,16 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        if($("#entertime").val() === "")
+        {
+            var date = new Date();
+            $("#entertime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
+        }
+        if($("#birthday").val() === "")
+        {
+            var date = new Date();
+            $("#birthday").val((date.getFullYear() - 18) + '-' + (date.getMonth() + 1) + '-' + date.getDate())
+        }
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")

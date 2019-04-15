@@ -42,12 +42,6 @@ public class UserController {
             return "teacher/register";
         if(usertype==1)
             return "student/register";
-        if(usertype==2)
-        {
-            List<Company> companies = companyService.queryAll();
-            model.addAttribute("companies",companies);
-            return "cooperator/register";
-        }
         else
             return "redirect:/login.jsp";
     }

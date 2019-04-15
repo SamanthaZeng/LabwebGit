@@ -114,6 +114,12 @@ public class AdminController {
             user.setImgurl("/uploadFile/"+newFileName);
         }
         user.setId(Integer.parseInt(req.getParameter("id")));
+        if(user.getId() != -1)
+        {
+            User oldUser = userService.selectuser(user.getId());
+            user.setIsadmin(oldUser.getIsadmin());
+            user.setImgurl(oldUser.getImgurl());
+        }
         user.setUsertype(Integer.parseInt(req.getParameter("usertype")));
         //researchArea
         String researchArea[] = req.getParameterValues("userResearchArea");

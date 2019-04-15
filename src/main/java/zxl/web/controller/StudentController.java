@@ -48,74 +48,7 @@ public class StudentController {
         //WEB-INF/views/student/index.jsp
         List<Students>students=studentsService.queryAll();
         model.addAttribute("students",students);//存到model里面，页面可以取出来
-       // System.out.println(lists);
         return "student/student_list";
-    }
-
-    @RequestMapping("/delete")
-    public String delete(Student stu){
-
-        studentService.delete(stu);
-        //调用service层的删除方法把数据删除
-        return "redirect:/student/index";
-   }
-
-   //新增跳转方法--保存数据
-   @RequestMapping("/add")
-    public String add(Model model){
-        List<Classes>lists=classesService.queryAll();
-        System.out.println(lists);
-        model.addAttribute("classes",lists);
-        System.out.println("add successful");
-        return "student/student_input";
-   }
-
-   //保存数据方法
-    @RequestMapping("/save")
-   public String save(Student student, MultipartFile imgFile, HttpServletRequest req,Model model) throws IOException//imgFile要与Student_list上的Imgfile对上
-    {
-        System.out.println("成功进入save");
-        //完成上传功能
-        if(imgFile !=null){
-            //获取文件夹路径
-           //String path=req.getSession().getServletContext().getRealPath("/uploadFile");
-            String path = req.getServletContext().getRealPath("/uploadFile");
-            //System.out.println(path);
-            //文件名称UID解决文件名称问题
-            String filename=imgFile.getOriginalFilename();
-            //System.out.println(filename);
-            String newFileName=UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
-            //System.out.println(newFileName);
-            //先构造一个文件出来
-            File file=new File(path,newFileName);
-            //把imgFile写到file里
-            org.apache.commons.io.IOUtils.copy(imgFile.getInputStream(),new FileOutputStream(file));
-            //存放图片地址
-            student.setImgUrl("/uploadFile/"+newFileName);
-        }
-        if(student!=null && student.getId()!=null&&!"".equals(student.getId())){
-            studentService.update(student);
-        }else{
-            //把数据保存到数据
-            studentService.save(student);
-        }
-        return "redirect:/student/index";
-    }
-
-    //修改数据方法---跳转方法---把修改数据显示到页面
-
-    //登陆方法
-    @RequestMapping("/login")
-    public String login(Student student,HttpServletRequest request){
-        Student currentStu=studentService.login(student);
-        if(currentStu!=null){
-            //把信息存入session里面 页面
-            request.getSession().setAttribute("currentStu",currentStu);
-            System.out.println(request.getSession().getAttributeNames());
-            return "redirect:/admin/main";
-        }
-        //返回登陆页面
-        return "redirect:/login.jsp";
     }
 
     //学生注册内容
@@ -123,7 +56,8 @@ public class StudentController {
     public String register(Students students,MultipartFile imgFile, HttpServletRequest req) throws IOException//imgFile要与Student_list上的Imgfile对上
     {
         //获取USER对象
-        User user = (User)req.getSession().getAttribute("user");userService.register(user);
+        User user = (User)req.getSession().getAttribute("user");
+        userService.register(user);
         students.setId(user.getId());
         //完成上传功能
         if(imgFile !=null){

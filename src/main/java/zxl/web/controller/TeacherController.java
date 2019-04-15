@@ -31,23 +31,13 @@ public class TeacherController {
     @RequestMapping("/index")
     public String index(Model model)
     {
-        //WEB-INF/views/student/index.jsp
-        System.out.println("获取教师数据");
        List<Teacher>teachers=teacherService.queryAll();
-       for(int i=0;i<teachers.size();i++)
-       {
-           System.out.println(teachers.get(i).toString());
-           System.out.println(teachers.get(i).getUser().getUsername());
-       }
        model.addAttribute("teachers",teachers);//存到model里面，页面可以取出来
-//        model.addAttribute("students",lists);//存到model里面，页面可以取出来
-        // System.out.println(lists)
         return "teacher/teacher_list";
     }
     /*教师注册*/
     @RequestMapping("/register")
     public String register(Teacher teacher, MultipartFile imgFile, HttpServletRequest req) throws IOException{
-      //  System.out.println("teacher-registration succeed!");
         //获取USER对象
         User user = (User)req.getSession().getAttribute("user");
         userService.register(user);

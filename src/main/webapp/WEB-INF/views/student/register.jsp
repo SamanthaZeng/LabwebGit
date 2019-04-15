@@ -302,8 +302,7 @@
             if($("#entertime").val() === "")
             {
                 var date = new Date();
-                $("#entertime").val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay())
-            }
+                $("#entertime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())            }
         })
 
         $(".date-picker").datepicker({
