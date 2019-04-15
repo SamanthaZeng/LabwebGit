@@ -99,9 +99,9 @@
                     </li>
 
                     <li>
-                        <a href="#">合作企业管理</a>
+                        <a href="#">研究方向管理</a>
                     </li>
-                    <li class="active">企业列表</li>
+                    <li><a href="#">研究方向列表</a></li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

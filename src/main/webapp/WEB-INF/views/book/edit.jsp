@@ -170,7 +170,9 @@
                     <li>
                         <a href="/book/index">著作管理</a>
                     </li>
-                    <li class="active">编辑著作</li>
+                    <li>
+                        <a>编辑著作</a>
+                    </li>
                 </ul><!-- .breadcrumb -->
             </div>
 

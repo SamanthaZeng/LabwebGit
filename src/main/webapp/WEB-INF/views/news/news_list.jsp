@@ -99,9 +99,9 @@
                     </li>
 
                     <li>
-                        <a href="#">著作管理</a>
+                        <a href="#">新闻管理</a>
                     </li>
-                    <li class="active">著作列表</li>
+                    <li class="active">新闻列表</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

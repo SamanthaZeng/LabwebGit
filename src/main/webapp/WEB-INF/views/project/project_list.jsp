@@ -101,7 +101,11 @@
                     <li>
                         <a href="#">项目管理</a>
                     </li>
-                    <li class="active">项目列表</li>
+                    <li>
+                        <a>
+                            项目列表
+                        </a>
+                    </li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

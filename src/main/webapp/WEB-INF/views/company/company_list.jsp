@@ -101,7 +101,7 @@
                     <li>
                         <a href="#">合作企业管理</a>
                     </li>
-                    <li class="active">企业列表</li>
+                    <li><a href="#">合作企业列表</a></li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

@@ -162,7 +162,7 @@
                     <div class="col-xs-12">
                         <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" id="userForm" method="post" action="/admin/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="id" value="${userForEdit.id}"/>
                             <!--根据不同的用户类型，显示不同的表单页面-->
@@ -177,28 +177,28 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 真实姓名 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="realname"> 真实姓名 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="realname" id="form-field-1" placeholder="真实姓名" class="col-xs-10 col-sm-5" value="${userForEdit.realname}"/>
+                                    <input type="text" name="realname" id="realname" placeholder="真实姓名" class="col-xs-10 col-sm-5" value="${userForEdit.realname}"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 英文名 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="engname"> 英文名 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="engname" id="form-field-3" placeholder="英文名" class="col-xs-10 col-sm-5" value="${userForEdit.engname}"/>
+                                    <input type="text" name="engname" id="engname" placeholder="英文名" class="col-xs-10 col-sm-5" value="${userForEdit.engname}"/>
                                 </div>
                             </div>
 
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 密码 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="password"> 密码 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="password" name="pwd" value="${userForEdit.pwd}" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+                                    <input type="password" name="pwd" value="${userForEdit.pwd}" id="password" placeholder="Password" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                                 <label class="col-sm-3 control-label no-padding-right">性别</label>
                                 <div class="col-sm-9">
 
-                                    <div class="radio" id="radio_sex">
+                                    <div class="radio" id="radio_sex" >
                                         <label>
                                             <input  type="radio" class="ace" name="sex" value=0 <c:if test="${0 == userForEdit.sex}">checked</c:if>/>
                                             <span class="lbl"> 男</span>
@@ -387,11 +387,9 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
                                     <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" value="${cooperator.coid}">
-                                            <option value="-1">-----------请选择任职单位----------</option>
+                                        <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" placeholder="请选择任职单位" value="${cooperator.coid}">
                                             <c:forEach items="${companies}" var="com">
                                                 <option value="${com.coid}">${com.coname}</option>
-
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -532,7 +530,23 @@
 
 <script type="text/javascript">
     jQuery(function($) {
-        alert(${companies.size()})
+        $("#userForm").on("submit", function () {
+            if($("#username").val() == "" || $("#realname").val() == "" || $("#engname").val() == "")
+            {
+                alert("姓名填写不完整")
+                return false
+            }
+            if($("#password").val() == "")
+            {
+                alert("请填写密码")
+                return false
+            }
+            if($("#radio_sex").val() == "")
+            {
+                alert("性别未选中")
+                return false
+            }
+        })
         if($("#entertime").val() === "")
         {
             var date = new Date();

@@ -101,7 +101,9 @@
                     <li>
                         <a href="#">课程管理</a>
                     </li>
-                    <li class="active">课程列表</li>
+                    <li>
+                        <a>课程列表</a>
+                    </li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

@@ -165,10 +165,10 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">课程管理</a>
+                        <a href="">新闻管理</a>
                     </li>
                     <li>
-                        <a href="">课程信息编辑</a>
+                        <a href="">新闻列表</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
