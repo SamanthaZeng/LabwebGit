@@ -31,4 +31,9 @@ public class CompanyServiceImpl implements ICompanyService {
     public void update(Company company) {
         mapper.updateByPrimaryKeySelective(company);
     }
+
+    @Override
+    public void delete(int coid) {
+        mapper.deleteByPrimaryKey(coid);
+    }
 }

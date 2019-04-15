@@ -29,6 +29,14 @@ public class CompanyController {
         return "company/edit";
     }
 
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int coid = Integer.parseInt(req.getParameter("coid"));
+        companyService.delete(coid);
+        return "redirect:/company/index";
+    }
+
     @RequestMapping("/edit")
     public String edit(Model model, HttpServletRequest req)
     {

@@ -14,4 +14,5 @@ public interface ICompanyService {
 
     public void update(Company company);
 
+    public void delete(int coid);
 }
