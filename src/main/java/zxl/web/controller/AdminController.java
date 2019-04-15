@@ -47,8 +47,12 @@ public class AdminController {
         if(type != 0 && type != 1 && type != 2)
             return "redirect:/admin/main";
         User userForEdit = new User();
-        userService.register(userForEdit);
+        userForEdit.setId(-1);
         userForEdit.setUsertype(type);
+        System.out.println(userForEdit);
+        List<Researcharea> researchareaList = researchareaService.queryAll();
+        model.addAttribute("researchareaList", researchareaList);
+        model.addAttribute("associations", null);
         model.addAttribute("userForEdit", userForEdit);
         return "admin/edit";
     }
@@ -95,7 +99,6 @@ public class AdminController {
         //sex
         user.setSex(Integer.parseInt(req.getParameter("sex")));
         user.setRealname(req.getParameter("realname"));
-
         //imgfile
         if(imgFile !=null && imgFile.getSize()!=0){
             //获取文件夹路径
@@ -136,6 +139,8 @@ public class AdminController {
             teacher.setTrank(Integer.parseInt(req.getParameter("trank")));
             if(req.getParameter("tid").equals(""))
             {
+                user.setId(null);
+                userService.register(user);
                 teacher.setId(user.getId());
                 teacherService.register(teacher, user);
             }
@@ -156,6 +161,8 @@ public class AdminController {
                 student.setEntertime(new java.sql.Date(sdf.parse(req.getParameter("entertime")).getTime()));
                 if(req.getParameter("sid").equals(""))
                 {
+                    user.setId(null);
+                    userService.register(user);
                     student.setId(user.getId());
                     studentsService.register(student, user);
                 }
@@ -174,6 +181,8 @@ public class AdminController {
                     cooperator.setCduty(req.getParameter("cduty"));
                     if(req.getParameter("cid").equals(""))
                     {
+                        user.setId(null);
+                        userService.register(user);
                         cooperator.setId(user.getId());
                         cooperatorService.register(cooperator, user);
                     }

@@ -348,7 +348,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 用户名 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="username" id="username" disabled="disabled" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
+                                    <input type="text" name="username" id="username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
                                 </div>
                             </div>
 
@@ -406,27 +406,27 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>
-                                <div class="col-sm-9">
-                                    <select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">
-                                        <c:forEach items="${researchareaList}" var="researchArea">
-                                            <c:if test="${associations==null}">
-                                                <option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>
-                                            </c:if>
-                                            <c:if test="${associations!=null}">
-                                                <c:if test="${AdminController.ifInPid(associations, researchArea.rid) == true}">
-                                                    <option class="researchareaAssociation" selected="selected" value="${researchArea.rid}">${researchArea.rname}</option>
-                                                </c:if>
-                                                <c:if test="${AdminController.ifInPid(associations, researchArea.rid) == false}">
-                                                    <option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>
-                                                </c:if>
-                                            </c:if>
-                                        </c:forEach>
-                                    </select>
-                                </div>
+                            <%--<div class="form-group">--%>
+                                <%--<label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>--%>
+                                <%--<div class="col-sm-9">--%>
+                                    <%--<select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">--%>
+                                        <%--<c:forEach items="${researchareaList}" var="researchArea">--%>
+                                            <%--<c:if test="${associations==null}">--%>
+                                                <%--<option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>--%>
+                                            <%--</c:if>--%>
+                                            <%--<c:if test="${associations!=null}">--%>
+                                                <%--<c:if test="${AdminController.ifInPid(associations, researchArea.rid) == true}">--%>
+                                                    <%--<option class="researchareaAssociation" selected="selected" value="${researchArea.rid}">${researchArea.rname}</option>--%>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${AdminController.ifInPid(associations, researchArea.rid) == false}">--%>
+                                                    <%--<option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>--%>
+                                                <%--</c:if>--%>
+                                            <%--</c:if>--%>
+                                        <%--</c:forEach>--%>
+                                    <%--</select>--%>
+                                <%--</div>--%>
 
-                                </div>
+                                <%--</div>--%>
 
                             <div class="space-4"></div>
 
@@ -446,6 +446,18 @@
                                 </div>
 
                                 <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" >教师职称</label>
+                                    <div class="col-sm-9">
+                                        <select class="col-xs-10 col-sm-5" id="selectteacher" name="trank" >
+                                            <option value="-1">-----------请选择职称----------</option>
+                                            <option value="0" >讲师</option>
+                                            <option value="1" >助理教授</option>
+                                            <option value="2" >副教授</option>
+                                            <option value="3" >教授</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-5">教师职务</label>
@@ -476,19 +488,6 @@
 
                                     <div class="col-sm-9">
                                         <textarea name="service" style="resize:none;" class="col-sm-5" rows="10" placeholder="社会服务">${teacher.service}</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" >教师职称</label>
-                                    <div class="col-sm-9">
-                                        <select class="col-xs-10 col-sm-5" id="selectteacher" name="trank" >
-                                            <option value="-1">-----------请选择职称----------</option>
-                                            <option value="0" >讲师</option>
-                                            <option value="1" >助理教授</option>
-                                            <option value="2" >副教授</option>
-                                            <option value="3" >教授</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div><!--teacher-->
@@ -1025,6 +1024,10 @@
     });
     /*显示对应拓展表单*/
     function showExpandDiv(usertype) {
+        if(${userForEdit.id} != -1)
+        {
+            $("#username").attr("disabled",true);
+        }
         if(${userForEdit.id} === ${user.id})
         {
             $(".selfManage").addClass("active open");
