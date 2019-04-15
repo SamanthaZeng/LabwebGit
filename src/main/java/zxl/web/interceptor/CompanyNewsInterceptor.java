@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import zxl.web.domain.User;
 
-public class CompanyInterceptor implements HandlerInterceptor {
+public class CompanyNewsInterceptor implements HandlerInterceptor {
 
     private static final String MAIN_URL = "/admin/main";
 
@@ -18,7 +18,10 @@ public class CompanyInterceptor implements HandlerInterceptor {
         User user = (User)session.getAttribute("user");
         // 判断如果没有取到用户信息，就跳转到登陆页面，提示用户进行登陆
         if(user.getIsadmin()==false)
+        {
+            res.sendRedirect(MAIN_URL);
             return false;
+        }
         return true;
     }
 
