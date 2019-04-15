@@ -33,4 +33,11 @@
       </if>
     </trim>
   </insert>
+  <select id="selectByNewsId" parameterType="integer" resultMap="BaseResultMap">
+    select * from usernews where newsid=#{newsid}
+  </select>
+  <delete id="deleteByNewsId" parameterType="integer" >
+    delete from usernews
+    where newsid = #{newsid,jdbcType=INTEGER}
+  </delete>
 </mapper>

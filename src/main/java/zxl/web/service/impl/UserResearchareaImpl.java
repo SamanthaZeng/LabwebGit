@@ -26,7 +26,7 @@ public class UserResearchareaImpl implements IUserResearchareaService {
 
     @Override
     public List<UserResearchKey> selectResearchare(int id) {
-        return mapper.selectResearchare(id);
+        return mapper.selectResearcharea(id);
     }
 
     @Override

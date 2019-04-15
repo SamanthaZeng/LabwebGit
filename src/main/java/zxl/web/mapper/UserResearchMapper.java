@@ -11,7 +11,7 @@ public interface UserResearchMapper {
 
     int insertSelective(UserResearchKey record);
 
-    List<UserResearchKey> selectResearchare(int id);
+    List<UserResearchKey> selectResearcharea(int id);
 
     int deleteById(int id);
 }

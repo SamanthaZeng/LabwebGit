@@ -1,4 +1,4 @@
-<%@ page import="zxl.web.controller.CourseController" %>
+<%@ page import="zxl.web.controller.NewsController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -196,6 +196,26 @@
 
                                 <div class="col-sm-9">
                                     <textarea name="newsdescription" id="newsDescription" style="resize:none;" class="col-sm-5" rows="10" placeholder="新闻内容">${news.newsdescription}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="userNews"> 相关用户 </label>
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="userNews" class="col-xs-10 col-sm-5 chosen-select" id="userNews" data-placeholder="选择相关用户">
+                                        <c:forEach items="${userList}" var="user">
+                                            <c:if test="${associations==null}">
+                                                <option class="newsAssociation" value="${user.id}">${user.username}/${user.realname}</option>
+                                            </c:if>
+                                            <c:if test="${associations!=null}">
+                                                <c:if test="${NewsController.ifInAssociations(associations, user.id) == true}">
+                                                    <option class="newsAssociation" selected="selected" value="${user.id}">${user.username}/${user.realname}</option>
+                                                </c:if>
+                                                <c:if test="${NewsController.ifInAssociations(associations, user.id) == false}">
+                                                    <option class="newsAssociation" value="${user.id}">${user.username}/${user.realname}</option>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
 

@@ -33,7 +33,7 @@
       </if>
     </trim>
   </insert>
-  <select id="selectResearchare" parameterType="integer" resultMap="BaseResultMap">
+  <select id="selectResearcharea" parameterType="integer" resultMap="BaseResultMap">
     select * from userresearch where id=#{id}
   </select>
   <delete id="deleteById" parameterType="integer" >

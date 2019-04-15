@@ -1,4 +1,3 @@
-<%@ page import="java.util.List" %>
 <%@ page import="zxl.web.controller.AdminController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -233,27 +232,26 @@
 
                                 </div>
                             </div>
-                            <%--<div class="form-group">--%>
-                                <%--<label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>--%>
-                                <%--<div class="col-sm-9">--%>
-                                    <%--<select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">--%>
-                                        <%--<c:forEach items="${researchareaList}" var="researchArea">--%>
-                                            <%--<c:if test="${associations==null}">--%>
-                                                <%--<option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>--%>
-                                            <%--</c:if>--%>
-                                            <%--<c:if test="${associations!=null}">--%>
-                                                <%--<c:if test="${AdminController.ifInPid(associations, researchArea.rid) == true}">--%>
-                                                    <%--<option class="researchareaAssociation" selected="selected" value="${researchArea.rid}">${researchArea.rname}</option>--%>
-                                                <%--</c:if>--%>
-                                                <%--<c:if test="${AdminController.ifInPid(associations, researchArea.rid) == false}">--%>
-                                                    <%--<option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>--%>
-                                                <%--</c:if>--%>
-                                            <%--</c:if>--%>
-                                        <%--</c:forEach>--%>
-                                    <%--</select>--%>
-                                <%--</div>--%>
-
-                                <%--</div>--%>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">
+                                        <c:forEach items="${researchareaList}" var="researchArea">
+                                            <c:if test="${associations==null}">
+                                                <option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>
+                                            </c:if>
+                                            <c:if test="${associations!=null}">
+                                                <c:if test="${AdminController.ifInAssociations(associations, researchArea.rid) == true}">
+                                                    <option class="researchareaAssociation" selected="selected" value="${researchArea.rid}">${researchArea.rname}</option>
+                                                </c:if>
+                                                <c:if test="${AdminController.ifInAssociations(associations, researchArea.rid) == false}">
+                                                    <option class="researchareaAssociation" value="${researchArea.rid}">${researchArea.rname}</option>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="space-4"></div>
 

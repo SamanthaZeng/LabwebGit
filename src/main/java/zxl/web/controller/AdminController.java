@@ -127,7 +127,6 @@ public class AdminController {
         {
             User oldUser = userService.selectuser(user.getId());
             user.setIsadmin(oldUser.getIsadmin());
-            user.setImgurl(oldUser.getImgurl());
         }
         user.setUsertype(Integer.parseInt(req.getParameter("usertype")));
         //researchArea
@@ -231,7 +230,7 @@ public class AdminController {
 
 
 
-    public static boolean ifInPid(List<UserResearchKey> associations, int forTest)
+    public static boolean ifInAssociations(List<UserResearchKey> associations, int forTest)
     {
         for(int i=0; i<associations.size(); i++)
         {
