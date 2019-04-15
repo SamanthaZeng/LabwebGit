@@ -1,4 +1,4 @@
-<%@ page import="zxl.web.controller.PaperController" %>
+<%@ page import="zxl.web.controller.CourseController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -165,10 +165,10 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">论文管理</a>
+                        <a href="">课程管理</a>
                     </li>
                     <li>
-                        <a href="">论文信息编辑</a>
+                        <a href="">课程信息编辑</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
@@ -180,117 +180,24 @@
                     <div class="col-xs-12">
                         <!--学生表单 -->
 
-                        <form class="form-horizontal" id="paperForm" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <div class="col-xs-6">
+                        <form class="form-horizontal" method="post" action="/researcharea/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+
                             <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
+                            <input type="hidden" name="rid" value="${researcharea.rid}"/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 论文标题 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 研究方向名称 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="ptitile" id="form-field-1" placeholder="论文标题" class="col-xs-10 col-sm-5" value="${paperForEdit.ptitile}"/>
+                                    <input type="text" name="rname" id="form-field-1" placeholder="研究方向名称" class="col-xs-10 col-sm-5" value="${researcharea.rname}"/>
                                 </div>
                             </div>
-
-                            <div class="space-4"></div>
-
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文级别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="intro"> 研究方向介绍 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="paperrank" value="${paperForEdit.paperrank}" id="form-field-2" placeholder="论文级别" class="col-xs-10 col-sm-5" />
-
+                                    <textarea name="intro" id="intro" style="resize:none;" class="col-sm-5" rows="10" placeholder="研究方向介绍">${researcharea.intro}</textarea>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文来源 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="keyword" value="${paperForEdit.keyword}" id="form-field-4" placeholder="关键词" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文摘要 </label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" name="pabstract" value="${paperForEdit.pabstract}" id="form-field-5" placeholder="论文摘要" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" id="publictime" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 论文文件上传 </label>
-
-                                <div class="col-sm-9">
-                                    <input  multiple="" type="file" accept="application/pdf" name="pdfFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>
-
-                                <div class="col-sm-9">
-                                    <select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关项目">
-                                        <c:forEach items="${projects}" var="project">
-                                            <c:if test="${associations==null}">
-                                                <option class="projectAssociation" value="${project.proid}">${project.proname}</option>
-                                            </c:if>
-                                            <c:if test="${associations!=null}">
-                                                <c:if test="${PaperController.ifInPid(associations, Integer.parseInt(project.proid)) == true}">
-                                                    <option class="projectAssociation" selected="selected" value="${project.proid}">${project.proname}</option>
-                                                </c:if>
-                                                <c:if test="${PaperController.ifInPid(associations, Integer.parseInt(project.proid)) == false}">
-                                                    <option class="projectAssociation" value="${project.proid}">${project.proname}</option>
-                                                </c:if>
-                                            </c:if>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                            </div>
-                            </div><!--<div class="col-xs-6">-->
-
-                            <div class="col-xs-6">
-                                <!--穿梭框的实现-->
-                                <div class="select">
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="author">
-                                            <c:forEach items="${users}" var="user">
-                                                <option value="${user.id}"  >${user.username}/${user.realname}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="btn-item">
-                                        <p><span id="add"> > </span></p>
-                                        <p><span id="remove"> < </span></p>
-                                        <p><span id="add_all"> >> </span></p>
-                                        <p><span id="remove_all"> << </span></p>
-                                    </div>
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="selectedauthor" name="authors"></select>
-                                    </div>
-                                </div>
-                            </div><!-- <div class="col-xs-6">-->
-
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">
@@ -405,31 +312,21 @@
 
 <script type="text/javascript">
     jQuery(function($) {
-        $("#paperForm").on("submit", function () {
-            if($("#publictime").val() === "")
-            {
-                var date = new Date();
-                $("#publictime").val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay())
-            }
-        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
             {
                 $(".teacherHidden").css("display", "none");
             }
-            if("${user.usertype}" == "1")
-            {
-                $(".teacherHidden").css("display", "none");
-                $(".studentHidden").css("display", "none");
-            }
         }
         $(document).ready(function(){
             var projectIdList = $("#paperproject").val();
         });
-        //初始化选择菜单的值
-
-        //alert(selectVal);
+        var selectval= "${company.cotype}";
+        if(selectval!=null&&selectval!=""){
+            $('#selectCompany').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
+        }
 
         /*完成穿梭框的设置*/
         //移动到右边
@@ -469,7 +366,7 @@
         $("#selectedauthor").on("dblclick",function(){
             $("option:selected",this).appendTo("#author");
         })
-        
+
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式
@@ -477,6 +374,9 @@
             todayBtn: true,
             minView: "month",//只选择到天自动关闭
             language: 'zh-CN',
+        });
+        $("#paperproject").change(function () {
+            alert($(this).val());
         });
         //单选选中
         $("#radio_sex").on("click",function(){

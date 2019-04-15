@@ -127,7 +127,7 @@
                             <div class="col-xs-12">
 
                                 <p>
-                                    <a href="/company/add">
+                                    <a href="/researcharea/add">
                                         <button class="btn btn-lg btn-success">
                                             <i class="icon-ok"></i>
                                             新增
@@ -165,16 +165,15 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>企业编号</th>
-                                            <th>企业名称</th>
-                                            <th>企业类型</th>
-                                            <th>Logo</th>
+                                            <th>研究方向编号</th>
+                                            <th>研究方向名称</th>
+                                            <th>研究方向介绍</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        <c:forEach items="${companyList}" var="company">
+                                        <c:forEach items="${researchareaList}" var="researcharea">
                                             <tr>
                                                 <td class="center">
                                                     <label>
@@ -182,33 +181,9 @@
                                                         <span class="lbl"></span>
                                                     </label>
                                                 </td>
-                                                <td>${company.coid}</td>
-                                                <td>${company.coname}</td>
-                                                <td>
-                                                    <c:choose>
-                                                        <c:when test="${company.cotype == -1}">
-                                                            其他
-                                                        </c:when>
-                                                        <c:when test="${company.cotype == 0}">
-                                                            互联网公司
-                                                        </c:when>
-                                                        <c:when test="${company.cotype == 1}">
-                                                            金融公司
-                                                        </c:when>
-                                                        <c:when test="${company.cotype == 2}">
-                                                            教育类公司
-                                                        </c:when>
-                                                        <c:when test="${company.cotype == 3}">
-                                                            自媒体公司
-                                                        </c:when>
-                                                    </c:choose>
-                                                </td>
-                                                <td><span >
-
-																<img style="width:60px;height:60px;"  src="${company.logourl}" />
-                                                    <!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
-															</span></td>
-
+                                                <td>${researcharea.rid}</td>
+                                                <td>${researcharea.rname}</td>
+                                                <td>${researcharea.intro}</td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                         <a class="blue" href="#">
@@ -216,11 +191,11 @@
                                                         </a>
                                                         </a>
 
-                                                        <a class="green" href="/company/edit?coid=${company.coid}" title="edit">
+                                                        <a class="green" href="/researcharea/edit?rid=${researcharea.rid}" title="edit">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/company/delete?coid=${company.coid}" title="delete">
+                                                        <a class="red" href="/researcharea/delete?rid=${researcharea.rid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>
@@ -329,7 +304,7 @@
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },
-                null, null,null, null,
+                null, null,null,
                 { "bSortable": false }
             ],
             "iDisplayLength": 5,
@@ -393,7 +368,7 @@
                 alert("请选中一行数据");
             }else{
                 //调用controller层中写的方法
-                location.href="/book/delete?bid="+id;
+                location.href="/researcharea/delete?rid="+id;
             }
         } );
 
@@ -410,7 +385,7 @@
             if(id == 0){
                 alert("请选中一行数据");
             }else{
-                location.href="/company/edit?coid="+id;
+                location.href="/researcharea/edit?rid="+id;
             }
         } );
 

@@ -99,9 +99,9 @@
                     </li>
 
                     <li>
-                        <a href="#">论文管理</a>
+                        <a href="#">项目管理</a>
                     </li>
-                    <li class="active">论文列表</li>
+                    <li class="active">项目列表</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

@@ -16,4 +16,24 @@ public class ResearchareaServiceImpl implements IResearchareaService {
     public List<Researcharea> queryAll() {
         return mapper.queryAll();
     }
+
+    @Override
+    public void delete(int rid) {
+        mapper.deleteByPrimaryKey(rid);
+    }
+
+    @Override
+    public Researcharea selectResearcharea(int rid) {
+        return mapper.selectByPrimaryKey(rid);
+    }
+
+    @Override
+    public void insert(Researcharea researcharea) {
+        mapper.insertSelective(researcharea);
+    }
+
+    @Override
+    public void update(Researcharea researcharea) {
+        mapper.updateByPrimaryKey(researcharea);
+    }
 }

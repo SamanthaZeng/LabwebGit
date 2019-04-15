@@ -1,6 +1,5 @@
 package zxl.web.controller;
    import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.stereotype.Service;
    import org.springframework.ui.Model;
    import org.springframework.util.StringUtils;
    import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +40,7 @@ public class CompanyController {
     public String edit(Model model, HttpServletRequest req)
     {
         Company company = companyService.selectCompany(Integer.parseInt(req.getParameter("coid")));
-        model.addAttribute(company);
+        model.addAttribute("company", company);
         return "company/edit";
     }
 
@@ -73,7 +72,7 @@ public class CompanyController {
     public String index(Model model)
     {
         List<Company> companyList = companyService.queryAll();
-        model.addAttribute(companyList);
+        model.addAttribute("companyList", companyList);
         return "company/company_list";
     }
 }
