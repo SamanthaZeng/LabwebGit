@@ -54,6 +54,10 @@ public class AdminController {
         model.addAttribute("researchareaList", researchareaList);
         model.addAttribute("associations", null);
         model.addAttribute("userForEdit", userForEdit);
+        if(type == 2)
+        {
+            model.addAttribute("companies", companyService.queryAll());
+        }
         return "admin/edit";
     }
 
@@ -108,6 +112,7 @@ public class AdminController {
         //sex
         user.setSex(Integer.parseInt(req.getParameter("sex")));
         user.setRealname(req.getParameter("realname"));
+        user.setEngname(req.getParameter("engname"));
         //imgfile
         if(imgFile !=null && imgFile.getSize()!=0){
             //获取文件夹路径
@@ -129,19 +134,6 @@ public class AdminController {
             user.setIsadmin(oldUser.getIsadmin());
         }
         user.setUsertype(Integer.parseInt(req.getParameter("usertype")));
-        //researchArea
-        String researchArea[] = req.getParameterValues("userResearchArea");
-        userResearchareaService.deleteByUser(user.getId());
-        if(researchArea != null)
-        {
-            for(int i=0;i<researchArea.length;i++)
-            {
-                UserResearchKey userResearchKey = new UserResearchKey();
-                userResearchKey.setId(user.getId());
-                userResearchKey.setRid(Integer.parseInt(researchArea[i]));
-                userResearchareaService.insert(userResearchKey);
-            }
-        }
         if(Integer.parseInt(req.getParameter("usertype"))==0)
         {
             Teacher teacher = new Teacher();
@@ -207,6 +199,19 @@ public class AdminController {
                         cooperatorService.update(cooperator);
                     }
                 }
+        userResearchareaService.deleteByUser(user.getId());
+        //researchArea
+        String researchArea[] = req.getParameterValues("userResearchArea");
+        if(researchArea != null)
+        {
+            for(int i=0;i<researchArea.length;i++)
+            {
+                UserResearchKey userResearchKey = new UserResearchKey();
+                userResearchKey.setId(user.getId());
+                userResearchKey.setRid(Integer.parseInt(researchArea[i]));
+                userResearchareaService.insert(userResearchKey);
+            }
+        }
         //判断当前保存的user是不是登录的user，如果是，则更新session中的数据
         if(user.getId() == ((User)req.getSession().getAttribute("user")).getId())
             req.getSession().setAttribute("user", userService.selectuser(user.getId()));

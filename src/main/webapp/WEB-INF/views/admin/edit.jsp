@@ -184,6 +184,14 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 英文名 </label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" name="engname" id="form-field-3" placeholder="英文名" class="col-xs-10 col-sm-5" value="${userForEdit.engname}"/>
+                                </div>
+                            </div>
+
                             <div class="space-4"></div>
 
                             <div class="form-group">
@@ -382,7 +390,6 @@
                                         <select class="col-xs-10 col-sm-5" id="selectcompany" name="coid" value="${cooperator.coid}">
                                             <option value="-1">-----------请选择任职单位----------</option>
                                             <c:forEach items="${companies}" var="com">
-
                                                 <option value="${com.coid}">${com.coname}</option>
 
                                             </c:forEach>
@@ -525,6 +532,7 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        alert(${companies.size()})
         if($("#entertime").val() === "")
         {
             var date = new Date();
