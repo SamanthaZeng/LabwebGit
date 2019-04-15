@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zxl.web.mapper.UserNewsMapper" >
+  <resultMap id="BaseResultMap" type="zxl.web.domain.UserNewsKey" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="newsid" property="newsid" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserNewsKey" >
+    delete from usernews
+    where id = #{id,jdbcType=INTEGER}
+      and newsid = #{newsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="zxl.web.domain.UserNewsKey" >
+    insert into usernews (id, newsid)
+    values (#{id,jdbcType=INTEGER}, #{newsid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="zxl.web.domain.UserNewsKey" >
+    insert into usernews
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsid != null" >
+        newsid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="newsid != null" >
+        #{newsid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
