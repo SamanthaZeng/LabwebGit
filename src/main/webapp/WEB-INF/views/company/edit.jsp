@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 公司类型 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="selectCompany"> 公司类型 </label>
 
                                     <div class="col-sm-9">
                                         <select class="col-xs-10 col-sm-5" id="selectCompany" name="cotype" >

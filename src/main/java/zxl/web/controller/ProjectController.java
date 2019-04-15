@@ -34,7 +34,8 @@ public class ProjectController {
     @Autowired
     private  IUserService userService;
 
-    @Autowired IUserProService userProService;
+    @Autowired
+    private IUserProService userProService;
 
     @RequestMapping("/index")
     public String index(Model model, HttpServletRequest req)
@@ -135,16 +136,4 @@ public class ProjectController {
         }
         return "redirect:/project/index";
     }
-
-
-    public static boolean ifInPid(List<Paper> associations, int forTest)
-    {
-        for(int i=0; i<associations.size(); i++)
-        {
-            if(forTest == associations.get(i).getPid())
-                return true;
-        }
-        return false;
-    }
-
 }

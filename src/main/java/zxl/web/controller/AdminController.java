@@ -12,8 +12,6 @@ import zxl.web.service.IUserService;
 import org.springframework.web.multipart.MultipartFile;
 import zxl.web.domain.*;
 import zxl.web.service.*;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,16 +20,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
     @Autowired
-    private IClassesService classesService;
+    private IResearchareaService researchareaService;
     @Autowired
-    private IStudentService studentService;
+    private IUserResearchareaService userResearchareaService;
     @Autowired
     private  IUserService userService;
     @Autowired
@@ -42,13 +39,6 @@ public class AdminController {
     private IStudentsService studentsService;
     @Autowired
     private ITeacherService teacherService;
-
-//    @RequestMapping("/index")
-//    public String index(Model model,HttpServletRequest request)//首页
-//    {
-//        User user = (User)request.getSession().getAttribute("user");
-//        return "admin/index";
-//    }
 
     @RequestMapping("/add")
     public String add(Model model, HttpServletRequest req)
@@ -74,6 +64,10 @@ public class AdminController {
     public String edit(HttpServletRequest req, Model model){
         User user = userService.selectuser(Integer.parseInt(req.getParameter("id")));
         model.addAttribute("userForEdit", user);
+        List<Researcharea> researchareaList = researchareaService.queryAll();
+        model.addAttribute("researchareaList", researchareaList);
+        List<UserResearchKey> associations = userResearchareaService.selectResearchare(user.getId());
+        model.addAttribute("associations", associations);
         if(user.getUsertype()==0)
         {
             model.addAttribute("teacher", teacherService.select(user.getTid()));
@@ -101,6 +95,7 @@ public class AdminController {
         //sex
         user.setSex(Integer.parseInt(req.getParameter("sex")));
         user.setRealname(req.getParameter("realname"));
+
         //imgfile
         if(imgFile !=null && imgFile.getSize()!=0){
             //获取文件夹路径
@@ -117,6 +112,19 @@ public class AdminController {
         }
         user.setId(Integer.parseInt(req.getParameter("id")));
         user.setUsertype(Integer.parseInt(req.getParameter("usertype")));
+        //researchArea
+        String researchArea[] = req.getParameterValues("userResearchArea");
+        userResearchareaService.deleteByUser(user.getId());
+        if(researchArea != null)
+        {
+            for(int i=0;i<researchArea.length;i++)
+            {
+                UserResearchKey userResearchKey = new UserResearchKey();
+                userResearchKey.setId(user.getId());
+                userResearchKey.setRid(Integer.parseInt(researchArea[i]));
+                userResearchareaService.insert(userResearchKey);
+            }
+        }
         if(Integer.parseInt(req.getParameter("usertype"))==0)
         {
             Teacher teacher = new Teacher();
@@ -195,5 +203,17 @@ public class AdminController {
         if(type == 2)
             return "redirect:/cooperator/index";
         return "redirect:/admin/edit";
+    }
+
+
+
+    public static boolean ifInPid(List<UserResearchKey> associations, int forTest)
+    {
+        for(int i=0; i<associations.size(); i++)
+        {
+            if(forTest == associations.get(i).getRid())
+                return true;
+        }
+        return false;
     }
 }

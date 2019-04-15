@@ -68,4 +68,7 @@
       intro = #{intro,jdbcType=VARCHAR}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from researcharea
+  </select>
 </mapper>

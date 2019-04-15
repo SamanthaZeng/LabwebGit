@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UserProServiceImpl implements IUserProService {
-   @Autowired
+    @Autowired
     UserProMapper mapper;
 
     @Override

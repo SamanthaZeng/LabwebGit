@@ -24,7 +24,7 @@ public class PaperProjectInterceptor implements HandlerInterceptor {
     IUserPaperService userPaperService;
 
     @Autowired
-    IUserProjectService userProjectService;
+    IUserProService userProjectService;
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {

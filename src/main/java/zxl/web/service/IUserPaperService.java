@@ -5,7 +5,7 @@ import zxl.web.domain.UserPaperKey;
 
 import java.util.List;
 
-public interface IUserPaperService {
+public interface  IUserPaperService {
 
     //根据论文Id返回所有包含该Id的项
     public List<UserPaper> selectUPps(int pid);

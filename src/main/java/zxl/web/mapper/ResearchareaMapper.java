@@ -2,6 +2,8 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Researcharea;
 
+import java.util.List;
+
 public interface ResearchareaMapper {
     int deleteByPrimaryKey(Integer rid);
 
@@ -14,4 +16,6 @@ public interface ResearchareaMapper {
     int updateByPrimaryKeySelective(Researcharea record);
 
     int updateByPrimaryKey(Researcharea record);
+
+    List<Researcharea> queryAll();
 }
