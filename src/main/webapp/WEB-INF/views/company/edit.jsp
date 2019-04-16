@@ -165,10 +165,10 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">合作企业管理</a>
+                        <a href="">合作单位管理</a>
                     </li>
                     <li>
-                        <a href="">企业信息编辑</a>
+                        <a href="">合作单位编辑</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
@@ -185,27 +185,28 @@
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="coid" value="${company.coid}"/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 公司名称 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 合作单位名称 </label>
 
                                     <div class="col-sm-9">
                                         <input type="text" name="coname" id="form-field-1" placeholder="公司名称" class="col-xs-10 col-sm-5" value="${company.coname}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="selectCompany"> 公司类型 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="selectCompany"> 合作单位类型 </label>
 
                                     <div class="col-sm-9">
                                         <select class="col-xs-10 col-sm-5" id="selectCompany" name="cotype" >
-                                            <option value="-1">----请选择公司类型----</option>
+                                            <option value="-1">----请选择单位类型----</option>
                                             <option value="0" >互联网公司</option>
                                             <option value="1" >金融公司</option>
                                             <option value="2" >教育类公司</option>
                                             <option value="3" >自媒体公司</option>
+                                            <option value="4" >科研院所</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 公司头像 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="id-input-file-3"> 合作单位Logo </label>
 
                                     <div class="col-sm-9">
                                         <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>

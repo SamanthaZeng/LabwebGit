@@ -192,6 +192,9 @@
   <select id="login" parameterType="User" resultType="User" >
     select * from user where username=#{username} and pwd=#{pwd}
   </select>
+  <select id="selectUsername" resultType="java.lang.String">
+    select username from user
+  </select>
 
   <!--返回所有教师用户-->
   <select id="queryAllTeacher" resultMap="BaseResultMap">

@@ -24,4 +24,6 @@ public interface UserMapper {
     public List<User> queryAllTeacher();
 
     public List<User>queryAll();
+
+    public List<String> selectUsername();
 }

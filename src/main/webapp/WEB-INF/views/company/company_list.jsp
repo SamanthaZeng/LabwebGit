@@ -99,9 +99,9 @@
                     </li>
 
                     <li>
-                        <a href="#">合作企业管理</a>
+                        <a href="#">合作单位管理</a>
                     </li>
-                    <li><a href="#">合作企业列表</a></li>
+                    <li><a href="#">合作单位列表</a></li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -165,9 +165,9 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>企业编号</th>
-                                            <th>企业名称</th>
-                                            <th>企业类型</th>
+                                            <th>单位编号</th>
+                                            <th>单位名称</th>
+                                            <th>单位类型</th>
                                             <th>Logo</th>
                                             <th>其他操作</th>
                                         </tr>
@@ -200,6 +200,9 @@
                                                         </c:when>
                                                         <c:when test="${company.cotype == 3}">
                                                             自媒体公司
+                                                        </c:when>
+                                                        <c:when test="${company.cotype == 4}">
+                                                            科研院所
                                                         </c:when>
                                                     </c:choose>
                                                 </td>

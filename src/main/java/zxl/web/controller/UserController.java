@@ -35,6 +35,7 @@ public class UserController {
     @RequestMapping("/register")
     public String register(User user, Model model, HttpServletRequest req)
     {
+        List<String> names = userService.selectUsername();
         req.getSession().setAttribute("user", user);
         System.out.println(user);
         int usertype = user.getUsertype();

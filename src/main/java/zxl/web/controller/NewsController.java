@@ -25,9 +25,6 @@ public class NewsController {
     @Autowired
     private IUserNewsService userNewsService;
 
-    @Autowired
-    private IUserService userService;
-
     @RequestMapping("/index")
     public String index(Model model)
     {
@@ -62,10 +59,6 @@ public class NewsController {
     {
         int newsid = Integer.parseInt(req.getParameter("newsid"));
         News news = newsService.selectByNewsId(newsid);
-        List<User> userList = userService.queryAll();
-        List<UserNewsKey> associations = userNewsService.selectByNewsId(newsid);
-        model.addAttribute("userList", userList);
-        model.addAttribute("associations", associations);
         model.addAttribute("news" ,news);
         return "news/edit";
     }
@@ -78,19 +71,12 @@ public class NewsController {
         else {
             newsService.update(news);
         }
-        System.out.println(news.getNewsid());
-        String users[] = req.getParameterValues("userNews");
         userNewsService.deleteByNewsId(news.getNewsid());
-        if(users != null)
-        {
-            for(int i=0;i<users.length;i++)
-            {
-                UserNewsKey userNewsKey = new UserNewsKey();
-                userNewsKey.setId(Integer.parseInt(users[i]));
-                userNewsKey.setNewsid(news.getNewsid());
-                userNewsService.insert(userNewsKey);
-            }
-        }
+        UserNewsKey userNewsKey = new UserNewsKey();
+        userNewsKey.setNewsid(news.getNewsid());
+        User user = (User)req.getSession().getAttribute("user");
+        userNewsKey.setId(user.getId());
+        userNewsService.insert(userNewsKey);
         return "redirect:/news/index";
     }
 

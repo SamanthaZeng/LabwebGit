@@ -18,4 +18,6 @@ public interface IUserService {
     public int deleteUser(int id);
 
     public int update(User user);
+
+    public List<String> selectUsername();
 }
