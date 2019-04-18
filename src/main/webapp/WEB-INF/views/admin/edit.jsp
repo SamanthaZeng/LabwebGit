@@ -169,7 +169,7 @@
                             <input type="hidden" name="usertype" value="${userForEdit.usertype}"/>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 用户名 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="username"> 用户名 </label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="username" id="username" class="col-xs-10 col-sm-5" value="${userForEdit.username}"/>
@@ -412,6 +412,14 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-11">合作者邮箱</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cmail" id="form-field-11" placeholder="合作者邮箱" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.cmail}"</c:if>/>
+                                    </div>
+                                </div>
+
 
 
 
@@ -539,11 +547,6 @@
             if($("#password").val() == "")
             {
                 alert("请填写密码")
-                return false
-            }
-            if($("#radio_sex").val() == "")
-            {
-                alert("性别未选中")
                 return false
             }
         })
