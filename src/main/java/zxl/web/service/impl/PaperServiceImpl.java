@@ -7,6 +7,7 @@ import zxl.web.mapper.PaperMapper;
 import zxl.web.service.ICooperatorService;
 import zxl.web.service.IPaperService;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,5 +34,10 @@ public class PaperServiceImpl implements IPaperService {
     @Override
     public int selectPid(Paper paper) {
         return mapper.selectPid(paper);
+    }
+
+    @Override
+    public List<Paper> selectPaperbyTime(Date time) {
+        return mapper.selectPaperbyTime(time);
     }
 }

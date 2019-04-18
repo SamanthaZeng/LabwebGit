@@ -9,33 +9,9 @@ public class Teacher {
 
     private String service;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     private String teduexp;
 
-    //用户
     private User user;
-
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "tid=" + tid +
-                ", id=" + id +
-                ", trank=" + trank +
-                ", service='" + service + '\'' +
-                ", teduexp='" + teduexp + '\'' +
-                ", user=" + user +
-                ", tmail='" + tmail + '\'' +
-                ", workexp='" + workexp + '\'' +
-                ", tduty='" + tduty + '\'' +
-                '}';
-    }
 
     private String tmail;
 
@@ -105,5 +81,28 @@ public class Teacher {
 
     public void setTduty(String tduty) {
         this.tduty = tduty == null ? null : tduty.trim();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "tid=" + tid +
+                ", id=" + id +
+                ", trank=" + trank +
+                ", service='" + service + '\'' +
+                ", teduexp='" + teduexp + '\'' +
+                ", user=" + user +
+                ", tmail='" + tmail + '\'' +
+                ", workexp='" + workexp + '\'' +
+                ", tduty='" + tduty + '\'' +
+                '}';
     }
 }

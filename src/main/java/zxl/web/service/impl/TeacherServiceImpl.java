@@ -38,4 +38,9 @@ public class TeacherServiceImpl implements ITeacherService {
     public int update(Teacher teacher) {
         return mapper.updateByPrimaryKeySelective(teacher);
     }
+
+    @Override
+    public Teacher selectTeacherById(int id) {
+        return mapper.selectTeacherById(id);
+    }
 }

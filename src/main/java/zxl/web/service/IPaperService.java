@@ -2,6 +2,7 @@ package zxl.web.service;
 
 import zxl.web.domain.Paper;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IPaperService {
@@ -15,4 +16,7 @@ public interface IPaperService {
 
     //返回paperid
     public int selectPid(Paper paper);
+
+    //根据出版日期返回这段日期内的所有论文
+    public List<Paper> selectPaperbyTime(Date time);
 }

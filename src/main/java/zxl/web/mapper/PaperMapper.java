@@ -2,6 +2,7 @@ package zxl.web.mapper;
 
 import zxl.web.domain.Paper;
 
+import java.util.Date;
 import java.util.List;
 
 public interface PaperMapper {
@@ -21,4 +22,7 @@ public interface PaperMapper {
 
     //返回paperid
     int selectPid(Paper paper);
+
+    //根据年份返回该年份内的所有paper
+    List<Paper> selectPaperbyTime(Date time);
 }

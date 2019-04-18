@@ -36,8 +36,13 @@
   <select id="selectResearcharea" parameterType="integer" resultMap="BaseResultMap">
     select * from userresearch where id=#{id}
   </select>
+
   <delete id="deleteById" parameterType="integer" >
     delete from userresearch
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
+  <select id="queryAll" parameterType="Integer" resultMap="BaseResultMap">
+    select * from userresearch where rid=#{rid}
+  </select>
 </mapper>

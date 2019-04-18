@@ -14,4 +14,6 @@ public interface IUserResearchareaService {
     List<UserResearchKey> selectResearchare(int id);
 
     void deleteByUser(int id);
+    //根据研究领域返回所有相关教师
+    public List<UserResearchKey> queryAll(int rid);
 }

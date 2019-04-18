@@ -15,4 +15,7 @@ public interface ITeacherService {
     public List<Teacher> queryAll();
 
     public int update(Teacher teacher);
+
+    //通过用户ID来查找教师
+    public Teacher selectTeacherById(int id);
 }

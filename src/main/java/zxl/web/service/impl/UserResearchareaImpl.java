@@ -33,4 +33,9 @@ public class UserResearchareaImpl implements IUserResearchareaService {
     public void deleteByUser(int id) {
         mapper.deleteById(id);
     }
+
+    @Override
+    public List<UserResearchKey> queryAll(int rid) {
+        return mapper.queryAll(rid);
+    }
 }

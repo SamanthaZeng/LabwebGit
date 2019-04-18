@@ -18,4 +18,7 @@ public interface TeacherMapper {
     int updateByPrimaryKey(Teacher record);
 
     List<Teacher> queryAll();
+
+    //通过用户ID来查找相应的教师
+    Teacher selectTeacherById(int id);
 }

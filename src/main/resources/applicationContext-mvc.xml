@@ -28,6 +28,7 @@
             <mvc:exclude-mapping path="/teacher/register"/>
             <mvc:exclude-mapping path="/cooperator/register"/>
             <mvc:exclude-mapping path="/student/register"/>
+            <mvc:exclude-mapping path="/visitor/*"/>
             <bean class="zxl.web.interceptor.LoginInterceptor " />
         </mvc:interceptor>
         <mvc:interceptor>

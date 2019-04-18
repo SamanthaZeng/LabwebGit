@@ -30,4 +30,13 @@ public class Researcharea {
     public void setIntro(String intro) {
         this.intro = intro == null ? null : intro.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Researcharea{" +
+                "rid=" + rid +
+                ", rname='" + rname + '\'' +
+                ", intro='" + intro + '\'' +
+                '}';
+    }
 }

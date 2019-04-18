@@ -4,8 +4,8 @@
 
   <display-name>LabWeb</display-name>
   <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>home.jsp</welcome-file>
+   <!-- <welcome-file>index.jsp</welcome-file>-->
 
   </welcome-file-list>
 

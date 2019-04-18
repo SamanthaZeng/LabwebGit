@@ -13,6 +13,8 @@ public class Cooperator {
 
     private User user;
 
+    private String cmail;
+
     private Company company;
 
     public Integer getCid() {
@@ -63,9 +65,18 @@ public class Cooperator {
         this.user = user;
     }
 
+    public String getCmail() {
+        return cmail;
+    }
+
+    public void setCmail(String cmail) {
+        this.cmail = cmail;
+    }
+
     public Company getCompany() { return company; }
 
     public void setCompany(Company company) { this.company = company; }
+
     @Override
     public String toString() {
         return "Cooperator{" +
@@ -75,7 +86,8 @@ public class Cooperator {
                 ", title='" + title + '\'' +
                 ", cduty='" + cduty + '\'' +
                 ", user=" + user +
-                ", companyName=" + company.getConame() +
+                ", cmail='" + cmail + '\'' +
+                ", company=" + company +
                 '}';
     }
 }

@@ -11,19 +11,23 @@
     <result column="paperurl" jdbcType="VARCHAR" property="paperurl" />
     <result column="paperrank" jdbcType="VARCHAR" property="paperrank" />
   </resultMap>
+
   <sql id="Base_Column_List">
     pid, ptitile, publictime, papersource, keyword, pabstract, paperurl, paperrank
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from paper
     where pid = #{pid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from paper
     where pid = #{pid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.Paper">
     insert into paper (pid, ptitile, publictime, 
       papersource, keyword, pabstract, 
@@ -32,6 +36,7 @@
       #{papersource,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{pabstract,jdbcType=VARCHAR}, 
       #{paperurl,jdbcType=VARCHAR}, #{paperrank,jdbcType=VARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.Paper">
     insert into paper
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -87,6 +92,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.Paper">
     update paper
     <set>
@@ -114,6 +120,7 @@
     </set>
     where pid = #{pid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.Paper">
     update paper
     set ptitile = #{ptitile,jdbcType=VARCHAR},
@@ -125,6 +132,7 @@
       paperrank = #{paperrank,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=INTEGER}
   </update>
+
   <select id="queryAll" resultMap="BaseResultMap">
     select * from paper
   </select>
@@ -152,5 +160,9 @@
     <if test="paperrank != null">
       paperrank = #{paperrank,jdbcType=VARCHAR}
     </if>
+  </select>
+
+  <select id="selectPaperbyTime" parameterType="Date" resultMap="BaseResultMap">
+    select * from paper where YEAR(publictime)=#{time}
   </select>
 </mapper>
