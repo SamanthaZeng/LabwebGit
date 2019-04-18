@@ -65,17 +65,22 @@ public class NewsController {
 
     @RequestMapping("/save")
     public String save(Model model, News news, HttpServletRequest req) {
+        int newsid;
         if(news.getNewsid() == null) {
             newsService.insert(news);
+            newsid=newsService.selectNewsid(news);
         }
-        else {
+        else {/*更新才需要删除原来的usernews*/
             newsService.update(news);
+            newsid=news.getNewsid();
+            userNewsService.deleteByNewsId(newsid);
         }
-        userNewsService.deleteByNewsId(news.getNewsid());
         UserNewsKey userNewsKey = new UserNewsKey();
-        userNewsKey.setNewsid(news.getNewsid());
+        userNewsKey.setNewsid(newsid);
+        System.out.println(newsid);
         User user = (User)req.getSession().getAttribute("user");
         userNewsKey.setId(user.getId());
+        System.out.println(user.getId());
         userNewsService.insert(userNewsKey);
         return "redirect:/news/index";
     }

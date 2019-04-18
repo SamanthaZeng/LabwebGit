@@ -36,4 +36,9 @@ public class NewsServiceImpl implements INewsService {
     public void update(News news) {
         mapper.updateByPrimaryKey(news);
     }
+
+    @Override
+    public int selectNewsid(News news) {
+        return mapper.selectNewsid(news);
+    }
 }

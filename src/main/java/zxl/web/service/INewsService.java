@@ -14,4 +14,6 @@ public interface INewsService {
     void insert(News news);
 
     void update(News news);
+    //返回newsid
+    public int selectNewsid(News news);
 }

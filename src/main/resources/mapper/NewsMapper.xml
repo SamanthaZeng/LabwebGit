@@ -6,25 +6,30 @@
     <result column="newstitle" property="newstitle" jdbcType="VARCHAR" />
     <result column="newsdescription" property="newsdescription" jdbcType="VARCHAR" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     newsid, newstitle, newsdescription
   </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from news
     where newsid = #{newsid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from news
     where newsid = #{newsid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.News" >
     insert into news (newsid, newstitle, newsdescription
       )
     values (#{newsid,jdbcType=INTEGER}, #{newstitle,jdbcType=VARCHAR}, #{newsdescription,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.News" >
     insert into news
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -50,6 +55,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.News" >
     update news
     <set >
@@ -62,13 +68,26 @@
     </set>
     where newsid = #{newsid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.News" >
     update news
     set newstitle = #{newstitle,jdbcType=VARCHAR},
       newsdescription = #{newsdescription,jdbcType=VARCHAR}
     where newsid = #{newsid,jdbcType=INTEGER}
   </update>
+
   <select id="queryAll" resultMap="BaseResultMap">
     select * from news
   </select>
+
+  <select id="selectNewsid" parameterType="zxl.web.domain.News" resultType="integer">
+    select newsid from news where
+    <if test="newstitle != null" >
+      newstitle=#{newstitle,jdbcType=VARCHAR} and
+    </if>
+    <if test="newsdescription != null" >
+      newsdescription=#{newsdescription,jdbcType=VARCHAR}
+    </if>
+  </select>
+
 </mapper>
