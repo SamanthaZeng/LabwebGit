@@ -11,9 +11,9 @@ public class Cooperator {
 
     private String cduty;
 
-    private User user;
-
     private String cmail;
+
+    private User user;
 
     private Company company;
 

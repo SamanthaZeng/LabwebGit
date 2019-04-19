@@ -30,4 +30,13 @@ public class News {
     public void setNewsdescription(String newsdescription) {
         this.newsdescription = newsdescription == null ? null : newsdescription.trim();
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "newsid=" + newsid +
+                ", newstitle='" + newstitle + '\'' +
+                ", newsdescription='" + newsdescription + '\'' +
+                '}';
+    }
 }

@@ -15,4 +15,6 @@ public interface IStudentsService {
     public List<Students> queryAll();
 
     public int update(Students stu);
+    //通过用户ID来查找学生
+    public Students selectStudentById(int id);
 }

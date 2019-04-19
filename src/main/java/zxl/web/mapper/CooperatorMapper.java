@@ -18,4 +18,6 @@ public interface CooperatorMapper {
     int updateByPrimaryKey(Cooperator record);
 
     List<Cooperator> queryAll();
+
+    Cooperator selectCooperatorById(int id);
 }

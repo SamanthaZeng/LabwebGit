@@ -17,7 +17,7 @@
     <style>
         .carousel-inner img {
             width: 548px;
-            height:300px;
+            height:350px;
         }
     </style>
 </head>
@@ -65,26 +65,26 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       论文
+                        论文
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                       <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
-                       <div class="dropdown-divider"></div>
-                       <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
-                       <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
+                        <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
+                        <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
+                         <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
                         <a class="dropdown-item" href="/visitor/paper">按年查找</a>
                         <!--<div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                     </div>
-               </li>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       人员
+                        人员
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
@@ -115,69 +115,16 @@
         </div>
     </nav>
 </div>
-
+<!--正文内容-->
 <div style="margin-top: 5em">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h1 class="mb-3">实验室简介</h1>
-                <p class="lead text-justify">计算机网络与信息安全研究室成立于1986年，现有教师7名，其中教授3名（其中兼职教授1名）、副教授3名、讲师1名，硕士和博研究生近40名。
-                    三十多年来，在刘瑞挺和吴功宜老先生的带领下，研究室坚持以计算机网络和网络安全为核心研究方向，结合互联网技术的高速发展和国家的战略需求，
-                    近年来主要在网络安全态势感知、移动边缘计算、车联网、无线传感网络、移动智能终端、软件定义网络等方面开展相关基础理论和应用技术的研究。 </p>
+            <div class="row">
+                <h1 class="mb-3">${news.newstitle}</h1>
             </div>
-            <div class="col-md-6">
-                <!--<img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">-->
-                <div id="picCarousel" class="carousel slide">
-                    <!--指示符-->
-                    <ul class="carousel-indicators">
-                        <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#picCarousel" data-slide-to="1"></li>
-                        <li data-target="#picCarousel" data-slide-to="2"></li>
-                    </ul>
-
-                    <!-- 轮播图片 -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/bootstrap/assets/images/gallery/homepic1.JPG">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/bootstrap/assets/images/gallery/homepic2.JPG">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/bootstrap/assets/images/gallery/homepic3.JPG">
-                        </div>
-                    </div>
-
-                    <!-- 左右切换按钮 -->
-                    <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
-                        <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
-                        <!--<span class="carousel-control-prev-icon"></span>-->
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#picCarousel" data-slide="next">
-                        <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
-                        <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
-                    </a>
-                </div><!--轮播框-->
+            <div style="margin-top: 5em">
+                <p class="lead text-justify">${news.newsdescription}</p>
             </div>
-        </div>
-    </div>
-</div>
-<div style="margin-top: 5em">
-    <div class="container">
-        <div class="row">
-            <c:forEach items="${newsList}" var="news">
-                <div class="col-lg-4 p-3 col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">${news.newstitle}</h5>
-                            <p class="card-text">${news.newsdescription}</p>
-                            <a href="/visitor/news?newsid=${news.newsid}" class="card-link">阅读更多</a>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
         </div>
     </div>
 </div>

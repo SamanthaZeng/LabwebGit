@@ -14,4 +14,6 @@ public interface ICooperatorService {
    public void register(Cooperator cooperator, User user);
 
    public int update(Cooperator cooperator);
+   //通过用户ID来查找合作者
+   public Cooperator selectCooperatorById(int id);
 }

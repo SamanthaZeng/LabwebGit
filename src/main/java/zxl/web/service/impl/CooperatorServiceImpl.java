@@ -39,4 +39,9 @@ public class CooperatorServiceImpl implements ICooperatorService {
         return mapper.updateByPrimaryKeySelective(cooperator);
     }
 
+    @Override
+    public Cooperator selectCooperatorById(int id) {
+        return mapper.selectCooperatorById(id);
+    }
+
 }

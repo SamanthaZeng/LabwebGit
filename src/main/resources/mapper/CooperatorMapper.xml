@@ -21,6 +21,8 @@
       <id column="isadmin" property="isadmin"/>
       <id column="usertype" property="usertype"/>
       <id column="birthday" property="birthday"/>
+      <id column="realname" property="realname"/>
+      <id column="engname" property="engname"/>
     </association>
 
     <association property="company" javaType="Company">
@@ -131,5 +133,9 @@
   <!--返回全部合作者-->
   <select id="queryAll" resultMap="BaseResultMap">
     select * from cooperator c,user u, company co where c.id=u.id and c.coid=co.coid
+  </select>
+
+  <select id="selectCooperatorById" parameterType="Integer" resultMap="BaseResultMap">
+    select * from cooperator c,user u,company co where c.id=#{id} and u.id=#{id} and c.coid=co.coid
   </select>
 </mapper>

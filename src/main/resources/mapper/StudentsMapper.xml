@@ -22,6 +22,8 @@
       <id column="isadmin" property="isadmin"/>
       <id column="usertype" property="usertype"/>
       <id column="birthday" property="birthday"/>
+      <id column="realname" property="realname"/>
+      <id column="engname" property="engname"/>
     </association>
 
   </resultMap>
@@ -133,5 +135,9 @@
   <!--返回全部学生-->
   <select id="queryAll" resultMap="BaseResultMap">
     select * from student s,user u where s.id=u.id
+  </select>
+
+  <select id="selectStudentById" parameterType="Integer" resultMap="BaseResultMap">
+    select * from student s, user u where s.id=#{id} and u.id=#{id}
   </select>
 </mapper>

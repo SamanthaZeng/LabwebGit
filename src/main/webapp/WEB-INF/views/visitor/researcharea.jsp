@@ -29,7 +29,7 @@
          @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
     .carousel-inner img {
         width: 548px;
-        height:300px;
+        height:350px;
     }
     .carousel-indicators{
 
@@ -125,7 +125,7 @@
     <div class="row">
       <div class="col-md-6">
         <h1 class="mb-3">${research.rname}</h1>
-        <p class="lead">${research.intro}</p>
+        <p class="lead text-justify">${research.intro}</p>
       </div>
 
         <div class="col-md-6">

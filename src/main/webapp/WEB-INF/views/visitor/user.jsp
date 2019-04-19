@@ -138,7 +138,9 @@
                                   </c:choose>
                               </div>
                               <div class="container">
-                                  <img class="card-img" src="${teacher.user.imgurl}" height="200px" alt="userpic">
+                                  <a href="/visitor/userdetail?id=${teacher.user.id}">
+                                      <img class="card-img" src="${teacher.user.imgurl}" height="200px" alt="userpic">
+                                  </a>
                               </div>
 
                               <div class="card-body">
@@ -161,7 +163,9 @@
                                   </c:choose>
                               </div>
                               <div class="container">
-                                  <img class="card-img" src="${student.user.imgurl}" height="200px" alt="userpic">
+                                  <a href="/visitor/userdetail?id=${student.user.id}">
+                                      <img class="card-img" src="${student.user.imgurl}" height="200px" alt="userpic">
+                                  </a>
                               </div>
 
                               <div class="card-body">
@@ -178,7 +182,9 @@
                           <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                               <div class="card-header">${cooperator.title}</div>
                               <div class="container">
-                                  <img class="card-img" src="${cooperator.user.imgurl}" height="200px" alt="userpic">
+                                  <a href="/visitor/userdetail?id=${cooperator.user.id}">
+                                      <img class="card-img" src="${cooperator.user.imgurl}" height="200px" alt="userpic">
+                                  </a>
                               </div>
 
                               <div class="card-body">

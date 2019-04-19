@@ -541,7 +541,7 @@
                 alert("请填写密码")
                 return false
             }
-            if($("#radio_sex").val() == "")
+            if($("#radio_sex").val() ==  null)
             {
                 alert("性别未选中")
                 return false

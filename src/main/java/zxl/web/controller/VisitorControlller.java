@@ -9,6 +9,7 @@ import zxl.web.service.*;
 
 
 import javax.jws.WebParam;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,11 +21,17 @@ import java.util.List;
 @Controller
 @RequestMapping("/visitor")
 public class VisitorControlller {
+    @Autowired
+    private  INewsService newsService;
+
    @Autowired
     private IResearchService researchService;
 
    @Autowired
    private IUserResearchareaService userResearchService;
+
+   @Autowired
+   private IUserService userService;
 
    @Autowired
    private ITeacherService teacherService;
@@ -50,10 +57,38 @@ public class VisitorControlller {
    @Autowired
    private IProResearchService proResearchService;
 
+    public static String cutStr(String strs, int length) {
+        int sum = 0;
+        String finalStr = "";
+        if (null == strs || strs.getBytes().length <= length) {
+            finalStr = (strs==null?"":strs);
+        } else {
+            for (int i = 0; i < strs.length(); i++) {
+                String str = strs.substring(i, i + 1);
+                // 累加单个字符字节数
+                sum += str.getBytes().length;
+                if (sum > length) {
+                    finalStr = strs.substring(0, i) + "...";
+                    break;
+                }
+            }
+        }
+        return finalStr;
+    }
+
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model){
         System.out.println("return to home");
-        return "redirect:/home.jsp";
+        List<News>newsList=newsService.queryAll();
+        for(int i=0;i<newsList.size();i++)
+        {
+            String str=newsList.get(i).getNewsdescription();
+            newsList.get(i).setNewsdescription(cutStr(str,50));
+            str=newsList.get(i).getNewstitle();
+            newsList.get(i).setNewstitle(cutStr(str,30));
+        }
+        model.addAttribute("newsList",newsList);
+        return "forward:/home.jsp";
     }
 
   @RequestMapping("/research")
@@ -167,6 +202,34 @@ public class VisitorControlller {
         return "visitor/user";
     }
 
+    @RequestMapping("/userdetail")
+    public String userdetail(HttpServletRequest req,Model model){
+        int id= Integer.parseInt(req.getParameter("id"));
+        int usertype;
+        Teacher teacher=null;
+        Students student=null;
+        Cooperator cooperator=null;
+        User user=userService.selectuser(id);
+        usertype=user.getUsertype();
+        if(usertype==0){
+            teacher=teacherService.selectTeacherById(id);
+            System.out.println(teacher.toString());
+        }
+        if(usertype==1){
+            student=studentsService.selectStudentById(id);
+            System.out.println(student.toString());
+        }
+        if(usertype==2){
+            cooperator=cooperatorService.selectCooperatorById(id);
+            System.out.println(cooperator.toString());
+        }
+        model.addAttribute("usertype",usertype);
+        model.addAttribute("teacher",teacher);
+        model.addAttribute("student",student);
+        model.addAttribute("cooperator",cooperator);
+        return "visitor/userdetail";
+    }
+
   @RequestMapping("/project")
   public String project(Model model){
         System.out.println("Suceed in project");
@@ -179,6 +242,14 @@ public class VisitorControlller {
     public String login(){
         System.out.println("return to login");
         return "redirect:/login.jsp";
+    }
+
+    @RequestMapping("/news")
+    public String news(HttpServletRequest req,Model model){
+        int newsid=Integer.valueOf(req.getParameter("newsid"));
+        News news=newsService.selectByNewsId(newsid);
+        model.addAttribute("news",news);
+        return "visitor/news";
     }
 
 }
