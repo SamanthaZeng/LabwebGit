@@ -185,6 +185,7 @@ public class AdminController {
                     cooperator.setCoid(Integer.parseInt(req.getParameter("coid")));
                     cooperator.setTitle(req.getParameter("title"));
                     cooperator.setCduty(req.getParameter("cduty"));
+                    cooperator.setCmail(req.getParameter("cmail"));
                     if(req.getParameter("cid").equals(""))
                     {
                         user.setId(null);
