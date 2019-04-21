@@ -24,8 +24,8 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public int save(Course course) {
-        return mapper.insert(course);
+    public void save(Course course) {
+        mapper.insertGetId(course);
     }
 
     @Override
@@ -36,5 +36,10 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     public int selectClsid(Course course) {
         return mapper.selectClsid(course);
+    }
+
+    @Override
+    public void delete(int clsid) {
+        mapper.deleteByPrimaryKey(clsid);
     }
 }

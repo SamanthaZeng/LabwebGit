@@ -253,28 +253,6 @@
 
                            </div>
 
-                            <%--<div class="form-group">--%>
-                            <%--<label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>--%>
-
-                            <%--<div class="col-sm-9">--%>
-                            <%--<select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关论文">--%>
-                            <%--<c:forEach items="${papers}" var="paper">--%>
-                            <%--<c:if test="${associations==null}">--%>
-                            <%--<option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
-                            <%--</c:if>--%>
-                            <%--<c:if test="${associations!=null}">--%>
-                            <%--<c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == true}">--%>
-                            <%--<option class="paperAssociation" selected="selected" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
-                            <%--</c:if>--%>
-                            <%--<c:if test="${ProjectController.ifInPid(associations, Integer.parseInt(paper.pid)) == false}">--%>
-                            <%--<option class="paperAssociation" value="${paper.pid}">关键词->${paper.keyword}&nbsp;&nbsp;&nbsp;&nbsp;题目->${paper.ptitile}</option>--%>
-                            <%--</c:if>--%>
-                            <%--</c:if>--%>
-                            <%--</c:forEach>--%>
-                            <%--</select>--%>
-                            <%--</div>--%>
-                            <%--</div>--%>
-
                         <div class="col-xs-6">
                             <!--穿梭框的实现-->
                             <div class="select">

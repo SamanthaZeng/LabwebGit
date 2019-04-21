@@ -58,8 +58,8 @@ public class CourseController {
     @RequestMapping("/add")
     public String add(Model model)
     {
-        List<User> users=userService.queryAll();
-        model.addAttribute("users",users);
+        List<User> teachers = userService.queryAllTeacher();
+        model.addAttribute("teachers", teachers);
         return "/course/edit";
     }
 
@@ -77,9 +77,7 @@ public class CourseController {
             courseService.save(course);
         //增加/更新usercourse 表
         //1.获取course id
-        int clsid;
-        clsid=courseService.selectClsid(course);
-        System.out.println("Clsid= "+clsid);
+        int clsid = course.getClsid();
         //2.添加/更新usercourse表
         List<UserCourse> userCourses=userCourseService.selectUCls(clsid);
         UserCourseKey userCourseKey=new UserCourseKey();
@@ -96,7 +94,7 @@ public class CourseController {
             UserCourse author=new UserCourse();
             //设置课程Id
             author.setClsid(clsid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     //设置任课教师Id和课程号
                     author.setId(Integer.valueOf(authors[i]));
@@ -105,10 +103,9 @@ public class CourseController {
             }
         }
         else{//添加
-            System.out.println("添加新的usercourse项");
             UserCourse author=new UserCourse();
             author.setClsid(clsid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     //设置作者id和clsid
                     author.setId(Integer.valueOf(authors[i]));
@@ -116,6 +113,14 @@ public class CourseController {
                 }
             }
         }
+        return "redirect:/course/index";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int clsid = Integer.parseInt(req.getParameter("clsid"));
+        courseService.delete(clsid);
         return "redirect:/course/index";
     }
 
