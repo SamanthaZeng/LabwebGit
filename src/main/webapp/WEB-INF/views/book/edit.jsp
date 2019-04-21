@@ -181,7 +181,7 @@
                 <div class="row">
                     <div class="col-xs-12">
 
-                        <form class="form-horizontal" method="post" action="/book/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" id="bookForm"method="post" action="/book/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <div class="col-xs-6">
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="bid" value="${book.bid}"/>
@@ -242,11 +242,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-5"> 出版时间 </label>
+                                    <label class="col-sm-4 control-label no-padding-right" for="publictime"> 出版时间 </label>
 
                                     <div class="col-sm-8">
                                         <!--<input type="date" name="btime" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />-->
-                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="form-field-5" placeholder="出版时间" class="col-xs-10 col-sm-7 date-picker" />
+                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="publictime" placeholder="出版时间" class="col-xs-10 col-sm-7 date-picker" />
 
                                     </div>
                                 </div>
@@ -389,6 +389,18 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        $("#bookForm").on("submit", function () {
+            if($("#publictime").val() === "")
+            {
+                var date = new Date();
+                $("#publictime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
+            }
+            var obj = document.getElementById("selectedauthor")
+            for(i=0;i<obj.length;i++)
+            {
+                obj[i].selected = true
+            }
+        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
@@ -405,6 +417,17 @@
 
         /*完成穿梭框的设置*/
         //移动到右边
+        var idList =("${bookUsers}".slice(1, -1)).split(", ")
+        console.log(idList)
+        $("#author option").each(function () {
+            for(var i=0;i<idList.length;i++){
+                if($(this).val() === idList[i])
+                {
+                    $(this).appendTo("#selectedauthor");
+                    break
+                }
+            }
+        })
         $("#add").on("click",function(){
             if(!$("#author option").is(":selected")){
                 alert("请选择移动的选项")

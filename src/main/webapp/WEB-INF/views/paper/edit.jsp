@@ -447,7 +447,6 @@
         /*完成穿梭框的设置*/
         //移动到右边
         var idList =("${paperUsers}".slice(1, -1)).split(", ")
-        console.log(idList)
         $("#author option").each(function () {
             for(var i=0;i<idList.length;i++){
                 if($(this).val() === idList[i])

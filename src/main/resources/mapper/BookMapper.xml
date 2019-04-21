@@ -143,4 +143,9 @@
       book.time = #{time,jdbcType=DATE} and
       imgurl = #{imgurl,jdbcType=VARCHAR},
   </select>
+
+  <!--添加方法-->
+  <insert id="insertGetId" parameterType="zxl.web.domain.Book" useGeneratedKeys="true" keyColumn="bid" keyProperty="bid">
+    insert into book(bid, bookname, classification, babstract, press, time, imgurl) values(#{bid},#{bookname}, #{classification}, #{babstract}, #{press}, #{time}, #{imgurl});
+  </insert>
 </mapper>
