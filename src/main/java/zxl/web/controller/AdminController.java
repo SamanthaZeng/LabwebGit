@@ -91,7 +91,9 @@ public class AdminController {
         }
         if(user.getUsertype()==1)
         {
+            Students students = studentsService.select(user.getSid());
             model.addAttribute("student", studentsService.select(user.getSid()));
+            System.out.println(students);
         }
         if(user.getUsertype()==2)
         {
@@ -139,6 +141,7 @@ public class AdminController {
         {
             Teacher teacher = new Teacher();
             teacher.setTmail(req.getParameter("tmail"));
+            teacher.setCollege(req.getParameter("tcollege"));
             teacher.setTduty(req.getParameter("tduty"));
             teacher.setTeduexp(req.getParameter("teduexp"));
             teacher.setWorkexp(req.getParameter("workexp"));
@@ -162,6 +165,7 @@ public class AdminController {
             {
                 Students student = new Students();
                 student.setSmail(req.getParameter("smail"));
+                student.setCollege(req.getParameter("scollege"));
                 student.setWheretogo(req.getParameter("wheretogo"));
                 student.setStueduexp(req.getParameter("stueduexp"));
                 student.setSrank(Integer.parseInt(req.getParameter("srank")));

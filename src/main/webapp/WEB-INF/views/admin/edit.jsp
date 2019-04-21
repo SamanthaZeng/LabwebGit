@@ -277,6 +277,14 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="tcollege"> 学院名称 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="tcollege" id="tcollege" placeholder="学院名称" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.college}"</c:if>/>
+                                    </div>
+                                </div>
+
                                 <div class="space-4"></div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >教师职称</label>
@@ -334,7 +342,15 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 学生邮箱 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${students.smail}"</c:if>/>
+                                        <input type="text" name="smail" id="form-field-6" placeholder="学生邮箱" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${student.smail}"</c:if>/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="scollege"> 学院名称 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="scollege" id="scollege" placeholder="学院名称" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${student.college}"</c:if>/>
                                     </div>
                                 </div>
 
@@ -344,7 +360,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-7">毕业去向</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${students.wheretogo}"</c:if> />
+                                        <input type="text" name="wheretogo" id="form-field-7" placeholder="毕业去向" class="col-xs-10 col-sm-5"  <c:if test="${1 == userForEdit.usertype}">value="${student.wheretogo}"</c:if> />
                                     </div>
                                 </div>
 
