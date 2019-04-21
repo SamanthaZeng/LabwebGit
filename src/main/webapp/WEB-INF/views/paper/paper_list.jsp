@@ -169,7 +169,7 @@
                                             <th>关键词</th>
                                             <th>论文等级</th>
                                             <th class="hidden-480">发布时间</th>
-                                            <th class="hidden-480">论文摘要</th>
+                                            <th class="hidden-480">作者</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>

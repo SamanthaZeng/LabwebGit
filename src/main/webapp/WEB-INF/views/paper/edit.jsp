@@ -284,8 +284,8 @@
                                     <div class="btn-item col-sm-1">
                                         <p><span id="add"> > </span></p>
                                         <p><span id="remove"> < </span></p>
-                                        <%--<p><span id="add_all"> >> </span></p>--%>
-                                        <%--<p><span id="remove_all"> << </span></p>--%>
+                                        <p><span id="add_all"> >> </span></p>
+                                        <p><span id="remove_all"> << </span></p>
                                     </div>
                                     <div class="select-item col-sm-3">
                                         <select class="col-sm-12" multiple="multiple" id="selectedauthor" name="authors"></select>
@@ -414,6 +414,11 @@
                 var date = new Date();
                 $("#publictime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
             }
+            var obj = document.getElementById("selectedauthor")
+            for(i=0;i<obj.length;i++)
+            {
+                obj[i].selected = true
+            }
         })
         if("${user.isadmin}" == "false")
         {
@@ -441,6 +446,17 @@
 
         /*完成穿梭框的设置*/
         //移动到右边
+        var idList =("${paperUsers}".slice(1, -1)).split(", ")
+        console.log(idList)
+        $("#author option").each(function () {
+            for(var i=0;i<idList.length;i++){
+                if($(this).val() === idList[i])
+                {
+                    $(this).appendTo("#selectedauthor");
+                    break
+                }
+            }
+        })
         $("#add").on("click",function(){
             if(!$("#author option").is(":selected")){
                 alert("请选择移动的选项")

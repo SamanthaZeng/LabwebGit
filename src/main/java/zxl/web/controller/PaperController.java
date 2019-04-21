@@ -57,6 +57,19 @@ public class PaperController {
                 papers.add(paperService.selectPaper(userPaperList.get(i).getPid()));
             }
         }
+        for(int i=0;i<papers.size();i++)
+        {
+            papers.get(i).setKeyword(NewsController.cutStr(papers.get(i).getKeyword(), 50));
+            String users = "";
+            List<UserPaper> userPapers = userPaperService.selectUPps(papers.get(i).getPid());
+            for(int j=0;j<userPapers.size() && j<3;j++)
+            {
+                String associationUser = userService.selectuser(userPapers.get(i).getId()).getRealname();
+                if(associationUser != null)
+                    users += associationUser + " ";
+            }
+            papers.get(i).setPabstract(users);
+        }
         model.addAttribute("papers", papers);
         return "paper/paper_list";
     }
@@ -72,16 +85,22 @@ public class PaperController {
     @RequestMapping("/edit")
     public String edit(HttpServletRequest req, Model model)
     {
-        String pid = req.getParameter("pid");
-        System.out.println(pid);
-        Paper paperForEdit = paperService.selectPaper(Integer.parseInt(pid));
+        int pid = Integer.parseInt(req.getParameter("pid"));
+        Paper paperForEdit = paperService.selectPaper(pid);
         List<Project> projects = projectService.queryAll();
         List<User> users = userService.queryAll();
-        List<Project> associations = paperProjectService.selectAssociationProject(Integer.parseInt(pid));
+        List<Project> associations = paperProjectService.selectAssociationProject(pid);
+        List<UserPaper> userPapers = userPaperService.selectUPps(pid);
+        ArrayList paperUsers = new ArrayList();
+        for(int i=0;i<userPapers.size();i++)
+        {
+            paperUsers.add(userPapers.get(i).getId());
+        }
         model.addAttribute("associations", associations);
         model.addAttribute("projects", projects);
         model.addAttribute("users", users);
         model.addAttribute("paperForEdit", paperForEdit);
+        model.addAttribute("paperUsers", paperUsers);
         return "/paper/edit";
     }
 
