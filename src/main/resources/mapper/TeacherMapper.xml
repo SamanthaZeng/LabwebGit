@@ -10,6 +10,8 @@
     <result column="tmail" jdbcType="VARCHAR" property="tmail" />
     <result column="workexp" jdbcType="VARCHAR" property="workexp" />
     <result column="tduty" jdbcType="VARCHAR" property="tduty" />
+    <result column="college" jdbcType="VARCHAR" property="college" />
+    <result column="edubg" jdbcType="VARCHAR" property="edubg" />
 
     <association property="user" javaType="User">
       <id column="id" property="id"/>
@@ -30,7 +32,7 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    tid, id, trank, service, teduexp, tmail, workexp, tduty
+    tid, id, trank, service, teduexp, tmail, workexp, tduty,college,edubg
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -48,10 +50,10 @@
   <insert id="insert" parameterType="zxl.web.domain.Teacher">
     insert into teacher (tid, id, trank, 
       service, teduexp, tmail, 
-      workexp, tduty)
+      workexp, tduty,college,edubg)
     values (#{tid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, #{trank,jdbcType=INTEGER}, 
       #{service,jdbcType=VARCHAR}, #{teduexp,jdbcType=VARCHAR}, #{tmail,jdbcType=VARCHAR}, 
-      #{workexp,jdbcType=VARCHAR}, #{tduty,jdbcType=VARCHAR})
+      #{workexp,jdbcType=VARCHAR}, #{tduty,jdbcType=VARCHAR},#{college,jdbcType=VARCHAR},#{edubg,jdbcType=VARCHAR})
   </insert>
 
   <insert id="insertSelective" parameterType="zxl.web.domain.Teacher">
@@ -81,6 +83,12 @@
       <if test="tduty != null">
         tduty,
       </if>
+      <if test="college != null">
+        college,
+      </if>
+      <if test="edubg!= null">
+        edubg,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tid != null">
@@ -106,6 +114,12 @@
       </if>
       <if test="tduty != null">
         #{tduty,jdbcType=VARCHAR},
+      </if>
+      <if test="college != null">
+        #{college,jdbcType=VARCHAR},
+      </if>
+      <if test="edubg!= null">
+        #{edubg,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,6 +148,12 @@
       <if test="tduty != null">
         tduty = #{tduty,jdbcType=VARCHAR},
       </if>
+      <if test="college != null">
+        college= #{college,jdbcType=VARCHAR},
+      </if>
+      <if test="edubg!= null">
+        edubg = #{edubg,jdbcType=VARCHAR},
+      </if>
     </set>
     where tid = #{tid,jdbcType=INTEGER}
   </update>
@@ -146,7 +166,9 @@
       teduexp = #{teduexp,jdbcType=VARCHAR},
       tmail = #{tmail,jdbcType=VARCHAR},
       workexp = #{workexp,jdbcType=VARCHAR},
-      tduty = #{tduty,jdbcType=VARCHAR}
+      tduty = #{tduty,jdbcType=VARCHAR},
+      college = #{college,jdbcType=VARCHAR},
+      edubg = #{edubg,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
 

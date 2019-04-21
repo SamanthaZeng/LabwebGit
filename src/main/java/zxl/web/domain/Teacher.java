@@ -19,6 +19,10 @@ public class Teacher {
 
     private String tduty;
 
+    private String college;//所属院系
+
+    private String edubg;//最高学历
+
     public Integer getTid() {
         return tid;
     }
@@ -91,6 +95,22 @@ public class Teacher {
         this.user = user;
     }
 
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
+    public String getEdubg() {
+        return edubg;
+    }
+
+    public void setEdubg(String edubg) {
+        this.edubg = edubg;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
@@ -103,6 +123,8 @@ public class Teacher {
                 ", tmail='" + tmail + '\'' +
                 ", workexp='" + workexp + '\'' +
                 ", tduty='" + tduty + '\'' +
+                ", college='" + college + '\'' +
+                ", edubg='" + edubg + '\'' +
                 '}';
     }
 }

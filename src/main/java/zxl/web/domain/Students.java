@@ -19,6 +19,8 @@ public class Students {
 
     private String stueduexp;
 
+    private String college;//所属院系
+
     public Integer getSid() {
         return sid;
     }
@@ -83,16 +85,26 @@ public class Students {
         this.user = user;
     }
 
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
     @Override
     public String toString() {
         return "Students{" +
                 "sid=" + sid +
                 ", id=" + id +
                 ", srank=" + srank +
+                ", user=" + user +
                 ", smail='" + smail + '\'' +
                 ", wheretogo='" + wheretogo + '\'' +
                 ", entertime=" + entertime +
                 ", stueduexp='" + stueduexp + '\'' +
+                ", college='" + college + '\'' +
                 '}';
     }
 }

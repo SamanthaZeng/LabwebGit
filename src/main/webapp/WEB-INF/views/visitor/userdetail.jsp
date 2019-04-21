@@ -158,12 +158,12 @@
                             <p style="margin-left: 30px;">
                                 姓名： ${teacher.user.realname}<br/>
                                 性别：<c:if test="${teacher.user.sex==0}">男</c:if> <c:if test="${teacher.user.sex==1}">女</c:if><br>
-                                所属部门：<br>
+                                所属部门：${teacher.college}<br>
                                 职称：<c:if test="${teacher.trank==0}">讲师</c:if>
                                 <c:if test="${teacher.trank==1}">助理教授</c:if>
                                 <c:if test="${teacher.trank==2}">副教授</c:if>
                                 <c:if test="${teacher.trank==3}">教授</c:if><br>
-                                学历：<br>
+                                学历：${teacher.edubg}<br>
                                 电子邮件：${teacher.tmail}<br>
                                 社会服务：${teacher.service}<br>
                             </p>
@@ -200,10 +200,10 @@
                             <p style="margin-left: 30px;">
                                 姓名： ${student.user.realname}<br/>
                                 性别：<c:if test="${student.user.sex==0}">男</c:if> <c:if test="${student.user.sex==1}">女</c:if><br>
-                                所属部门：<br>
+                                所属部门：${student.college}<br>
                                 类别：<c:if test="${student.srank==0}">本科生</c:if>
                                 <c:if test="${student.srank==1}">硕士生</c:if>
-                                <c:if test="${student.srank==2}">博士生</c:if>
+                                <c:if test="${student.srank==2}">博士生</c:if><br>
                                 电子邮件：${student.smail}<br>
                                 入学时间：${student.entertime}<br>
                             </p>
