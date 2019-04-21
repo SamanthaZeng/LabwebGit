@@ -172,6 +172,11 @@ public class VisitorControlller {
   public String book(Model model){
       System.out.println("Suceed in book index");
       List<Book>books=bookService.queryAll();
+      for(int i=0;i<books.size();i++)
+      {
+          String str=books.get(i).getBabstract();
+          books.get(i).setBabstract(cutStr(str,50));
+      }
       model.addAttribute("books",books);
       return "visitor/book";
   }
@@ -190,8 +195,11 @@ public class VisitorControlller {
             for(int i=0;i<teachers.size();i++)
                 System.out.println(teachers.get(i).toString());
         }
-        if(usertype==1)
+        if(usertype==1){
             students=studentsService.queryAll();
+            for(int i=0;i<students.size();i++)
+                System.out.println(students.get(i).toString());
+        }
         if(usertype==2)
             cooperators=cooperatorService.queryAll();
          model.addAttribute("teachers",teachers);

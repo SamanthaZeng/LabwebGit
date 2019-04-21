@@ -15,6 +15,8 @@ public class Book {
 
     private Date time;
 
+    private String imgurl;
+
     public Integer getBid() {
         return bid;
     }
@@ -63,6 +65,14 @@ public class Book {
         this.time = time;
     }
 
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -72,6 +82,7 @@ public class Book {
                 ", babstract='" + babstract + '\'' +
                 ", press='" + press + '\'' +
                 ", time=" + time +
+                ", imgurl='" + imgurl + '\'' +
                 '}';
     }
 }

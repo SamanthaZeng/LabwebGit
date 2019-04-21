@@ -134,7 +134,7 @@
                               </div>
                               <div class="container">
                                   <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                      <img class="card-img" src="${teacher.user.imgurl}" height="200px" alt="userpic">
+                                      <img class="card-img" src="${teacher.user.imgurl}" height="150px" alt="userpic">
                                   </a>
                               </div>
 

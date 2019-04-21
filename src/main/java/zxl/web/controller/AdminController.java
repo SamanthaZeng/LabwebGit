@@ -115,8 +115,9 @@ public class AdminController {
         user.setEngname(req.getParameter("engname"));
         //imgfile
         if(imgFile !=null && imgFile.getSize()!=0){
-            //获取文件夹路径
+            //获取文件夹路径,获得的是工程编译后的路径，即target路径
             String path = req.getServletContext().getRealPath("/uploadFile");
+            System.out.println(path);
             //文件名称UID解决文件名称问题
             String filename=imgFile.getOriginalFilename();
             String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);

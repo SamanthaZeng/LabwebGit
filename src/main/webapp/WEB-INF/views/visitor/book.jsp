@@ -114,28 +114,24 @@
 </div>
 
 <div style="margin-top: 5em">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">书籍名</th>
-      <th scope="col">书籍简介</th>
-        <th scope="col">出版社</th>
-      <th scope="col">作者</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${books}" var="book" varStatus="index">
-        <tr>
-            <th scope="row">${index.count}</th>
-            <td>${book.bookname}</td>
-            <td>${book.babstract}</td>
-            <td>${book.press}</td>
-            <td>作者</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-  </table>
+    <div class="container">
+        <div class="row">
+            <c:forEach items="${books}" var="book" >
+                <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
+                    <div class="card" style="width: 18rem;">
+                        <div class="container">
+                            <img class="card-img" src="${book.imgurl}" height="200px" alt="bookpic">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center">《${book.bookname}》</p>
+                            <p class="card-text text-center">${book.babstract}</p>
+                            <p class="card-text text-center">${book.press}</p>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
 </div>
 
 

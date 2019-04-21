@@ -9,9 +9,10 @@
     <result column="babstract" jdbcType="VARCHAR" property="babstract" />
     <result column="press" jdbcType="VARCHAR" property="press" />
     <result column="time" jdbcType="DATE" property="time" />
+    <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
   </resultMap>
   <sql id="Base_Column_List">
-    bid, bookname, classification, babstract, press, time
+    bid, bookname, classification, babstract, press, time,imgurl
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -28,10 +29,10 @@
 
   <insert id="insert" parameterType="zxl.web.domain.Book">
     insert into book (bid, bookname, classification,
-      babstract, press, time
+      babstract, press, time,imgurl
       )
     values (#{bid,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{classification,jdbcType=VARCHAR},
-      #{babstract,jdbcType=VARCHAR}, #{press,jdbcType=VARCHAR}, #{time,jdbcType=DATE}
+      #{babstract,jdbcType=VARCHAR}, #{press,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{imgurl,jdbcType=VARCHAR}
       )
   </insert>
 
@@ -56,6 +57,9 @@
       <if test="time != null">
         time,
       </if>
+      <if test="imgurl != null">
+        imgurl,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="bid != null">
@@ -75,6 +79,9 @@
       </if>
       <if test="time != null">
         #{time,jdbcType=DATE},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -97,6 +104,9 @@
       <if test="time != null">
         time = #{time,jdbcType=DATE},
       </if>
+      <if test="imgurl != null">
+        time = #{imgurl,jdbcType=DATE},
+      </if>
     </set>
     where bid = #{bid,jdbcType=INTEGER}
   </update>
@@ -107,7 +117,8 @@
       classification = #{classification,jdbcType=VARCHAR},
       babstract = #{babstract,jdbcType=VARCHAR},
       press = #{press,jdbcType=VARCHAR},
-      time = #{time,jdbcType=DATE}
+      time = #{time,jdbcType=DATE},
+      imgurl = #{imgurl,jdbcType=VARCHAR}
     where bid = #{bid,jdbcType=INTEGER}
   </update>
 
@@ -129,6 +140,7 @@
       book.classification = #{classification,jdbcType=VARCHAR} and
       book.babstract = #{babstract,jdbcType=VARCHAR} and
       book.press = #{press,jdbcType=VARCHAR} and
-      book.time = #{time,jdbcType=DATE}
+      book.time = #{time,jdbcType=DATE} and
+      imgurl = #{imgurl,jdbcType=VARCHAR},
   </select>
 </mapper>
