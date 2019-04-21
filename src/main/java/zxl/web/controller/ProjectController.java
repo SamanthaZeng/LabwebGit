@@ -109,8 +109,7 @@ public class ProjectController {
 
         /*增加或更新userpro表*/
         //1.获取项目Id
-        int proid;
-        proid=projectService.selectProid(project);
+        int proid = project.getProid();
 
         //2.添加或更新Userpro表
         List<UserPro> userPros=userProService.selectUPs(proid);

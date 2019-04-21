@@ -150,17 +150,12 @@ public class PaperController {
             paperService.update(paper);
         }else{
             paperService.save(paper);
-            int pid=paperService.selectPid(paper);
-            paper.setPid(pid);
             //把数据保存到数据库
             if(proid != null)
                 for(int i=0; i<proid.length; i++)
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
         }
-
-        /*增加/更新userpaper表*/
-        //获取Paperid
-        int pid=paper.getPid();
+        int pid = paper.getPid();
         //添加/更新userpaper表
         List<UserPaper> userPapers=userPaperService.selectUPps(pid);
         UserPaperKey userPaperKey=new UserPaperKey();

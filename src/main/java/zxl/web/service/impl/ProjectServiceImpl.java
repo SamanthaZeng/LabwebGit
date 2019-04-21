@@ -20,8 +20,8 @@ public class ProjectServiceImpl implements IProjectService {
     public Project selectProject(int proid) { return mapper.selectByPrimaryKey(proid); }
 
     @Override
-    public int save(Project project) {
-        return mapper.insert(project);
+    public void save(Project project) {
+        mapper.insertGetId(project);
     }
 
     @Override

@@ -165,4 +165,9 @@
   <select id="selectPaperbyTime" parameterType="Date" resultMap="BaseResultMap">
     select * from paper where YEAR(publictime)=#{time}
   </select>
+
+  <!--添加方法-->
+  <insert id="insertGetId" parameterType="zxl.web.domain.Paper" useGeneratedKeys="true" keyColumn="pid" keyProperty="pid">
+    insert into paper(pid, ptitile, publictime, papersource, keyword, pabstract, paperurl, paperrank) values(#{pid},#{ptitile}, #{publictime}, #{papersource}, #{keyword}, #{pabstract}, #{paperurl}, #{paperrank});
+  </insert>
 </mapper>

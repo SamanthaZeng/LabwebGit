@@ -117,7 +117,7 @@
       classhour = #{classhour,jdbcType=INTEGER}
   </select>
 
-  <!--注册方法-->
+  <!--添加方法-->
   <insert id="insertGetId" parameterType="zxl.web.domain.Course" useGeneratedKeys="true" keyColumn="clsid" keyProperty="clsid">
     insert into course(clsid, name, abstract, teachingobject, course_type, classhour) values(#{clsid},#{name}, #{abstract}, #{teachingobject}, #{courseType}, #{classhour});
   </insert>
