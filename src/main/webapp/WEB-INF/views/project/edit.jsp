@@ -57,22 +57,22 @@
         ::-webkit-scrollbar{
               width: 0px;
           }
-        .select {
-            width: 600px;
-            height: 220px;
-            margin: 100px auto;
-        }
+        /*.select {*/
+            /*width: 600px;*/
+            /*height: 220px;*/
+            /*margin: 100px auto;*/
+        /*}*/
 
-        .select div {
-            float: left;
-        }
+        /*.select div {*/
+            /*float: left;*/
+        /*}*/
 
-        .select .select-item {
-            padding: 5px 20px;
-        }
+        /*.select .select-item {*/
+            /*padding: 5px 20px;*/
+        /*}*/
 
         .select .select-item select {
-            width: 150px;
+            /*width: 150px;*/
             height: 200px;
             border: 1px #eee solid;
             padding: 4px;
@@ -181,8 +181,7 @@
                 <div class="row">
                     <div class="col-xs-12">
 
-                        <form class="form-horizontal" method="post" action="/project/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <div class="col-xs-6">
+                        <form class="form-horizontal" id="projectForm" method="post" action="/project/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="proid" value="${projectForEdit.proid}"/>
                             <div class="form-group">
@@ -232,10 +231,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目概述 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="proabstract"> 项目概述 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="proabstract" value="${projectForEdit.proabstract}" id="form-field-6" placeholder="项目概述" class="col-xs-10 col-sm-5" />
+                                    <textarea id="proabstract" name="proabstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" placeholder="项目概述">${paperForEdit.proabstract}</textarea>
                                 </div>
                             </div>
 
@@ -246,7 +245,6 @@
                                     <input type="text" name="prosource" value="${projectForEdit.prosource}" id="form-field-7" placeholder="项目来源" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
-                            </div><!--<div class="col-xs-6">-->
 
                             <%--<div class="form-group">--%>
                                 <%--<label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>--%>
@@ -270,28 +268,29 @@
                                 <%--</div>--%>
                             <%--</div>--%>
 
-                            <div class="col-xs-6">
-                                <!--穿梭框的实现-->
-                                <div class="select">
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="author">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" > 作者 </label>
+
+                                <div class="select col-sm-9">
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="author">
                                             <c:forEach items="${users}" var="user">
                                                 <option value="${user.id}"  >${user.username}/${user.realname}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
-                                    <div class="btn-item">
+                                    <div class="btn-item col-sm-1">
                                         <p><span id="add"> > </span></p>
                                         <p><span id="remove"> < </span></p>
                                         <p><span id="add_all"> >> </span></p>
                                         <p><span id="remove_all"> << </span></p>
                                     </div>
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="selectedauthor" name="authors"></select>
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="selectedauthor" name="authors"></select>
                                     </div>
                                 </div>
+                            </div>
 
-                            </div><!-- <div clas="col-xs-6">-->
 
 
 
@@ -408,6 +407,13 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        $("#projectForm").on("submit", function () {
+            var obj = document.getElementById("selectedauthor")
+            for(i=0;i<obj.length;i++)
+            {
+                obj[i].selected = true
+            }
+        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
@@ -424,6 +430,18 @@
 
         /*完成穿梭框的设置*/
         //移动到右边
+        console.log("${proUsers}")
+        var idList =("${proUsers}".slice(1, -1)).split(", ")
+        console.log(idList)
+        $("#author option").each(function () {
+            for(var i=0;i<idList.length;i++){
+                if($(this).val() === idList[i])
+                {
+                    $(this).appendTo("#selectedauthor");
+                    break
+                }
+            }
+        })
         $("#add").on("click",function(){
             if(!$("#author option").is(":selected")){
                 alert("请选择移动的选项")

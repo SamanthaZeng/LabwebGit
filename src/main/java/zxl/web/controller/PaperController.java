@@ -64,7 +64,7 @@ public class PaperController {
             List<UserPaper> userPapers = userPaperService.selectUPps(papers.get(i).getPid());
             for(int j=0;j<userPapers.size() && j<3;j++)
             {
-                String associationUser = userService.selectuser(userPapers.get(i).getId()).getRealname();
+                String associationUser = userService.selectuser(userPapers.get(j).getId()).getRealname();
                 if(associationUser != null)
                     users += associationUser + " ";
             }
@@ -79,6 +79,8 @@ public class PaperController {
     {
         List<User> users=userService.queryAll();
         model.addAttribute("users",users);
+        List<Project> projects = projectService.queryAll();
+        model.addAttribute("projects", projects);
         return "/paper/edit";
     }
 
@@ -113,7 +115,7 @@ public class PaperController {
     }
 
     @RequestMapping("/save")
-    public String edit(Paper paper, HttpServletRequest req, MultipartFile pdfFile) throws IOException {
+    public String save(Paper paper, HttpServletRequest req, MultipartFile pdfFile) throws IOException {
        System.out.println("进入papersave, pid= "+paper.getPid());
         /*获取上传的论文文件*/
         if(pdfFile !=null){
@@ -147,16 +149,18 @@ public class PaperController {
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
             paperService.update(paper);
         }else{
+            paperService.save(paper);
+            int pid=paperService.selectPid(paper);
+            paper.setPid(pid);
             //把数据保存到数据库
             if(proid != null)
                 for(int i=0; i<proid.length; i++)
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
-            paperService.save(paper);
         }
 
         /*增加/更新userpaper表*/
         //获取Paperid
-        int pid=paperService.selectPid(paper);
+        int pid=paper.getPid();
         //添加/更新userpaper表
         List<UserPaper> userPapers=userPaperService.selectUPps(pid);
         UserPaperKey userPaperKey=new UserPaperKey();

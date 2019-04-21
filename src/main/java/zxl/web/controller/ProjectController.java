@@ -54,6 +54,18 @@ public class ProjectController {
                 projects.add(projectService.selectProject(userProList.get(i).getProid()));
             }
         }
+        for(int i=0;i<projects.size();i++)
+        {
+            String users = "";
+            List<UserPro> userPros = userProService.selectUPs(projects.get(i).getProid());
+            for(int j=0;j<userPros.size() && j<3;j++)
+            {
+                String associationUser = userService.selectuser(userPros.get(j).getId()).getRealname();
+                if(associationUser != null)
+                    users += associationUser + " ";
+            }
+            projects.get(i).setProabstract(users);
+        }
         model.addAttribute("projects", projects);
         return "/project/project_list";
     }
@@ -61,16 +73,17 @@ public class ProjectController {
     @RequestMapping("/edit")
     public String edit(HttpServletRequest req, Model model)
     {
-        String proid = req.getParameter("proid");
-        Project projectForEdit = projectService.selectProject(Integer.parseInt(proid));
-//        List<Paper> papers = paperService.queryAll();
-//        List<Paper> associations = paperProjectService.selectAssociation(Integer.parseInt(proid));
-//        for(int i=0;i<papers.size();i++)
-//        {
-//            System.out.println(papers.get(i).getPtitile());
-//        }
-//        model.addAttribute("associations", associations);
-//        model.addAttribute("papers", papers);
+        int proid = Integer.parseInt(req.getParameter("proid"));
+        Project projectForEdit = projectService.selectProject(proid);
+        List<User> users = userService.queryAll();
+        List<UserPro> userPros = userProService.selectUPs(proid);
+        ArrayList proUsers = new ArrayList();
+        for(int i=0;i<userPros.size();i++)
+        {
+            proUsers.add(userPros.get(i).getId());
+        }
+        model.addAttribute("proUsers", proUsers);
+        model.addAttribute("users",users);
         model.addAttribute("projectForEdit", projectForEdit);
         return "project/edit";
     }
@@ -78,10 +91,6 @@ public class ProjectController {
     @RequestMapping("/add")
     public String add(HttpServletRequest req, Model model)
     {
-//        List<Paper> papers = paperService.queryAll();
-//        List<Paper> associations = null;
-//        model.addAttribute("associations", associations);
-//        model.addAttribute("papers", papers);
         List<User> users=userService.queryAll();
         model.addAttribute("users",users);
         return "project/edit";
@@ -118,7 +127,7 @@ public class ProjectController {
             }
             UserPro author=new UserPro();
             author.setProid(proid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     author.setId(Integer.valueOf(authors[i]));
                     userProService.insert(author);
@@ -127,7 +136,7 @@ public class ProjectController {
         }else {//添加
             UserPro author=new UserPro();
             author.setProid(proid);
-            if(authors.length!=0){
+            if(authors!=null){
                 for(int i=0;i<authors.length;i++){
                     author.setId(Integer.valueOf(authors[i]));
                     userProService.insert(author);

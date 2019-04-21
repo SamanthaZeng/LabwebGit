@@ -173,7 +173,7 @@
                                             <th>项目类型</th>
                                             <th>项目级别</th>
                                             <th class="hidden-480">项目资金</th>
-                                            <th class="hidden-480">概述</th>
+                                            <th class="hidden-480">负责人</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
