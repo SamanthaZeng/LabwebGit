@@ -11,6 +11,7 @@ import zxl.web.domain.*;
 import zxl.web.service.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.ReportAsSingleViolation;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -75,11 +76,21 @@ public class PaperController {
         System.out.println(pid);
         Paper paperForEdit = paperService.selectPaper(Integer.parseInt(pid));
         List<Project> projects = projectService.queryAll();
+        List<User> users = userService.queryAll();
         List<Project> associations = paperProjectService.selectAssociationProject(Integer.parseInt(pid));
         model.addAttribute("associations", associations);
         model.addAttribute("projects", projects);
+        model.addAttribute("users", users);
         model.addAttribute("paperForEdit", paperForEdit);
         return "/paper/edit";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int pid = Integer.parseInt(req.getParameter("pid"));
+        paperService.deleteByPid(pid);
+        return "redirect:/paper/index";
     }
 
     @RequestMapping("/save")

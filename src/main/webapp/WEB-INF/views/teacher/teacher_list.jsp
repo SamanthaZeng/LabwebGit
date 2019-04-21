@@ -49,7 +49,6 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -170,10 +169,6 @@
 													<th >教师性别</th>
 													<th class="hidden-480">教师职称</th>
 													<th class="hidden-480">教师邮箱</th>
-													<th>
-														<i class="icon-time bigger-110 hidden-480"></i>
-														用户头像
-													</th>
 
 
 													<th>其他操作</th>
@@ -220,14 +215,6 @@
 															</c:choose>
 														</td>
 														<td>${teacher.tmail}</td>
-
-														<td class="hidden-480">
-															<span >
-
-																<img style="width:60px;height:60px;"  src="${teacher.user.imgurl}" />
-																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
-															</span>
-														</td>
 
 														<td>
 															<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -344,7 +331,7 @@
 				var stuTable = $('#stuTable').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
-			      null, null,null, null, null,null,
+			      null, null,null, null, null,
 				  { "bSortable": false }
 				],
 				"iDisplayLength": 5,

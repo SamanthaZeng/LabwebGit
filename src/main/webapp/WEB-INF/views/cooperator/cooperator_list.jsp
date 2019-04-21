@@ -49,7 +49,6 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -170,10 +169,6 @@
 													<th >合作者性别</th>
 													<th class="hidden-480">合作者单位</th>
 													<th class="hidden-480">合作者职务</th>
-													<th>
-														<i class="icon-time bigger-110 hidden-480"></i>
-														用户头像
-													</th>
 
 
 													<th>其他操作</th>
@@ -206,15 +201,6 @@
 															${cooperator.company.coname}
 														</td>
 														<td>${cooperator.cduty}</td>
-
-														<td class="hidden-480">
-															<span >
-
-																<img style="width:60px;height:60px;"  src="${cooperator.user.imgurl}" />
-																<!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
-															</span>
-														</td>
-
 														<td>
 															<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 																<a class="blue" href="#">
@@ -329,7 +315,7 @@
 				var stuTable = $('#stuTable').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
-			      null, null,null, null, null,null,
+			      null, null,null, null, null,
 				  { "bSortable": false }
 				],
 				"iDisplayLength": 5,

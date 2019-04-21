@@ -54,22 +54,22 @@
         ::-webkit-scrollbar{
             width: 0px;
         }
-        .select {
-            width: 600px;
-            height: 220px;
-            margin: 100px auto;
-        }
+        /*.select {*/
+            /*width: 600px;*/
+            /*height: 220px;*/
+            /*margin: 100px auto;*/
+        /*}*/
 
-        .select div {
-            float: left;
-        }
+        /*.select div {*/
+            /*float: left;*/
+        /*}*/
 
-        .select .select-item {
-            padding: 5px 20px;
-        }
+        /*.select .select-item {*/
+            /*padding: 5px 20px;*/
+        /*}*/
 
         .select .select-item select {
-            width: 150px;
+            /*width: 150px;*/
             height: 200px;
             border: 1px #eee solid;
             padding: 4px;
@@ -115,7 +115,6 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -181,7 +180,6 @@
                         <!--学生表单 -->
 
                         <form class="form-horizontal" id="paperForm" method="post" action="/paper/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <div class="col-xs-6">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="pid" value="${paperForEdit.pid}"/>
                             <div class="form-group">
@@ -195,46 +193,51 @@
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文级别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="paperrank"> 论文级别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="paperrank" value="${paperForEdit.paperrank}" id="form-field-2" placeholder="论文级别" class="col-xs-10 col-sm-5" />
+                                    <select class="col-xs-10 col-sm-5" id="paperrank" name="paperrank" value="${paperForEdit.paperrank}">
+                                        <option value="">-----------请选择论文级别----------</option>
+                                        <option value="CCF-A" >CCF-A</option>
+                                        <option value="CCF-B" >CCF-B</option>
+                                        <option value="CCF-C" >CCF-C</option>
+                                        <option value="SCI-A" >SCI-A</option>
+                                        <option value="SCI-B" >SCI-B</option>
+                                        <option value="SCI-C" >SCI-C</option>
+                                        <option value="其他" >其他</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="papersource"> 论文来源 </label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" id="papersource" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文来源 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="keyword"> 关键词 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
-
+                                    <textarea id="keyword" name="keyword" style="resize:none;" class="col-xs-10 col-sm-5" rows="5" placeholder="论文关键词">${paperForEdit.keyword}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="pabstract"> 论文摘要 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="keyword" value="${paperForEdit.keyword}" id="form-field-4" placeholder="关键词" class="col-xs-10 col-sm-5" />
-
+                                    <textarea id="pabstract" name="pabstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" placeholder="论文摘要">${paperForEdit.pabstract}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 论文摘要 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发表时间</label>
 
-                                <div class="col-sm-9">
-                                    <input type="text" name="pabstract" value="${paperForEdit.pabstract}" id="form-field-5" placeholder="论文摘要" class="col-xs-10 col-sm-5" />
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 发布时间</label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" id="publictime" name="publictime" readonly="readonly" name="发布时间" value="${paperForEdit.publictime}" id="form-field-6" class="col-xs-10 col-sm-5 date-picker" />
+                                <div class="col-sm-9"><input type="text" name="publictime" id="publictime" class="col-xs-10 col-sm-5 date-picker " placeholder="默认为今天日期" value="${paperForEdit.publictime}"/>
                                 </div>
                             </div>
 
@@ -267,29 +270,29 @@
                                     </select>
                                 </div>
                             </div>
-                            </div><!--<div class="col-xs-6">-->
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" > 作者 </label>
 
-                            <div class="col-xs-6">
-                                <!--穿梭框的实现-->
-                                <div class="select">
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="author">
+                                <div class="select col-sm-9">
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="author">
                                             <c:forEach items="${users}" var="user">
                                                 <option value="${user.id}"  >${user.username}/${user.realname}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
-                                    <div class="btn-item">
+                                    <div class="btn-item col-sm-1">
                                         <p><span id="add"> > </span></p>
                                         <p><span id="remove"> < </span></p>
-                                        <p><span id="add_all"> >> </span></p>
-                                        <p><span id="remove_all"> << </span></p>
+                                        <%--<p><span id="add_all"> >> </span></p>--%>
+                                        <%--<p><span id="remove_all"> << </span></p>--%>
                                     </div>
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="selectedauthor" name="authors"></select>
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="selectedauthor" name="authors"></select>
                                     </div>
                                 </div>
-                            </div><!-- <div class="col-xs-6">-->
+                            </div>
+                            <!--穿梭框的实现-->
 
 
                             <div class="clearfix form-actions">
@@ -409,7 +412,7 @@
             if($("#publictime").val() === "")
             {
                 var date = new Date();
-                $("#publictime").val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay())
+                $("#publictime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
             }
         })
         if("${user.isadmin}" == "false")
@@ -423,6 +426,11 @@
                 $(".teacherHidden").css("display", "none");
                 $(".studentHidden").css("display", "none");
             }
+        }
+        var selectval= "${paperForEdit.paperrank}";
+        if(selectval!=null&&selectval!=""){
+            $('#paperrank').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
         }
         $(document).ready(function(){
             var projectIdList = $("#paperproject").val();
@@ -469,7 +477,7 @@
         $("#selectedauthor").on("dblclick",function(){
             $("option:selected",this).appendTo("#author");
         })
-        
+
         //初始化拓展表单
         $(".date-picker").datepicker({
             format: "yyyy-mm-dd", //显示日期格式

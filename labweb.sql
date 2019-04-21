@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 16/04/2019 03:45:14
+ Date: 18/04/2019 16:19:37
 */
 
 SET NAMES utf8mb4;
@@ -53,12 +53,13 @@ CREATE TABLE `cooperator`  (
   `id` int(11) NULL DEFAULT NULL,
   `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `cduty` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `cmail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`cid`) USING BTREE,
   INDEX `FK_cocom`(`coid`) USING BTREE,
   INDEX `FK_usercooperator2`(`id`) USING BTREE,
   CONSTRAINT `FK_cocom` FOREIGN KEY (`coid`) REFERENCES `company` (`coid`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_usercooperator2` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for course
@@ -170,7 +171,7 @@ CREATE TABLE `student`  (
   PRIMARY KEY (`sid`) USING BTREE,
   INDEX `FK_userstudent2`(`id`) USING BTREE,
   CONSTRAINT `FK_userstudent2` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_class
@@ -213,7 +214,7 @@ CREATE TABLE `teacher`  (
   PRIMARY KEY (`tid`) USING BTREE,
   INDEX `FK_userteacher2`(`id`) USING BTREE,
   CONSTRAINT `FK_userteacher2` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user
@@ -239,7 +240,7 @@ CREATE TABLE `user`  (
   INDEX `FK_userteacher`(`tid`) USING BTREE,
   CONSTRAINT `FK_usercooperator` FOREIGN KEY (`cid`) REFERENCES `cooperator` (`cid`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_userteacher` FOREIGN KEY (`tid`) REFERENCES `teacher` (`tid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for userbook

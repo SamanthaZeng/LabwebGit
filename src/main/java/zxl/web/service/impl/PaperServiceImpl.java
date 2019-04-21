@@ -37,6 +37,11 @@ public class PaperServiceImpl implements IPaperService {
     }
 
     @Override
+    public void deleteByPid(int pid) {
+        mapper.deleteByPrimaryKey(pid);
+    }
+
+    @Override
     public List<Paper> selectPaperbyTime(Date time) {
         return mapper.selectPaperbyTime(time);
     }
