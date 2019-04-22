@@ -96,6 +96,13 @@ public class ProjectController {
         return "project/edit";
     }
 
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest req)
+    {
+        int proid = Integer.parseInt(req.getParameter("proid"));
+        projectService.delete(proid);
+        return "redirect:/project/index";
+    }
 
     @RequestMapping("/save")
     public String save(Project project, HttpServletRequest req) {

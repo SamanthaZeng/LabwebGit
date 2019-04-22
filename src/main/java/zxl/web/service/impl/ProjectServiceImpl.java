@@ -34,5 +34,10 @@ public class ProjectServiceImpl implements IProjectService {
         return mapper.selectProid(project);
     }
 
+    @Override
+    public void delete(int proid) {
+        mapper.deleteByPrimaryKey(proid);
+    }
+
     ;
 }

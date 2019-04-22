@@ -11,4 +11,5 @@ public interface IProjectService {
     public int update(Project project);
     //返回项目id
     public int selectProid(Project project);
+    public void delete(int proid);
 }
