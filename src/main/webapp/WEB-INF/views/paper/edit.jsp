@@ -193,6 +193,19 @@
                             <div class="space-4"></div>
 
                             <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="papertype"> 论文类型 </label>
+
+                                <div class="col-sm-9">
+                                    <select class="col-xs-10 col-sm-5" id="papertype" name="papertype" value="${paperForEdit.papertype}">
+                                        <option value="">-----------请选择论文类型----------</option>
+                                        <option value="1" >会议论文</option>
+                                        <option value="2" >期刊论文</option>
+                                        <option value="3" >技术报告</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="paperrank"> 论文级别 </label>
 
                                 <div class="col-sm-9">
@@ -215,6 +228,19 @@
                                 <div class="col-sm-9">
                                     <input type="text" id="papersource" name="papersource" value="${paperForEdit.papersource}" id="form-field-3" placeholder="论文来源" class="col-xs-10 col-sm-5" />
 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 论文索引 </label>
+
+                                <div class="col-sm-9">
+                                    <select autocomplete="off" multiple="" name="paperindex" class="chosen-select col-xs-10 col-sm-5" id="paperindex" data-placeholder="选择论文索引">
+                                        <option class="paperIndexs" value="1">EI</option>
+                                        <option class="paperIndexs" value="2">SCI</option>
+                                        <option class="paperIndexs" value="3">ISTP</option>
+                                        <option class="paperIndexs" value="4">CNKI</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -250,7 +276,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关论文 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关项目 </label>
 
                                 <div class="col-sm-9">
                                     <select autocomplete="off" multiple="" name="paperproject" class="chosen-select col-xs-10 col-sm-5" id="paperproject" data-placeholder="选择相关项目">
@@ -431,6 +457,24 @@
                 $(".teacherHidden").css("display", "none");
                 $(".studentHidden").css("display", "none");
             }
+        }
+        var i = "${paperForEdit.paperindex}"
+        var indexval = parseInt(i)
+        for(var t = 0; indexval > Math.pow(2, t); t++){
+        }
+        for(t=t-1; t>=0; t++)
+        {
+            // if(indexval > Math.pow(2, t))
+            // {
+            //     $('#paperindex').find("option[value='"+typeval+"']").attr("selected", "true")
+            //     indexval = indexval - Math.pow(2, t)
+            // }
+        }
+        alert(t)
+        var typeval = "${paperForEdit.papertype}"
+        if(typeval!=null&&typeval!=""){
+            $('#papertype').find("option[value='"+typeval+"']").attr("selected", "true");
+        //alert(selectval);
         }
         var selectval= "${paperForEdit.paperrank}";
         if(selectval!=null&&selectval!=""){

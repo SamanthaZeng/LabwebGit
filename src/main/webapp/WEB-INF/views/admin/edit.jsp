@@ -49,7 +49,6 @@
             border: 1px dashed #aaa;
             border-radius: 4px;
             text-align: center;
-            width: 350px;
         }
     </style>
 </head>
@@ -213,11 +212,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 头像 </label>
-
+                                <label class="col-sm-3 control-label no-padding-right"> 头像<br/>标准2寸证件照规格<br/>宽高比为（3.5:5.3） </label>
                                 <div class="col-sm-9">
-                                    <input  multiple="" type="file" name="imgFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
+                                    <div class="col-sm-3">
+                                        <input  multiple="" type="file" name="imgFile" id="id-input-file-3"/>
+                                    </div>
+
+                                    <img src="${userForEdit.imgurl}" class="col-xs-10 col-sm-2">
                                 </div>
+
                             </div>
 
                             <div class="form-group">
@@ -300,10 +303,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">教师职务</label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">行政职务</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="tduty" id="form-field-5" placeholder="教师职务" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.tduty}"</c:if>/>
+                                        <input type="text" name="tduty" id="form-field-5" placeholder="行政职务" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.tduty}"</c:if>/>
                                     </div>
                                 </div>
 

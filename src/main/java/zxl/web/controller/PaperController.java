@@ -129,13 +129,17 @@ public class PaperController {
             org.apache.commons.io.IOUtils.copy(pdfFile.getInputStream(),new FileOutputStream(file));
             paper.setPaperurl("/uploadFile/"+newFileName);
         }
+
+        /*获取论文索引*/
+        String [] indexs = req.getParameterValues("paperindex");
+        int index = 0;
+        for(int i=0;i<indexs.length;i++)
+        {
+            index += Math.pow(2, (double)(Integer.parseInt(indexs[i])));
+        }
+        paper.setPaperindex(index);
         /*获取相关项目、作者*/
         String[] proid = req.getParameterValues("paperproject");
-        if(proid != null)
-        {
-            for(int i=0;i<proid.length;i++)
-                System.out.println(proid[i]);
-        }
         String authors[]=req.getParameterValues("authors");
 
         /*增加/更新paper表*/
