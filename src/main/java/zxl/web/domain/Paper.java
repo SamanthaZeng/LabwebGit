@@ -19,6 +19,10 @@ public class Paper {
 
     private String paperrank;
 
+    private int papertype;
+
+    private int paperindex;
+
     public Integer getPid() {
         return pid;
     }
@@ -81,5 +85,21 @@ public class Paper {
 
     public void setPaperrank(String paperrank) {
         this.paperrank = paperrank;
+    }
+
+    public int getPaperindex() {
+        return paperindex;
+    }
+
+    public void setPaperindex(int paperindex) {
+        this.paperindex = paperindex;
+    }
+
+    public int getPapertype() {
+        return papertype;
+    }
+
+    public void setPapertype(int papertype) {
+        this.papertype = papertype;
     }
 }

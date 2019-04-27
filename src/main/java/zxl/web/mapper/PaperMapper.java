@@ -23,6 +23,8 @@ public interface PaperMapper {
     //返回paperid
     int selectPid(Paper paper);
 
+    void insertGetId(Paper paper);
+
     //根据年份返回该年份内的所有paper
     List<Paper> selectPaperbyTime(Date time);
 }

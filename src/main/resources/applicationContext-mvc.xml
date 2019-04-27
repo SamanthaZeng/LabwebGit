@@ -61,7 +61,8 @@
         <mvc:interceptor>
             <mvc:mapping path="/company/*"/>
             <mvc:mapping path="/news/*"/>
-            <bean class="zxl.web.interceptor.CompanyNewsInterceptor"/>
+            <mvc:mapping path="/researcharea/*"/>
+            <bean class="zxl.web.interceptor.CompanyNewsResearchAreaInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

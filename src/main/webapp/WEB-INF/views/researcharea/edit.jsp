@@ -49,7 +49,6 @@
             border: 1px dashed #aaa;
             border-radius: 4px;
             text-align: center;
-            width: 350px;
         }
         ::-webkit-scrollbar{
             width: 0px;
@@ -115,7 +114,6 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -178,9 +176,8 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/researcharea/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" id="researchareaForm" method="post" action="/researcharea/save" enctype="multipart/form-data"  accept-charset="UTF-8">
 
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="rid" value="${researcharea.rid}"/>
@@ -197,6 +194,42 @@
                                 <div class="col-sm-9">
                                     <textarea name="intro" id="intro" style="resize:none;" class="col-sm-5" rows="10" placeholder="研究方向介绍">${researcharea.intro}</textarea>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 图片1 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-3">
+                                        <input  multiple="" type="file" name="imgFile1" class="imgFile" id="imgFile1"/>
+                                    </div>
+
+                                    <img src="${researcharea.imgurl1}" class="col-xs-10 col-sm-2">
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 图片2 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-3">
+                                        <input  multiple="" type="file" name="imgFile2" class="imgFile" id="imgFile2"/>
+                                    </div>
+
+                                    <img src="${researcharea.imgurl2}" class="col-xs-10 col-sm-2">
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 图片3 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-3">
+                                        <input  multiple="" type="file" name="imgFile3" class="imgFile" id="imgFile3"/>
+                                    </div>
+
+                                    <img src="${researcharea.imgurl3}" class="col-xs-10 col-sm-2">
+                                </div>
+
                             </div>
 
                             <div class="clearfix form-actions">
@@ -312,6 +345,23 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        $("#researchareaForm").on("submit", function () {
+            if($("#imgFile1").val() == "" && "${researcharea.imgurl1}" == "")
+            {
+                alert("图片1未上传")
+                return false
+            }
+            if($("#imgFile2").val() == "" && "${researcharea.imgurl2}" == "")
+            {
+                alert("图片2未上传")
+                return false
+            }
+            if($("#imgFile3").val() == "" && "${researcharea.imgurl3}" == "")
+            {
+                alert("图片3未上传")
+                return false
+            }
+        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
@@ -501,7 +551,7 @@
             //
         });
 
-        $('#id-input-file-3').ace_file_input({
+        $('.imgFile').ace_file_input({
             style:'well',
             btn_choose:'Drop files here or click to choose',
             btn_change:null,

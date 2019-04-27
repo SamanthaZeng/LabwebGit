@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import zxl.web.domain.User;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 @Controller
 @RequestMapping("/book")
@@ -67,9 +68,7 @@ public class BookController {
             bookService.save(book);
         /*增加或更新 userbook 表*/
        //1.获取书籍id
-        int bid;
-        bid=bookService.selectBid(book);
-        System.out.println("bid= "+bid);
+        int bid = book.getBid();
         //2.添加或更新userbook表
         List<UserBook> userBooks=userBookService.selectUBs(bid);
         int id;
@@ -86,7 +85,7 @@ public class BookController {
             UserBook author=new UserBook();
             //设置书的id
             author.setBid(bid);
-            if(authors.length != 0)
+            if(authors != null)
                 for(int i=0;i<authors.length;i++){
                     //设置作者id和书号
                     author.setId(Integer.valueOf(authors[i]));
@@ -98,7 +97,7 @@ public class BookController {
             UserBook author=new UserBook();
             //设置书的id
             author.setBid(bid);
-            if(authors.length != 0)
+            if(authors != null)
                 for(int i=0;i<authors.length;i++){
                     //设置作者id和书号
                     author.setId(Integer.valueOf(authors[i]));
@@ -113,8 +112,15 @@ public class BookController {
     public String edit(Model model, HttpServletRequest req,Book book)
     {
         Book book1=bookService.queryOne(book);
-       // String bid = req.getParameter("bid");
+        int bid = Integer.parseInt(req.getParameter("bid"));
         List<User> users=userService.queryAll();
+        List<UserBook> userBooks = userBookService.selectUBs(bid);
+        ArrayList bookUsers = new ArrayList();
+        for(int i=0;i<userBooks.size();i++)
+        {
+            bookUsers.add(userBooks.get(i).getId());
+        }
+        model.addAttribute("bookUsers", bookUsers);
         model.addAttribute("users",users);
         model.addAttribute("book", book1);
         return "book/edit";

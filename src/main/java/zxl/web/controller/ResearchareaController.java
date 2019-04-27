@@ -47,7 +47,55 @@ public class ResearchareaController {
     }
 
     @RequestMapping("/save")
-    public String save(Model model, Researcharea researcharea, HttpServletRequest req) throws IOException {
+    public String save(Model model, Researcharea researcharea, HttpServletRequest req,
+                       MultipartFile imgFile1, MultipartFile imgFile2, MultipartFile imgFile3)
+            throws IOException
+    {
+        System.out.println(imgFile1.getSize() == 0);
+        System.out.println(imgFile2.getSize());
+        System.out.println(imgFile3.getSize());
+        if(imgFile1 !=null && imgFile1.getSize()!=0){
+            //获取文件夹路径,获得的是工程编译后的路径，即target路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            System.out.println(path);
+            //文件名称UID解决文件名称问题
+            String filename=imgFile1.getOriginalFilename();
+            String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            //把imgFile写到file里
+            org.apache.commons.io.IOUtils.copy(imgFile1.getInputStream(),new FileOutputStream(file));
+            //存放图片地址
+            researcharea.setImgurl1("/uploadFile/"+newFileName);
+        }
+        if(imgFile2 !=null && imgFile2.getSize()!=0){
+            //获取文件夹路径,获得的是工程编译后的路径，即target路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            System.out.println(path);
+            //文件名称UID解决文件名称问题
+            String filename=imgFile2.getOriginalFilename();
+            String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            //把imgFile写到file里
+            org.apache.commons.io.IOUtils.copy(imgFile2.getInputStream(),new FileOutputStream(file));
+            //存放图片地址
+            researcharea.setImgurl2("/uploadFile/"+newFileName);
+        }
+        if(imgFile3 !=null && imgFile3.getSize()!=0){
+            //获取文件夹路径,获得的是工程编译后的路径，即target路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            System.out.println(path);
+            //文件名称UID解决文件名称问题
+            String filename=imgFile3.getOriginalFilename();
+            String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            //把imgFile写到file里
+            org.apache.commons.io.IOUtils.copy(imgFile3.getInputStream(),new FileOutputStream(file));
+            //存放图片地址
+            researcharea.setImgurl3("/uploadFile/"+newFileName);
+        }
         if(researcharea.getRid()==null) {
             researchareaService.insert(researcharea);
         }

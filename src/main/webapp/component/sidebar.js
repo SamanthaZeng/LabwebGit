@@ -113,7 +113,7 @@ document.writeln("                    </a>");
 document.writeln("                </li>");
 document.writeln("            </ul>");
 document.writeln("        </li>");
-document.writeln("        <li>");
+document.writeln("        <li class=\'teacherHidden\'>");
 document.writeln("            <a href=\'#\' class=\'dropdown-toggle\'>");
 document.writeln("                <i class=\'icon-search\'></i>");
 document.writeln("                <span class=\'menu-text\'> 研究方向管理</span>");

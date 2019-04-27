@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import zxl.web.domain.User;
 
-public class CompanyNewsInterceptor implements HandlerInterceptor {
+public class CompanyNewsResearchAreaInterceptor implements HandlerInterceptor {
 
     private static final String MAIN_URL = "/admin/main";
 

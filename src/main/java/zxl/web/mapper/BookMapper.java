@@ -24,4 +24,6 @@ public interface BookMapper {
     void delete(Book book);
 
     int selectBid(Book book);
+
+    void insertGetId(Book book);
 }

@@ -161,4 +161,10 @@
       prosource = #{prosource,jdbcType=VARCHAR}
     </if>
   </select>
+
+  <!--添加方法-->
+  <insert id="insertGetId" parameterType="zxl.web.domain.Project" useGeneratedKeys="true" keyColumn="proid" keyProperty="proid">
+    insert into project(proid, number, prorank, protype, funding, proname, proabstract, prosource) values(#{proid}, #{number}, #{prorank}, #{protype}, #{funding}, #{proname}, #{proabstract}, #{prosource});
+  </insert>
+
 </mapper>

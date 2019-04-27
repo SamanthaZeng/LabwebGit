@@ -115,7 +115,6 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -181,7 +180,6 @@
                         <!--学生表单 -->
 
                         <form class="form-horizontal" method="post" action="/course/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <div class="col-xs-6">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="pid" value="${courseForEdit.clsid}"/>
                             <div class="form-group">
@@ -245,45 +243,20 @@
                                     <select autocomplete="off" multiple="" name="usercourse" class="chosen-select col-xs-10 col-sm-5" id="usercourse" data-placeholder="选择相关教师">
                                         <c:forEach items="${teachers}" var="teacher">
                                             <c:if test="${associations==null}">
-                                                <option class="userAssociation" value="${teacher.id}">${teacher.username}</option>
+                                                <option class="userAssociation" value="${teacher.id}">${teacher.realname}</option>
                                             </c:if>
                                             <c:if test="${associations!=null}">
                                                 <c:if test="${CourseController.ifInPid(associations, Integer.parseInt(teacher.id)) == true}">
-                                                    <option class="userAssociation" selected="selected" value="${teacher.id}">${teacher.username}</option>
+                                                    <option class="userAssociation" selected="selected" value="${teacher.id}">${teacher.realname}</option>
                                                 </c:if>
                                                 <c:if test="${CourseController.ifInPid(associations, Integer.parseInt(teacher.id)) == false}">
-                                                    <option class="userAssociation" value="${teacher.id}">${teacher.username}</option>
+                                                    <option class="userAssociation" value="${teacher.id}">${teacher.realname}</option>
                                                 </c:if>
                                             </c:if>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-
-                            </div><!--div class="col-xs-6"-->
-
-                            <div class="col-xs-6">
-                                <!--穿梭框的实现-->
-                                <div class="select">
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="author">
-                                            <c:forEach items="${users}" var="user">
-                                                <option value="${user.id}"  >${user.username}/${user.realname}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="btn-item">
-                                        <p><span id="add"> > </span></p>
-                                        <p><span id="remove"> < </span></p>
-                                        <p><span id="add_all"> >> </span></p>
-                                        <p><span id="remove_all"> << </span></p>
-                                    </div>
-                                    <div class="select-item">
-                                        <select multiple="multiple" id="selectedauthor" name="authors"></select>
-                                    </div>
-                                </div>
-
-                            </div><!--div class="col-xs-6"-->
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-3 col-md-9">

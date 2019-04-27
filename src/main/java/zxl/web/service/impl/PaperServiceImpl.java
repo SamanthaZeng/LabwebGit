@@ -29,11 +29,16 @@ public class PaperServiceImpl implements IPaperService {
     public int update(Paper paper) { return mapper.updateByPrimaryKey(paper);}
 
     @Override
-    public int save(Paper paper) { return mapper.insert(paper);}
+    public void save(Paper paper) { mapper.insertGetId(paper);}
 
     @Override
     public int selectPid(Paper paper) {
         return mapper.selectPid(paper);
+    }
+
+    @Override
+    public void deleteByPid(int pid) {
+        mapper.deleteByPrimaryKey(pid);
     }
 
     @Override

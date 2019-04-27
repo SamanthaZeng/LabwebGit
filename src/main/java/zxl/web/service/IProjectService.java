@@ -7,8 +7,9 @@ import java.util.List;
 public interface IProjectService {
     public List<Project> queryAll();
     public Project selectProject(int proid);
-    public int save(Project project);
+    public void save(Project project);
     public int update(Project project);
     //返回项目id
     public int selectProid(Project project);
+    public void delete(int proid);
 }

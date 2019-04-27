@@ -19,8 +19,8 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public int save(Book book) {
-        return mapper.insert(book);
+    public void save(Book book) {
+        mapper.insertGetId(book);
     }
 
     @Override

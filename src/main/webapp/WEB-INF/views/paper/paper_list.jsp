@@ -49,7 +49,6 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${user.imgurl}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>欢迎,</small>
 									${user.username}
@@ -170,7 +169,7 @@
                                             <th>关键词</th>
                                             <th>论文等级</th>
                                             <th class="hidden-480">发布时间</th>
-                                            <th class="hidden-480">概述</th>
+                                            <th class="hidden-480">作者</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
@@ -202,7 +201,7 @@
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/paper/delete?id=${paper.pid}" title="delete">
+                                                        <a class="red" href="/paper/delete?pid=${paper.pid}" title="delete">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                     </div>

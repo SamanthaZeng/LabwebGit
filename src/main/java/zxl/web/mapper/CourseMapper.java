@@ -20,4 +20,6 @@ public interface CourseMapper {
     List<Course> queryAll();
 
     int selectClsid(Course course);
+
+    void insertGetId(Course course);
 }

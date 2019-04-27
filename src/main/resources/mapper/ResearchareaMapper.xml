@@ -5,9 +5,12 @@
     <id column="rid" jdbcType="INTEGER" property="rid" />
     <result column="rname" jdbcType="VARCHAR" property="rname" />
     <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="imgurl1" jdbcType="VARCHAR" property="imgurl1" />
+    <result column="imgurl2" jdbcType="VARCHAR" property="imgurl2" />
+    <result column="imgurl3" jdbcType="VARCHAR" property="imgurl3" />
   </resultMap>
   <sql id="Base_Column_List">
-    rid, rname, intro
+    rid, rname, intro, imgurl1, imgurl2, imgurl3
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -20,9 +23,10 @@
     where rid = #{rid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="zxl.web.domain.Researcharea">
-    insert into researcharea (rid, rname, intro
+    insert into researcharea (rid, rname, intro, imgurl1, imgurl2, imgurl3
       )
-    values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}
+    values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR},
+            #{imgurl1,jdbcType=VARCHAR}, #{imgurl2,jdbcType=VARCHAR}, #{imgurl3,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="zxl.web.domain.Researcharea">
@@ -37,6 +41,15 @@
       <if test="intro != null">
         intro,
       </if>
+      <if test="imgurl1 != null">
+        imgurl1,
+      </if>
+      <if test="imgurl2 != null">
+        imgurl2,
+      </if>
+      <if test="imgurl3 != null">
+        imgurl3,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="rid != null">
@@ -47,6 +60,15 @@
       </if>
       <if test="intro != null">
         #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl1 != null">
+        #{imgurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl2 != null">
+        #{imgurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl3 != null">
+        #{imgurl3,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -59,13 +81,25 @@
       <if test="intro != null">
         intro = #{intro,jdbcType=VARCHAR},
       </if>
+      <if test="imgurl1 != null">
+        imgurl1 = #{imgurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl2 != null">
+        imgurl2 = #{imgurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl3 != null">
+        imgurl3 = #{imgurl3,jdbcType=VARCHAR},
+      </if>
     </set>
     where rid = #{rid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.Researcharea">
     update researcharea
     set rname = #{rname,jdbcType=VARCHAR},
-      intro = #{intro,jdbcType=VARCHAR}
+      intro = #{intro,jdbcType=VARCHAR},
+      imgurl1 = #{imgurl1,jdbcType=VARCHAR},
+      imgurl2 = #{imgurl2,jdbcType=VARCHAR},
+      imgurl3 = #{imgurl3,jdbcType=VARCHAR}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
   <select id="queryAll" resultMap="BaseResultMap">

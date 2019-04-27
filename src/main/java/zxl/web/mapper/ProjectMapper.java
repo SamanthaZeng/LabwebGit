@@ -21,4 +21,6 @@ public interface ProjectMapper {
 
     //返回proid
     int selectProid(Project project);
+
+    void insertGetId(Project project);
 }
