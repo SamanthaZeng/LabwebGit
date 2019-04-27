@@ -42,7 +42,7 @@
         update t_student set name=#{name},pwd=#{pwd},stunum=#{stunum},imgUrl=#{imgUrl},classid=#{classes.id},sex=#{sex} where id=#{id}
     </update>
 
-    <!--登陆方法-->
+    <!--登录方法-->
     <select id="login" parameterType="Student" resultType="Student">
         select name,pwd,imgUrl from t_student where name=#{name} and pwd=#{pwd};
     </select>

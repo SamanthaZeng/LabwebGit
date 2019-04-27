@@ -73,7 +73,7 @@ public class UserController {
             }
             return "redirect:/admin/main";
         }
-    //返回登陆页面
+    //返回登录页面
         return "redirect:/login.jsp";
     }
 

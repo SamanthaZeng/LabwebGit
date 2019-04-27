@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = req.getSession(true);
         // 从session 里面获取用户名的信息
         User user = (User)session.getAttribute("user");
-        // 判断如果没有取到用户信息，就跳转到登陆页面，提示用户进行登陆
+        // 判断如果没有取到用户信息，就跳转到登录页面，提示用户进行登录
         if (user == null || "".equals(user.toString())) {
             res.sendRedirect(LOGIN_URL);
             return false;

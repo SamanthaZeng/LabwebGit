@@ -106,7 +106,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >
-                <li class="nav-item"><a class="nav-link" href="/visitor/login">登陆</a></li>
+                <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
                 <li class=" nav-item"><a class="nav-link" href="/visitor/login">注册</a></li>
             </ul>
         </div>

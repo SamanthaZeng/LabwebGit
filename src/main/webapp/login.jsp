@@ -152,7 +152,7 @@
 
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												回到登陆页面
+												回到登录页面
 												<i class="icon-arrow-right"></i>
 											</a>
 										</div>
@@ -255,7 +255,7 @@
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
-												回到登陆页面
+												回到登录页面
 											</a>
 										</div>
 									</div><!-- /widget-body -->

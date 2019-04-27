@@ -19,7 +19,7 @@ public interface UserMapper {
 
     public void register(User user); //注册方法
 
-    public User login(User user);//登陆方法
+    public User login(User user);//登录方法
 
     public List<User> queryAllTeacher();
 

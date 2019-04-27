@@ -20,6 +20,6 @@ public interface StudentMapper {
     //更新方法
     public void update(Student stu);
 
-    //登陆方法
+    //登录方法
     public Student login(Student stu);
 }

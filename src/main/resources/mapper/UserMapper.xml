@@ -188,7 +188,7 @@
     insert into user(username,pwd,sex,isadmin,usertype,birthday,realname,engname) values(#{username},#{pwd},#{sex},#{isadmin},#{usertype},#{birthday},#{realname},#{engname});
   </insert>
 
-  <!--登陆方法-->
+  <!--登录方法-->
   <select id="login" parameterType="User" resultType="User" >
     select * from user where username=#{username} and pwd=#{pwd}
   </select>

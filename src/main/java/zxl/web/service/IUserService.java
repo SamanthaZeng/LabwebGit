@@ -9,7 +9,7 @@ public interface IUserService {
 
     public User selectuser(int id);//返回user对象
 
-    public  User login(User user);//用户登陆
+    public  User login(User user);//用户登录
 
     public List<User>queryAllTeacher();//返回所有教师用户
 
