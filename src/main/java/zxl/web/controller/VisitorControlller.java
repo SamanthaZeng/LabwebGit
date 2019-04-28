@@ -200,8 +200,11 @@ public class VisitorControlller {
             for(int i=0;i<students.size();i++)
                 System.out.println(students.get(i).toString());
         }
-        if(usertype==2)
+        if(usertype==2){
             cooperators=cooperatorService.queryAll();
+            for(int i=0;i<cooperators.size();i++)
+                System.out.println(cooperators.get(i).toString());
+        }
          model.addAttribute("teachers",teachers);
          model.addAttribute("students",students);
          model.addAttribute("cooperators",cooperators);

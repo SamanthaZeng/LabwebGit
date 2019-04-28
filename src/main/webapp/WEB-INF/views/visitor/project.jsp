@@ -47,68 +47,79 @@
 
 <div style="margin-top: 5em">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">NKU</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container">
+      <a class="navbar-brand" href="#">NKU</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="../../../home.jsp">主页 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            研究方向
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/visitor/research?rid=1">网络安全态势感知</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/research?rid=2">移动边缘计算与资源管理</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/research?rid=3">物联网理论与应用</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            论文
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-            <!--<div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            人员
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            教学
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/visitor/course">课程</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/visitor/book">教材</a>
-          </div>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/visitor/project">项目</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav my-2 my-lg-0" >
-        <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
-        <li class=" nav-item"><a class="nav-link" href="/visitor/login">注册</a></li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
+        <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
+          <li class="nav-item active">
+            <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              研究方向
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/research?rid=1">网络安全态势感知</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/research?rid=2">移动边缘计算与资源管理</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/research?rid=3">物联网理论与应用</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              论文
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
+              <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
+              <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+              <!--<div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              人员
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              教学
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/course">课程</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/book">教材</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/visitor/project">项目</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0 mr-0" >
+          <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
+          <li class=" nav-item"><a class="nav-link" href="/visitor/login">注册</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </div>

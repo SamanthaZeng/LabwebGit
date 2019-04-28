@@ -14,5 +14,7 @@ public interface UserResearchMapper {
     List<UserResearchKey> selectResearcharea(int id);
 
     int deleteById(int id);
+
+    List<UserResearchKey> queryAll(int rid);
     
 }
