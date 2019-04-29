@@ -52,27 +52,26 @@
             border: 1px dashed #aaa;
             border-radius: 4px;
             text-align: center;
-            width: 350px;
         }
         ::-webkit-scrollbar{
             width: 0px;
         }
-        .select {
-            width: 600px;
-            height: 220px;
-            margin: 100px auto;
-        }
+        /*.select {*/
+            /*width: 600px;*/
+            /*height: 220px;*/
+            /*margin: 100px auto;*/
+        /*}*/
 
-        .select div {
-            float: left;
-        }
+        /*.select div {*/
+            /*float: left;*/
+        /*}*/
 
         .select .select-item {
             padding: 5px 20px;
         }
 
         .select .select-item select {
-            width: 150px;
+            /*width: 150px;*/
             height: 200px;
             border: 1px #eee solid;
             padding: 4px;
@@ -182,24 +181,23 @@
                     <div class="col-xs-12">
 
                         <form class="form-horizontal" id="bookForm"method="post" action="/book/save" enctype="multipart/form-data"  accept-charset="UTF-8">
-                            <div class="col-xs-6">
                                 <!--新增点击过来，没有id，修改点过来有id-->
                                 <input type="hidden" name="bid" value="${book.bid}"/>
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 著作名称 </label>
 
-                                    <div class="col-sm-8">
-                                        <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-7" value="${book.bookname}"/>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="bookname" id="form-field-1" placeholder="著作名称" class="col-xs-10 col-sm-5" value="${book.bookname}"/>
                                     </div>
                                 </div>
 
                                 <div class="space-4"></div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="classification"> 著作类别 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="classification"> 著作类别 </label>
 
-                                    <div class="col-sm-8">
-                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-7" >
+                                    <div class="col-sm-9">
+                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-5" >
                                             <option value="请选择">-------------------请选择---------------</option>
                                             <option value="计算机理论与基础">计算机理论与基础</option>
                                             <option value="网络安全">网络安全</option>
@@ -224,57 +222,67 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
 
-                                    <div class="col-sm-8">
-                                        <textarea name="babstract" style="resize:none;" class="col-sm-7" rows="10" id="form-field-3">${book.babstract}</textarea>
+                                    <div class="col-sm-9">
+                                        <textarea name="babstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" id="form-field-3">${book.babstract}</textarea>
                                     </div>
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="form-field-4"> 出版社 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 出版社 </label>
 
-                                    <div class="col-sm-8">
-                                        <input type="text" name="press" value="${book.press}" id="form-field-4" placeholder="出版社" class="col-xs-10 col-sm-7" />
+                                    <div class="col-sm-9">
+                                        <input type="text" name="press" value="${book.press}" id="form-field-4" placeholder="出版社" class="col-xs-10 col-sm-5" />
 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label no-padding-right" for="publictime"> 出版时间 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="publictime"> 出版时间 </label>
 
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <!--<input type="date" name="btime" value="${book.time}" id="form-field-5" class="col-xs-10 col-sm-5" />-->
-                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="publictime" placeholder="出版时间" class="col-xs-10 col-sm-7 date-picker" />
+                                        <input type="text"  readonly="readonly" name="time" value="${book.time}" id="publictime" placeholder="出版时间" class="col-xs-10 col-sm-5 date-picker" />
 
                                     </div>
                                 </div>
 
-                           </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"> 照片封面 </label>
+                                    <div class="col-sm-9">
+                                        <div class="col-sm-3">
+                                            <input  multiple="" type="file" name="imgFile" id="id-input-file-3"/>
+                                        </div>
 
-                        <div class="col-xs-6">
-                            <!--穿梭框的实现-->
-                            <div class="select">
-                                <div class="select-item">
-                                    <select multiple="multiple" id="author">
-                                        <c:forEach items="${users}" var="user">
-                                            <option value="${user.id}"  >${user.username}/${user.realname}</option>
-                                        </c:forEach>
-                                    </select>
+                                        <img src="${book.imgurl}" class="col-xs-10 col-sm-2">
+                                    </div>
+
                                 </div>
-                                <div class="btn-item">
-                                    <p><span id="add"> > </span></p>
-                                    <p><span id="remove"> < </span></p>
-                                    <p><span id="add_all"> >> </span></p>
-                                    <p><span id="remove_all"> << </span></p>
-                                </div>
-                                <div class="select-item">
-                                    <select multiple="multiple" id="selectedauthor" name="authors"></select>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" > 作者 </label>
+
+                                <div class="select col-sm-9">
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="author">
+                                            <c:forEach items="${users}" var="user">
+                                                <option value="${user.id}"  >${user.username}/${user.realname}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="btn-item col-sm-1">
+                                        <p><span id="add"> > </span></p>
+                                        <p><span id="remove"> < </span></p>
+                                        <p><span id="add_all"> >> </span></p>
+                                        <p><span id="remove_all"> << </span></p>
+                                    </div>
+                                    <div class="select-item col-sm-3">
+                                        <select class="col-sm-12" multiple="multiple" id="selectedauthor" name="authors"></select>
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
 
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-5 col-md-9">

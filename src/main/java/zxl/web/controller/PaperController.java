@@ -118,7 +118,7 @@ public class PaperController {
     public String save(Paper paper, HttpServletRequest req, MultipartFile pdfFile) throws IOException {
        System.out.println("进入papersave, pid= "+paper.getPid());
         /*获取上传的论文文件*/
-        if(pdfFile !=null){
+        if(pdfFile !=null && pdfFile.getSize()!=0){
             //获取文件夹路径
             String path = req.getServletContext().getRealPath("/uploadFile");
             //文件名称UID解决文件名称问题
@@ -135,6 +135,7 @@ public class PaperController {
         int index = 0;
         for(int i=0;i<indexs.length;i++)
         {
+            System.out.println(indexs[i]);
             index += Math.pow(2, (double)(Integer.parseInt(indexs[i])));
         }
         paper.setPaperindex(index);

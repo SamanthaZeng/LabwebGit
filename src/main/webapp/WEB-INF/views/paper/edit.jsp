@@ -462,15 +462,14 @@
         var indexval = parseInt(i)
         for(var t = 0; indexval > Math.pow(2, t); t++){
         }
-        for(t=t-1; t>=0; t++)
+        for(t=t; t>=0; t--)
         {
-            // if(indexval > Math.pow(2, t))
-            // {
-            //     $('#paperindex').find("option[value='"+typeval+"']").attr("selected", "true")
-            //     indexval = indexval - Math.pow(2, t)
-            // }
+            if(indexval >= Math.pow(2, t))
+            {
+                $('#paperindex').find("option[value='"+(t)+"']").attr("selected", "true")
+                indexval = indexval - Math.pow(2, t)
+            }
         }
-        alert(t)
         var typeval = "${paperForEdit.papertype}"
         if(typeval!=null&&typeval!=""){
             $('#papertype').find("option[value='"+typeval+"']").attr("selected", "true");
