@@ -167,7 +167,6 @@
                                             <th>单位编号</th>
                                             <th>单位名称</th>
                                             <th>单位类型</th>
-                                            <th>Logo</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
@@ -205,12 +204,6 @@
                                                         </c:when>
                                                     </c:choose>
                                                 </td>
-                                                <td><span >
-
-																<img style="width:60px;height:60px;"  src="${company.logourl}" />
-                                                    <!--<img style="width:60px;height:60px;" src="/uploadFile/1.png" />-->
-															</span></td>
-
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                         <a class="blue" href="#">
@@ -331,7 +324,7 @@
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },
-                null, null,null, null,
+                null, null,null,
                 { "bSortable": false }
             ],
             "iDisplayLength": 5,
