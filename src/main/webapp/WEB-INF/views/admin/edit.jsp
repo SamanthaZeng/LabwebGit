@@ -242,7 +242,7 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group  cooperatorHidden">
                                 <label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>
                                 <div class="col-sm-9">
                                     <select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">
@@ -402,6 +402,14 @@
 
                                 <input type="hidden" name="cid" value="${cooperator.cid}"/>
 
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="cooperatorResearchArea"> 研究方向 </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cresearcharea" id="cooperatorResearchArea" placeholder="合作者研究方向" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.cresearcharea}"</c:if>/>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
                                     <div class="col-sm-9">
@@ -940,6 +948,7 @@
                     $(".cooperator").show();
                     if(${userForEdit.id} != ${user.id})
                     {
+                        $(".cooperatorHidden").css("display", "none");
                         $("#cooperatorSidebar").addClass("active open");
                         $("#breadcrumbCooperator").show();
                     }

@@ -191,6 +191,7 @@ public class AdminController {
                     cooperator.setTitle(req.getParameter("title"));
                     cooperator.setCduty(req.getParameter("cduty"));
                     cooperator.setCmail(req.getParameter("cmail"));
+                    cooperator.setCresearcharea(req.getParameter("cresearcharea"));
                     if(req.getParameter("cid").equals(""))
                     {
                         user.setId(null);

@@ -202,6 +202,9 @@
                                                         <c:when test="${company.cotype == 4}">
                                                             科研院所
                                                         </c:when>
+                                                        <c:when test="${company.cotype == 5}">
+                                                            高校
+                                                        </c:when>
                                                     </c:choose>
                                                 </td>
                                                 <td>
