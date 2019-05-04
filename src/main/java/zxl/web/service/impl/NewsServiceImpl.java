@@ -34,7 +34,7 @@ public class NewsServiceImpl implements INewsService {
 
     @Override
     public void update(News news) {
-        mapper.updateByPrimaryKey(news);
+        mapper.updateByPrimaryKeySelective(news);
     }
 
     @Override

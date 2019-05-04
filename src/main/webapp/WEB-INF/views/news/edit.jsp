@@ -38,6 +38,10 @@
     <link rel="stylesheet" href="/bootstrap/assets/css/ace-skins.min.css" />
 
 
+    <%--<link rel="stylesheet" href="/css/style.css" />--%>
+    <link rel="stylesheet" href="/css/editormd.css" />
+
+
 
     <script src="/bootstrap/assets/js/ace-extra.min.js"></script>
 
@@ -190,11 +194,14 @@
                                     <input type="text" name="newstitle" id="form-field-1" placeholder="新闻标题" class="col-xs-10 col-sm-5" value="${news.newstitle}"/>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="newsDescription"> 新闻内容 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="newsdescription"> 新闻内容</label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="newsdescription" id="newsDescription" style="resize:none;" class="col-sm-5" rows="10" placeholder="新闻内容">${news.newsdescription}</textarea>
+                                    <div id="test-editormd" class="col-sm-9">
+                                        <textarea name="newsdescription" id="newsdescription" style="display:none;">${news.newsdescription}</textarea>
+                                    </div>
                                 </div>
                             </div>
 
@@ -309,8 +316,20 @@
 
 <!-- inline scripts related to this page -->
 
+<script src="/js/editormd.min.js"></script>
 <script type="text/javascript">
+
+    var testEditor;
     jQuery(function($) {
+        testEditor = editormd("test-editormd", {
+            width   : "75%",
+            height  : 480,
+            syncScrolling : "single",
+            path    : "/lib/",
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "imageUpload",
+        });
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
