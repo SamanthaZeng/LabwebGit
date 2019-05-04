@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import zxl.web.Utils.mdToHtml;
 import zxl.web.domain.*;
 import zxl.web.service.*;
 
@@ -259,6 +260,9 @@ public class VisitorControlller {
     public String news(HttpServletRequest req,Model model){
         int newsid=Integer.valueOf(req.getParameter("newsid"));
         News news=newsService.selectByNewsId(newsid);
+        String md = news.getNewsdescription();
+        String html = mdToHtml.parse(md);
+        news.setNewsdescription(html);
         model.addAttribute("news",news);
         return "visitor/news";
     }
