@@ -212,7 +212,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 头像<br/>标准2寸证件照规格<br/>宽高比为（3.5:5.3） </label>
+                                <label class="col-sm-3 control-label no-padding-right"> 头像<br/>标准2寸证件照规格<br/>宽高比为（3.5:5.3）<br/> 圆形剪裁 </label>
                                 <div class="col-sm-9">
                                     <div class="col-sm-3">
                                         <input  multiple="" type="file" name="imgFile" id="id-input-file-3"/>
