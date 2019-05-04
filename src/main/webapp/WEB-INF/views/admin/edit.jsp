@@ -311,6 +311,14 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="edubg">最高学历</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="edubg" id="edubg" placeholder="最高学历" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.edubg}"</c:if>/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" > 教育经历 </label>
 
                                     <div class="col-sm-9">

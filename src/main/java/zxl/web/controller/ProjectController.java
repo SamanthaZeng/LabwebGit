@@ -167,7 +167,7 @@ public class ProjectController {
             for(int i = 0; i < proResearcharea.length; i++) {
                 proResearchKey.setRid(Integer.parseInt(proResearcharea[i]));
                 proResearchService.insert(proResearchKey);
-            }            
+            }
         }
         return "redirect:/project/index";
     }

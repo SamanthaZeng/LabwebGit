@@ -146,6 +146,7 @@ public class AdminController {
             teacher.setTeduexp(req.getParameter("teduexp"));
             teacher.setWorkexp(req.getParameter("workexp"));
             teacher.setService(req.getParameter("service"));
+            teacher.setEdubg(req.getParameter("edubg"));
             teacher.setTrank(Integer.parseInt(req.getParameter("trank")));
             if(req.getParameter("tid").equals(""))
             {
