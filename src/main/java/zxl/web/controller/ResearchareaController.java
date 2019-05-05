@@ -1,13 +1,12 @@
 package zxl.web.controller;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
-import zxl.web.domain.Company;
 import zxl.web.domain.Researcharea;
-import zxl.web.service.ICompanyService;
 import zxl.web.service.IResearchareaService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,6 +64,7 @@ public class ResearchareaController {
             File file=new File(path,newFileName);
             //把imgFile写到file里
             org.apache.commons.io.IOUtils.copy(imgFile1.getInputStream(),new FileOutputStream(file));
+            Thumbnails.of(path+"\\"+newFileName).size(548, 350).keepAspectRatio(false).toFile(path+"\\"+newFileName);
             //存放图片地址
             researcharea.setImgurl1("/uploadFile/"+newFileName);
         }
@@ -79,6 +79,7 @@ public class ResearchareaController {
             File file=new File(path,newFileName);
             //把imgFile写到file里
             org.apache.commons.io.IOUtils.copy(imgFile2.getInputStream(),new FileOutputStream(file));
+            Thumbnails.of(path+"\\"+newFileName).size(548, 350).keepAspectRatio(false).toFile(path+"\\"+newFileName);
             //存放图片地址
             researcharea.setImgurl2("/uploadFile/"+newFileName);
         }
@@ -93,6 +94,7 @@ public class ResearchareaController {
             File file=new File(path,newFileName);
             //把imgFile写到file里
             org.apache.commons.io.IOUtils.copy(imgFile3.getInputStream(),new FileOutputStream(file));
+            Thumbnails.of(path+"\\"+newFileName).size(548, 350).keepAspectRatio(false).toFile(path+"\\"+newFileName);
             //存放图片地址
             researcharea.setImgurl3("/uploadFile/"+newFileName);
         }

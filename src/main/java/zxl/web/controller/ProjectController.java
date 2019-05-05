@@ -1,5 +1,6 @@
 package zxl.web.controller;
 
+import org.apache.ibatis.annotations.Arg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,13 @@ import java.util.UUID;
 public class ProjectController {
 
     @Autowired
-    private IPaperProjectService paperProjectService;
+    private IResearchareaService researchareaService;
 
     @Autowired
     private IProjectService projectService;
 
     @Autowired
-    private IPaperService paperService;
+    private IProResearchService proResearchService;
 
     @Autowired
     private  IUserService userService;
@@ -75,6 +76,8 @@ public class ProjectController {
     {
         int proid = Integer.parseInt(req.getParameter("proid"));
         Project projectForEdit = projectService.selectProject(proid);
+        List<Researcharea> researchareas = researchareaService.queryAll();
+        List<Researcharea> associations = proResearchService.findByProid(proid);
         List<User> users = userService.queryAll();
         List<UserPro> userPros = userProService.selectUPs(proid);
         ArrayList proUsers = new ArrayList();
@@ -82,7 +85,9 @@ public class ProjectController {
         {
             proUsers.add(userPros.get(i).getId());
         }
+        model.addAttribute("researchareas", researchareas);
         model.addAttribute("proUsers", proUsers);
+        model.addAttribute("associations", associations);
         model.addAttribute("users",users);
         model.addAttribute("projectForEdit", projectForEdit);
         return "project/edit";
@@ -106,7 +111,8 @@ public class ProjectController {
 
     @RequestMapping("/save")
     public String save(Project project, HttpServletRequest req) {
-        String authors[]=req.getParameterValues("authors");
+        String proResearcharea[] = req.getParameterValues("proResearcharea");
+        String authors[] = req.getParameterValues("authors");
         /*增加/更新project表*/
         if(project!=null && project.getProid()!=null&&!"".equals(project.getProid())){
             projectService.update(project);
@@ -149,6 +155,30 @@ public class ProjectController {
                 }
             }
         }
+
+        //3.添加或更新proresearch表
+        List<Researcharea> researchareas = proResearchService.findByProid(proid);
+        ProResearchKey proResearchKey = new ProResearchKey();
+        proResearchKey.setProid(proid);
+        if (researchareas.size() != 0) {
+            proResearchService.deleteByProid(proid);
+        }
+        if(proResearcharea != null){
+            for(int i = 0; i < proResearcharea.length; i++) {
+                proResearchKey.setRid(Integer.parseInt(proResearcharea[i]));
+                proResearchService.insert(proResearchKey);
+            }
+        }
         return "redirect:/project/index";
+    }
+
+    public static boolean ifInPid(List<Researcharea> associations, int forTest)
+    {
+        for(int i=0; i<associations.size(); i++)
+        {
+            if(forTest == associations.get(i).getRid())
+                return true;
+        }
+        return false;
     }
 }

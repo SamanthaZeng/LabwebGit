@@ -9,6 +9,7 @@
     <result column="cduty" jdbcType="VARCHAR" property="cduty" />
     <result column="cmail" jdbcType="VARCHAR" property="cmail" />
     <result column="cpage" jdbcType="VARCHAR" property="cpage" />
+    <result column="cresearcharea" jdbcType="VARCHAR" property="cresearcharea" />
 
     <association property="user" javaType="User">
       <id column="id" property="id"/>
@@ -33,7 +34,7 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    cid, coid, id, title, cduty,cmail,cpage
+    cid, coid, id, title, cduty,cmail,cpage, cresearcharea
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -52,7 +53,7 @@
     insert into cooperator (cid, coid, id, 
       title, cduty,cmail,cpage)
     values (#{cid,jdbcType=INTEGER}, #{coid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, 
-      #{title,jdbcType=VARCHAR}, #{cduty,jdbcType=VARCHAR},#{cmail,jdbcType=VARCHAR},#{cpage,jdbcType=VARCHAR})
+      #{title,jdbcType=VARCHAR}, #{cduty,jdbcType=VARCHAR},#{cmail,jdbcType=VARCHAR},#{cpage,jdbcType=VARCHAR}，#{cresearcharea,jdbcType=VARCHAR})
   </insert>
 
   <insert id="insertSelective" parameterType="zxl.web.domain.Cooperator">
@@ -78,6 +79,8 @@
       </if>
       <if test="cpage != null">
         cpage,
+      <if test="cresearcharea != null">
+        cresearcharea,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -101,6 +104,8 @@
       </if>
       <if test="cpage != null">
         #{cpage,jdbcType=VARCHAR},
+      <if test="cresearcharea != null">
+        #{cresearcharea,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -125,6 +130,8 @@
       </if>
       <if test="cpage != null">
         #{cpage,jdbcType=VARCHAR},
+      <if test="cresearcharea != null">
+        cresearcharea = #{cresearcharea,jdbcType=VARCHAR},
       </if>
     </set>
     where cid = #{cid,jdbcType=INTEGER}

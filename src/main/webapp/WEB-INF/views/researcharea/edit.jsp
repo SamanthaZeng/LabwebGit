@@ -193,6 +193,9 @@
 
                                 <div class="col-sm-9">
                                     <textarea name="intro" id="intro" style="resize:none;" class="col-sm-5" rows="10" placeholder="研究方向介绍">${researcharea.intro}</textarea>
+                                    <div class="col-sm-3">
+                                        <label>当前字数：</label><label id="introNum">0</label><label>/225</label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -246,6 +249,7 @@
                                     </button>
                                 </div>
                             </div>
+
                         </form>
 
 
@@ -346,6 +350,16 @@
 <script type="text/javascript">
     jQuery(function($) {
         $("#researchareaForm").on("submit", function () {
+            if($("#intro").val().length > 225)
+            {
+                alert("研究方向介绍字数超限，最多225字")
+                return false
+            }
+            if($("#intro").val().length < 200)
+            {
+                alert("研究方向介绍字数过少，至少200字")
+                return false
+            }
             if($("#imgFile1").val() == "" && "${researcharea.imgurl1}" == "")
             {
                 alert("图片1未上传")
@@ -369,8 +383,14 @@
                 $(".teacherHidden").css("display", "none");
             }
         }
+        $("#intro").on('input', function() {
+            var num=$(this).val().length
+            $("#introNum").html(num)
+        })
         $(document).ready(function(){
             var projectIdList = $("#paperproject").val();
+            var num = $("#intro").val().length
+            $("#introNum").html(num)
         });
         var selectval= "${company.cotype}";
         if(selectval!=null&&selectval!=""){

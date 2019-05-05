@@ -12,4 +12,8 @@ public interface ProResearchMapper {
     int insertSelective(ProResearchKey record);
 
     List<ProResearchKey> findByRid(int rid);
+
+    List<ProResearchKey> findByProid(int proid);
+
+    int deleteByProid(int proid);
 }

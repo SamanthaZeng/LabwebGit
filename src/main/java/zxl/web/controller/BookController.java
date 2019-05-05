@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import zxl.web.domain.Book;
 import zxl.web.domain.UserBook;
 import zxl.web.domain.UserBookKey;
@@ -16,9 +18,14 @@ import zxl.web.service.IUserService;
 import javax.servlet.http.HttpServletRequest;
 import zxl.web.domain.User;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 @Controller
 @RequestMapping("/book")
 public class BookController {
@@ -53,8 +60,19 @@ public class BookController {
 
 
     @RequestMapping("/save")
-    public String save(Book book,HttpServletRequest req){
+    public String save(Book book,HttpServletRequest req, MultipartFile imgFile) throws IOException {
         String authors[]=req.getParameterValues("authors");
+        if(imgFile !=null && imgFile.getSize()!=0){
+            //获取文件夹路径
+            String path = req.getServletContext().getRealPath("/uploadFile");
+            //文件名称UID解决文件名称问题
+            String filename=imgFile.getOriginalFilename();
+            String newFileName= UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(filename);
+            //先构造一个文件出来
+            File file=new File(path,newFileName);
+            org.apache.commons.io.IOUtils.copy(imgFile.getInputStream(),new FileOutputStream(file));
+            book.setImgurl("/uploadFile/"+newFileName);
+        }
         if(authors != null)
         {
             for(int i=0;i<authors.length;i++)

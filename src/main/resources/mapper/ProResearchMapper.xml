@@ -11,8 +11,7 @@
     where proid = #{proid,jdbcType=INTEGER}
       and rid = #{rid,jdbcType=INTEGER}
   </delete>
-  <insert id="ins
-  ert" parameterType="zxl.web.domain.ProResearchKey" >
+  <insert id="insert" parameterType="zxl.web.domain.ProResearchKey" >
     insert into proresearch (proid, rid)
     values (#{proid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})
   </insert>
@@ -41,4 +40,12 @@
   <select id="findByRid" parameterType="Integer" resultMap="BaseResultMap">
     select * from proresearch where rid=#{rid}
   </select>
+
+  <select id="findByProid" parameterType="Integer" resultMap="BaseResultMap">
+    select * from proresearch where proid=#{proid}
+  </select>
+
+  <delete id="deleteByProid" parameterType="Integer">
+    delete from proresearch where proid=#{proid,jdbcType=INTEGER}
+  </delete>
 </mapper>

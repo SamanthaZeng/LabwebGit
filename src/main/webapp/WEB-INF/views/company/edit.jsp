@@ -201,6 +201,7 @@
                                             <option value="2" >教育类公司</option>
                                             <option value="3" >自媒体公司</option>
                                             <option value="4" >科研院所</option>
+                                            <option value="5" >高校</option>
                                         </select>
                                     </div>
                                 </div>

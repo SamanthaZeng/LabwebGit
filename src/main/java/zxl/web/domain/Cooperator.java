@@ -14,10 +14,20 @@ public class Cooperator {
     private String cmail;
 
     private String cpage;
+    
+    private String cresearcharea;
 
     private User user;
 
     private Company company;
+
+    public String getCresearcharea() {
+        return cresearcharea;
+    }
+
+    public void setCresearcharea(String cresearcharea) {
+        this.cresearcharea = cresearcharea;
+    }
 
     public Integer getCid() {
         return cid;

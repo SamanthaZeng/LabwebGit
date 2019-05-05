@@ -212,7 +212,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right"> 头像<br/>标准2寸证件照规格<br/>宽高比为（3.5:5.3） </label>
+                                <label class="col-sm-3 control-label no-padding-right"> 头像<br/>标准2寸证件照规格<br/>宽高比为（3.5:5.3）<br/> 圆形剪裁 </label>
                                 <div class="col-sm-9">
                                     <div class="col-sm-3">
                                         <input  multiple="" type="file" name="imgFile" id="id-input-file-3"/>
@@ -242,7 +242,7 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group  cooperatorHidden">
                                 <label class="col-sm-3 control-label no-padding-right" for="userResearchArea"> 研究方向 </label>
                                 <div class="col-sm-9">
                                     <select autocomplete="off" multiple="" name="userResearchArea" class="col-xs-10 col-sm-5 chosen-select" id="userResearchArea" data-placeholder="选择研究方向">
@@ -307,6 +307,14 @@
 
                                     <div class="col-sm-9">
                                         <input type="text" name="tduty" id="form-field-5" placeholder="行政职务" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.tduty}"</c:if>/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="edubg">最高学历</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="edubg" id="edubg" placeholder="最高学历" class="col-xs-10 col-sm-5" <c:if test="${0 == userForEdit.usertype}">value="${teacher.edubg}"</c:if>/>
                                     </div>
                                 </div>
 
@@ -402,6 +410,14 @@
 
                                 <input type="hidden" name="cid" value="${cooperator.cid}"/>
 
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="cooperatorResearchArea"> 研究方向 </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cresearcharea" id="cooperatorResearchArea" placeholder="合作者研究方向" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.cresearcharea}"</c:if>/>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" >任职单位</label>
                                     <div class="col-sm-9">
@@ -940,6 +956,7 @@
                     $(".cooperator").show();
                     if(${userForEdit.id} != ${user.id})
                     {
+                        $(".cooperatorHidden").css("display", "none");
                         $("#cooperatorSidebar").addClass("active open");
                         $("#breadcrumbCooperator").show();
                     }
