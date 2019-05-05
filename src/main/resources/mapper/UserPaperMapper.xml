@@ -22,12 +22,14 @@
     where id = #{id,jdbcType=INTEGER}
       and pid = #{pid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.UserPaper">
     insert into userpaper (id, pid, papernumber, 
       authornumber)
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{papernumber,jdbcType=VARCHAR}, 
       #{authornumber,jdbcType=INTEGER})
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.UserPaper">
     insert into userpaper
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -59,6 +61,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserPaper">
     update userpaper
     <set>
@@ -72,6 +75,7 @@
     where id = #{id,jdbcType=INTEGER}
       and pid = #{pid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserPaper">
     update userpaper
     set papernumber = #{papernumber,jdbcType=VARCHAR},
@@ -83,6 +87,7 @@
   <select id="selectUPps" parameterType="integer" resultMap="BaseResultMap">
     select * from userpaper where pid=#{pid}
   </select>
+
   <select id="selectUPpsById" parameterType="integer" resultMap="BaseResultMap">
     select * from userpaper where id=#{id}
   </select>

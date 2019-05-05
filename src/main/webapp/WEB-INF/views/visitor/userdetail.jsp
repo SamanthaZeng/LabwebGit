@@ -86,7 +86,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
@@ -120,7 +120,7 @@
                             <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             人员
                         </a>
@@ -144,6 +144,16 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            合作交流
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/company">合作单位</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作者</a>
+                        </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0 mr-0" >
@@ -189,14 +199,33 @@
                     <p class="lead title">
                         教育经历
                     </p>
-                    <p style="margin-left: 30px;">
+                    <p style="margin-left: 30px;white-space: pre-line;">
                             ${teacher.teduexp}
                     </p>
                     <p class="lead title">
                         工作经历
                     </p>
-                    <p style="margin-left: 30px;">
+                    <p style="margin-left: 30px;white-space: pre-line;">
                             ${teacher.workexp}
+                    </p>
+                </div>
+                <!--论文和项目-->
+                <div class="basicinfo">
+                    <p class="lead title">
+                        发表论文
+                    </p>
+                    <p style="margin-left: 30px;white-space: pre-line;">
+                        <c:forEach items="${papers}" var="paper">
+                            ${paper.ptitile}
+                        </c:forEach>
+                    </p>
+                    <p class="lead title">
+                        参与项目
+                    </p>
+                    <p style="margin-left: 30px;white-space: pre-line;">
+                        <c:forEach items="${projects}" var="project">
+                            ${project.proname}
+                        </c:forEach>
                     </p>
                 </div>
             </c:if>
@@ -229,38 +258,34 @@
                     <p class="lead title">
                         教育经历
                     </p>
-                    <p style="margin-left: 30px;">
+                    <p style="margin-left: 30px;white-space: pre-line;">
                             ${student.stueduexp}
                     </p>
                     <p class="lead title">
                         毕业去向
                     </p>
-                    <p style="margin-left: 30px;">
+                    <p style="margin-left: 30px;white-space: pre-line;">
                             ${student.wheretogo}
                     </p>
                 </div>
-            </c:if>
-            <c:if test="${usertype==2}">
-                <!--基本信息栏-->
+                <!--论文和项目-->
                 <div class="basicinfo">
                     <p class="lead title">
-                        基本信息
+                        发表论文
                     </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p style="margin-left: 30px;">
-                                姓名： ${cooperator.user.realname}<br/>
-                                性别：<c:if test="${cooperator.user.sex==0}">男</c:if> <c:if test="${cooperator.user.sex==1}">女</c:if><br>
-                                公司：${cooperator.company.coname}<br>
-                                头衔：${cooperator.title}<br>
-                                电子邮件：${cooperator.cmail}<br>
-                                工作职务：${cooperator.cduty}<br>
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="${cooperator.user.imgurl}" height="200px" alt="userpic">
-                        </div>
-                    </div>
+                    <p style="margin-left: 30px;white-space: pre-line;">
+                        <c:forEach items="${papers}" var="paper">
+                            ${paper.ptitile}
+                        </c:forEach>
+                    </p>
+                    <p class="lead title">
+                        参与项目
+                    </p>
+                    <p style="margin-left: 30px;white-space: pre-line;">
+                        <c:forEach items="${projects}" var="project">
+                            ${project.proname}
+                        </c:forEach>
+                    </p>
                 </div>
             </c:if>
         </div>

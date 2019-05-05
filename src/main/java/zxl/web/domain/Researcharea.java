@@ -67,6 +67,9 @@ public class Researcharea {
                 "rid=" + rid +
                 ", rname='" + rname + '\'' +
                 ", intro='" + intro + '\'' +
+                ", imgurl1='" + imgurl1 + '\'' +
+                ", imgurl2='" + imgurl2 + '\'' +
+                ", imgurl3='" + imgurl3 + '\'' +
                 '}';
     }
 }

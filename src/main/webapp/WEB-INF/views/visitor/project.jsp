@@ -55,7 +55,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
         <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
@@ -111,8 +111,18 @@
               <a class="dropdown-item" href="/visitor/book">教材</a>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/visitor/project">项目</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              合作交流
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/company">合作单位</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/user?usertype=2">合作者</a>
+            </div>
           </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0 mr-0" >

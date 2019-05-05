@@ -8,7 +8,7 @@ public interface IResearchareaService {
     List<Researcharea> queryAll();
 
     void delete(int rid);
-
+    //根据rid返回对应项全部内容
     Researcharea selectResearcharea(int rid);
 
     void insert(Researcharea researcharea);

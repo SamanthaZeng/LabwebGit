@@ -9,6 +9,8 @@ public class Company {
 
     private String logourl;
 
+    private String copage;
+
     public Integer getCoid() {
         return coid;
     }
@@ -39,5 +41,24 @@ public class Company {
 
     public void setLogourl(String logourl) {
         this.logourl = logourl == null ? null : logourl.trim();
+    }
+
+    public String getCopage() {
+        return copage;
+    }
+
+    public void setCopage(String copage) {
+        this.copage = copage;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "coid=" + coid +
+                ", coname='" + coname + '\'' +
+                ", cotype=" + cotype +
+                ", logourl='" + logourl + '\'' +
+                ", copage='" + copage + '\'' +
+                '}';
     }
 }

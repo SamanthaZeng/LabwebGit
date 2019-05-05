@@ -61,7 +61,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
@@ -81,18 +81,7 @@
                             论文
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
-                            <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
                             <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                            <!--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -107,7 +96,7 @@
                             <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             教学
                         </a>
@@ -120,6 +109,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            合作交流
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/company">合作单位</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作者</a>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0 mr-0" >
                     <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
@@ -130,23 +129,25 @@
     </nav>
 </div>
 
-<div style="margin-top: 5em">
-    <div class="container">
-        <div class="row">
-            <c:forEach items="${books}" var="book" >
-                <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
-                    <div class="card" style="width: 18rem;">
-                        <div class="container">
-                            <img class="img" src="${book.imgurl}"  alt="bookpic">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text text-center">《${book.bookname}》</p>
-                            <p class="card-text text-center">${book.babstract}</p>
-                            <p class="card-text text-center">${book.press}</p>
+<div class="container" style="background-color: #949ea7">
+    <div style="padding-top: 5em">
+        <div class="container">
+            <div class="row">
+                <c:forEach items="${books}" var="book" >
+                    <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
+                        <div class="card" style="width: 18rem;">
+                            <div class="container">
+                                <img class="img" src="${book.imgurl}"  alt="bookpic">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text text-center">《${book.bookname}》</p>
+                                <p class="card-text text-center">${book.babstract}</p>
+                                <p class="card-text text-center">${book.press}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </div>
         </div>
     </div>
 </div>

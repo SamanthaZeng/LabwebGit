@@ -6,43 +6,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>计算机网络与信息安全研究室后台管理系统</title>
-  <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
-  <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
+    <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--<link href="theme.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="theme.css" rel="stylesheet" type="text/css">-->
     <link href="/bootstrap/assets/css/theme.css" rel="stylesheet" />
 
-  <!--pingendo-->
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >-->
+    <!--pingendo-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >-->
 
-  <style>
-    /*   @import url(bootstrap/assets/css/bootstrap.min.css);/*这里是通过@import引用CSS的样式内容*/
-    /*     @import url(bootstrap/assets/css/font-awesome.min.css);
-         @import url(bootstrap/assets/css/datepicker.css);
-         @import url(bootstrap/assets/css/jquery-ui-1.10.3.custom.min.css);
-         @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
-         @import url(bootstrap/assets/css/ace.min.css);
-         @import url(bootstrap/assets/css/ace-rtl.min.css);
-         @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
-  </style>
+    <style>
+        /*   @import url(bootstrap/assets/css/bootstrap.min.css);/*这里是通过@import引用CSS的样式内容*/
+        /*     @import url(bootstrap/assets/css/font-awesome.min.css);
+             @import url(bootstrap/assets/css/datepicker.css);
+             @import url(bootstrap/assets/css/jquery-ui-1.10.3.custom.min.css);
+             @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+             @import url(bootstrap/assets/css/ace.min.css);
+             @import url(bootstrap/assets/css/ace-rtl.min.css);
+             @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
+    </style>
 </head>
 
 <body>
 <div style="margin-top: 5em">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
-      </div>
-      <div class="col-md-6 ">
-        <p class="lead">计算机网络与信息安全实验室</p>
-        <p >Computer Networks & Information Security Lab</p>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
+            </div>
+            <div class="col-md-6 ">
+                <p class="lead">计算机网络与信息安全实验室</p>
+                <p >Computer Networks & Information Security Lab</p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div style="margin-top: 5em">
@@ -55,7 +55,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
@@ -89,7 +89,7 @@
                             <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                         </div>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             人员
                         </a>
@@ -114,7 +114,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             合作交流
                         </a>
@@ -140,52 +140,22 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">课程名</th>
-                <th scope="col">课程类型</th>
-                <th scope="col">课程对象</th>
+                <th scope="col">公司名称</th>
+                <th scope="col">公司类型</th>
+                <th scope="col">公司图标</th>
+                <th scope="col">公司主页</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${courses}" var="course" varStatus="index">
+            <c:forEach items="${companies}" var="company" varStatus="index">
                 <tr>
                     <th scope="row">${index.count}</th>
-                    <td>${course.name}</td>
-                    <td>
-                        <c:choose>
-                            <%--得导入user--%>
-                            <c:when test="${course.courseType==0}">
-                                A
-                            </c:when>
-                            <c:when test="${course.courseType == 1}">
-                                B
-                            </c:when>
-                            <c:when test="${course.courseType == 2}">
-                                C
-                            </c:when>
-                            <c:when test="${course.courseType == 3}">
-                                D
-                            </c:when>
-                            <c:when test="${course.courseType == 4}">
-                                E
-                            </c:when>
-                        </c:choose>
-                    </td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${course.teachingobject==0}">
-                                本科生
-                            </c:when>
-                            <c:when test="${course.teachingobject==1}">
-                                硕士生
-                            </c:when>
-                            <c:when test="${course.teachingobject==2}">
-                                博士生
-                            </c:when>
-                        </c:choose>
-                    </td>
+                    <td>${pcompany.coname}</td>
+                    <td>${company.cotype}</td>
+                    <td>${company.logourl}</td>
+                    <td><a href="${company.copage}">${company.copage}</a></td>
                 </tr>
             </c:forEach>
-
             </tbody>
         </table>
     </div>

@@ -65,7 +65,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
@@ -99,7 +99,7 @@
                             <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             人员
                         </a>
@@ -124,6 +124,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            合作交流
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/company">合作单位</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作者</a>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0 mr-0" >
                     <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
@@ -147,7 +157,7 @@
                               </div>
                               <div class="container" >
                                   <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                      <img class="cardimg" src="${teacher.user.imgurl}"  alt="userpic">
+                                      <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
                                   </a>
                               </div>
 
@@ -180,7 +190,7 @@
                               </div>
                               <div class="container">
                                   <a href="/visitor/userdetail?id=${student.user.id}">
-                                      <img class="cardimg" src="${student.user.imgurl}"  alt="userpic">
+                                      <img class="card-img" src="${student.user.imgurl}"  alt="userpic">
                                   </a>
                               </div>
 
@@ -198,14 +208,17 @@
                           <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                               <div class="card-header">${cooperator.title}</div>
                               <div class="container">
-                                  <a href="/visitor/userdetail?id=${cooperator.user.id}">
-                                      <img class="cardimg" src="${cooperator.user.imgurl}"  alt="userpic">
+                                  <a href="${cooperator.cpage}">
+                                      <img class="card-img" src="${cooperator.user.imgurl}"  alt="userpic">
                                   </a>
                               </div>
 
                               <div class="card-body">
                                   <h5 class="card-title">${cooperator.user.username}</h5>
                                   <p class="card-text">邮箱:${cooperator.cmail}</p>
+                                  <p class="card-text">性别：<c:if test="${cooperator.user.sex==0}">男</c:if> <c:if test="${cooperator.user.sex==1}">女</c:if></p>
+                                  <p class="card-text">公司：${cooperator.company.coname}</p>
+                                  <p class="card-text">工作职务：${cooperator.cduty}</p>
                               </div>
                           </div>
                       </div>

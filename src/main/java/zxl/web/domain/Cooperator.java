@@ -13,6 +13,8 @@ public class Cooperator {
 
     private String cmail;
 
+    private String cpage;
+
     private User user;
 
     private Company company;
@@ -77,6 +79,14 @@ public class Cooperator {
 
     public void setCompany(Company company) { this.company = company; }
 
+    public String getCpage() {
+        return cpage;
+    }
+
+    public void setCpage(String cpage) {
+        this.cpage = cpage;
+    }
+
     @Override
     public String toString() {
         return "Cooperator{" +
@@ -85,8 +95,9 @@ public class Cooperator {
                 ", id=" + id +
                 ", title='" + title + '\'' +
                 ", cduty='" + cduty + '\'' +
-                ", user=" + user +
                 ", cmail='" + cmail + '\'' +
+                ", cpage='" + cpage + '\'' +
+                ", user=" + user +
                 ", company=" + company +
                 '}';
     }

@@ -8,6 +8,7 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="cduty" jdbcType="VARCHAR" property="cduty" />
     <result column="cmail" jdbcType="VARCHAR" property="cmail" />
+    <result column="cpage" jdbcType="VARCHAR" property="cpage" />
 
     <association property="user" javaType="User">
       <id column="id" property="id"/>
@@ -32,7 +33,7 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    cid, coid, id, title, cduty,cmail
+    cid, coid, id, title, cduty,cmail,cpage
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -49,9 +50,9 @@
 
   <insert id="insert" parameterType="zxl.web.domain.Cooperator">
     insert into cooperator (cid, coid, id, 
-      title, cduty,cmail)
+      title, cduty,cmail,cpage)
     values (#{cid,jdbcType=INTEGER}, #{coid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, 
-      #{title,jdbcType=VARCHAR}, #{cduty,jdbcType=VARCHAR},#{cmail,jdbcType=VARCHAR})
+      #{title,jdbcType=VARCHAR}, #{cduty,jdbcType=VARCHAR},#{cmail,jdbcType=VARCHAR},#{cpage,jdbcType=VARCHAR})
   </insert>
 
   <insert id="insertSelective" parameterType="zxl.web.domain.Cooperator">
@@ -75,6 +76,9 @@
       <if test="cmail != null">
         cmail,
       </if>
+      <if test="cpage != null">
+        cpage,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cid != null">
@@ -94,6 +98,9 @@
       </if>
       <if test="cmail != null">
         #{cmail,jdbcType=VARCHAR},
+      </if>
+      <if test="cpage != null">
+        #{cpage,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -116,6 +123,9 @@
       <if test="cmail != null">
         cmail = #{cmail,jdbcType=VARCHAR},
       </if>
+      <if test="cpage != null">
+        #{cpage,jdbcType=VARCHAR},
+      </if>
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
@@ -126,7 +136,8 @@
       id = #{id,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
       cduty = #{cduty,jdbcType=VARCHAR},
-      cmail = #{cmail,jdbcType=VARCHAR}
+      cmail = #{cmail,jdbcType=VARCHAR},
+      cpage = #{cpage,jdbcType=VARCHAR}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
 

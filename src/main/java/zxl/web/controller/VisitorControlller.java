@@ -25,7 +25,7 @@ public class VisitorControlller {
     private  INewsService newsService;
 
    @Autowired
-    private IResearchService researchService;
+    private IResearchareaService researchareaService;
 
    @Autowired
    private IUserResearchareaService userResearchService;
@@ -57,6 +57,15 @@ public class VisitorControlller {
    @Autowired
    private IProResearchService proResearchService;
 
+   @Autowired
+   private IUserPaperService userPaperService;
+
+   @Autowired
+   private IUserProService userProService;
+
+   @Autowired
+   private ICompanyService companyService;
+
     public static String cutStr(String strs, int length) {
         int sum = 0;
         String finalStr = "";
@@ -79,15 +88,25 @@ public class VisitorControlller {
     @RequestMapping("/home")
     public String home(Model model){
         System.out.println("return to home");
-        List<News>newsList=newsService.queryAll();
-        for(int i=0;i<newsList.size();i++)
+        List<News>news=newsService.queryAll();
+        for(int i=0;i<news.size();i++)
         {
-            String str=newsList.get(i).getNewsdescription();
-            newsList.get(i).setNewsdescription(cutStr(str,50));
-            str=newsList.get(i).getNewstitle();
-            newsList.get(i).setNewstitle(cutStr(str,30));
+            String str=news.get(i).getNewsdescription();
+            news.get(i).setNewsdescription(cutStr(str,50));
+            str=news.get(i).getNewstitle();
+            news.get(i).setNewstitle(cutStr(str,30));
+        }
+        List<News>newsList=new ArrayList<>();
+        /*只获取三条新闻*/
+        for(int i=news.size()-1;i>news.size()-4;i--){
+            newsList.add(news.get(i));
         }
         model.addAttribute("newsList",newsList);
+
+        /*呈现有哪些研究方向*/
+        List<Researcharea>researchareas=researchareaService.queryAll();
+        model.addAttribute("researchareas",researchareas);
+        model.addAttribute("rsize",researchareas.size());
         return "forward:/home.jsp";
     }
 
@@ -96,7 +115,7 @@ public class VisitorControlller {
     /*呈现研究方向信息*/
       System.out.println("Succeed in Research Index");
       int rid=Integer.parseInt(req.getParameter("rid"));
-      Researcharea researcharea=researchService.selectResearch(rid);
+      Researcharea researcharea=researchareaService.selectResearcharea(rid);
       System.out.println(researcharea.toString());
       model.addAttribute("research",researcharea);
 
@@ -107,7 +126,8 @@ public class VisitorControlller {
     for(int i=0;i<userResearchKeys.size();i++)
     {
            teacher=teacherService.selectTeacherById(userResearchKeys.get(i).getId());
-           teachers.add(teacher);
+           if(teacher!=null)
+              teachers.add(teacher);
     }
     model.addAttribute("teachers",teachers);//存到model里面，页面可以取出来
 
@@ -119,6 +139,11 @@ public class VisitorControlller {
           projects.add(project);
       }
       model.addAttribute("projects",projects);
+
+      /*呈现有哪些研究方向*/
+      List<Researcharea>researchareas=researchareaService.queryAll();
+      model.addAttribute("researchareas",researchareas);
+      model.addAttribute("rsize",researchareas.size());
     return "visitor/researcharea";
   }
 
@@ -157,6 +182,11 @@ public class VisitorControlller {
       model.addAttribute("papers3",papers3);
       model.addAttribute("papers4",papers4);
       model.addAttribute("papers5",papers5);
+
+      /*呈现有哪些研究方向*/
+      List<Researcharea>researchareas=researchareaService.queryAll();
+      model.addAttribute("researchareas",researchareas);
+      model.addAttribute("rsize",researchareas.size());
       return "visitor/paper";
   }
 
@@ -165,6 +195,11 @@ public class VisitorControlller {
       System.out.println("Suceed in course index");
         List<Course>courses=courseService.queryAll();
         model.addAttribute("courses",courses);
+
+      /*呈现有哪些研究方向*/
+      List<Researcharea>researchareas=researchareaService.queryAll();
+      model.addAttribute("researchareas",researchareas);
+      model.addAttribute("rsize",researchareas.size());
         return "visitor/course";
   }
 
@@ -178,6 +213,11 @@ public class VisitorControlller {
           books.get(i).setBabstract(cutStr(str,50));
       }
       model.addAttribute("books",books);
+
+      /*呈现有哪些研究方向*/
+      List<Researcharea>researchareas=researchareaService.queryAll();
+      model.addAttribute("researchareas",researchareas);
+      model.addAttribute("rsize",researchareas.size());
       return "visitor/book";
   }
 
@@ -192,8 +232,10 @@ public class VisitorControlller {
         if(usertype==0){
             System.out.println("usertype=0");
             teachers=teacherService.queryAll();
-            for(int i=0;i<teachers.size();i++)
+            String str;
+            for(int i=0;i<teachers.size();i++){
                 System.out.println(teachers.get(i).toString());
+            }
         }
         if(usertype==1){
             students=studentsService.queryAll();
@@ -210,6 +252,11 @@ public class VisitorControlller {
          model.addAttribute("cooperators",cooperators);
         /*List<Project>projects=projectService.queryAll();
         model.addAttribute("projects",projects);*/
+
+        /*呈现有哪些研究方向*/
+        List<Researcharea>researchareas=researchareaService.queryAll();
+        model.addAttribute("researchareas",researchareas);
+        model.addAttribute("rsize",researchareas.size());
         return "visitor/user";
     }
 
@@ -225,10 +272,50 @@ public class VisitorControlller {
         if(usertype==0){
             teacher=teacherService.selectTeacherById(id);
             System.out.println(teacher.toString());
+            /*获取教师所发表的论文*/
+            List<UserPaper>userPapers=userPaperService.selectUPpsById(teacher.getId());
+            List<Paper>papers=new ArrayList<>();
+            Paper paper;
+            for(int i=0;i<userPapers.size();i++)
+            {
+                paper=paperService.selectPaper(userPapers.get(i).getPid());
+                papers.add(paper);
+            }
+            model.addAttribute("papers",papers);
+            /*获取教师所参与的项目*/
+            List<UserPro>userPros=userProService.selectUPsById(teacher.getId());
+            List<Project>projects=new ArrayList<>();
+            Project project;
+            for(int i=0;i<userPros.size();i++)
+            {
+                project=projectService.selectProject(userPros.get(i).getProid());
+                projects.add(project);
+            }
+            model.addAttribute("projects",projects);
         }
         if(usertype==1){
             student=studentsService.selectStudentById(id);
             System.out.println(student.toString());
+            /*获取学生所发表的论文*/
+            List<UserPaper>userPapers=userPaperService.selectUPpsById(student.getId());
+            List<Paper>papers=new ArrayList<>();
+            Paper paper;
+            for(int i=0;i<userPapers.size();i++)
+            {
+                paper=paperService.selectPaper(userPapers.get(i).getPid());
+                papers.add(paper);
+            }
+            model.addAttribute("papers",papers);
+            /*获取学生所参与的项目*/
+            List<UserPro>userPros=userProService.selectUPsById(student.getId());
+            List<Project>projects=new ArrayList<>();
+            Project project;
+            for(int i=0;i<userPros.size();i++)
+            {
+                project=projectService.selectProject(userPros.get(i).getProid());
+                projects.add(project);
+            }
+            model.addAttribute("projects",projects);
         }
         if(usertype==2){
             cooperator=cooperatorService.selectCooperatorById(id);
@@ -238,6 +325,10 @@ public class VisitorControlller {
         model.addAttribute("teacher",teacher);
         model.addAttribute("student",student);
         model.addAttribute("cooperator",cooperator);
+        /*呈现有哪些研究方向*/
+        List<Researcharea>researchareas=researchareaService.queryAll();
+        model.addAttribute("researchareas",researchareas);
+        model.addAttribute("rsize",researchareas.size());
         return "visitor/userdetail";
     }
 
@@ -246,6 +337,11 @@ public class VisitorControlller {
         System.out.println("Suceed in project");
         List<Project>projects=projectService.queryAll();
         model.addAttribute("projects",projects);
+
+      /*呈现有哪些研究方向*/
+      List<Researcharea>researchareas=researchareaService.queryAll();
+      model.addAttribute("researchareas",researchareas);
+      model.addAttribute("rsize",researchareas.size());
         return "visitor/project";
   }
 
@@ -260,7 +356,32 @@ public class VisitorControlller {
         int newsid=Integer.valueOf(req.getParameter("newsid"));
         News news=newsService.selectByNewsId(newsid);
         model.addAttribute("news",news);
+
+        /*呈现有哪些研究方向*/
+        List<Researcharea>researchareas=researchareaService.queryAll();
+        model.addAttribute("researchareas",researchareas);
+        model.addAttribute("rsize",researchareas.size());
         return "visitor/news";
+    }
+
+    @RequestMapping("/company")
+    public String company(Model model){
+        List<Company>companies=companyService.queryAll();
+        for(int i=0;i<companies.size();i++)
+            System.out.println(companies.get(i).toString());
+        model.addAttribute("companies",companies);
+        return "visitor/company";
+    }
+    /*转换换行符*/
+    public String filterLineBreak(String desc){
+        if(desc!=null&&desc.indexOf("\n")!=-1){
+            if(desc.indexOf("\r\n")!=-1){
+                desc=desc.replace("\r\n","<brbr/>");
+            }else{
+                desc=desc.replace("\n","<br/>");
+            }
+        }
+        return desc;
     }
 
 }

@@ -108,6 +108,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            合作交流
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/company">合作单位</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作者</a>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0 mr-0" >
                     <li class="nav-item"><a class="nav-link" href="/visitor/login">登录</a></li>
