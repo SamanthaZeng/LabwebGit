@@ -107,6 +107,7 @@ public class Cooperator {
                 ", cduty='" + cduty + '\'' +
                 ", cmail='" + cmail + '\'' +
                 ", cpage='" + cpage + '\'' +
+                ", cresearcharea='" + cresearcharea + '\'' +
                 ", user=" + user +
                 ", company=" + company +
                 '}';

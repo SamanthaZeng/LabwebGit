@@ -13,7 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="/bootstrap/assets/css/theme.css" rel="stylesheet" />
-
+    <!--editor.md-->
+    <link rel="stylesheet" href="/css/editormd.css" />
     <style>
         .carousel-inner img {
             width: 548px;
@@ -91,8 +92,6 @@
                             <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -134,8 +133,9 @@
             <div class="row">
                 <h1 class="mb-3">${news.newstitle}</h1>
             </div>
-            <div style="margin-top: 5em">
-                <p class="lead text-justify">${news.newsdescription}</p>
+            <div style="margin-top: 5em" id="content">
+                <textarea style="display: none">${news.newsdescription}</textarea>
+                <!--<p class="lead text-justify">${news.newsdescription}</p>-->
             </div>
         </div>
     </div>
@@ -145,6 +145,30 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--markdown--->
+<script src="/js/jquery.min.js"></script>
+<script src="/lib/marked.min.js"></script>
+<script src="/lib/prettify.min.js"></script>
+<script src="/lib/raphael.min.js"></script>
+<script src="/lib/underscore.min.js"></script>
+<script src="/lib/sequence-diagram.min.js"></script>
+<script src="/lib/flowchart.min.js"></script>
+<script src="/lib/jquery.flowchart.min.js"></script>
+<script src="/js/editormd.min.js"></script>
+
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        testEditor = editormd.markdownToHTML("content", {//注意：这里是上面DIV的id
+            htmlDecode: "style,script,iframe",
+            emoji: true,
+            taskList: true,
+            tex: true, // 默认不解析
+            flowChart: true, // 默认不解析
+            sequenceDiagram: true, // 默认不解析
+            codeFold: true,
+        });});
+</script>
 </body>
 
 </html>

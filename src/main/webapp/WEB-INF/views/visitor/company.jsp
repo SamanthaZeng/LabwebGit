@@ -97,8 +97,6 @@
                             <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -152,7 +150,7 @@
                     <th scope="row">${index.count}</th>
                     <td>${pcompany.coname}</td>
                     <td>${company.cotype}</td>
-                    <td>${company.logourl}</td>
+                    <td><img style="width:60px;height:60px;" src="${company.logourl}" alt="公司图标"></td>
                     <td><a href="${company.copage}">${company.copage}</a></td>
                 </tr>
             </c:forEach>

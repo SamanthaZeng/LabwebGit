@@ -79,6 +79,7 @@
       </if>
       <if test="cpage != null">
         cpage,
+      </if>
       <if test="cresearcharea != null">
         cresearcharea,
       </if>
@@ -104,6 +105,7 @@
       </if>
       <if test="cpage != null">
         #{cpage,jdbcType=VARCHAR},
+      </if>
       <if test="cresearcharea != null">
         #{cresearcharea,jdbcType=VARCHAR},
       </if>
@@ -129,7 +131,8 @@
         cmail = #{cmail,jdbcType=VARCHAR},
       </if>
       <if test="cpage != null">
-        #{cpage,jdbcType=VARCHAR},
+        #{cpage,jdbcType=VARCHAR}
+      </if>
       <if test="cresearcharea != null">
         cresearcharea = #{cresearcharea,jdbcType=VARCHAR},
       </if>

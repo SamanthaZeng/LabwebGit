@@ -97,8 +97,6 @@
                             <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=2">合作伙伴</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
