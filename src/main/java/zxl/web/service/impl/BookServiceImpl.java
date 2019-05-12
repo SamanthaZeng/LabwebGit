@@ -25,7 +25,7 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public int update(Book book) {
-        return mapper.updateByPrimaryKey(book);
+        return mapper.updateByPrimaryKeySelective(book);
     }
 
     @Override

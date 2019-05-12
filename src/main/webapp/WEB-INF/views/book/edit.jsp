@@ -194,30 +194,33 @@
                                 <div class="space-4"></div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="classification"> 著作类别 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="booktype"> 著作类型 </label>
 
                                     <div class="col-sm-9">
-                                        <select id="classification"  name="classification"  class="col-xs-10 col-sm-5" >
-                                            <option value="请选择">-------------------请选择---------------</option>
-                                            <option value="计算机理论与基础">计算机理论与基础</option>
-                                            <option value="网络安全">网络安全</option>
-                                            <option value="移动开发">移动开发</option>
-                                            <option value="物联网">物联网</option>
-                                            <option value="架构">架构</option>
-                                            <option value="云计算/大数据">云计算/大数据</option>
-                                            <option value="互联网">互联网</option>
-                                            <option value="运维">运维</option>
-                                            <option value="数据库">数据库</option>
-                                            <option value="前端">前端</option>
-                                            <option value="后端">后端</option>
-                                            <option value="人工智能">人工智能</option>
-                                            <option value="编程语言">编程语言</option>
-                                            <option value="研发管理">研发管理</option>
-                                            <option value="程序人生">程序人生</option>
-                                            <option value="区块链">区块链</option>
-                                            <option value="音视频开发">音视频开发</option>
+                                        <select id="booktype"  name="booktype"  class="col-xs-10 col-sm-5" value="${book.booktype}">
+                                            <option value="-1">-------------------请选择---------------</option>
+                                            <option value="0">论著</option>
+                                            <option value="1">译著</option>
+                                            <option value="2">教材</option>
                                         </select>
 
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="classification"> 著作主题 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="classification" id="classification" placeholder="著作主题" class="col-xs-10 col-sm-5" value="${book.classification}"/>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="classification"> ISBN编号 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="isbn" id="isbn" placeholder="ISBN编号" class="col-xs-10 col-sm-5" value="${book.isbn}"/>
                                     </div>
                                 </div>
 
@@ -417,12 +420,11 @@
             }
         }
         //初始化选择菜单的值
-        var selectval= "${book.classification}";
+        var selectval= "${book.booktype}";
         if(selectval!=null&&selectval!=""){
-                $('#classification').find("option[value='"+selectval+"']").attr("selected", "true");
-                //alert(selectval);
-            }
-
+            $('#booktype').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
+        }
         /*完成穿梭框的设置*/
         //移动到右边
         var idList =("${bookUsers}".slice(1, -1)).split(", ")

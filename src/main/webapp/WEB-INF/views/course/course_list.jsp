@@ -171,7 +171,6 @@
                                             <th>课程类型</th>
                                             <th>授课对象</th>
                                             <th class="hidden-480">课程学时</th>
-                                            <th class="hidden-480">概述</th>
                                             <th>其他操作</th>
                                         </tr>
                                         </thead>
@@ -187,7 +186,28 @@
                                                 </td>
                                                 <td>${course.clsid}</td>
                                                 <td>${course.name}</td>
-                                                <td>${course.courseType}</td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${course.courseType == -1}">
+
+                                                        </c:when>
+                                                        <c:when test="${course.courseType == 0}">
+                                                            A
+                                                        </c:when>
+                                                        <c:when test="${course.courseType == 1}">
+                                                            B
+                                                        </c:when>
+                                                        <c:when test="${course.courseType == 2}">
+                                                            C
+                                                        </c:when>
+                                                        <c:when test="${course.courseType == 3}">
+                                                            D
+                                                        </c:when>
+                                                        <c:when test="${course.courseType == 4}">
+                                                            E
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
                                                 <td><c:choose>
                                                     <%--得导入user--%>
                                                     <c:when test="${course.teachingobject == 0}">
@@ -201,7 +221,6 @@
                                                     </c:when>
                                                 </c:choose></td>
                                                 <td class="hidden-480">${course.classhour}</td>
-                                                <td class="hidden-480">${course['abstract']}</td>
 
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -323,7 +342,7 @@
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },
-                null, null,null, null, null,null,
+                null, null,null, null, null,
                 { "bSortable": false }
             ],
             "iDisplayLength": 5,
@@ -404,7 +423,7 @@
             if(id == 0){
                 alert("请选中一行数据");
             }else{
-                location.href="/course/course?clid="+id;
+                location.href="/course/edit?clsid="+id;
             }
         } );
 

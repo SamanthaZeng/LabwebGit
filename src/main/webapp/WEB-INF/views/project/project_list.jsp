@@ -170,7 +170,7 @@
                                             </th>
                                             <th>项目标号</th>
                                             <th>项目名称</th>
-                                            <th>项目类型</th>
+                                            <th>项目类别</th>
                                             <th>项目级别</th>
                                             <th class="hidden-480">项目资金</th>
                                             <th class="hidden-480">负责人</th>
@@ -189,7 +189,16 @@
                                                 </td>
                                                 <td>${project.proid}</td>
                                                 <td>${project.proname}</td>
-                                                <td>${project.protype}</td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${project.protype == 1}">
+                                                            纵向项目
+                                                        </c:when>
+                                                        <c:when test="${project.protype == 2}">
+                                                            横向项目
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
                                                 <td>${project.prorank}</td>
                                                 <td class="hidden-480">${project.funding}</td>
                                                 <td class="hidden-480">${project.proabstract}</td>

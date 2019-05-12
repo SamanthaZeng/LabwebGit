@@ -17,6 +17,26 @@ public class Book {
 
     private String imgurl;
 
+    private Integer booktype;
+
+    private String isbn;
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Integer getBooktype() {
+        return booktype;
+    }
+
+    public void setBooktype(Integer booktype) {
+        this.booktype = booktype;
+    }
+
     public Integer getBid() {
         return bid;
     }

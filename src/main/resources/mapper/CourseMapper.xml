@@ -8,9 +8,10 @@
     <result column="teachingobject" jdbcType="INTEGER" property="teachingobject" />
     <result column="course_type" jdbcType="INTEGER" property="courseType" />
     <result column="classhour" jdbcType="INTEGER" property="classhour" />
+    <result column="coursecode" jdbcType="VARCHAR" property="coursecode" />
   </resultMap>
   <sql id="Base_Column_List">
-    clsid, name, abstract, teachingobject, course_type, classhour
+    clsid, name, abstract, teachingobject, course_type, classhour,coursecode
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -24,10 +25,10 @@
   </delete>
   <insert id="insert" parameterType="zxl.web.domain.Course">
     insert into course (clsid, name, abstract,
-      teachingobject, course_type, classhour
+      teachingobject, course_type, classhour, coursecode
       )
     values (#{clsid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{abstract,jdbcType=VARCHAR},
-      #{teachingobject,jdbcType=INTEGER}, #{courseType,jdbcType=INTEGER}, #{classhour,jdbcType=INTEGER}
+      #{teachingobject,jdbcType=INTEGER}, #{courseType,jdbcType=INTEGER}, #{classhour,jdbcType=INTEGER}, #{coursecode,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="zxl.web.domain.Course">
@@ -51,6 +52,9 @@
       <if test="classhour != null">
         classhour,
       </if>
+      <if test="coursecode != null">
+        coursecode,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="clsid != null">
@@ -70,6 +74,9 @@
       </if>
       <if test="classhour != null">
         #{classhour,jdbcType=INTEGER},
+      </if>
+      <if test="coursecode != null">
+        #{coursecode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -91,6 +98,9 @@
       <if test="classhour != null">
         classhour = #{classhour,jdbcType=INTEGER},
       </if>
+      <if test="coursecode != null">
+        coursecode = #{coursecode,jdbcType=VARCHAR},
+      </if>
     </set>
     where clsid = #{clsid,jdbcType=INTEGER}
   </update>
@@ -100,7 +110,8 @@
       abstract = #{abstract,jdbcType=VARCHAR},
       teachingobject = #{teachingobject,jdbcType=INTEGER},
       course_type = #{courseType,jdbcType=INTEGER},
-      classhour = #{classhour,jdbcType=INTEGER}
+      classhour = #{classhour,jdbcType=INTEGER},
+      coursecode = #{coursecode,jdbcType=VARCHAR}
     where clsid = #{clsid,jdbcType=INTEGER}
   </update>
 
@@ -119,7 +130,7 @@
 
   <!--添加方法-->
   <insert id="insertGetId" parameterType="zxl.web.domain.Course" useGeneratedKeys="true" keyColumn="clsid" keyProperty="clsid">
-    insert into course(clsid, name, abstract, teachingobject, course_type, classhour) values(#{clsid},#{name}, #{abstract}, #{teachingobject}, #{courseType}, #{classhour});
+    insert into course(clsid, name, abstract, teachingobject, course_type, classhour, coursecode) values(#{clsid},#{name}, #{abstract}, #{teachingobject}, #{courseType}, #{classhour}, #{coursecode});
   </insert>
 
 </mapper>

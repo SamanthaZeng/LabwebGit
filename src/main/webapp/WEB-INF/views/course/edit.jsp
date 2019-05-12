@@ -181,7 +181,7 @@
 
                         <form class="form-horizontal" method="post" action="/course/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
-                            <input type="hidden" name="pid" value="${courseForEdit.clsid}"/>
+                            <input type="hidden" name="clsid" value="${courseForEdit.clsid}"/>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 课程名称 </label>
 
@@ -190,13 +190,21 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="coursecode"> 课程代码 </label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" name="coursecode" id="coursecode" placeholder="课程代码" class="col-xs-10 col-sm-5" value="${courseForEdit.coursecode}"/>
+                                </div>
+                            </div>
+
                             <div class="space-4"></div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 授课对象 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="teachingobject"> 授课对象 </label>
 
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="form-field-2" name="teachingobject" >
+                                    <select class="col-xs-10 col-sm-5" id="teachingobject" name="teachingobject" >
                                         <option value="-1">----请选择授课对象----</option>
                                         <option value="0" >本科生</option>
                                         <option value="1" >硕士生</option>
@@ -206,10 +214,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 课程类型 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="courseType"> 课程类型 </label>
 
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="form-field-3" name="courseType" >
+                                    <select class="col-xs-10 col-sm-5" id="courseType" name="courseType" >
                                         <option value="-1">-----请选择课程类别-----</option>
                                         <option value="0" >A</option>
                                         <option value="1" >B</option>
@@ -224,7 +232,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 课程学时 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="classhour" value="${courseForEdit.classhour}" id="form-field-4" placeholder="每学期总小时数，无单位" class="col-xs-10 col-sm-5" />
+                                    <input type="text" name="classhour" value="${courseForEdit.classhour}" id="form-field-4" placeholder="请输入数字，单位学时数" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 
@@ -237,10 +245,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 开课教师 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="authors"> 开课教师 </label>
 
                                 <div class="col-sm-9">
-                                    <select autocomplete="off" multiple="" name="usercourse" class="chosen-select col-xs-10 col-sm-5" id="usercourse" data-placeholder="选择相关教师">
+                                    <select autocomplete="off" multiple="" name="authors" class="chosen-select col-xs-10 col-sm-5" id="authors" data-placeholder="选择相关教师">
                                         <c:forEach items="${teachers}" var="teacher">
                                             <c:if test="${associations==null}">
                                                 <option class="userAssociation" value="${teacher.id}">${teacher.realname}</option>
@@ -382,9 +390,14 @@
             var projectIdList = $("#paperproject").val();
         });
         //初始化选择菜单的值
-
-        //alert(selectVal);
-
+        var selectval= "${courseForEdit.teachingobject}"
+        if(selectval!=null&&selectval!=""){
+            $('#teachingobject').find("option[value='"+selectval+"']").attr("selected", "true");
+        }
+        selectval = "${courseForEdit.courseType}"
+        if(selectval!=null&&selectval!=""){
+            $('#courseType').find("option[value='"+selectval+"']").attr("selected", "true");
+        }
         /*完成穿梭框的设置*/
         //移动到右边
         $("#add").on("click",function(){

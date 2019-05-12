@@ -48,9 +48,9 @@ public class CourseController {
         model.addAttribute("associations", associations);
         List<User> teachers = userService.queryAllTeacher();
         model.addAttribute("teachers", teachers);
-        for(int i=0;i<teachers.size();i++)
+        for(int i=0;i<associations.size();i++)
         {
-            System.out.println(teachers.get(i).getUsername());
+            System.out.println(associations.get(i).getUsername());
         }
         return "course/edit";
     }
@@ -126,9 +126,9 @@ public class CourseController {
 
     public static boolean ifInPid(List<User> associations, int forTest)
     {
-        System.out.println("In");
         for(int i=0; i<associations.size(); i++)
         {
+            System.out.println("associations" + associations.get(i).getUsername());
             if(forTest == associations.get(i).getId())
                 return true;
         }
