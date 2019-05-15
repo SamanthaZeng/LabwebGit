@@ -144,6 +144,10 @@
       imgurl = #{imgurl,jdbcType=VARCHAR},
   </select>
 
+  <select id="selectBook"  resultType="Book" parameterType="integer">
+    select * from book where bid = #{bid}
+  </select>
+
   <!--添加方法-->
   <insert id="insertGetId" parameterType="zxl.web.domain.Book" useGeneratedKeys="true" keyColumn="bid" keyProperty="bid">
     insert into book(bid, bookname, classification, babstract, press, time, imgurl) values(#{bid},#{bookname}, #{classification}, #{babstract}, #{press}, #{time}, #{imgurl});

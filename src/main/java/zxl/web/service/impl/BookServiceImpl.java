@@ -42,4 +42,9 @@ public class BookServiceImpl implements IBookService {
     public int selectBid(Book book) {
         return mapper.selectBid(book);
     }
+
+    @Override
+    public Book selectBook(int bid) {
+        return mapper.selectBook(bid);
+    }
 }

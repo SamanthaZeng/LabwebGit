@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室管理系统</title>
   <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
   <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,22 +31,22 @@
 </head>
 
 <body>
-<div style="margin-top: 5em">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
-      </div>
-      <div class="col-md-6 ">
-        <p class="lead">计算机网络与信息安全实验室</p>
-        <p >Computer Networks & Information Security Lab</p>
-      </div>
+<div style="background-color:#49beb7">
+    <div style="padding-top: 5em;padding-bottom:5em;">
+        <div class="container">
+            <div class="row" style="justify-content:  center">
+                <div style="vertical-align: middle;text-align: center">
+                    <p style="color: #005542;font-size: xx-large;">科研实验室管理系统</p>
+                    <p class="lead" >scientific research laboratory management system</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<div style="margin-top: 5em">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div>
+    <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
             <a class="navbar-brand" href="#">NKU</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,51 +55,48 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="justify-content: space-between">
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            研究方向
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/research?rid=1">网络安全态势感知</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=2">移动边缘计算与资源管理</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=3">物联网理论与应用</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            论文
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
-                            <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
-                            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                            <!--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             人员
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=2">博士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=1">硕士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=0">本科生</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            研究方向
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <c:forEach items="${researchareas}" var="research" varStatus="index">
+                                <a class="dropdown-item" href="/visitor/research?rid=${research.rid}">${research.rname}</a>
+                                <c:if test="${index.count!=rsize}">
+                                    <div class="dropdown-divider"></div>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visitor/project">项目</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            论文
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             教学
                         </a>
@@ -108,9 +105,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/book">教材</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,60 +126,62 @@
     </nav>
 </div>
 
-<div style="margin-top: 5em">
-    <div class="container">
-        <table class="table ">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">课程名</th>
-                <th scope="col">课程类型</th>
-                <th scope="col">课程对象</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${courses}" var="course" varStatus="index">
+<div style="background-color: #f1f1f1">
+    <div class="container"style="background-color: #fff">
+        <div style="padding-top: 5em">
+            <table class="table">
+                <thead>
                 <tr>
-                    <th scope="row">${index.count}</th>
-                    <td>${course.name}</td>
-                    <td>
-                        <c:choose>
-                            <%--得导入user--%>
-                            <c:when test="${course.courseType==0}">
-                                A
-                            </c:when>
-                            <c:when test="${course.courseType == 1}">
-                                B
-                            </c:when>
-                            <c:when test="${course.courseType == 2}">
-                                C
-                            </c:when>
-                            <c:when test="${course.courseType == 3}">
-                                D
-                            </c:when>
-                            <c:when test="${course.courseType == 4}">
-                                E
-                            </c:when>
-                        </c:choose>
-                    </td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${course.teachingobject==0}">
-                                本科生
-                            </c:when>
-                            <c:when test="${course.teachingobject==1}">
-                                硕士生
-                            </c:when>
-                            <c:when test="${course.teachingobject==2}">
-                                博士生
-                            </c:when>
-                        </c:choose>
-                    </td>
+                    <th scope="col">#</th>
+                    <th scope="col">课程名</th>
+                    <th scope="col">课程类型</th>
+                    <th scope="col">课程对象</th>
                 </tr>
-            </c:forEach>
+                </thead>
+                <tbody>
+                <c:forEach items="${courses}" var="course" varStatus="index">
+                    <tr>
+                        <th scope="row">${index.count}</th>
+                        <td>${course.name}</td>
+                        <td>
+                            <c:choose>
+                                <%--得导入user--%>
+                                <c:when test="${course.courseType==0}">
+                                    A
+                                </c:when>
+                                <c:when test="${course.courseType == 1}">
+                                    B
+                                </c:when>
+                                <c:when test="${course.courseType == 2}">
+                                    C
+                                </c:when>
+                                <c:when test="${course.courseType == 3}">
+                                    D
+                                </c:when>
+                                <c:when test="${course.courseType == 4}">
+                                    E
+                                </c:when>
+                            </c:choose>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${course.teachingobject==0}">
+                                    本科生
+                                </c:when>
+                                <c:when test="${course.teachingobject==1}">
+                                    硕士生
+                                </c:when>
+                                <c:when test="${course.teachingobject==2}">
+                                    博士生
+                                </c:when>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -86,4 +86,9 @@
   <select id="selectUBs" parameterType="integer" resultMap="BaseResultMap">
     select * from userbook where bid=#{bid}
   </select>
+
+  <!--根据id返回所有书籍-->
+  <select id="selectBidByid" parameterType="integer" resultMap="BaseResultMap">
+    select * from userbook where id=#{id}
+  </select>
 </mapper>

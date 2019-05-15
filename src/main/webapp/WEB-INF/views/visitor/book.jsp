@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室管理系统</title>
   <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
   <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,22 +37,22 @@
 </head>
 
 <body>
-<div style="margin-top: 5em">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
-      </div>
-      <div class="col-md-6 ">
-        <p class="lead">计算机网络与信息安全实验室</p>
-        <p >Computer Networks & Information Security Lab</p>
-      </div>
+<div style="background-color:#49beb7">
+    <div style="padding-top: 5em;padding-bottom:5em;">
+        <div class="container">
+            <div class="row" style="justify-content:  center">
+                <div style="vertical-align: middle;text-align: center">
+                    <p style="color: #005542;font-size: xx-large;">科研实验室管理系统</p>
+                    <p class="lead" >scientific research laboratory management system</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<div style="margin-top: 5em">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div>
+    <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
             <a class="navbar-brand" href="#">NKU</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,15 +66,33 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            人员
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=2">博士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=1">硕士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=0">本科生</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             研究方向
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/research?rid=1">网络安全态势感知</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=2">移动边缘计算与资源管理</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=3">物联网理论与应用</a>
+                            <c:forEach items="${researchareas}" var="research" varStatus="index">
+                                <a class="dropdown-item" href="/visitor/research?rid=${research.rid}">${research.rname}</a>
+                                <c:if test="${index.count!=rsize}">
+                                    <div class="dropdown-divider"></div>
+                                </c:if>
+                            </c:forEach>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,16 +100,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            人员
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
@@ -103,9 +111,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/book">教材</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,30 +132,31 @@
     </nav>
 </div>
 
-<div class="container" style="background-color: #949ea7">
-    <div style="padding-top: 5em">
-        <div class="container">
-            <div class="row">
-                <c:forEach items="${books}" var="book" >
-                    <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
-                        <div class="card" style="width: 18rem;">
-                            <div class="container">
-                                <img class="img" src="${book.imgurl}"  alt="bookpic">
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text text-center">《${book.bookname}》</p>
-                                <p class="card-text text-center">${book.babstract}</p>
-                                <p class="card-text text-center">${book.press}</p>
+
+<div style="background-color: #f1f1f1">
+    <div class="container" style="background-color: #fff">
+        <div style="padding-top: 5em">
+            <div class="container">
+                <div class="row">
+                    <c:forEach items="${books}" var="book" >
+                        <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
+                            <div class="card" style="width: 18rem;">
+                                <div class="container">
+                                    <img class="img" src="${book.imgurl}"  alt="bookpic">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-center">《${book.bookname}》</p>
+                                    <p class="card-text text-center">${book.babstract}</p>
+                                    <p class="card-text text-center">${book.press}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

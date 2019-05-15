@@ -44,4 +44,9 @@ public class StudentsServiceImpl implements IStudentsService {
         return mapper.selectStudentById(id);
     }
 
+    @Override
+    public List<Students> queryBySrank(int srank) {
+        return mapper.queryBySrank(srank);
+    }
+
 }

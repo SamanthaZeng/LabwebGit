@@ -157,4 +157,9 @@
   <select id="selectStudentById" parameterType="Integer" resultMap="BaseResultMap">
     select * from student s, user u where s.id=#{id} and u.id=#{id}
   </select>
+
+  <!--通过学生类型返回全部学生-->
+  <select id="queryBySrank" parameterType="Integer" resultMap="BaseResultMap">
+    select * from student s, user u where s.srank=#{srank} and u.id=s.id
+  </select>
 </mapper>

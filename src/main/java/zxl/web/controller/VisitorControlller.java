@@ -65,6 +65,12 @@ public class VisitorControlller {
    private IUserProService userProService;
 
    @Autowired
+   private IUserCourseService userCourseService;
+
+   @Autowired
+   private IUserBookService userBookService;
+
+   @Autowired
    private ICompanyService companyService;
 
     public static String cutStr(String strs, int length) {
@@ -239,7 +245,9 @@ public class VisitorControlller {
             }
         }
         if(usertype==1){
-            students=studentsService.queryAll();
+            int srank=Integer.valueOf(req.getParameter("srank"));
+            students=studentsService.queryBySrank(srank);
+           // students=studentsService.queryAll();
             for(int i=0;i<students.size();i++)
                 System.out.println(students.get(i).toString());
         }
@@ -293,6 +301,24 @@ public class VisitorControlller {
                 projects.add(project);
             }
             model.addAttribute("projects",projects);
+            /*获取教师所参与课程*/
+            List<UserCourse>userCourses=userCourseService.selectCidByid(id);
+            List<Course>courses=new ArrayList<>();
+            Course course;
+            for(int i=0;i<userCourses.size();i++){
+                course=courseService.selectCourse(userCourses.get(i).getClsid());
+                courses.add(course);
+            }
+            model.addAttribute("courses",courses);
+            /*获取教师所写著作*/
+            List<UserBook>userBooks=userBookService.selectBidByid(id);
+            List<Book>books=new ArrayList<>();
+            Book book;
+            for(int i=0;i<userBooks.size();i++){
+                book=bookService.selectBook(userBooks.get(i).getBid());
+                books.add(book);
+            }
+            model.addAttribute("books",books);
         }
         if(usertype==1){
             student=studentsService.selectStudentById(id);

@@ -22,4 +22,6 @@ public interface UserCourseMapper {
     List<UserCourse> selectByClsid(int clsid);
 
     List<UserCourse>selectUCls(int clsid);
+
+    List<UserCourse>selectCidByid(int id);
 }

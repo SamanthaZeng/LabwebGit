@@ -17,4 +17,6 @@ public interface IStudentsService {
     public int update(Students stu);
     //通过用户ID来查找学生
     public Students selectStudentById(int id);
+    //通过学生类别来查找学生
+    public List<Students>queryBySrank(int srank);
 }

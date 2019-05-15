@@ -17,4 +17,6 @@ public interface IUserBookService {
 
     //添加新项
     public void insert(UserBook userBook);
+
+    public List<UserBook>selectBidByid(int id);
 }

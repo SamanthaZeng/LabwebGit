@@ -19,4 +19,6 @@ public interface UserBookMapper {
     int updateByPrimaryKey(UserBook record);
 
     List<UserBook> selectUBs(int bid);
+
+    List<UserBook>selectBidByid(int id);
 }

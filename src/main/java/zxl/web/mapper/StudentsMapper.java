@@ -21,4 +21,6 @@ public interface StudentsMapper {
     List<Students> queryAll();
 
     Students selectStudentById(int id);
+
+    List<Students>queryBySrank(int srank);
 }

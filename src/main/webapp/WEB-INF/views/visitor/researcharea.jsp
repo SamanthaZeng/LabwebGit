@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>计算机网络与信息安全研究室后台管理系统</title>
+  <title>科研实验室管理系统</title>
   <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
   <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,22 +38,22 @@
 </head>
 
 <body>
-<div style="margin-top: 5em">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
-      </div>
-      <div class="col-md-6 ">
-        <p class="lead">计算机网络与信息安全实验室</p>
-        <p >Computer Networks & Information Security Lab</p>
-      </div>
+<div style="background-color:#49beb7">
+    <div style="padding-top: 5em;padding-bottom:5em;">
+        <div class="container">
+            <div class="row" style="justify-content:  center">
+                <div style="vertical-align: middle;text-align: center">
+                    <p style="color: #005542;font-size: xx-large;">科研实验室管理系统</p>
+                    <p class="lead" >scientific research laboratory management system</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<div style="margin-top: 5em">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div>
+    <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
             <a class="navbar-brand" href="#">NKU</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +64,20 @@
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            人员
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=2">博士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=1">硕士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=0">本科生</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,22 +92,15 @@
                             </c:forEach>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visitor/project">项目</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             论文
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            人员
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -105,9 +112,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/book">教材</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -129,81 +133,82 @@
     </nav>
 </div>
 
-<div style="margin-top: 5em">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="mb-3">${research.rname}</h1>
-        <p class="lead text-justify">${research.intro}</p>
+<div style="background-color: #f1f1f1">
+  <div class="container" style="background-color: #fff;">
+      <div style="padding-top: 5em">
+          <div class="row">
+              <div class="col-md-6">
+                  <h1 class="mb-3">${research.rname}</h1>
+                  <p class="lead text-justify">${research.intro}</p>
+              </div>
+
+              <div class="col-md-6">
+                  <div id="picCarousel" class="carousel slide">
+                      <!--指示符-->
+                      <ul class="carousel-indicators">
+                          <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#picCarousel" data-slide-to="1"></li>
+                          <li data-target="#picCarousel" data-slide-to="2"></li>
+                      </ul>
+
+                      <!-- 轮播图片 -->
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <c:choose>
+                                  <c:when test="${research.rid==1}">
+                                      <img src="${research.imgurl1}">
+                                  </c:when>
+                                  <c:when test="${research.rid==2}">
+                                      <img src="${research.imgurl2}">
+                                  </c:when>
+                                  <c:when test="${research.rid==3}">
+                                      <img src="${research.imgurl3}">
+                                  </c:when>
+                              </c:choose>
+                          </div>
+                          <div class="carousel-item">
+                              <c:choose>
+                                  <c:when test="${research.rid==1}">
+                                      <img src="${research.imgurl1}">
+                                  </c:when>
+                                  <c:when test="${research.rid==2}">
+                                      <img src="${research.imgurl2}">
+                                  </c:when>
+                                  <c:when test="${research.rid==3}">
+                                      <img src="${research.imgurl3}">
+                                  </c:when>
+                              </c:choose>
+                          </div>
+                          <div class="carousel-item">
+                              <c:choose>
+                                  <c:when test="${research.rid==1}">
+                                      <img src="${research.imgurl1}">
+                                  </c:when>
+                                  <c:when test="${research.rid==2}">
+                                      <img src="${research.imgurl2}">
+                                  </c:when>
+                                  <c:when test="${research.rid==3}">
+                                      <img src="${research.imgurl3}">
+                                  </c:when>
+                              </c:choose>
+                          </div>
+                      </div>
+
+                      <!-- 左右切换按钮 -->
+                      <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
+                          <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
+                          <!--<span class="carousel-control-prev-icon"></span>-->
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#picCarousel" data-slide="next">
+                          <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
+                          <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
+                      </a>
+                  </div><!--轮播框-->
+              </div>
+          </div>
       </div>
-
-        <div class="col-md-6">
-            <div id="picCarousel" class="carousel slide">
-                <!--指示符-->
-                <ul class="carousel-indicators">
-                    <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#picCarousel" data-slide-to="1"></li>
-                    <li data-target="#picCarousel" data-slide-to="2"></li>
-                </ul>
-
-                <!-- 轮播图片 -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <c:choose>
-                            <c:when test="${research.rid==1}">
-                                <img src="${research.imgurl1}">
-                            </c:when>
-                            <c:when test="${research.rid==2}">
-                                <img src="${research.imgurl2}">
-                            </c:when>
-                            <c:when test="${research.rid==3}">
-                                <img src="${research.imgurl3}">
-                            </c:when>
-                        </c:choose>
-                    </div>
-                    <div class="carousel-item">
-                        <c:choose>
-                            <c:when test="${research.rid==1}">
-                                <img src="${research.imgurl1}">
-                            </c:when>
-                            <c:when test="${research.rid==2}">
-                                <img src="${research.imgurl2}">
-                            </c:when>
-                            <c:when test="${research.rid==3}">
-                                <img src="${research.imgurl3}">
-                            </c:when>
-                        </c:choose>
-                    </div>
-                    <div class="carousel-item">
-                        <c:choose>
-                            <c:when test="${research.rid==1}">
-                                <img src="${research.imgurl1}">
-                            </c:when>
-                            <c:when test="${research.rid==2}">
-                                <img src="${research.imgurl2}">
-                            </c:when>
-                            <c:when test="${research.rid==3}">
-                                <img src="${research.imgurl3}">
-                            </c:when>
-                        </c:choose>
-                    </div>
-                </div>
-
-                <!-- 左右切换按钮 -->
-                <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
-                    <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
-                    <!--<span class="carousel-control-prev-icon"></span>-->
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#picCarousel" data-slide="next">
-                    <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
-                    <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
-                </a>
-            </div><!--轮播框-->
-
-        </div>
-    </div>
   </div>
 </div>
 

@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,22 +62,22 @@
 </head>
 
 <body>
-<div style="margin-top: 5em">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">
-            </div>
-            <div class="col-md-6 ">
-                <p class="lead">计算机网络与信息安全实验室</p>
-                <p >Computer Networks & Information Security Lab</p>
+<div style="background-color:#49beb7">
+    <div style="padding-top: 5em;padding-bottom:5em;">
+        <div class="container">
+            <div class="row" style="justify-content:  center">
+                <div style="vertical-align: middle;text-align: center">
+                    <p style="color: #005542;font-size: xx-large;">科研实验室管理系统</p>
+                    <p class="lead" >scientific research laboratory management system</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div style="margin-top: 5em">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div>
+    <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
             <a class="navbar-brand" href="#">NKU</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,11 +94,12 @@
                             研究方向
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/research?rid=1">网络安全态势感知</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=2">移动边缘计算与资源管理</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/research?rid=3">物联网理论与应用</a>
+                            <c:forEach items="${researchareas}" var="research" varStatus="index">
+                                <a class="dropdown-item" href="/visitor/research?rid=${research.rid}">${research.rname}</a>
+                                <c:if test="${index.count!=rsize}">
+                                    <div class="dropdown-divider"></div>
+                                </c:if>
+                            </c:forEach>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -106,28 +107,21 @@
                             论文
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!--<a class="dropdown-item" href="/visitor/paper?time=2019">2019</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2018">2018</a>
-                            <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2017">2017</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2016">2016</a>
-                             <div class="dropdown-divider"></div>
-                             <a class="dropdown-item" href="/visitor/paper?time=2015">2015</a>-->
                             <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                            <!--<div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/paper?time=2017">按研究领域进行查找</a>-->
                         </div>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown  active" id="user">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             人员
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/visitor/user?usertype=0">教师</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/visitor/user?usertype=1">学生</a>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=2">博士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=1">硕士生</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/user?usertype=1&srank=0">本科生</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -143,7 +137,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" id="couser">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             合作交流
                         </a>
@@ -163,129 +157,150 @@
     </nav>
 </div>
 
-<div style="margin-top: 5em">
-    <div class="container">
-        <div class="row ">
-            <c:if test="${usertype==0}">
-                <!--基本信息栏-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        基本信息
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p style="margin-left: 30px;">
-                                姓名： ${teacher.user.realname}<br/>
-                                性别：<c:if test="${teacher.user.sex==0}">男</c:if> <c:if test="${teacher.user.sex==1}">女</c:if><br>
-                                所属部门：${teacher.college}<br>
-                                职称：<c:if test="${teacher.trank==0}">讲师</c:if>
-                                <c:if test="${teacher.trank==1}">助理教授</c:if>
-                                <c:if test="${teacher.trank==2}">副教授</c:if>
-                                <c:if test="${teacher.trank==3}">教授</c:if><br>
-                                学历：${teacher.edubg}<br>
-                                电子邮件：${teacher.tmail}<br>
-                                社会服务：${teacher.service}<br>
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="${teacher.user.imgurl}" height="200px" alt="userpic">
-                        </div>
-                    </div>
-                </div>
-                <!--教育经历和工作经历-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        教育经历
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                            ${teacher.teduexp}
-                    </p>
-                    <p class="lead title">
-                        工作经历
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                            ${teacher.workexp}
-                    </p>
-                </div>
-                <!--论文和项目-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        发表论文
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                        <c:forEach items="${papers}" var="paper">
-                            ${paper.ptitile}
-                        </c:forEach>
-                    </p>
-                    <p class="lead title">
-                        参与项目
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                        <c:forEach items="${projects}" var="project">
-                            ${project.proname}
-                        </c:forEach>
-                    </p>
-                </div>
-            </c:if>
-            <c:if test="${usertype==1}">
-                <!--基本信息栏-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        基本信息
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p style="margin-left: 30px;">
-                                姓名： ${student.user.realname}<br/>
-                                性别：<c:if test="${student.user.sex==0}">男</c:if> <c:if test="${student.user.sex==1}">女</c:if><br>
-                                所属部门：${student.college}<br>
-                                类别：<c:if test="${student.srank==0}">本科生</c:if>
-                                <c:if test="${student.srank==1}">硕士生</c:if>
-                                <c:if test="${student.srank==2}">博士生</c:if><br>
-                                电子邮件：${student.smail}<br>
-                                入学时间：${student.entertime}<br>
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="${student.user.imgurl}" height="200px" alt="userpic">
+<div style="background-color: #f1f1f1">
+    <div class="container" style="background-color: #fff">
+        <div style="padding-top: 5em">
+            <div class="row ">
+                <c:if test="${usertype==0}">
+                    <!--基本信息栏-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            基本信息
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p style="margin-left: 30px;">
+                                    姓名： ${teacher.user.realname}<br/>
+                                    性别：<c:if test="${teacher.user.sex==0}">男</c:if> <c:if test="${teacher.user.sex==1}">女</c:if><br>
+                                    所属部门：${teacher.college}<br>
+                                    职称：<c:if test="${teacher.trank==0}">讲师</c:if>
+                                    <c:if test="${teacher.trank==1}">助理教授</c:if>
+                                    <c:if test="${teacher.trank==2}">副教授</c:if>
+                                    <c:if test="${teacher.trank==3}">教授</c:if><br>
+                                    学历：${teacher.edubg}<br>
+                                    电子邮件：${teacher.tmail}<br>
+                                    社会服务：${teacher.service}<br>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="${teacher.user.imgurl}" height="200px" alt="userpic">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--教育经历和工作经历-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        教育经历
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                            ${student.stueduexp}
-                    </p>
-                    <p class="lead title">
-                        毕业去向
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                            ${student.wheretogo}
-                    </p>
-                </div>
-                <!--论文和项目-->
-                <div class="basicinfo">
-                    <p class="lead title">
-                        发表论文
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                        <c:forEach items="${papers}" var="paper">
-                            ${paper.ptitile}
-                        </c:forEach>
-                    </p>
-                    <p class="lead title">
-                        参与项目
-                    </p>
-                    <p style="margin-left: 30px;white-space: pre-line;">
-                        <c:forEach items="${projects}" var="project">
-                            ${project.proname}
-                        </c:forEach>
-                    </p>
-                </div>
-            </c:if>
+                    <!--教育经历和工作经历-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            教育经历
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                                ${teacher.teduexp}
+                        </p>
+                        <p class="lead title">
+                            工作经历
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                                ${teacher.workexp}
+                        </p>
+                    </div>
+                    <!--论文和项目-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            发表论文
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${papers}" var="paper">
+                                ${paper.ptitile}；${paper.publictime}；${paper.keyword}
+                            </c:forEach>
+                        </p>
+                        <p class="lead title">
+                            项目
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${projects}" var="project">
+                                ${project.proname}；${project.proabstract}；${project.number}
+                            </c:forEach>
+                        </p>
+                    </div>
+                    <!--课程和著作-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            所授课程
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${courses}" var="course">
+                                ${course.name}；<c:if test="${course.teachingobject==0}">本科生</c:if><c:if test="${course.teachingobject==1}">研究生</c:if><c:if test="${course.teachingobject==2}">博士生</c:if>；${course.classhour}
+                            </c:forEach>
+                        </p>
+                        <p class="lead title">
+                            著作
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${books}" var="book">
+                                ${book.bookname}；${book.press}；${book.time}
+                            </c:forEach>
+                        </p>
+                    </div>
+                </c:if>
+                <c:if test="${usertype==1}">
+                    <!--基本信息栏-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            基本信息
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p style="margin-left: 30px;">
+                                    姓名： ${student.user.realname}<br/>
+                                    性别：<c:if test="${student.user.sex==0}">男</c:if> <c:if test="${student.user.sex==1}">女</c:if><br>
+                                    所属部门：${student.college}<br>
+                                    类别：<c:if test="${student.srank==0}">本科生</c:if>
+                                    <c:if test="${student.srank==1}">硕士生</c:if>
+                                    <c:if test="${student.srank==2}">博士生</c:if><br>
+                                    电子邮件：${student.smail}<br>
+                                    入学时间：${student.entertime}<br>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="${student.user.imgurl}" height="200px" alt="userpic">
+                            </div>
+                        </div>
+                    </div>
+                    <!--教育经历和工作经历-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            教育经历
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                                ${student.stueduexp}
+                        </p>
+                        <p class="lead title">
+                            毕业去向
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                                ${student.wheretogo}
+                        </p>
+                    </div>
+                    <!--论文和项目-->
+                    <div class="basicinfo">
+                        <p class="lead title">
+                            发表论文
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${papers}" var="paper">
+                                ${paper.ptitile}；${paper.publictime}；${paper.keyword}
+                            </c:forEach>
+                        </p>
+                        <p class="lead title">
+                            参与项目
+                        </p>
+                        <p style="margin-left: 30px;white-space: pre-line;">
+                            <c:forEach items="${projects}" var="project">
+                                ${project.proname}；${project.proabstract}；${project.number}
+                            </c:forEach>
+                        </p>
+                    </div>
+                </c:if>
+            </div>
         </div>
     </div>
 </div>

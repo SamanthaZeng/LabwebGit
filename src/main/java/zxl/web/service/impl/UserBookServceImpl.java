@@ -32,4 +32,9 @@ public class UserBookServceImpl  implements IUserBookService {
     public void insert(UserBook userBook) {
         mapper.insert(userBook);
     }
+
+    @Override
+    public List<UserBook> selectBidByid(int id) {
+        return mapper.selectBidByid(id);
+    }
 }

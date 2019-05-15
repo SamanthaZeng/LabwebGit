@@ -58,4 +58,9 @@ public class UserCourseServiceImpl implements IUserCourseService {
     public void insert(UserCourse userCourse) {
         mapper.insert(userCourse);
     }
+
+    @Override
+    public List<UserCourse> selectCidByid(int id) {
+        return mapper.selectCidByid(id);
+    }
 }

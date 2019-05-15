@@ -6,9 +6,11 @@
     <id column="clsid" jdbcType="INTEGER" property="clsid" />
     <result column="teachertype" jdbcType="INTEGER" property="teachertype" />
   </resultMap>
+
   <sql id="Base_Column_List">
     id, clsid, teachertype
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -16,22 +18,26 @@
     where id = #{id,jdbcType=INTEGER}
       and clsid = #{clsid,jdbcType=INTEGER}
   </select>
+
   <select id="selectByClsid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select *
     from usercourse
     where clsid=#{clsid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="zxl.web.domain.UserCourseKey">
     delete from usercourse
     where id = #{id,jdbcType=INTEGER}
       and clsid = #{clsid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="zxl.web.domain.UserCourse">
     insert into usercourse (id, clsid, teachertype
       )
     values (#{id,jdbcType=INTEGER}, #{clsid,jdbcType=INTEGER}, #{teachertype,jdbcType=INTEGER}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="zxl.web.domain.UserCourse">
     insert into usercourse
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -57,6 +63,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="zxl.web.domain.UserCourse">
     update usercourse
     <set>
@@ -67,6 +74,7 @@
     where id = #{id,jdbcType=INTEGER}
       and clsid = #{clsid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="zxl.web.domain.UserCourse">
     update usercourse
     set teachertype = #{teachertype,jdbcType=INTEGER}
@@ -77,5 +85,10 @@
   <!--根据clsid返回所有书籍-->
   <select id="selectUCls" parameterType="integer" resultMap="BaseResultMap">
     select * from usercourse where clsid=#{clsid};
+  </select>
+
+  <!--根据用户id返回所有所授课程-->
+  <select id="selectCidByid" parameterType="integer" resultMap="BaseResultMap">
+    select * from usercourse where id=#{id};
   </select>
 </mapper>

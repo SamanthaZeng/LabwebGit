@@ -22,4 +22,7 @@ public interface IUserCourseService {
 
     //添加新项
     public void insert(UserCourse userCourse);
+
+    //获取老师所授课程信息
+    public List<UserCourse>selectCidByid(int id);
 }
