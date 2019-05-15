@@ -169,7 +169,6 @@
                                             <th>著作标号</th>
                                             <th>著作名称</th>
                                             <th>著作类型</th>
-                                            <th>著作概述</th>
                                             <th class="hidden-480">出版社</th>
                                             <th class="hidden-480">出版日期</th>
                                             <th>其他操作</th>
@@ -188,7 +187,6 @@
                                                 <td>${book.bid}</td>
                                                 <td>${book.bookname}</td>
                                                 <td>${book.classification}</td>
-                                                <td>${book.babstract}</td>
                                                 <td class="hidden-480">${book.press}</td>
                                                 <td class="hidden-480">${book.time}</td>
 
@@ -312,7 +310,7 @@
         var stuTable = $('#stuTable').dataTable( {
             "aoColumns": [
                 { "bSortable": false },
-                null, null,null, null, null,null,
+                null, null,null, null, null,
                 { "bSortable": false }
             ],
             "iDisplayLength": 5,

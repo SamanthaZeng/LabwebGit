@@ -104,9 +104,15 @@ public class VisitorControlller {
             news.get(i).setNewstitle(cutStr(str,30));
         }
         List<News>newsList=new ArrayList<>();
-        /*只获取三条新闻*/
-        for(int i=news.size()-1;i>news.size()-4;i--){
-            newsList.add(news.get(i));
+        if(news.size() > 3){
+            /*只获取三条新闻(当新闻多于三条时)*/
+            for(int i=news.size()-1;i>news.size()-4;i--){
+                newsList.add(news.get(i));
+            }
+        }else {
+            for(int i=news.size() - 1; i > -1; i--) {
+                newsList.add(news.get(i));
+            }
         }
         model.addAttribute("newsList",newsList);
 

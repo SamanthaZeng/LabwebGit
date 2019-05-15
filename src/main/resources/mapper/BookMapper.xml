@@ -10,9 +10,11 @@
     <result column="press" jdbcType="VARCHAR" property="press" />
     <result column="time" jdbcType="DATE" property="time" />
     <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="booktype" jdbcType="INTEGER" property="booktype" />
+    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
   </resultMap>
   <sql id="Base_Column_List">
-    bid, bookname, classification, babstract, press, time,imgurl
+    bid, bookname, classification, babstract, press, time,imgurl, booktype, isbn
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -29,10 +31,10 @@
 
   <insert id="insert" parameterType="zxl.web.domain.Book">
     insert into book (bid, bookname, classification,
-      babstract, press, time,imgurl
+      babstract, press, time,imgurl, booktype, isbn
       )
     values (#{bid,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{classification,jdbcType=VARCHAR},
-      #{babstract,jdbcType=VARCHAR}, #{press,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{imgurl,jdbcType=VARCHAR}
+      #{babstract,jdbcType=VARCHAR}, #{press,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{imgurl,jdbcType=VARCHAR}, #{booktype, jdbcType=INTEGER}, #{isbn,jdbcType=VARCHAR}
       )
   </insert>
 
@@ -60,6 +62,12 @@
       <if test="imgurl != null">
         imgurl,
       </if>
+      <if test="booktype != null">
+        booktype,
+      </if>
+      <if test="isbn != null">
+        isbn,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="bid != null">
@@ -83,6 +91,12 @@
       <if test="imgurl != null">
         #{imgurl,jdbcType=VARCHAR},
       </if>
+      <if test="booktype != null">
+        #{booktype,jdbcType=INTEGER},
+      </if>
+      <if test="isbn != null">
+        #{isbn,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
 
@@ -105,7 +119,13 @@
         time = #{time,jdbcType=DATE},
       </if>
       <if test="imgurl != null">
-        time = #{imgurl,jdbcType=DATE},
+        imgurl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="booktype != null">
+        booktype = #{booktype,jdbcType=INTEGER},
+      </if>
+      <if test="isbn != null">
+        isbn = #{isbn,jdbcType=VARCHAR},
       </if>
     </set>
     where bid = #{bid,jdbcType=INTEGER}
@@ -118,7 +138,9 @@
       babstract = #{babstract,jdbcType=VARCHAR},
       press = #{press,jdbcType=VARCHAR},
       time = #{time,jdbcType=DATE},
-      imgurl = #{imgurl,jdbcType=VARCHAR}
+      imgurl = #{imgurl,jdbcType=VARCHAR},
+      booktype = #{booktype,jdbcType=INTEGER},
+      isbn = #{isbn,jdbcType=VARCHAR},
     where bid = #{bid,jdbcType=INTEGER}
   </update>
 
@@ -150,6 +172,6 @@
 
   <!--添加方法-->
   <insert id="insertGetId" parameterType="zxl.web.domain.Book" useGeneratedKeys="true" keyColumn="bid" keyProperty="bid">
-    insert into book(bid, bookname, classification, babstract, press, time, imgurl) values(#{bid},#{bookname}, #{classification}, #{babstract}, #{press}, #{time}, #{imgurl});
+    insert into book(bid, bookname, classification, babstract, press, time, imgurl, booktype, isbn) values(#{bid},#{bookname}, #{classification}, #{babstract}, #{press}, #{time}, #{imgurl}, #{booktype}, #{isbn});
   </insert>
 </mapper>

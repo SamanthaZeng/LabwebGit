@@ -96,8 +96,10 @@ public class ProjectController {
     @RequestMapping("/add")
     public String add(HttpServletRequest req, Model model)
     {
+        List<Researcharea> researchareas = researchareaService.queryAll();
         List<User> users=userService.queryAll();
         model.addAttribute("users",users);
+        model.addAttribute("researchareas", researchareas);
         return "project/edit";
     }
 

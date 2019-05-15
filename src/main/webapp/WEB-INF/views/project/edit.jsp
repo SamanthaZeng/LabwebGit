@@ -204,16 +204,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目类别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="protype"> 项目类别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="protype" value="${projectForEdit.protype}" id="form-field-3" placeholder="项目类别" class="col-xs-10 col-sm-5" />
-
+                                    <select class="col-xs-10 col-sm-5" id="protype" name="protype" value="${projectForEdit.protype}">
+                                        <option value="">-----------请选择项目类别----------</option>
+                                        <option value="1" >纵向项目</option>
+                                        <option value="2" >横向项目</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目等级 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目级别 </label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="prorank" value="${projectForEdit.prorank}" id="form-field-4" placeholder="项目等级" class="col-xs-10 col-sm-5" />
@@ -231,15 +234,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="proabstract"> 项目概述 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="proabstract"> 项目摘要 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea id="proabstract" name="proabstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" placeholder="项目概述">${paperForEdit.proabstract}</textarea>
+                                    <textarea id="proabstract" name="proabstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" placeholder="项目摘要">${projectForEdit.proabstract}</textarea>
+
+                                    <div class="col-sm-3">
+                                        <label>当前字数：</label><label id="proabstractNum">0</label><label>/300</label>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 项目来源 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-7"> 项目来源 </label>
 
                                 <div class="col-sm-9">
                                     <input type="text" name="prosource" value="${projectForEdit.prosource}" id="form-field-7" placeholder="项目来源" class="col-xs-10 col-sm-5" />
@@ -247,10 +254,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 相关项目 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="proResearcharea"> 研究方向 </label>
 
                                 <div class="col-sm-9">
-                                    <select autocomplete="off" multiple="" name="proResearcharea" class="chosen-select col-xs-10 col-sm-5" id="proResearcharea" data-placeholder="选择相关项目">
+                                    <select autocomplete="off" multiple="" name="proResearcharea" class="chosen-select col-xs-10 col-sm-5" id="proResearcharea" data-placeholder="选择研究方向">
                                         <c:forEach items="${researchareas}" var="researcharea">
                                             <c:if test="${researchareas==null}">
                                                 <option class="researchareaAssociation" value="${researcharea.rid}">${researcharea.rname}</option>
@@ -269,7 +276,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" > 作者 </label>
+                                <label class="col-sm-3 control-label no-padding-right" > 人员 </label>
 
                                 <div class="select col-sm-9">
                                     <div class="select-item col-sm-3">
@@ -408,12 +415,27 @@
 <script type="text/javascript">
     jQuery(function($) {
         $("#projectForm").on("submit", function () {
+            if($("#proabstract").val().length > 300)
+            {
+                alert("项目摘要字数超限，最多300字")
+                return false
+            }
             var obj = document.getElementById("selectedauthor")
             for(i=0;i<obj.length;i++)
             {
                 obj[i].selected = true
             }
         })
+
+        $("#proabstract").on('input', function() {
+            var num=$(this).val().length
+            $("#proabstractNum").html(num)
+        })
+        var selectval= "${projectForEdit.protype}"
+        if(selectval!=null&&selectval!=""){
+            $('#protype').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
+        }
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
@@ -426,13 +448,11 @@
                 $(".studentHidden").css("display", "none");
             }
         }
-        //alert(selectVal);
-
+        var num = $("#proabstract").val().length
+        $("#proabstractNum").html(num)
         /*完成穿梭框的设置*/
         //移动到右边
-        console.log("${proUsers}")
         var idList =("${proUsers}".slice(1, -1)).split(", ")
-        console.log(idList)
         $("#author option").each(function () {
             for(var i=0;i<idList.length;i++){
                 if($(this).val() === idList[i])

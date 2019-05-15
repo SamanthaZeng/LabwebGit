@@ -214,9 +214,9 @@
                                         <option value="CCF-A" >CCF-A</option>
                                         <option value="CCF-B" >CCF-B</option>
                                         <option value="CCF-C" >CCF-C</option>
-                                        <option value="SCI-A" >SCI-A</option>
-                                        <option value="SCI-B" >SCI-B</option>
-                                        <option value="SCI-C" >SCI-C</option>
+                                        <option value="SCI-1" >SCI-1</option>
+                                        <option value="SCI-2" >SCI-2</option>
+                                        <option value="SCI-3" >SCI-3</option>
                                         <option value="其他" >其他</option>
                                     </select>
                                 </div>

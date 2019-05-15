@@ -13,6 +13,24 @@ public class Course {
 
     private Integer classhour;
 
+    private String coursecode;
+
+    public void setCoursecode(String coursecode) {
+        this.coursecode = coursecode;
+    }
+
+    public String getCoursecode() {
+        return coursecode;
+    }
+
+    public String getCabstract() {
+        return cabstract;
+    }
+
+    public void setCabstract(String cabstract) {
+        this.cabstract = cabstract;
+    }
+
     public Integer getClsid() {
         return clsid;
     }
