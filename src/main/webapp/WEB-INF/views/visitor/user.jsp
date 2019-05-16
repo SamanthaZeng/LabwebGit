@@ -134,9 +134,9 @@
                   <c:when test="${teachers!=null}">
                       <!--教授-->
                       <c:forEach items="${teachers}" var="teacher">
-                          <c:if test="${teacher.trank==3}">
+                          <c:if test="${teacher.trank==2}">
                               <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
                                       <div class="card-header">
 
                                       </div>
@@ -152,9 +152,8 @@
                                           <p class="card-text">
                                               <c:choose>
                                                   <c:when test="${teacher.trank==0}">讲师</c:when>
-                                                  <c:when test="${teacher.trank==1}">助理教授</c:when>
-                                                  <c:when test="${teacher.trank==2}">副教授</c:when>
-                                                  <c:when test="${teacher.trank==3}">教授</c:when>
+                                                  <c:when test="${teacher.trank==1}">副教授</c:when>
+                                                  <c:when test="${teacher.trank==2}">教授</c:when>
                                               </c:choose>
                                           </p>
                                       </div>
@@ -164,39 +163,9 @@
                       </c:forEach>
                       <!--副教授-->
                       <c:forEach items="${teachers}" var="teacher">
-                          <c:if test="${teacher.trank==2}">
-                              <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                      <div class="card-header">
-
-                                      </div>
-                                      <div class="container" >
-                                          <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                              <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
-                                          </a>
-                                      </div>
-
-                                      <div class="card-body">
-                                          <h5 class="card-title">${teacher.user.username}</h5>
-                                          <p class="card-text">邮箱:${teacher.tmail}</p>
-                                          <p class="card-text">
-                                              <c:choose>
-                                                  <c:when test="${teacher.trank==0}">讲师</c:when>
-                                                  <c:when test="${teacher.trank==1}">助理教授</c:when>
-                                                  <c:when test="${teacher.trank==2}">副教授</c:when>
-                                                  <c:when test="${teacher.trank==3}">教授</c:when>
-                                              </c:choose>
-                                          </p>
-                                      </div>
-                                  </div><!--card-->
-                              </div><!--col-->
-                          </c:if>
-                      </c:forEach>
-                      <!--助理教授-->
-                      <c:forEach items="${teachers}" var="teacher">
                           <c:if test="${teacher.trank==1}">
                               <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
                                       <div class="card-header">
 
                                       </div>
@@ -212,9 +181,8 @@
                                           <p class="card-text">
                                               <c:choose>
                                                   <c:when test="${teacher.trank==0}">讲师</c:when>
-                                                  <c:when test="${teacher.trank==1}">助理教授</c:when>
-                                                  <c:when test="${teacher.trank==2}">副教授</c:when>
-                                                  <c:when test="${teacher.trank==3}">教授</c:when>
+                                                  <c:when test="${teacher.trank==1}">副教授</c:when>
+                                                  <c:when test="${teacher.trank==2}">教授</c:when>
                                               </c:choose>
                                           </p>
                                       </div>
@@ -226,7 +194,7 @@
                       <c:forEach items="${teachers}" var="teacher">
                           <c:if test="${teacher.trank==0}">
                               <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
                                       <div class="card-header">
 
                                       </div>
@@ -242,9 +210,8 @@
                                           <p class="card-text">
                                               <c:choose>
                                                   <c:when test="${teacher.trank==0}">讲师</c:when>
-                                                  <c:when test="${teacher.trank==1}">助理教授</c:when>
-                                                  <c:when test="${teacher.trank==2}">副教授</c:when>
-                                                  <c:when test="${teacher.trank==3}">教授</c:when>
+                                                  <c:when test="${teacher.trank==1}">副教授</c:when>
+                                                  <c:when test="${teacher.trank==2}">教授</c:when>
                                               </c:choose>
                                           </p>
                                       </div>
@@ -256,7 +223,7 @@
                   <c:when test="${students!=null}">
                       <c:forEach items="${students}" var="student">
                           <div class="col-lg-4 p-3 col-md-4">
-                              <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
                                   <div class="card-header">
                                       <c:choose>
                                           <c:when test="${student.srank==0}">本科生</c:when>
@@ -281,7 +248,7 @@
                   <c:when test="${cooperators!=null}">
                       <c:forEach items="${cooperators}" var="cooperator">
                           <div class="col-lg-4 p-3 col-md-4">
-                              <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                              <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
                                   <div class="card-header">${cooperator.title}</div>
                                   <div class="container">
                                       <a href="${cooperator.cpage}">
@@ -312,9 +279,7 @@
 <script >
     $(document).ready(function(){
         var val=${usertype};
-        alert("message");
         if(val==2){
-            alert("enter");
             $("#user").removeClass("active");
             $("#couser").addClass("active");
         }

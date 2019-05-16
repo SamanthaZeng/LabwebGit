@@ -14,4 +14,6 @@ public interface IResearchareaService {
     void insert(Researcharea researcharea);
 
     void update(Researcharea researcharea);
+
+    Researcharea queryinfo();
 }

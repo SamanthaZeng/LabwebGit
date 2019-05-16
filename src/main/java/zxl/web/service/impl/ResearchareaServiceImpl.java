@@ -36,4 +36,9 @@ public class ResearchareaServiceImpl implements IResearchareaService {
     public void update(Researcharea researcharea) {
         mapper.updateByPrimaryKeySelective(researcharea);
     }
+
+    @Override
+    public Researcharea queryinfo() {
+        return mapper.queryinfo();
+    }
 }

@@ -125,10 +125,8 @@
             <div class="container" >
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="mb-3">实验室简介</h1>
-                        <p class="lead text-justify">计算机网络与信息安全研究室成立于1986年，现有教师7名，其中教授3名（其中兼职教授1名）、副教授3名、讲师1名，硕士和博研究生近40名。
-                            三十多年来，在刘瑞挺和吴功宜老先生的带领下，研究室坚持以计算机网络和网络安全为核心研究方向，结合互联网技术的高速发展和国家的战略需求，
-                            近年来主要在网络安全态势感知、移动边缘计算、车联网、无线传感网络、移动智能终端、软件定义网络等方面开展相关基础理论和应用技术的研究。 </p>
+                        <h1 class="mb-3">${info.rname}</h1>
+                        <p class="lead text-justify">${info.intro} </p>
                     </div>
                     <div class="col-md-6">
                         <!--<img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">-->
@@ -170,6 +168,7 @@
             </div>
         </div>
         <div style="margin-top: 5em">
+            <h1 class="mb-3">新闻</h1>
             <div class="container">
                 <div class="row">
                     <c:forEach items="${newsList}" var="news">

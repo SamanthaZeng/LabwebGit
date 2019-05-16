@@ -18,4 +18,6 @@ public interface ResearchareaMapper {
     int updateByPrimaryKey(Researcharea record);
 
     List<Researcharea> queryAll();
+
+    Researcharea queryinfo();
 }

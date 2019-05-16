@@ -174,9 +174,8 @@
                                     性别：<c:if test="${teacher.user.sex==0}">男</c:if> <c:if test="${teacher.user.sex==1}">女</c:if><br>
                                     所属部门：${teacher.college}<br>
                                     职称：<c:if test="${teacher.trank==0}">讲师</c:if>
-                                    <c:if test="${teacher.trank==1}">助理教授</c:if>
-                                    <c:if test="${teacher.trank==2}">副教授</c:if>
-                                    <c:if test="${teacher.trank==3}">教授</c:if><br>
+                                    <c:if test="${teacher.trank==1}">副教授</c:if>
+                                    <c:if test="${teacher.trank==2}">教授</c:if><br>
                                     学历：${teacher.edubg}<br>
                                     电子邮件：${teacher.tmail}<br>
                                     社会服务：${teacher.service}<br>
@@ -208,16 +207,16 @@
                             发表论文
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${papers}" var="paper">
-                                ${paper.ptitile}；${paper.publictime}；${paper.keyword}
+                            <c:forEach items="${papers}" var="paper" varStatus="index">
+                               [${index.count}] ${teacher.user.realname}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
                             </c:forEach>
                         </p>
                         <p class="lead title">
                             项目
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${projects}" var="project">
-                                ${project.proname}；${project.proabstract}；${project.number}
+                            <c:forEach items="${projects}" var="project" varStatus="index">
+                                [${index.count}] ${teacher.user.realname}.${project.proname}.${project.prosource}.${project.number}
                             </c:forEach>
                         </p>
                     </div>
@@ -227,16 +226,16 @@
                             所授课程
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${courses}" var="course">
-                                ${course.name}；<c:if test="${course.teachingobject==0}">本科生</c:if><c:if test="${course.teachingobject==1}">研究生</c:if><c:if test="${course.teachingobject==2}">博士生</c:if>；${course.classhour}
+                            <c:forEach items="${courses}" var="course" varStatus="index">
+                                [${index.count}] ${teacher.user.realname}.${course.name}.${course.coursecode}.${course.classhour}.授课对象：<c:if test="${course.teachingobject==0}">本科生</c:if><c:if test="${course.teachingobject==1}">研究生</c:if><c:if test="${course.teachingobject==2}">博士生</c:if>,${course.classhour}
                             </c:forEach>
                         </p>
                         <p class="lead title">
                             著作
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${books}" var="book">
-                                ${book.bookname}；${book.press}；${book.time}
+                            <c:forEach items="${books}" var="book" varStatus="index">
+                                [${index.count}]${teacher.user.realname}.${book.bookname}.${book.press}.${book.time}.${book.isbn}
                             </c:forEach>
                         </p>
                     </div>
@@ -286,16 +285,16 @@
                             发表论文
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${papers}" var="paper">
-                                ${paper.ptitile}；${paper.publictime}；${paper.keyword}
+                            <c:forEach items="${papers}" var="paper" varStatus="index">
+                                [${index.count}]${student.user.realname}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
                             </c:forEach>
                         </p>
                         <p class="lead title">
                             参与项目
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
-                            <c:forEach items="${projects}" var="project">
-                                ${project.proname}；${project.proabstract}；${project.number}
+                            <c:forEach items="${projects}" var="project" varStatus="index">
+                                [${index.count}]${student.user.realname}.${project.proname}.${project.prosource}.${project.number}
                             </c:forEach>
                         </p>
                     </div>

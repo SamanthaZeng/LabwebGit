@@ -120,6 +120,10 @@ public class VisitorControlller {
         List<Researcharea>researchareas=researchareaService.queryAll();
         model.addAttribute("researchareas",researchareas);
         model.addAttribute("rsize",researchareas.size());
+
+        /*获取实验室信息*/
+        Researcharea info=researchareaService.queryinfo();
+        model.addAttribute("info",info);
         return "forward:/home.jsp";
     }
 
@@ -267,7 +271,7 @@ public class VisitorControlller {
          model.addAttribute("cooperators",cooperators);
         /*List<Project>projects=projectService.queryAll();
         model.addAttribute("projects",projects);*/
-
+        model.addAttribute("usertype",usertype);
         /*呈现有哪些研究方向*/
         List<Researcharea>researchareas=researchareaService.queryAll();
         model.addAttribute("researchareas",researchareas);
@@ -297,6 +301,8 @@ public class VisitorControlller {
                 papers.add(paper);
             }
             model.addAttribute("papers",papers);
+            //作者名
+
             /*获取教师所参与的项目*/
             List<UserPro>userPros=userProService.selectUPsById(teacher.getId());
             List<Project>projects=new ArrayList<>();
@@ -406,8 +412,13 @@ public class VisitorControlller {
         for(int i=0;i<companies.size();i++)
             System.out.println(companies.get(i).toString());
         model.addAttribute("companies",companies);
+        /*呈现有哪些研究方向*/
+        List<Researcharea>researchareas=researchareaService.queryAll();
+        model.addAttribute("researchareas",researchareas);
+        model.addAttribute("rsize",researchareas.size());
         return "visitor/company";
     }
+
     /*转换换行符*/
     public String filterLineBreak(String desc){
         if(desc!=null&&desc.indexOf("\n")!=-1){

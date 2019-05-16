@@ -13,6 +13,8 @@ public class Researcharea {
 
     private String imgurl3;
 
+    private int type;
+
     public Integer getRid() {
         return rid;
     }
@@ -61,6 +63,14 @@ public class Researcharea {
         this.imgurl3 = imgurl3;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Researcharea{" +
@@ -70,6 +80,7 @@ public class Researcharea {
                 ", imgurl1='" + imgurl1 + '\'' +
                 ", imgurl2='" + imgurl2 + '\'' +
                 ", imgurl3='" + imgurl3 + '\'' +
+                ", type=" + type +
                 '}';
     }
 }
