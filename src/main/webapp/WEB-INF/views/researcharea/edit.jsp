@@ -163,10 +163,10 @@
                         <a href="/admin/main">计算机网络与信息安全研究室</a>
                     </li>
                     <li>
-                        <a href="">研究方向管理</a>
+                        <a href="" id="head1">研究方向管理</a>
                     </li>
                     <li>
-                        <a href="">研究方向编辑</a>
+                        <a href="" id="head2">研究方向编辑</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
@@ -181,19 +181,19 @@
 
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="rid" value="${researcharea.rid}"/>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 研究方向名称 </label>
+                            <div class="form-group" id="name">
+                                <label class="col-sm-3 control-label no-padding-right" for="rname"> 研究方向名称 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="rname" id="form-field-1" placeholder="研究方向名称" class="col-xs-10 col-sm-5" value="${researcharea.rname}"/>
+                                    <input type="text" name="rname" id="rname" placeholder="研究方向名称" class="col-xs-10 col-sm-5" value="${researcharea.rname}"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="intro"> 研究方向介绍 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="intro" id="researchareaIntro"> 研究方向介绍 </label>
 
                                 <div class="col-sm-9">
                                     <textarea name="intro" id="intro" style="resize:none;" class="col-sm-5" rows="10" placeholder="研究方向介绍">${researcharea.intro}</textarea>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3"  id="wordNum">
                                         <label>当前字数：</label><label id="introNum">0</label><label>/225</label>
                                     </div>
                                 </div>
@@ -350,15 +350,18 @@
 <script type="text/javascript">
     jQuery(function($) {
         $("#researchareaForm").on("submit", function () {
-            if($("#intro").val().length > 225)
+            if("${researcharea.type}" != 1)
             {
-                alert("研究方向介绍字数超限，最多225字")
-                return false
-            }
-            if($("#intro").val().length < 200)
-            {
-                alert("研究方向介绍字数过少，至少200字")
-                return false
+                if($("#intro").val().length > 225)
+                {
+                    alert("研究方向介绍字数超限，最多225字")
+                    return false
+                }
+                if($("#intro").val().length < 200)
+                {
+                    alert("研究方向介绍字数过少，至少200字")
+                    return false
+                }
             }
             if($("#imgFile1").val() == "" && "${researcharea.imgurl1}" == "")
             {
@@ -392,10 +395,13 @@
             var num = $("#intro").val().length
             $("#introNum").html(num)
         });
-        var selectval= "${company.cotype}";
-        if(selectval!=null&&selectval!=""){
-            $('#selectCompany').find("option[value='"+selectval+"']").attr("selected", "true");
-            //alert(selectval);
+        var selectval= "${researcharea.type}";
+        if(selectval == 1){
+            $("#name").css("display", "none");
+            $("#wordNum").css("display", "none");
+            $("#researchareaIntro").html("实验室介绍");
+            $("#head1").html("实验室信息管理");
+            $("#head2").html("实验室信息修改");
         }
 
         /*完成穿梭框的设置*/
