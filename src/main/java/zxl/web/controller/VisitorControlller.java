@@ -294,43 +294,89 @@ public class VisitorControlller {
             /*获取教师所发表的论文*/
             List<UserPaper>userPapers=userPaperService.selectUPpsById(teacher.getId());
             List<Paper>papers=new ArrayList<>();
+            //返回相关联用户名
+            List<UserPaper>ups=new ArrayList<>();
+            User tempuser;
+            List<String>authors=new ArrayList<>();
             Paper paper;
             for(int i=0;i<userPapers.size();i++)
             {
+                String str="";
                 paper=paperService.selectPaper(userPapers.get(i).getPid());
+                ups=userPaperService.selectUPps(paper.getPid());
+                for(int j=0;j<ups.size();j++){
+                    tempuser=userService.selectuser(ups.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                authors.add(str);
                 papers.add(paper);
             }
             model.addAttribute("papers",papers);
-            //作者名
+            model.addAttribute("pauthors",authors);
 
             /*获取教师所参与的项目*/
             List<UserPro>userPros=userProService.selectUPsById(teacher.getId());
             List<Project>projects=new ArrayList<>();
+            //返回相关联用户名
+            List<UserPro>upros=new ArrayList<>();
+            List<String>proauthors=new ArrayList<>();
             Project project;
             for(int i=0;i<userPros.size();i++)
             {
+                String str="";
                 project=projectService.selectProject(userPros.get(i).getProid());
+                upros=userProService.selectUPs(project.getProid());
+                for(int j=0;j<upros.size();j++){
+                    tempuser=userService.selectuser(upros.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                proauthors.add(str);
                 projects.add(project);
             }
             model.addAttribute("projects",projects);
+            model.addAttribute("proauthors",proauthors);
+
             /*获取教师所参与课程*/
             List<UserCourse>userCourses=userCourseService.selectCidByid(id);
             List<Course>courses=new ArrayList<>();
+            //返回相关联用户名
+            List<UserCourse>ucs=new ArrayList<>();
+            List<String>cauthors=new ArrayList<>();
             Course course;
             for(int i=0;i<userCourses.size();i++){
+                String str="";
                 course=courseService.selectCourse(userCourses.get(i).getClsid());
+                ucs=userCourseService.selectUCls(course.getClsid());
+                for(int j=0;j<ucs.size();j++){
+                    tempuser=userService.selectuser(ucs.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                cauthors.add(str);
                 courses.add(course);
+
             }
             model.addAttribute("courses",courses);
+            model.addAttribute("cauthors",cauthors);
             /*获取教师所写著作*/
             List<UserBook>userBooks=userBookService.selectBidByid(id);
             List<Book>books=new ArrayList<>();
+            //返回相关联用户名
+            List<UserBook>ubs=new ArrayList<>();
+            List<String>bauthors=new ArrayList<>();
             Book book;
             for(int i=0;i<userBooks.size();i++){
+                String str="";
                 book=bookService.selectBook(userBooks.get(i).getBid());
+                ubs=userBookService.selectUBs(book.getBid());
+                for(int j=0;j<ubs.size();j++){
+                    tempuser=userService.selectuser(ubs.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                bauthors.add(str);
                 books.add(book);
             }
             model.addAttribute("books",books);
+            model.addAttribute("bauthors",bauthors);
         }
         if(usertype==1){
             student=studentsService.selectStudentById(id);
@@ -338,23 +384,46 @@ public class VisitorControlller {
             /*获取学生所发表的论文*/
             List<UserPaper>userPapers=userPaperService.selectUPpsById(student.getId());
             List<Paper>papers=new ArrayList<>();
+            //返回相关联用户名
+            List<UserPaper>ups=new ArrayList<>();
+            User tempuser;
+            List<String>authors=new ArrayList<>();
             Paper paper;
             for(int i=0;i<userPapers.size();i++)
             {
+                String str="";
                 paper=paperService.selectPaper(userPapers.get(i).getPid());
+                ups=userPaperService.selectUPps(paper.getPid());
+                for(int j=0;j<ups.size();j++){
+                    tempuser=userService.selectuser(ups.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                authors.add(str);
                 papers.add(paper);
             }
             model.addAttribute("papers",papers);
+            model.addAttribute("pauthors",authors);
             /*获取学生所参与的项目*/
             List<UserPro>userPros=userProService.selectUPsById(student.getId());
             List<Project>projects=new ArrayList<>();
+            //返回相关联用户名
+            List<UserPro>upros=new ArrayList<>();
+            List<String>proauthors=new ArrayList<>();
             Project project;
             for(int i=0;i<userPros.size();i++)
             {
+                String str="";
                 project=projectService.selectProject(userPros.get(i).getProid());
+                upros=userProService.selectUPs(project.getProid());
+                for(int j=0;j<upros.size();j++){
+                    tempuser=userService.selectuser(upros.get(j).getId());
+                    str=str+" "+tempuser.getRealname();
+                }
+                proauthors.add(str);
                 projects.add(project);
             }
             model.addAttribute("projects",projects);
+            model.addAttribute("proauthors",proauthors);
         }
         if(usertype==2){
             cooperator=cooperatorService.selectCooperatorById(id);
