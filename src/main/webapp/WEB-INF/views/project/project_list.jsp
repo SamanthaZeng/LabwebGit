@@ -199,7 +199,19 @@
                                                         </c:when>
                                                     </c:choose>
                                                 </td>
-                                                <td>${project.prorank}</td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${project.prorank == 1}">
+                                                            国家级
+                                                        </c:when>
+                                                        <c:when test="${project.prorank == 2}">
+                                                            省级
+                                                        </c:when>
+                                                        <c:when test="${project.prorank == 3}">
+                                                            校级
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
                                                 <td class="hidden-480">${project.funding}</td>
                                                 <td class="hidden-480">${project.proabstract}</td>
 

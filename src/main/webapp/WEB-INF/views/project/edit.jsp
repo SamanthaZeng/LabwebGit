@@ -216,11 +216,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目级别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="prorank"> 项目级别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="prorank" value="${projectForEdit.prorank}" id="form-field-4" placeholder="项目等级" class="col-xs-10 col-sm-5" />
-
+                                    <select class="col-xs-10 col-sm-5" id="prorank" name="prorank" value="${projectForEdit.prorank}">
+                                        <option value="">-----------请选择项目级别----------</option>
+                                        <option value="1" >国家级</option>
+                                        <option value="2" >省级</option>
+                                        <option value="3" >校级</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -434,6 +438,10 @@
         var selectval= "${projectForEdit.protype}"
         if(selectval!=null&&selectval!=""){
             $('#protype').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
+        }selectval= "${projectForEdit.prorank}"
+        if(selectval!=null&&selectval!=""){
+            $('#prorank').find("option[value='"+selectval+"']").attr("selected", "true");
             //alert(selectval);
         }
         if("${user.isadmin}" == "false")
