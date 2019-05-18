@@ -34,7 +34,7 @@ document.writeln("        </div>");
 document.writeln("    </div><!-- #sidebar-shortcuts -->");
 document.writeln("");
 document.writeln("    <ul class=\'nav nav-list\'>");
-document.writeln("        <li >");
+document.writeln("        <li class=\'teacherHidden\'>");
 document.writeln("            <a class=\'dropdown-toggle\'>");
 document.writeln("                <i class=\'icon-tags\'></i>");
 document.writeln("                <span class=\'menu-text\' > 实验室信息管理</span>");

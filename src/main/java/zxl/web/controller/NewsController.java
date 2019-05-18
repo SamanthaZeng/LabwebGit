@@ -130,7 +130,7 @@ public class NewsController {
             wirte = response.getWriter();
             //文件存放的路径
             String path = request.getSession().getServletContext().getRealPath("NewsUpload");
-            String url = "http://localhost:8080"
+            String url = "localhost:8080"//"http://120.79.195.46"
                     + request.getContextPath()
                     + "//NewsUpload//"
                     + FileUpload.upload(request, file, path);

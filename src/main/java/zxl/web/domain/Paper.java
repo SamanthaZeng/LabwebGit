@@ -23,6 +23,16 @@ public class Paper {
 
     private int paperindex;
 
+    private int language;
+
+    public void setLanguage(int language) {
+        this.language = language;
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
     public Integer getPid() {
         return pid;
     }

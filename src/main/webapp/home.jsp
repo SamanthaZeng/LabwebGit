@@ -141,13 +141,13 @@
                             <!-- 轮播图片 -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/bootstrap/assets/images/gallery/homepic1.JPG">
+                                    <img src="${info.imgurl1}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/bootstrap/assets/images/gallery/homepic2.JPG">
+                                    <img src="${info.imgurl2}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/bootstrap/assets/images/gallery/homepic3.JPG">
+                                    <img src="${info.imgurl3}">
                                 </div>
                             </div>
 
