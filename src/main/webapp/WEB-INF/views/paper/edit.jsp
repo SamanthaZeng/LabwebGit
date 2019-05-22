@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,7 +105,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室后台管理系统
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -161,7 +161,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">科研实验室</a>
                     </li>
                     <li>
                         <a href="">论文管理</a>
@@ -201,6 +201,18 @@
                                         <option value="1" >会议论文</option>
                                         <option value="2" >期刊论文</option>
                                         <option value="3" >技术报告</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="language"> 论文语言 </label>
+
+                                <div class="col-sm-9">
+                                    <select class="col-xs-10 col-sm-5" id="language" name="language" value="${paperForEdit.language}">
+                                        <option value="">-----------请选择论文语言----------</option>
+                                        <option value="1" >中文</option>
+                                        <option value="2" >英文</option>
                                     </select>
                                 </div>
                             </div>
@@ -272,6 +284,15 @@
 
                                 <div class="col-sm-9">
                                     <input  multiple="" type="file" accept="application/pdf" name="pdfFile" id="id-input-file-3" class="col-xs-10 col-sm-5" style="width:200px"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="corauthor"> 通信作者 </label>
+
+                                <div class="col-sm-9">
+                                    <select class="col-xs-10 col-sm-5" id="corauthor" name="corauthor" value="${corauthor}">
+                                    </select>
                                 </div>
                             </div>
 
@@ -433,6 +454,14 @@
 <!-- inline scripts related to this page -->
 
 <script type="text/javascript">
+    function set_corauthor(){
+        $("#corauthor").empty()
+        $("#selectedauthor option").each(function () {
+            var txt = $(this).text()
+            var val = $(this).val()
+            $("#corauthor").append("<option value=" + val + ">" + txt + "</option>");
+        })
+    }
     jQuery(function($) {
         $("#paperForm").on("submit", function () {
             if($("#publictime").val() === "")
@@ -480,6 +509,11 @@
             $('#paperrank').find("option[value='"+selectval+"']").attr("selected", "true");
             //alert(selectval);
         }
+        var languageval = "${paperForEdit.language}";
+        if(languageval!=null&&languageval!=""){
+            $('#language').find("option[value='"+languageval+"']").attr("selected", "true");
+            //alert(selectval);
+        }
         $(document).ready(function(){
             var projectIdList = $("#paperproject").val();
         });
@@ -488,7 +522,6 @@
         //alert(selectVal);
 
         /*完成穿梭框的设置*/
-        //移动到右边
         var idList =("${paperUsers}".slice(1, -1)).split(", ")
         $("#author option").each(function () {
             for(var i=0;i<idList.length;i++){
@@ -499,12 +532,26 @@
                 }
             }
         })
+
+        $("#selectedauthor option").each(function () {
+            var txt = $(this).text()
+            var val = $(this).val()
+            $("#corauthor").append("<option value=" + val + ">" + txt + "</option>");
+        })
+
+        var selectauthor = "${corauthor}";
+        if(selectauthor!=null&&selectauthor!=""){
+            $('#corauthor').find("option[value='"+selectauthor+"']").attr("selected", "true");
+            //alert(selectval);
+        }
+        //移动到右边
         $("#add").on("click",function(){
             if(!$("#author option").is(":selected")){
                 alert("请选择移动的选项")
             }else{
                 $("#author option:selected").appendTo("#selectedauthor");
             }
+            set_corauthor()
         });
 
         //移动到左边
@@ -514,16 +561,19 @@
             }else{
                 $("#selectedauthor option:selected").appendTo("#author");
             }
+            set_corauthor()
         });
 
         //全部移动到右边
         $("#add_all").on("click",function() {
             $("#author option").appendTo("#selectedauthor");
+            set_corauthor()
         });
 
         //全部移动到左边
         $("#remove_all").on("click",function(){
             $("#selectedauthor option").appendTo("#author");
+            set_corauthor()
         });
 
         //双击选项

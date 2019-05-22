@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrapæ¨¡ç,Bootstrapæ¨¡çä¸è½½,Bootstrapæç¨,Bootstrapä¸­æ" />
     <meta name="description" content="ç«é¿ç´ ææä¾Bootstrapæ¨¡ç,Bootstrapæç¨,Bootstrapä¸­æç¿»è¯ç­ç¸å³Bootstrapæä»¶ä¸è½½" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +39,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室后台管理系统
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -94,7 +94,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="#">计算机网络与信息安全研究室</a>
+                        <a href="#">科研实验室</a>
                     </li>
 
                     <li>

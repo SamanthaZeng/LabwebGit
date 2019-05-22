@@ -188,6 +188,7 @@ public class AdminController {
                 if(Integer.parseInt(req.getParameter("usertype"))==2)
                 {
                     Cooperator cooperator = new Cooperator();
+                    cooperator.setCpage(req.getParameter("cpage"));
                     cooperator.setCoid(Integer.parseInt(req.getParameter("coid")));
                     cooperator.setTitle(req.getParameter("title"));
                     cooperator.setCduty(req.getParameter("cduty"));

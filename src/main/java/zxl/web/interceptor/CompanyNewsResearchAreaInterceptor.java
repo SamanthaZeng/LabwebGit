@@ -19,7 +19,6 @@ public class CompanyNewsResearchAreaInterceptor implements HandlerInterceptor {
         // 判断如果没有取到用户信息，就跳转到登录页面，提示用户进行登录
         if(user.getIsadmin()==false)
         {
-            System.out.println("in interceptor");
             res.sendRedirect(MAIN_URL);
             return false;
         }

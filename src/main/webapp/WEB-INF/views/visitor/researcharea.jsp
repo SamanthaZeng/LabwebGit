@@ -165,43 +165,13 @@
                       <!-- 轮播图片 -->
                       <div class="carousel-inner">
                           <div class="carousel-item active">
-                              <c:choose>
-                                  <c:when test="${research.rid==1}">
-                                      <img src="${research.imgurl1}">
-                                  </c:when>
-                                  <c:when test="${research.rid==2}">
-                                      <img src="${research.imgurl2}">
-                                  </c:when>
-                                  <c:when test="${research.rid==3}">
-                                      <img src="${research.imgurl3}">
-                                  </c:when>
-                              </c:choose>
+                              <img src="${research.imgurl1}">
                           </div>
                           <div class="carousel-item">
-                              <c:choose>
-                                  <c:when test="${research.rid==1}">
-                                      <img src="${research.imgurl1}">
-                                  </c:when>
-                                  <c:when test="${research.rid==2}">
-                                      <img src="${research.imgurl2}">
-                                  </c:when>
-                                  <c:when test="${research.rid==3}">
-                                      <img src="${research.imgurl3}">
-                                  </c:when>
-                              </c:choose>
+                              <img src="${research.imgurl2}">
                           </div>
                           <div class="carousel-item">
-                              <c:choose>
-                                  <c:when test="${research.rid==1}">
-                                      <img src="${research.imgurl1}">
-                                  </c:when>
-                                  <c:when test="${research.rid==2}">
-                                      <img src="${research.imgurl2}">
-                                  </c:when>
-                                  <c:when test="${research.rid==3}">
-                                      <img src="${research.imgurl3}">
-                                  </c:when>
-                              </c:choose>
+                              <img src="${research.imgurl3}">
                           </div>
                       </div>
 

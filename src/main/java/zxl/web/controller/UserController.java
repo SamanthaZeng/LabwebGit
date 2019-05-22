@@ -12,6 +12,9 @@ import zxl.web.service.ITeacherService;
 import zxl.web.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.List;
 
@@ -33,9 +36,16 @@ public class UserController {
 
     //WEB-INF/login.jsp
     @RequestMapping("/register")
-    public String register(User user, Model model, HttpServletRequest req)
-    {
+    public String register(User user, Model model, HttpServletRequest req, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         List<String> names = userService.selectUsername();
+        for(String name: names) {
+            if(name.equals(user.getUsername()))
+            {
+                return "redirect:/login.jsp";
+            }
+        }
         req.getSession().setAttribute("user", user);
         System.out.println(user);
         int usertype = user.getUsertype();

@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -104,7 +104,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室后台管理系统
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -160,13 +160,13 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">科研实验室</a>
                     </li>
                     <li>
-                        <a href="">研究方向管理</a>
+                        <a href="" id="head1">研究方向管理</a>
                     </li>
                     <li>
-                        <a href="">研究方向编辑</a>
+                        <a href="" id="head2">研究方向编辑</a>
                     </li>
                 </ul><!-- .breadcrumb -->
             </div>
@@ -181,20 +181,20 @@
 
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="rid" value="${researcharea.rid}"/>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 研究方向名称 </label>
+                            <div class="form-group" id="name">
+                                <label class="col-sm-3 control-label no-padding-right" for="rname"> 研究方向名称 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="rname" id="form-field-1" placeholder="研究方向名称" class="col-xs-10 col-sm-5" value="${researcharea.rname}"/>
+                                    <input type="text" name="rname" id="rname" placeholder="研究方向名称" class="col-xs-10 col-sm-5" value="${researcharea.rname}"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="intro"> 研究方向介绍 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="intro" id="researchareaIntro"> 研究方向介绍 </label>
 
                                 <div class="col-sm-9">
                                     <textarea name="intro" id="intro" style="resize:none;" class="col-sm-5" rows="10" placeholder="研究方向介绍">${researcharea.intro}</textarea>
-                                    <div class="col-sm-3">
-                                        <label>当前字数：</label><label id="introNum">0</label><label>/225</label>
+                                    <div class="col-sm-3"  id="wordNum">
+                                        <label>当前字数：</label><label id="introNum">0</label><label>/300</label>
                                     </div>
                                 </div>
                             </div>
@@ -350,15 +350,18 @@
 <script type="text/javascript">
     jQuery(function($) {
         $("#researchareaForm").on("submit", function () {
-            if($("#intro").val().length > 225)
+            if("${researcharea.type}" != 1)
             {
-                alert("研究方向介绍字数超限，最多225字")
-                return false
-            }
-            if($("#intro").val().length < 200)
-            {
-                alert("研究方向介绍字数过少，至少200字")
-                return false
+                if($("#intro").val().length > 300)
+                {
+                    alert("研究方向介绍字数超限，最多300字")
+                    return false
+                }
+                if($("#intro").val().length < 200)
+                {
+                    alert("研究方向介绍字数过少，至少200字")
+                    return false
+                }
             }
             if($("#imgFile1").val() == "" && "${researcharea.imgurl1}" == "")
             {
@@ -392,10 +395,13 @@
             var num = $("#intro").val().length
             $("#introNum").html(num)
         });
-        var selectval= "${company.cotype}";
-        if(selectval!=null&&selectval!=""){
-            $('#selectCompany').find("option[value='"+selectval+"']").attr("selected", "true");
-            //alert(selectval);
+        var selectval= "${researcharea.type}";
+        if(selectval == 1){
+            $("#name").css("display", "none");
+            $("#wordNum").css("display", "none");
+            $("#researchareaIntro").html("实验室介绍");
+            $("#head1").html("实验室信息管理");
+            $("#head2").html("实验室信息修改");
         }
 
         /*完成穿梭框的设置*/

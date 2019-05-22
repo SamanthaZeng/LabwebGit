@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -108,7 +108,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -216,11 +216,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目级别 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="prorank"> 项目级别 </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" name="prorank" value="${projectForEdit.prorank}" id="form-field-4" placeholder="项目等级" class="col-xs-10 col-sm-5" />
-
+                                    <select class="col-xs-10 col-sm-5" id="prorank" name="prorank" value="${projectForEdit.prorank}">
+                                        <option value="">-----------请选择项目级别----------</option>
+                                        <option value="1" >国家级</option>
+                                        <option value="2" >省级</option>
+                                        <option value="3" >校级</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -434,6 +438,10 @@
         var selectval= "${projectForEdit.protype}"
         if(selectval!=null&&selectval!=""){
             $('#protype').find("option[value='"+selectval+"']").attr("selected", "true");
+            //alert(selectval);
+        }selectval= "${projectForEdit.prorank}"
+        if(selectval!=null&&selectval!=""){
+            $('#prorank').find("option[value='"+selectval+"']").attr("selected", "true");
             //alert(selectval);
         }
         if("${user.isadmin}" == "false")

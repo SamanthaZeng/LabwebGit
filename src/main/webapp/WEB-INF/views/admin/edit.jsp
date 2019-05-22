@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -64,7 +64,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室后台管理系统
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -120,7 +120,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">科研实验室</a>
                     </li>
                     <li class="breadcrumbSelfManage"style="display: none">
                         <a href="" >个人信息管理</a>
@@ -427,6 +427,15 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="cpage"> 合作者主页 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cpage" id="cpage" placeholder="合作者主页" class="col-xs-10 col-sm-5" <c:if test="${2 == userForEdit.usertype}">value="${cooperator.cpage}"</c:if>/>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 合作者头衔 </label>
 

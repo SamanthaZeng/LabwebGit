@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
     <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -107,7 +107,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室后台管理系统
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -163,7 +163,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="/admin/main">计算机网络与信息安全研究室</a>
+                        <a href="/admin/main">科研实验室</a>
                     </li>
                     <li>
                         <a href="/book/index">著作管理</a>
@@ -225,10 +225,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 著作概述 </label>
+                                    <label class="col-sm-3 control-label no-padding-right" for="babstract"> 著作概述 </label>
 
                                     <div class="col-sm-9">
-                                        <textarea name="babstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" id="form-field-3">${book.babstract}</textarea>
+                                        <textarea name="babstract" style="resize:none;" class="col-xs-10 col-sm-5" rows="10" id="babstract">${book.babstract}</textarea>
+                                        <div class="col-sm-3"  id="wordNum">
+                                            <label>当前字数：</label><label id="introNum">0</label><label>/300</label>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -400,11 +403,23 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        var num = $("#babstract").val().length
+        $("#introNum").html(num)
         $("#bookForm").on("submit", function () {
             if($("#publictime").val() === "")
             {
                 var date = new Date();
                 $("#publictime").val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate())
+            }
+            if($("#babstract").val().length > 300)
+            {
+                alert("著作概述字数超限，最多300字")
+                return false
+            }
+            if($("#babstract").val().length < 50)
+            {
+                alert("著作概述字数过少，至少50字")
+                return false
             }
             var obj = document.getElementById("selectedauthor")
             for(i=0;i<obj.length;i++)
@@ -419,6 +434,11 @@
                 $(".teacherHidden").css("display", "none");
             }
         }
+
+        $("#babstract").on('input', function() {
+            var num=$(this).val().length
+            $("#introNum").html(num)
+        })
         //初始化选择菜单的值
         var selectval= "${book.booktype}";
         if(selectval!=null&&selectval!=""){

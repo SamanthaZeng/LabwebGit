@@ -94,10 +94,16 @@ public class PaperController {
         List<Project> associations = paperProjectService.selectAssociationProject(pid);
         List<UserPaper> userPapers = userPaperService.selectUPps(pid);
         ArrayList paperUsers = new ArrayList();
+        int corauthor = 0;
         for(int i=0;i<userPapers.size();i++)
         {
+            int id = userPapers.get(i).getAuthornumber();
+            if(id < 0) {
+                corauthor = userPapers.get(i).getId();
+            }
             paperUsers.add(userPapers.get(i).getId());
         }
+        model.addAttribute("corauthor", corauthor);
         model.addAttribute("associations", associations);
         model.addAttribute("projects", projects);
         model.addAttribute("users", users);
@@ -133,10 +139,12 @@ public class PaperController {
         /*获取论文索引*/
         String [] indexs = req.getParameterValues("paperindex");
         int index = 0;
-        for(int i=0;i<indexs.length;i++)
-        {
-            System.out.println(indexs[i]);
-            index += Math.pow(2, (double)(Integer.parseInt(indexs[i])));
+        if(indexs != null){
+            for(int i=0;i<indexs.length;i++)
+            {
+                System.out.println(indexs[i]);
+                index += Math.pow(2, (double)(Integer.parseInt(indexs[i])));
+            }
         }
         paper.setPaperindex(index);
         /*获取相关项目、作者*/
@@ -161,6 +169,10 @@ public class PaperController {
                     paperProjectService.save(new PaperProject(Integer.parseInt(proid[i]), paper.getPid()));
         }
         int pid = paper.getPid();
+        int corauthor = 0;
+        if(req.getParameter("corauthor") != null) {
+            corauthor = Integer.parseInt(req.getParameter("corauthor"));
+        }
         //添加/更新userpaper表
         List<UserPaper> userPapers=userPaperService.selectUPps(pid);
         UserPaperKey userPaperKey=new UserPaperKey();
@@ -176,8 +188,14 @@ public class PaperController {
             author.setPid(pid);
             if(authors!=null){
                 for(int i=0;i<authors.length;i++){
+                    int authorid = Integer.valueOf(authors[i]);
+                    if(corauthor == authorid) {
+                        author.setAuthornumber(-i);
+                    }
+                    else {
+                        author.setAuthornumber(i);
+                    }
                     author.setId(Integer.valueOf(authors[i]));
-                    author.setAuthornumber(i);
                     userPaperService.insert(author);
                 }
             }
@@ -186,8 +204,14 @@ public class PaperController {
             author.setPid(pid);
             if(authors!=null){
                 for(int i=0;i<authors.length;i++){
+                    int authorid = Integer.valueOf(authors[i]);
+                    if(corauthor == authorid) {
+                        author.setAuthornumber(-i);
+                    }
+                    else {
+                        author.setAuthornumber(i);
+                    }
                     author.setId(Integer.valueOf(authors[i]));
-                    author.setAuthornumber(i);
                     userPaperService.insert(author);
                 }
             }

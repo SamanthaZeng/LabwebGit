@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>计算机网络与信息安全研究室后台管理系统</title>
+    <title>科研实验室后台管理系统</title>
     <meta name="keywords" content="Bootstrapæ¨¡ç,Bootstrapæ¨¡çä¸è½½,Bootstrapæç¨,Bootstrapä¸­æ" />
     <meta name="description" content="ç«é¿ç´ ææä¾Bootstrapæ¨¡ç,Bootstrapæç¨,Bootstrapä¸­æç¿»è¯ç­ç¸å³Bootstrapæä»¶ä¸è½½" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +39,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    计算机网络与信息安全研究室后台管理系统
+                    科研实验室
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -199,7 +199,19 @@
                                                         </c:when>
                                                     </c:choose>
                                                 </td>
-                                                <td>${project.prorank}</td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${project.prorank == 1}">
+                                                            国家级
+                                                        </c:when>
+                                                        <c:when test="${project.prorank == 2}">
+                                                            省级
+                                                        </c:when>
+                                                        <c:when test="${project.prorank == 3}">
+                                                            校级
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
                                                 <td class="hidden-480">${project.funding}</td>
                                                 <td class="hidden-480">${project.proabstract}</td>
 
