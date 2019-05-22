@@ -55,7 +55,7 @@
     <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
-            <a class="navbar-brand" href="#">NKU</a>
+            <!--<a class="navbar-brand" href="#">NKU</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -92,15 +92,26 @@
                             </c:forEach>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            项目
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/project?protype=1">横向项目</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/project?protype=0">纵向项目</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             论文
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+                            <a class="dropdown-item" href="/visitor/paper?papertype=-1">论文总览</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=1">会议论文</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=2">期刊论文</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -134,8 +145,8 @@
 </div>
 
 <div style="background-color: #f1f1f1">
-  <div class="container" style="background-color: #fff;">
-      <div style="padding-top: 5em">
+    <div class="container" style="background-color: #fff;">
+        <div style="padding-top: 5em">
           <div class="row">
               <div class="col-md-6">
                   <h1 class="mb-3">${research.rname}</h1>
@@ -209,73 +220,90 @@
               </div>
           </div>
       </div>
-  </div>
-</div>
-
-<div style="margin-top: 5em">
-    <div class="container">
-        <table class="table ">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">相关教师</th>
-                <th scope="col">教师职称</th>
-                <th scope="col">教师职务</th>
-                <th scope="col">教师邮箱</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${teachers}" var="teacher" varStatus="index">
-                <tr>
-                    <th scope="row">${index.count}</th>
-                    <td>${teacher.user.username}</td>
-                    <td class="hidden-480">
-                        <c:choose>
-                            <%--得导入user--%>
-                            <c:when test="${teacher.trank ==0}">
-                                讲师
-                            </c:when>
-                            <c:when test="${teacher.trank == 1}">
-                                副教授
-                            </c:when>
-                            <c:when test="${teacher.trank == 2}">
-                                教授
-                            </c:when>
-                        </c:choose>
-                    </td>
-                    <td>${teacher.tduty}</td>
-                    <td>${teacher.tmail}</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
     </div>
-</div>
-
-<div style="margin-top: 5em">
-    <div class="container">
-        <table class="table ">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">项目名称</th>
-                <th scope="col">项目摘要</th>
-                <th scope="col">项目编号</th>
-                <th scope="col">作者</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${projects}" var="project" varStatus="index">
+    <div class="container" style="background-color: #fff;">
+        <div style="padding-top: 5em">
+            <table class="table ">
+                <thead>
                 <tr>
-                    <th scope="row">${index.count}</th>
-                    <td>${project.proname}</td>
-                    <td>${project.proabstract}</td>
-                    <td>${project.number}</td>
-                    <td>作者</td>
+                    <th scope="col">相关人员</th>
+                    <th scope="col">职称</th>
+                    <th scope="col">职务</th>
+                    <th scope="col">联系邮箱</th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <c:forEach items="${teachers}" var="teacher" varStatus="index">
+                    <tr>
+                        <td>${teacher.user.username}</td>
+                        <td class="hidden-480">
+                            <c:choose>
+                                <%--得导入user--%>
+                                <c:when test="${teacher.trank ==0}">
+                                    讲师
+                                </c:when>
+                                <c:when test="${teacher.trank == 1}">
+                                    副教授
+                                </c:when>
+                                <c:when test="${teacher.trank == 2}">
+                                    教授
+                                </c:when>
+                            </c:choose>
+                        </td>
+                        <td>${teacher.tduty}</td>
+                        <td>${teacher.tmail}</td>
+                    </tr>
+                </c:forEach>
+                <c:forEach items="${students}" var="student" varStatus="index">
+                    <tr>
+                        <td>${student.user.username}</td>
+                        <td>学生</td>
+                        <td class="hidden-480">
+                            <c:choose>
+                                <%--得导入user--%>
+                                <c:when test="${student.srank ==0}">
+                                    本科生
+                                </c:when>
+                                <c:when test="${student.srank == 1}">
+                                    硕士生
+                                </c:when>
+                                <c:when test="${tstudent.srank == 2}">
+                                    博士生
+                                </c:when>
+                            </c:choose>
+                        </td>
+                        <td>${student.smail}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container"style="background-color: #fff;">
+        <div>
+            <table class="table ">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">项目名称</th>
+                    <th scope="col">项目来源</th>
+                    <th scope="col">项目编号</th>
+                    <th scope="col">负责人</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${projects}" var="project" varStatus="index">
+                    <tr>
+                        <th scope="row">${index.count}</th>
+                        <td>${project.proname}</td>
+                        <td>${project.prosource}</td>
+                        <td>${project.number}</td>
+                        <td>作者</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -136,18 +136,25 @@ public class VisitorControlller {
       System.out.println(researcharea.toString());
       model.addAttribute("research",researcharea);
 
-      /*呈现相关教师();信息*/
+      /*呈现相关教师和学生信息*/
     List<UserResearchKey>userResearchKeys=userResearchService.queryAll(rid);
     List<Teacher> teachers=new ArrayList<>();
     Teacher teacher;
+    List<Students> students=new ArrayList<>();
+    Students student;
     for(int i=0;i<userResearchKeys.size();i++)
     {
            teacher=teacherService.selectTeacherById(userResearchKeys.get(i).getId());
+           student=studentsService.selectStudentById(userResearchKeys.get(i).getId());
            if(teacher!=null)
               teachers.add(teacher);
+           if(student!=null){
+               System.out.println(student.toString());
+               students.add(student);
+           }
     }
-    model.addAttribute("teachers",teachers);//存到model里面，页面可以取出来
-
+      model.addAttribute("teachers",teachers);//存到model里面，页面可以取出来
+      model.addAttribute("students",students);
       /*呈现相关项目信息*/
       List<ProResearchKey>proResearchKeys=proResearchService.findByRid(rid);
       List<Project>projects = new ArrayList<Project>();
@@ -175,6 +182,7 @@ public class VisitorControlller {
       /*for(int i=0;i<papers.size();i++)
           System.out.println(papers.get(i).toString());
       model.addAttribute("papers",papers);*/
+      int papertype=Integer.parseInt(req.getParameter("papertype"));
       Calendar calendar=Calendar.getInstance();
       int year1=calendar.get(Calendar.YEAR);
       int year2=year1-1;
@@ -188,17 +196,247 @@ public class VisitorControlller {
       Date time4= (Date) dateFormat.parse(String.valueOf(year4));
       Date time5= (Date) dateFormat.parse(String.valueOf(year5));
       //System.out.println("年："+year);
+      List<String>authors1=new ArrayList<>();
+      List<String>authors2=new ArrayList<>();
+      List<String>authors3=new ArrayList<>();
+      List<String>authors4=new ArrayList<>();
+      List<String>authors5=new ArrayList<>();
+      List<UserPaper>ups=new ArrayList<>();
+      User tempuser;
       //按从今年开始的前五年返回所有的论文
-      List<Paper>papers1=paperService.selectPaperbyTime(time1);
-      List<Paper>papers2=paperService.selectPaperbyTime(time2);
-      List<Paper>papers3=paperService.selectPaperbyTime(time3);
-      List<Paper>papers4=paperService.selectPaperbyTime(time4);
-      List<Paper>papers5=paperService.selectPaperbyTime(time5);
-      model.addAttribute("papers1",papers1);
-      model.addAttribute("papers2",papers2);
-      model.addAttribute("papers3",papers3);
-      model.addAttribute("papers4",papers4);
-      model.addAttribute("papers5",papers5);
+      if(papertype==-1)//查看全部论文
+      {
+          List<Paper>papers1=paperService.selectPaperbyTime(time1);
+          for(int i=0;i<papers1.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers1.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors1.add(str);
+          }
+          List<Paper>papers2=paperService.selectPaperbyTime(time2);
+          for(int i=0;i<papers2.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers2.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors2.add(str);
+          }
+          List<Paper>papers3=paperService.selectPaperbyTime(time3);
+          for(int i=0;i<papers3.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers3.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors3.add(str);
+          }
+          List<Paper>papers4=paperService.selectPaperbyTime(time4);
+          for(int i=0;i<papers4.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers4.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors4.add(str);
+          }
+          List<Paper>papers5=paperService.selectPaperbyTime(time5);
+          for(int i=0;i<papers5.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers5.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors5.add(str);
+          }
+          model.addAttribute("papers1",papers1);
+          model.addAttribute("papers2",papers2);
+          model.addAttribute("papers3",papers3);
+          model.addAttribute("papers4",papers4);
+          model.addAttribute("papers5",papers5);model.addAttribute("authors1",authors1);
+          model.addAttribute("authors2",authors2);
+          model.addAttribute("authors3",authors3);
+          model.addAttribute("authors4",authors4);
+          model.addAttribute("authors5",authors5);
+      }
+      if(papertype==1)//查看会议论文
+      {
+          List<Paper>papers1=paperService.selectPaperbyTimeAndType(time1,papertype);
+          List<Paper>papers2=paperService.selectPaperbyTimeAndType(time2,papertype);
+          List<Paper>papers3=paperService.selectPaperbyTimeAndType(time3,papertype);
+          List<Paper>papers4=paperService.selectPaperbyTimeAndType(time4,papertype);
+          List<Paper>papers5=paperService.selectPaperbyTimeAndType(time5,papertype);
+          for(int i=0;i<papers1.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers1.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors1.add(str);
+          }
+          for(int i=0;i<papers2.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers2.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors2.add(str);
+          }
+          for(int i=0;i<papers3.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers3.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors3.add(str);
+          }
+          for(int i=0;i<papers4.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers4.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors4.add(str);
+          }
+          for(int i=0;i<papers5.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers5.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors5.add(str);
+          }
+          model.addAttribute("papers1",papers1);
+          model.addAttribute("papers2",papers2);
+          model.addAttribute("papers3",papers3);
+          model.addAttribute("papers4",papers4);
+          model.addAttribute("papers5",papers5);
+          model.addAttribute("authors1",authors1);
+          model.addAttribute("authors2",authors2);
+          model.addAttribute("authors3",authors3);
+          model.addAttribute("authors4",authors4);
+          model.addAttribute("authors5",authors5);
+      }
+      if(papertype==2)//查看期刊论文
+      {
+          List<Paper>papers1=paperService.selectPaperbyTimeAndType(time1,papertype);
+          List<Paper>papers2=paperService.selectPaperbyTimeAndType(time2,papertype);
+          List<Paper>papers3=paperService.selectPaperbyTimeAndType(time3,papertype);
+          List<Paper>papers4=paperService.selectPaperbyTimeAndType(time4,papertype);
+          List<Paper>papers5=paperService.selectPaperbyTimeAndType(time5,papertype);
+          for(int i=0;i<papers1.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers1.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors1.add(str);
+          }
+          for(int i=0;i<papers2.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers2.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors2.add(str);
+          }
+          for(int i=0;i<papers3.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers3.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors3.add(str);
+          }
+          for(int i=0;i<papers4.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers4.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors4.add(str);
+          }
+          for(int i=0;i<papers5.size();i++){
+              String str="";
+              ups=userPaperService.selectUPps(papers5.get(i).getPid());
+              for(int j=0;j<ups.size();j++){
+                  tempuser=userService.selectuser(ups.get(j).getId());
+                  if(ups.get(j).getAuthornumber()<0)
+                      str=str+" "+tempuser.getRealname()+'*';
+                  else
+                      str=str+" "+tempuser.getRealname();
+              }
+              authors5.add(str);
+          }
+          model.addAttribute("papers1",papers1);
+          model.addAttribute("papers2",papers2);
+          model.addAttribute("papers3",papers3);
+          model.addAttribute("papers4",papers4);
+          model.addAttribute("papers5",papers5);
+          model.addAttribute("authors1",authors1);
+          model.addAttribute("authors2",authors2);
+          model.addAttribute("authors3",authors3);
+          model.addAttribute("authors4",authors4);
+          model.addAttribute("authors5",authors5);
+      }
 
       /*呈现有哪些研究方向*/
       List<Researcharea>researchareas=researchareaService.queryAll();
@@ -441,9 +679,11 @@ public class VisitorControlller {
     }
 
   @RequestMapping("/project")
-  public String project(Model model){
+  public String project(Model model,HttpServletRequest req){
         System.out.println("Suceed in project");
-        List<Project>projects=projectService.queryAll();
+        //List<Project>projects=projectService.queryAll();
+       int protype=Integer.parseInt(req.getParameter("protype"));
+        List<Project>projects=projectService.queryByType(protype);
         model.addAttribute("projects",projects);
 
       /*呈现有哪些研究方向*/

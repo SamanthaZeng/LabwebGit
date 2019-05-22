@@ -48,7 +48,7 @@
   <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
     <div class="container">
-      <a class="navbar-brand" href="#">NKU</a>
+      <!--<a class="navbar-brand" href="#">NKU</a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -85,15 +85,26 @@
               </c:forEach>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/visitor/project">项目</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              项目
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/project?protype=1">横向项目</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/project?protype=0">纵向项目</a>
+            </div>
           </li>
           <li class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               论文
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+              <a class="dropdown-item" href="/visitor/paper?papertype=-1">论文总览</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=1">会议论文</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=2">期刊论文</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -129,134 +140,37 @@
 <div style="background-color: #f1f1f1">
   <div class="container" style="background-color: #fff">
     <!--1-->
-    <div style="padding-top: 5em">
+    <div style="padding-top: 5em;">
       <p class="lead">2019年</p>
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">论文名称</th>
-          <th scope="col">出版时间</th>
-          <th scope="col">论文摘要</th>
-          <th scope="col">论文关键字</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${papers1}" var="paper" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${paper.ptitile}</td>
-            <td>${paper.publictime}</td>
-            <td>${paper.pabstract}</td>
-            <td>${paper.keyword}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
-    </div>
+      <c:forEach items="${papers1}" var="paper" varStatus="index">
+        [${index.count}] ${authors1[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+      </c:forEach>
     <!--2-->
     <div style="margin-top: 5em">
       <p class="lead">2018年</p>
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">论文名称</th>
-          <th scope="col">出版时间</th>
-          <th scope="col">论文摘要</th>
-          <th scope="col">论文关键字</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${papers2}" var="paper" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${paper.ptitile}</td>
-            <td>${paper.publictime}</td>
-            <td>${paper.pabstract}</td>
-            <td>${paper.keyword}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
+      <c:forEach items="${papers2}" var="paper" varStatus="index">
+        [${index.count}] ${authors2[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+      </c:forEach>
     </div>
     <!--3-->
     <div style="margin-top: 5em">
       <p class="lead">2017年</p>
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">论文名称</th>
-          <th scope="col">出版时间</th>
-          <th scope="col">论文摘要</th>
-          <th scope="col">论文关键字</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${papers3}" var="paper" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${paper.ptitile}</td>
-            <td>${paper.publictime}</td>
-            <td>${paper.pabstract}</td>
-            <td>${paper.keyword}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
+      <c:forEach items="${papers3}" var="paper" varStatus="index">
+        [${index.count}] ${authors3[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+      </c:forEach>
     </div>
     <!--4-->
     <div style="margin-top: 5em">
       <p class="lead">2016年</p>
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">论文名称</th>
-          <th scope="col">出版时间</th>
-          <th scope="col">论文摘要</th>
-          <th scope="col">论文关键字</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${papers4}" var="paper" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${paper.ptitile}</td>
-            <td>${paper.publictime}</td>
-            <td>${paper.pabstract}</td>
-            <td>${paper.keyword}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
-    </div>
+      <c:forEach items="${papers4}" var="paper" varStatus="index">
+        [${index.count}] ${authors4[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+      </c:forEach>
     <!--5-->
     <div style="margin-top: 5em">
       <p class="lead">2015年</p>
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">论文名称</th>
-          <th scope="col">出版时间</th>
-          <th scope="col">论文摘要</th>
-          <th scope="col">论文关键字</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${papers5}" var="paper" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${paper.ptitile}</td>
-            <td>${paper.publictime}</td>
-            <td>${paper.pabstract}</td>
-            <td>${paper.keyword}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
+      <c:forEach items="${papers5}" var="paper" varStatus="index">
+        [${index.count}] ${authors5[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+      </c:forEach>
     </div>
   </div>
 </div>

@@ -167,4 +167,8 @@
   <insert id="insertGetId" parameterType="zxl.web.domain.Paper" useGeneratedKeys="true" keyColumn="pid" keyProperty="pid">
     insert into paper(pid, ptitile, publictime, papersource, keyword, pabstract, paperurl, paperrank, papertype, paperindex) values(#{pid},#{ptitile}, #{publictime}, #{papersource}, #{keyword}, #{pabstract}, #{paperurl}, #{paperrank}, #{papertype}, #{paperindex});
   </insert>
+
+  <select id="selectPaperbyTimeAndType" resultMap="BaseResultMap">
+    select * from paper where YEAR(publictime)=#{arg0} and papertype=#{arg1}
+  </select>
 </mapper>

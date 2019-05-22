@@ -79,7 +79,7 @@
     <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
-            <a class="navbar-brand" href="#">NKU</a>
+            <!--<a class="navbar-brand" href="#">NKU</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -88,27 +88,6 @@
                 <ul class="navbar-nav" style="width:80%;justify-content: space-around" >
                     <li class="nav-item">
                         <a class="nav-link" href="/visitor/home">主页 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            研究方向
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <c:forEach items="${researchareas}" var="research" varStatus="index">
-                                <a class="dropdown-item" href="/visitor/research?rid=${research.rid}">${research.rname}</a>
-                                <c:if test="${index.count!=rsize}">
-                                    <div class="dropdown-divider"></div>
-                                </c:if>
-                            </c:forEach>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            论文
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown  active" id="user">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,6 +105,41 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            研究方向
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <c:forEach items="${researchareas}" var="research" varStatus="index">
+                                <a class="dropdown-item" href="/visitor/research?rid=${research.rid}">${research.rname}</a>
+                                <c:if test="${index.count!=rsize}">
+                                    <div class="dropdown-divider"></div>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            项目
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/project?protype=1">横向项目</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/project?protype=0">纵向项目</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            论文
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/paper?papertype=-1">论文总览</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=1">会议论文</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=2">期刊论文</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             教学
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -133,9 +147,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/visitor/book">教材</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
                     </li>
                     <li class="nav-item dropdown" id="couser">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -156,7 +167,6 @@
         </div>
     </nav>
 </div>
-
 <div style="background-color: #f1f1f1">
     <div class="container" style="background-color: #fff">
         <div style="padding-top: 5em">

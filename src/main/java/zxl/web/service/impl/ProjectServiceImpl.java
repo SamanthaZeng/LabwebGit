@@ -39,5 +39,10 @@ public class ProjectServiceImpl implements IProjectService {
         mapper.deleteByPrimaryKey(proid);
     }
 
+    @Override
+    public List<Project> queryByType(int protype) {
+        return mapper.queryByType(protype);
+    }
+
     ;
 }

@@ -27,4 +27,6 @@ public interface PaperMapper {
 
     //根据年份返回该年份内的所有paper
     List<Paper> selectPaperbyTime(Date time);
+
+    List<Paper>selectPaperbyTimeAndType(Date time,int papertype);
 }

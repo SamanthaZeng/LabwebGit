@@ -167,4 +167,8 @@
     insert into project(proid, number, prorank, protype, funding, proname, proabstract, prosource) values(#{proid}, #{number}, #{prorank}, #{protype}, #{funding}, #{proname}, #{proabstract}, #{prosource});
   </insert>
 
+  <!--根据项目类别返回所有项目-->
+  <select id="queryByType" parameterType="integer" resultMap="BaseResultMap">
+    select * from project where protype=#{protype}
+  </select>
 </mapper>

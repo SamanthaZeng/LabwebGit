@@ -23,4 +23,6 @@ public interface ProjectMapper {
     int selectProid(Project project);
 
     void insertGetId(Project project);
+
+    List<Project>queryByType(int protype);
 }

@@ -12,4 +12,6 @@ public interface IProjectService {
     //返回项目id
     public int selectProid(Project project);
     public void delete(int proid);
+    //根据项目类型返回项目
+    public List<Project>queryByType(int protype);
 }

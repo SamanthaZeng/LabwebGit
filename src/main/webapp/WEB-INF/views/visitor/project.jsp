@@ -48,7 +48,7 @@
   <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
     <div class="container">
-      <a class="navbar-brand" href="#">NKU</a>
+      <!--<a class="navbar-brand" href="#">NKU</a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -85,15 +85,26 @@
               </c:forEach>
             </div>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/visitor/project">项目</a>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              项目
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/visitor/project?protype=1">横向项目</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/project?protype=0">纵向项目</a>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               论文
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+              <a class="dropdown-item" href="/visitor/paper?papertype=-1">论文总览</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=1">会议论文</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/visitor/paper?papertype=2">期刊论文</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -127,16 +138,16 @@
 </div>
 
 <div style="background-color: #f1f1f1">
-  <div class="container" style="background-color: #fff">
-    <div style="padding-top: 5em">
+  <div class="container" style="background-color: #fff;">
+    <div style="padding-top: 5em;min-height: 400px">
       <table class="table ">
         <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">项目名称</th>
-          <th scope="col">项目摘要</th>
+          <th scope="col">项目来源</th>
           <th scope="col">项目编号</th>
-          <th scope="col">作者</th>
+          <th scope="col">负责人</th>
         </tr>
         </thead>
         <tbody>
@@ -144,7 +155,7 @@
           <tr>
             <th scope="row">${index.count}</th>
             <td>${project.proname}</td>
-            <td>${project.proabstract}</td>
+            <td>${project.prosource}</td>
             <td>${project.number}</td>
             <td>作者</td>
           </tr>

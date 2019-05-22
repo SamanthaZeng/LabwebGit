@@ -23,6 +23,7 @@ public class Paper {
 
     private int paperindex;
 
+
     public Integer getPid() {
         return pid;
     }

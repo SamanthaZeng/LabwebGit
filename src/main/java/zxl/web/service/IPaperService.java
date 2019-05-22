@@ -21,4 +21,7 @@ public interface IPaperService {
 
     //根据出版日期返回这段日期内的所有论文
     public List<Paper> selectPaperbyTime(Date time);
+
+    //根据日期和类型返回论文
+    public List<Paper>selectPaperbyTimeAndType(Date time,int papertype);
 }

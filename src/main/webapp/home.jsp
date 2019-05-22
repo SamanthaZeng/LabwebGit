@@ -28,9 +28,10 @@
     <div style="padding-top: 5em;padding-bottom:5em;">
         <div class="container">
             <div class="row" style="justify-content:  center">
+
                 <div style="vertical-align: middle;text-align: center">
-                    <p style="color: #005542;font-size: xx-large;">科研实验室管理系统</p>
-                    <p class="lead" >scientific research laboratory management system</p>
+                    <p style="color: #005542;font-size: 350%;font-style: normal">XXX科研实验室</p>
+                    <p class="lead"style="font-weight:bold;color: #005542;" >Research Lab of XXX</p>
                 </div>
             </div>
         </div>
@@ -41,7 +42,7 @@
     <div style="background-color:#ffbe00;width: 100%;height: 0.5rem"></div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #005542">
         <div class="container">
-            <a class="navbar-brand" href="#">NKU</a>
+            <!--<a class="navbar-brand" href="#">NKU</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -78,15 +79,26 @@
                             </c:forEach>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/visitor/project">项目</a>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            项目
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/visitor/project?protype=1">横向项目</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/project?protype=0">纵向项目</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             论文
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/visitor/paper">按年查找</a>
+                            <a class="dropdown-item" href="/visitor/paper?papertype=-1">论文总览</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/paper?papertype=1">会议论文</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/visitor/paper?papertype=2">期刊论文</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -141,13 +153,13 @@
                             <!-- 轮播图片 -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/bootstrap/assets/images/gallery/homepic1.JPG">
+                                    <img src="${info.imgurl1}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/bootstrap/assets/images/gallery/homepic2.JPG">
+                                    <img src="${info.imgurl2}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/bootstrap/assets/images/gallery/homepic3.JPG">
+                                    <img src="${info.imgurl3}">
                                 </div>
                             </div>
 

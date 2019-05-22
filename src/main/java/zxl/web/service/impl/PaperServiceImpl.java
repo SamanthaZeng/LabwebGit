@@ -45,4 +45,9 @@ public class PaperServiceImpl implements IPaperService {
     public List<Paper> selectPaperbyTime(Date time) {
         return mapper.selectPaperbyTime(time);
     }
+
+    @Override
+    public List<Paper> selectPaperbyTimeAndType(Date time, int papertype) {
+        return mapper.selectPaperbyTimeAndType(time,papertype);
+    }
 }
