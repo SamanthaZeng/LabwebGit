@@ -166,9 +166,9 @@
                                             </th>
                                             <th>论文标号</th>
                                             <th>论文题目</th>
-                                            <th>关键词</th>
+                                            <th>论文类型</th>
                                             <th>论文等级</th>
-                                            <th class="hidden-480">发布时间</th>
+                                            <th class="col-sm-1">发布时间</th>
                                             <th class="hidden-480">作者</th>
                                             <th>其他操作</th>
                                         </tr>
@@ -185,7 +185,18 @@
                                                 </td>
                                                 <td>${paper.pid}</td>
                                                 <td>${paper.ptitile}</td>
-                                                <td>${paper.keyword}</td>
+                                                <td><c:choose>
+                                                    <%--得导入user--%>
+                                                    <c:when test="${paper.papertype == 1}">
+                                                        会议论文
+                                                    </c:when>
+                                                    <c:when test="${paper.papertype == 2}">
+                                                        期刊论文
+                                                    </c:when>
+                                                    <c:when test="${paper.papertype == 3}">
+                                                        技术报告
+                                                    </c:when>
+                                                </c:choose></td>
                                                 <td>${paper.paperrank}</td>
                                                 <td class="hidden-480">${paper.publictime}</td>
                                                 <td class="hidden-480">${paper.pabstract}</td>

@@ -98,6 +98,7 @@ public class ResearchareaController {
             //存放图片地址
             researcharea.setImgurl3("/uploadFile/"+newFileName);
         }
+        researcharea.setType(0);
         if(researcharea.getRid()==null) {
             researchareaService.insert(researcharea);
         }

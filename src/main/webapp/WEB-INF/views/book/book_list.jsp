@@ -186,7 +186,19 @@
                                                 </td>
                                                 <td>${book.bid}</td>
                                                 <td>${book.bookname}</td>
-                                                <td>${book.classification}</td>
+
+                                                <td><c:choose>
+                                                    <%--得导入user--%>
+                                                    <c:when test="${book.booktype == 0}">
+                                                        论著
+                                                    </c:when>
+                                                    <c:when test="${book.booktype == 1}">
+                                                        译著
+                                                    </c:when>
+                                                    <c:when test="${book.booktype == 2}">
+                                                        教材
+                                                    </c:when>
+                                                </c:choose></td>
                                                 <td class="hidden-480">${book.press}</td>
                                                 <td class="hidden-480">${book.time}</td>
 
