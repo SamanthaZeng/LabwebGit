@@ -212,7 +212,7 @@
                                 <select class="col-xs-10 col-sm-5" id="selectpicker" name="srank" >
                                     <option value="-1">-----------请选择学位----------</option>
                                     <option value="0" >本科</option>
-                                    <option value="1" >研究生</option>
+                                    <option value="1" >硕士生</option>
                                     <option value="2" >博士</option>
                                 </select>
                             </div>

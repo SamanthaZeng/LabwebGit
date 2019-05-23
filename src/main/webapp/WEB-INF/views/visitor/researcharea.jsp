@@ -249,7 +249,7 @@
             </table>
         </div>
     </div>
-    <div class="container"style="background-color: #fff;">
+    <div class="container"style="background-color: #fff;min-height: 400px">
         <div>
             <table class="table ">
                 <thead>
@@ -268,7 +268,7 @@
                         <td>${project.proname}</td>
                         <td>${project.prosource}</td>
                         <td>${project.number}</td>
-                        <td>作者</td>
+                        <td>${authors[index.count-1]}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

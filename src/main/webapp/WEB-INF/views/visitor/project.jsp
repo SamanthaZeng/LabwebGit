@@ -157,7 +157,7 @@
             <td>${project.proname}</td>
             <td>${project.prosource}</td>
             <td>${project.number}</td>
-            <td>作者</td>
+            <td>${authors[index.count-1]}</td>
           </tr>
         </c:forEach>
         </tbody>

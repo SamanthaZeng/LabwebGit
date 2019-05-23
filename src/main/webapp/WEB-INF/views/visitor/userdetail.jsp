@@ -237,7 +237,7 @@
                         </p>
                         <p style="margin-left: 30px;white-space: pre-line;">
                             <c:forEach items="${courses}" var="course" varStatus="index">
-                                [${index.count}] ${cauthors[index.count-1]}.${course.name}.${course.coursecode}.${course.classhour}.授课对象：<c:if test="${course.teachingobject==0}">本科生</c:if><c:if test="${course.teachingobject==1}">研究生</c:if><c:if test="${course.teachingobject==2}">博士生</c:if>,${course.classhour}
+                                [${index.count}] ${cauthors[index.count-1]}.${course.name}.${course.coursecode}.${course.classhour}.授课对象：<c:if test="${course.teachingobject==0}">本科生</c:if><c:if test="${course.teachingobject==1}">硕士生</c:if><c:if test="${course.teachingobject==2}">博士生</c:if>,${course.classhour}
                             </c:forEach>
                         </p>
                         <p class="lead title">

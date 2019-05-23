@@ -144,9 +144,12 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">课程名</th>
+                    <th scope="col">课程名称</th>
+                    <th scope="col">课程编号</th>
                     <th scope="col">课程类型</th>
-                    <th scope="col">课程对象</th>
+                    <th scope="col">讲授者</th>
+                    <th scope="col">授课对象</th>
+                    <th scope="col">课时数</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -154,6 +157,7 @@
                     <tr>
                         <th scope="row">${index.count}</th>
                         <td>${course.name}</td>
+                        <td>${course.coursecode}</td>
                         <td>
                             <c:choose>
                                 <%--得导入user--%>
@@ -174,6 +178,7 @@
                                 </c:when>
                             </c:choose>
                         </td>
+                        <td>${authors[index.count-1]}</td>
                         <td>
                             <c:choose>
                                 <c:when test="${course.teachingobject==0}">
@@ -187,6 +192,7 @@
                                 </c:when>
                             </c:choose>
                         </td>
+                        <td>${course.classhour}</td>
                     </tr>
                 </c:forEach>
 

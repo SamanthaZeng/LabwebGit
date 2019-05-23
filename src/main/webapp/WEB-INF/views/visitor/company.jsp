@@ -140,28 +140,48 @@
 <div style="background-color: #f1f1f1">
     <div class="container" style="background-color: #fff">
         <div style="padding-top: 5em;min-height: 400px">
-            <table class="table ">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">公司名称</th>
-                    <th scope="col">公司类型</th>
-                    <th scope="col">公司图标</th>
-                    <th scope="col">公司主页</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="row">
                 <c:forEach items="${companies}" var="company" varStatus="index">
-                    <tr>
-                        <th scope="row">${index.count}</th>
-                        <td>${pcompany.coname}</td>
-                        <td>${company.cotype}</td>
-                        <td><img style="width:60px;height:60px;" src="${company.logourl}" alt="公司图标"></td>
-                        <td><a href="${company.copage}">${company.copage}</a></td>
-                    </tr>
+                    <div class="col-lg-4 p-3 col-md-4">
+                        <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="container">
+                                <a href="${company.copage}">
+                                    <img class="card-img" src="${company.logourl}"  alt="公司图标">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                    <h5 class="card-title">${company.coname}</h5>
+                                    <p class="card-text">公司类型:<c:choose>
+                                        <c:when test="${company.cotype == -1}">
+                                            其他
+                                        </c:when>
+                                        <c:when test="${company.cotype == 0}">
+                                            互联网公司
+                                        </c:when>
+                                        <c:when test="${company.cotype == 1}">
+                                            金融公司
+                                        </c:when>
+                                        <c:when test="${company.cotype == 2}">
+                                            教育类公司
+                                        </c:when>
+                                        <c:when test="${company.cotype == 3}">
+                                            自媒体公司
+                                        </c:when>
+                                        <c:when test="${company.cotype == 4}">
+                                            科研院所
+                                        </c:when>
+                                        <c:when test="${company.cotype == 5}">
+                                            高校
+                                        </c:when>
+                                    </c:choose></p>
+                            </div>
+                        </div>
+                    </div>
                 </c:forEach>
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
 </div>

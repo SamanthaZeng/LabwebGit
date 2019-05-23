@@ -155,14 +155,29 @@ public class VisitorControlller {
     }
       model.addAttribute("teachers",teachers);//存到model里面，页面可以取出来
       model.addAttribute("students",students);
+
       /*呈现相关项目信息*/
       List<ProResearchKey>proResearchKeys=proResearchService.findByRid(rid);
       List<Project>projects = new ArrayList<Project>();
+      List<String>authors=new ArrayList<>();
+      List<UserPro>userPros=new ArrayList<>();
+      User tempuser;
       for(int i=0;i<proResearchKeys.size();i++){
           Project project=projectService.selectProject(proResearchKeys.get(i).getProid());
           projects.add(project);
+          String str="";
+          userPros=userProService.selectUPs(project.getProid());
+          for(int j=0;j<userPros.size();j++){
+              tempuser=userService.selectuser(userPros.get(j).getId());
+              if(j==0)
+                  str=tempuser.getRealname();
+              else
+                  str=str+","+tempuser.getRealname();
+          }
+          authors.add(str);
       }
       model.addAttribute("projects",projects);
+      model.addAttribute("authors",authors);
 
       /*呈现有哪些研究方向*/
       List<Researcharea>researchareas=researchareaService.queryAll();
@@ -212,10 +227,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers1.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors1.add(str);
           }
@@ -225,10 +248,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers2.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors2.add(str);
           }
@@ -238,10 +269,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers3.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors3.add(str);
           }
@@ -251,10 +290,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers4.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors4.add(str);
           }
@@ -264,10 +311,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers5.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors5.add(str);
           }
@@ -293,10 +348,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers1.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors1.add(str);
           }
@@ -305,10 +368,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers2.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors2.add(str);
           }
@@ -317,10 +388,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers3.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors3.add(str);
           }
@@ -329,10 +408,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers4.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors4.add(str);
           }
@@ -341,10 +428,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers5.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors5.add(str);
           }
@@ -371,10 +466,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers1.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers1.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers1.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors1.add(str);
           }
@@ -383,10 +486,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers2.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers2.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers2.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors2.add(str);
           }
@@ -395,10 +506,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers3.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers3.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers3.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors3.add(str);
           }
@@ -407,10 +526,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers4.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers4.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers4.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors4.add(str);
           }
@@ -419,10 +546,18 @@ public class VisitorControlller {
               ups=userPaperService.selectUPps(papers5.get(i).getPid());
               for(int j=0;j<ups.size();j++){
                   tempuser=userService.selectuser(ups.get(j).getId());
-                  if(ups.get(j).getAuthornumber()<0)
-                      str=str+" "+tempuser.getRealname()+'*';
-                  else
-                      str=str+" "+tempuser.getRealname();
+                  if(ups.get(j).getAuthornumber()<0){
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname()+'*';
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname()+'*';
+                  }
+                  else{
+                      if(papers5.get(i).getLanguage()==1)
+                          str=str+"."+tempuser.getRealname();
+                      if(papers5.get(i).getLanguage()==2)
+                          str=str+"."+tempuser.getEngname();
+                  }
               }
               authors5.add(str);
           }
@@ -449,8 +584,23 @@ public class VisitorControlller {
   public String course( Model model){
       System.out.println("Suceed in course index");
         List<Course>courses=courseService.queryAll();
+        List<String>authors=new ArrayList<>();
+        List<UserCourse>userCourses=new ArrayList<>();
+        User tempuser;
+        for(int i=0;i<courses.size();i++){
+            String str="";
+            userCourses=userCourseService.selectUCls(courses.get(i).getClsid());
+            for(int j=0;j<userCourses.size();j++){
+                tempuser=userService.selectuser(userCourses.get(j).getId());
+                if(j==0)
+                    str=tempuser.getRealname();
+                else
+                    str=str+","+tempuser.getRealname();
+            }
+            authors.add(str);
+        }
         model.addAttribute("courses",courses);
-
+        model.addAttribute("authors",authors);
       /*呈现有哪些研究方向*/
       List<Researcharea>researchareas=researchareaService.queryAll();
       model.addAttribute("researchareas",researchareas);
@@ -462,12 +612,26 @@ public class VisitorControlller {
   public String book(Model model){
       System.out.println("Suceed in book index");
       List<Book>books=bookService.queryAll();
+      List<String>authors=new ArrayList<>();
+      List<UserBook>userBooks;
+      User tempuser;
       for(int i=0;i<books.size();i++)
       {
           String str=books.get(i).getBabstract();
           books.get(i).setBabstract(cutStr(str,50));
+          String string="";
+          userBooks=userBookService.selectUBs(books.get(i).getBid());
+          for(int j=0;j<userBooks.size();j++){
+              tempuser=userService.selectuser(userBooks.get(j).getId());
+              if(j==0)
+                  string=tempuser.getRealname();
+              else
+                  string=string+","+tempuser.getRealname();
+          }
+          authors.add(string);
       }
       model.addAttribute("books",books);
+      model.addAttribute("authors",authors);
 
       /*呈现有哪些研究方向*/
       List<Researcharea>researchareas=researchareaService.queryAll();
@@ -544,7 +708,18 @@ public class VisitorControlller {
                 ups=userPaperService.selectUPps(paper.getPid());
                 for(int j=0;j<ups.size();j++){
                     tempuser=userService.selectuser(ups.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    if(ups.get(j).getAuthornumber()<0)//通讯作者
+                    {
+                        if(paper.getLanguage()==1)//中文
+                            str=str+"."+tempuser.getRealname()+'*';
+                        if(paper.getLanguage()==2)//英文
+                            str=str+"."+tempuser.getEngname()+'*';
+                    }else{
+                        if(paper.getLanguage()==1)//中文
+                            str=str+"."+tempuser.getRealname();
+                        if(paper.getLanguage()==2)//英文
+                            str=str+"."+tempuser.getEngname();
+                    }
                 }
                 authors.add(str);
                 papers.add(paper);
@@ -566,7 +741,7 @@ public class VisitorControlller {
                 upros=userProService.selectUPs(project.getProid());
                 for(int j=0;j<upros.size();j++){
                     tempuser=userService.selectuser(upros.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    str=str+"."+tempuser.getRealname();
                 }
                 proauthors.add(str);
                 projects.add(project);
@@ -587,7 +762,7 @@ public class VisitorControlller {
                 ucs=userCourseService.selectUCls(course.getClsid());
                 for(int j=0;j<ucs.size();j++){
                     tempuser=userService.selectuser(ucs.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    str=str+"."+tempuser.getRealname();
                 }
                 cauthors.add(str);
                 courses.add(course);
@@ -608,7 +783,7 @@ public class VisitorControlller {
                 ubs=userBookService.selectUBs(book.getBid());
                 for(int j=0;j<ubs.size();j++){
                     tempuser=userService.selectuser(ubs.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    str=str+"."+tempuser.getRealname();
                 }
                 bauthors.add(str);
                 books.add(book);
@@ -634,7 +809,18 @@ public class VisitorControlller {
                 ups=userPaperService.selectUPps(paper.getPid());
                 for(int j=0;j<ups.size();j++){
                     tempuser=userService.selectuser(ups.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    if(ups.get(j).getAuthornumber()<0)//通讯作者
+                    {
+                        if(paper.getLanguage()==1)//中文
+                            str=str+"."+tempuser.getRealname()+'*';
+                        if(paper.getLanguage()==2)//英文
+                            str=str+"."+tempuser.getEngname()+'*';
+                    }else{
+                        if(paper.getLanguage()==1)//中文
+                            str=str+"."+tempuser.getRealname();
+                        if(paper.getLanguage()==2)//英文
+                            str=str+"."+tempuser.getEngname();
+                    }
                 }
                 authors.add(str);
                 papers.add(paper);
@@ -655,7 +841,7 @@ public class VisitorControlller {
                 upros=userProService.selectUPs(project.getProid());
                 for(int j=0;j<upros.size();j++){
                     tempuser=userService.selectuser(upros.get(j).getId());
-                    str=str+" "+tempuser.getRealname();
+                    str=str+"."+tempuser.getRealname();
                 }
                 proauthors.add(str);
                 projects.add(project);
@@ -684,7 +870,20 @@ public class VisitorControlller {
         //List<Project>projects=projectService.queryAll();
        int protype=Integer.parseInt(req.getParameter("protype"));
         List<Project>projects=projectService.queryByType(protype);
+        List<UserPro>userPros;
+        List<String>authors=new ArrayList<>();
+        User tempuser;
+        for(int i=0;i<projects.size();i++){
+            String str="";
+            userPros=userProService.selectUPs(projects.get(i).getProid());
+            for(int j=0;j<userPros.size();j++){
+                tempuser=userService.selectuser(userPros.get(j).getId());
+                str=str+"."+tempuser.getRealname();
+            }
+            authors.add(str);
+        }
         model.addAttribute("projects",projects);
+        model.addAttribute("authors",authors);
 
       /*呈现有哪些研究方向*/
       List<Researcharea>researchareas=researchareaService.queryAll();

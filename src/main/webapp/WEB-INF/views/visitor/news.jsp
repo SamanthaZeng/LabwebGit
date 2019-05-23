@@ -136,7 +136,7 @@
         <div style="padding-top: 5em">
             <div class="row">
                 <h1 class="mb-3">${news.newstitle}</h1>
-                <div style="margin-top: 5em" id="content">
+                <div style="margin-top: 5em;min-height: 400px" id="content">
                     <textarea style="display: none">${news.newsdescription}</textarea>
                     <!--<p class="lead text-justify">${news.newsdescription}</p>-->
                 </div>
