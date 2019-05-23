@@ -34,6 +34,10 @@
     .carousel-indicators{
 
     }
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
+    }
   </style>
 </head>
 
@@ -144,138 +148,134 @@
     </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-    <div class="container" style="background-color: #fff;">
-        <div style="padding-top: 5em">
-          <div class="row">
-              <div class="col-md-6">
-                  <h1 class="mb-3">${research.rname}</h1>
-                  <p class="lead text-justify">${research.intro}</p>
-              </div>
+<div class="container" style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="mb-3">${research.rname}</h1>
+                <p class="lead text-justify">${research.intro}</p>
+            </div>
 
-              <div class="col-md-6">
-                  <div id="picCarousel" class="carousel slide">
-                      <!--指示符-->
-                      <ul class="carousel-indicators">
-                          <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
-                          <li data-target="#picCarousel" data-slide-to="1"></li>
-                          <li data-target="#picCarousel" data-slide-to="2"></li>
-                      </ul>
+            <div class="col-md-6">
+                <div id="picCarousel" class="carousel slide">
+                    <!--指示符-->
+                    <ul class="carousel-indicators">
+                        <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#picCarousel" data-slide-to="1"></li>
+                        <li data-target="#picCarousel" data-slide-to="2"></li>
+                    </ul>
 
-                      <!-- 轮播图片 -->
-                      <div class="carousel-inner">
-                          <div class="carousel-item active">
-                              <img src="${research.imgurl1}">
-                          </div>
-                          <div class="carousel-item">
-                              <img src="${research.imgurl2}">
-                          </div>
-                          <div class="carousel-item">
-                              <img src="${research.imgurl3}">
-                          </div>
-                      </div>
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="${research.imgurl1}">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${research.imgurl2}">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${research.imgurl3}">
+                        </div>
+                    </div>
 
-                      <!-- 左右切换按钮 -->
-                      <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
-                          <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
-                          <!--<span class="carousel-control-prev-icon"></span>-->
-                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#picCarousel" data-slide="next">
-                          <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
-                          <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
-                      </a>
-                  </div><!--轮播框-->
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="container" style="background-color: #fff;">
-        <div style="padding-top: 5em">
-            <table class="table ">
-                <thead>
-                <tr>
-                    <th scope="col">相关人员</th>
-                    <th scope="col">职称</th>
-                    <th scope="col">职务</th>
-                    <th scope="col">联系邮箱</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${teachers}" var="teacher" varStatus="index">
-                    <tr>
-                        <td>${teacher.user.username}</td>
-                        <td class="hidden-480">
-                            <c:choose>
-                                <%--得导入user--%>
-                                <c:when test="${teacher.trank ==0}">
-                                    讲师
-                                </c:when>
-                                <c:when test="${teacher.trank == 1}">
-                                    副教授
-                                </c:when>
-                                <c:when test="${teacher.trank == 2}">
-                                    教授
-                                </c:when>
-                            </c:choose>
-                        </td>
-                        <td>${teacher.tduty}</td>
-                        <td>${teacher.tmail}</td>
-                    </tr>
-                </c:forEach>
-                <c:forEach items="${students}" var="student" varStatus="index">
-                    <tr>
-                        <td>${student.user.username}</td>
-                        <td>学生</td>
-                        <td class="hidden-480">
-                            <c:choose>
-                                <%--得导入user--%>
-                                <c:when test="${student.srank ==0}">
-                                    本科生
-                                </c:when>
-                                <c:when test="${student.srank == 1}">
-                                    硕士生
-                                </c:when>
-                                <c:when test="${tstudent.srank == 2}">
-                                    博士生
-                                </c:when>
-                            </c:choose>
-                        </td>
-                        <td>${student.smail}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
+                        <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
+                        <!--<span class="carousel-control-prev-icon"></span>-->
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#picCarousel" data-slide="next">
+                        <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
+                        <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
+                    </a>
+                </div><!--轮播框-->
+            </div>
         </div>
     </div>
-    <div class="container"style="background-color: #fff;min-height: 400px">
-        <div>
-            <table class="table ">
-                <thead>
+    <div style="padding-top: 5em">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">相关人员</th>
+                <th scope="col">职称</th>
+                <th scope="col">职务</th>
+                <th scope="col">联系邮箱</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${teachers}" var="teacher" varStatus="index">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">项目名称</th>
-                    <th scope="col">项目来源</th>
-                    <th scope="col">项目编号</th>
-                    <th scope="col">负责人</th>
+                    <td>${teacher.user.username}</td>
+                    <td class="hidden-480">
+                        <c:choose>
+                            <%--得导入user--%>
+                            <c:when test="${teacher.trank ==0}">
+                                讲师
+                            </c:when>
+                            <c:when test="${teacher.trank == 1}">
+                                副教授
+                            </c:when>
+                            <c:when test="${teacher.trank == 2}">
+                                教授
+                            </c:when>
+                        </c:choose>
+                    </td>
+                    <td>${teacher.tduty}</td>
+                    <td>${teacher.tmail}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${projects}" var="project" varStatus="index">
-                    <tr>
-                        <th scope="row">${index.count}</th>
-                        <td>${project.proname}</td>
-                        <td>${project.prosource}</td>
-                        <td>${project.number}</td>
-                        <td>${authors[index.count-1]}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
+            </c:forEach>
+            <c:forEach items="${students}" var="student" varStatus="index">
+                <tr>
+                    <td>${student.user.username}</td>
+                    <td>学生</td>
+                    <td class="hidden-480">
+                        <c:choose>
+                            <%--得导入user--%>
+                            <c:when test="${student.srank ==0}">
+                                本科生
+                            </c:when>
+                            <c:when test="${student.srank == 1}">
+                                硕士生
+                            </c:when>
+                            <c:when test="${tstudent.srank == 2}">
+                                博士生
+                            </c:when>
+                        </c:choose>
+                    </td>
+                    <td>${student.smail}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding-top: 5em">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">项目名称</th>
+                <th scope="col">项目来源</th>
+                <th scope="col">项目编号</th>
+                <th scope="col">负责人</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${projects}" var="project" varStatus="index">
+                <tr>
+                    <th scope="row">${index.count}</th>
+                    <td>${project.proname}</td>
+                    <td>${project.prosource}</td>
+                    <td>${project.number}</td>
+                    <td>${authors[index.count-1]}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -19,7 +19,10 @@
             width: 548px;
             height:300px;
         }
-
+        html,body{
+            height: 100%;
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 
@@ -131,70 +134,68 @@
     </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-    <div class="container" style="background-color: #fff">
-        <div style="padding-top: 5em">
-            <div class="container" >
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1 class="mb-3">${info.rname}</h1>
-                        <p class="lead text-justify">${info.intro} </p>
-                    </div>
-                    <div class="col-md-6">
-                        <!--<img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">-->
-                        <div id="picCarousel" class="carousel slide">
-                            <!--指示符-->
-                            <ul class="carousel-indicators">
-                                <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#picCarousel" data-slide-to="1"></li>
-                                <li data-target="#picCarousel" data-slide-to="2"></li>
-                            </ul>
+<div class="container" style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em">
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="mb-3">${info.rname}</h1>
+                    <p class="lead text-justify">${info.intro} </p>
+                </div>
+                <div class="col-md-6">
+                    <!--<img src="/bootstrap/assets/images/gallery/badge.jpg" alt="NKU" width="150" height="150">-->
+                    <div id="picCarousel" class="carousel slide">
+                        <!--指示符-->
+                        <ul class="carousel-indicators">
+                            <li data-target="#picCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#picCarousel" data-slide-to="1"></li>
+                            <li data-target="#picCarousel" data-slide-to="2"></li>
+                        </ul>
 
-                            <!-- 轮播图片 -->
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="${info.imgurl1}">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="${info.imgurl2}">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="${info.imgurl3}">
-                                </div>
+                        <!-- 轮播图片 -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="${info.imgurl1}">
                             </div>
+                            <div class="carousel-item">
+                                <img src="${info.imgurl2}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="${info.imgurl3}">
+                            </div>
+                        </div>
 
-                            <!-- 左右切换按钮 -->
-                            <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
-                                <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
-                                <!--<span class="carousel-control-prev-icon"></span>-->
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#picCarousel" data-slide="next">
-                                <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
-                                <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
-                            </a>
-                        </div><!--轮播框-->
-                    </div>
+                        <!-- 左右切换按钮 -->
+                        <a class="carousel-control-prev" href="#picCarousel"  data-slide="prev">
+                            <!--<img src="/bootstrap/assets/images/icon/larrow.png">-->
+                            <!--<span class="carousel-control-prev-icon"></span>-->
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#picCarousel" data-slide="next">
+                            <!--<img src="/bootstrap/assets/images/icon/rarrow.png">-->
+                            <span class="carousel-control-next-icon" style="color: #ba4b39"></span>
+                        </a>
+                    </div><!--轮播框-->
                 </div>
             </div>
         </div>
-        <div style="margin-top: 5em">
-            <h1 class="mb-3">新闻</h1>
-            <div class="container">
-                <div class="row">
-                    <c:forEach items="${newsList}" var="news">
-                        <div class="col-lg-4 p-3 col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">${news.newstitle}</h5>
-                                    <p class="card-text">${news.newsdescription}</p>
-                                    <a href="/visitor/news?newsid=${news.newsid}" class="card-link">阅读更多</a>
-                                </div>
+    </div>
+    <div style="margin-top: 5em">
+        <h1 class="mb-3">新闻</h1>
+        <div class="container">
+            <div class="row">
+                <c:forEach items="${newsList}" var="news">
+                    <div class="col-lg-4 p-3 col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">${news.newstitle}</h5>
+                                <p class="card-text">${news.newsdescription}</p>
+                                <a href="/visitor/news?newsid=${news.newsid}" class="card-link">阅读更多</a>
                             </div>
                         </div>
-                    </c:forEach>
-                </div>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>

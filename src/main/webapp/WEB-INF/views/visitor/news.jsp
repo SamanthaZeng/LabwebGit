@@ -20,6 +20,10 @@
             width: 548px;
             height:350px;
         }
+        html,body{
+            height: 100%;
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 
@@ -131,15 +135,13 @@
 </div>
 
 <!--正文内容-->
-<div style="background-color: #f1f1f1">
-    <div class="container" style="background-color: #fff">
-        <div style="padding-top: 5em">
-            <div class="row">
-                <h1 class="mb-3">${news.newstitle}</h1>
-                <div style="margin-top: 5em;min-height: 400px" id="content">
-                    <textarea style="display: none">${news.newsdescription}</textarea>
-                    <!--<p class="lead text-justify">${news.newsdescription}</p>-->
-                </div>
+<div class="container" style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em">
+        <div class="row">
+            <h1 class="mb-3">${news.newstitle}</h1>
+            <div style="margin-top: 5em;" id="content">
+                <textarea style="display: none">${news.newsdescription}</textarea>
+                <!--<p class="lead text-justify">${news.newsdescription}</p>-->
             </div>
         </div>
     </div>

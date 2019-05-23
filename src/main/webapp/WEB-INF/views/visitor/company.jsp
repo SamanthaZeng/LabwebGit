@@ -27,6 +27,10 @@
              @import url(bootstrap/assets/css/ace.min.css);
              @import url(bootstrap/assets/css/ace-rtl.min.css);
              @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
+        html,body{
+            height: 100%;
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 
@@ -137,51 +141,49 @@
     </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-    <div class="container" style="background-color: #fff">
-        <div style="padding-top: 5em;min-height: 400px">
-            <div class="row">
-                <c:forEach items="${companies}" var="company" varStatus="index">
-                    <div class="col-lg-4 p-3 col-md-4">
-                        <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                            <div class="card-header">
+<div class="container" style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em;min-height: 400px">
+        <div class="row">
+            <c:forEach items="${companies}" var="company" varStatus="index">
+                <div class="col-lg-4 p-3 col-md-4">
+                    <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                        <div class="card-header">
 
-                            </div>
-                            <div class="container">
-                                <a href="${company.copage}">
-                                    <img class="card-img" src="${company.logourl}"  alt="公司图标">
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                    <h5 class="card-title">${company.coname}</h5>
-                                    <p class="card-text">公司类型:<c:choose>
-                                        <c:when test="${company.cotype == -1}">
-                                            其他
-                                        </c:when>
-                                        <c:when test="${company.cotype == 0}">
-                                            互联网公司
-                                        </c:when>
-                                        <c:when test="${company.cotype == 1}">
-                                            金融公司
-                                        </c:when>
-                                        <c:when test="${company.cotype == 2}">
-                                            教育类公司
-                                        </c:when>
-                                        <c:when test="${company.cotype == 3}">
-                                            自媒体公司
-                                        </c:when>
-                                        <c:when test="${company.cotype == 4}">
-                                            科研院所
-                                        </c:when>
-                                        <c:when test="${company.cotype == 5}">
-                                            高校
-                                        </c:when>
-                                    </c:choose></p>
-                            </div>
+                        </div>
+                        <div class="container">
+                            <a href="${company.copage}">
+                                <img class="card-img" src="${company.logourl}"  alt="公司图标">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${company.coname}</h5>
+                            <p class="card-text">公司类型:<c:choose>
+                                <c:when test="${company.cotype == -1}">
+                                    其他
+                                </c:when>
+                                <c:when test="${company.cotype == 0}">
+                                    互联网公司
+                                </c:when>
+                                <c:when test="${company.cotype == 1}">
+                                    金融公司
+                                </c:when>
+                                <c:when test="${company.cotype == 2}">
+                                    教育类公司
+                                </c:when>
+                                <c:when test="${company.cotype == 3}">
+                                    自媒体公司
+                                </c:when>
+                                <c:when test="${company.cotype == 4}">
+                                    科研院所
+                                </c:when>
+                                <c:when test="${company.cotype == 5}">
+                                    高校
+                                </c:when>
+                            </c:choose></p>
                         </div>
                     </div>
-                </c:forEach>
-            </div>
+                </div>
+            </c:forEach>
         </div>
     </div>
 </div>

@@ -17,13 +17,9 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
     </script>
   <style>
-    .cardimg{
-        display: block;
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        margin:auto;
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
     }
 
 
@@ -137,141 +133,139 @@
     </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-  <div class="container" style="background-color: #fff">
-      <div style="padding-top: 5em;min-height: 400px">
-          <div class="row">
-              <c:choose>
-                  <c:when test="${teachers!=null}">
-                      <!--教授-->
-                      <c:forEach items="${teachers}" var="teacher">
-                          <c:if test="${teacher.trank==2}">
-                              <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                                      <div class="card-header">
-                                          <c:choose>
-                                              <c:when test="${teacher.trank==0}">讲师</c:when>
-                                              <c:when test="${teacher.trank==1}">副教授</c:when>
-                                              <c:when test="${teacher.trank==2}">教授</c:when>
-                                          </c:choose>
-                                      </div>
-                                      <div class="container" >
-                                          <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                              <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
-                                          </a>
-                                      </div>
+<div class="container" style="min-height: 100%;background-color: #fff">
+    <div style="padding-top: 5em;">
+        <div class="row">
+            <c:choose>
+                <c:when test="${teachers!=null}">
+                    <!--教授-->
+                    <c:forEach items="${teachers}" var="teacher">
+                        <c:if test="${teacher.trank==2}">
+                            <div class="col-lg-4 p-3 col-md-4">
+                                <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                                    <div class="card-header">
+                                        <c:choose>
+                                            <c:when test="${teacher.trank==0}">讲师</c:when>
+                                            <c:when test="${teacher.trank==1}">副教授</c:when>
+                                            <c:when test="${teacher.trank==2}">教授</c:when>
+                                        </c:choose>
+                                    </div>
+                                    <div class="container" >
+                                        <a href="/visitor/userdetail?id=${teacher.user.id}">
+                                            <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
+                                        </a>
+                                    </div>
 
-                                      <div class="card-body">
-                                          <h5 class="card-title">${teacher.user.realname}</h5>
-                                          <p class="card-text">${teacher.tmail}</p>
-                                      </div>
-                                  </div><!--card-->
-                              </div><!--col-->
-                          </c:if>
-                      </c:forEach>
-                      <!--副教授-->
-                      <c:forEach items="${teachers}" var="teacher">
-                          <c:if test="${teacher.trank==1}">
-                              <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                                      <div class="card-header">
-                                          <c:choose>
-                                              <c:when test="${teacher.trank==0}">讲师</c:when>
-                                              <c:when test="${teacher.trank==1}">副教授</c:when>
-                                              <c:when test="${teacher.trank==2}">教授</c:when>
-                                          </c:choose>
-                                      </div>
-                                      <div class="container" >
-                                          <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                              <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
-                                          </a>
-                                      </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${teacher.user.realname}</h5>
+                                        <p class="card-text">${teacher.tmail}</p>
+                                    </div>
+                                </div><!--card-->
+                            </div><!--col-->
+                        </c:if>
+                    </c:forEach>
+                    <!--副教授-->
+                    <c:forEach items="${teachers}" var="teacher">
+                        <c:if test="${teacher.trank==1}">
+                            <div class="col-lg-4 p-3 col-md-4">
+                                <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                                    <div class="card-header">
+                                        <c:choose>
+                                            <c:when test="${teacher.trank==0}">讲师</c:when>
+                                            <c:when test="${teacher.trank==1}">副教授</c:when>
+                                            <c:when test="${teacher.trank==2}">教授</c:when>
+                                        </c:choose>
+                                    </div>
+                                    <div class="container" >
+                                        <a href="/visitor/userdetail?id=${teacher.user.id}">
+                                            <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
+                                        </a>
+                                    </div>
 
-                                      <div class="card-body">
-                                          <h5 class="card-title">${teacher.user.realname}</h5>
-                                          <p class="card-text">${teacher.tmail}</p>
-                                      </div>
-                                  </div><!--card-->
-                              </div><!--col-->
-                          </c:if>
-                      </c:forEach>
-                      <!--讲师-->
-                      <c:forEach items="${teachers}" var="teacher">
-                          <c:if test="${teacher.trank==0}">
-                              <div class="col-lg-4 p-3 col-md-4">
-                                  <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                                      <div class="card-header">
-                                          <c:choose>
-                                              <c:when test="${teacher.trank==0}">讲师</c:when>
-                                              <c:when test="${teacher.trank==1}">副教授</c:when>
-                                              <c:when test="${teacher.trank==2}">教授</c:when>
-                                          </c:choose>
-                                      </div>
-                                      <div class="container" >
-                                          <a href="/visitor/userdetail?id=${teacher.user.id}">
-                                              <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
-                                          </a>
-                                      </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${teacher.user.realname}</h5>
+                                        <p class="card-text">${teacher.tmail}</p>
+                                    </div>
+                                </div><!--card-->
+                            </div><!--col-->
+                        </c:if>
+                    </c:forEach>
+                    <!--讲师-->
+                    <c:forEach items="${teachers}" var="teacher">
+                        <c:if test="${teacher.trank==0}">
+                            <div class="col-lg-4 p-3 col-md-4">
+                                <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                                    <div class="card-header">
+                                        <c:choose>
+                                            <c:when test="${teacher.trank==0}">讲师</c:when>
+                                            <c:when test="${teacher.trank==1}">副教授</c:when>
+                                            <c:when test="${teacher.trank==2}">教授</c:when>
+                                        </c:choose>
+                                    </div>
+                                    <div class="container" >
+                                        <a href="/visitor/userdetail?id=${teacher.user.id}">
+                                            <img class="card-img" src="${teacher.user.imgurl}"  alt="userpic">
+                                        </a>
+                                    </div>
 
-                                      <div class="card-body">
-                                          <h5 class="card-title">${teacher.user.realname}</h5>
-                                          <p class="card-text">${teacher.tmail}</p>
-                                      </div>
-                                  </div><!--card-->
-                              </div><!--col-->
-                          </c:if>
-                      </c:forEach>
-                  </c:when>
-                  <c:when test="${students!=null}">
-                      <c:forEach items="${students}" var="student">
-                          <div class="col-lg-4 p-3 col-md-4">
-                              <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                                  <div class="card-header">
-                                      <c:choose>
-                                          <c:when test="${student.srank==0}">本科生</c:when>
-                                          <c:when test="${student.srank==1}">硕士生</c:when>
-                                          <c:when test="${student.srank==2}">博士生</c:when>
-                                      </c:choose>
-                                  </div>
-                                  <div class="container">
-                                      <a href="/visitor/userdetail?id=${student.user.id}">
-                                          <img class="card-img" src="${student.user.imgurl}"  alt="userpic">
-                                      </a>
-                                  </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${teacher.user.realname}</h5>
+                                        <p class="card-text">${teacher.tmail}</p>
+                                    </div>
+                                </div><!--card-->
+                            </div><!--col-->
+                        </c:if>
+                    </c:forEach>
+                </c:when>
+                <c:when test="${students!=null}">
+                    <c:forEach items="${students}" var="student">
+                        <div class="col-lg-4 p-3 col-md-4">
+                            <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                                <div class="card-header">
+                                    <c:choose>
+                                        <c:when test="${student.srank==0}">本科生</c:when>
+                                        <c:when test="${student.srank==1}">硕士生</c:when>
+                                        <c:when test="${student.srank==2}">博士生</c:when>
+                                    </c:choose>
+                                </div>
+                                <div class="container">
+                                    <a href="/visitor/userdetail?id=${student.user.id}">
+                                        <img class="card-img" src="${student.user.imgurl}"  alt="userpic">
+                                    </a>
+                                </div>
 
-                                  <div class="card-body">
-                                      <h5 class="card-title">${student.user.realname}</h5>
-                                      <p class="card-text">${student.smail}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </c:forEach>
-                  </c:when>
-                  <c:when test="${cooperators!=null}">
-                      <c:forEach items="${cooperators}" var="cooperator">
-                          <div class="col-lg-4 p-3 col-md-4">
-                              <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
-                                  <div class="card-header">${cooperator.title}</div>
-                                  <div class="container">
-                                      <a href="${cooperator.cpage}">
-                                          <img class="card-img" src="${cooperator.user.imgurl}"  alt="userpic">
-                                      </a>
-                                  </div>
-                                  <div class="card-body">
-                                      <h5 class="card-title">${cooperator.user.realname}</h5>
-                                      <p class="card-text">邮箱:<br>${cooperator.cmail}</p>
-                                      <p class="card-text">性别：<br><c:if test="${cooperator.user.sex==0}">男</c:if> <c:if test="${cooperator.user.sex==1}">女</c:if></p>
-                                      <p class="card-text">公司：<br>${cooperator.company.coname}</p>
-                                      <p class="card-text">工作职务：<br>${cooperator.cduty}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </c:forEach>
-                  </c:when>
-              </c:choose>
-          </div>
-      </div>
-  </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${student.user.realname}</h5>
+                                    <p class="card-text">${student.smail}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:when test="${cooperators!=null}">
+                    <c:forEach items="${cooperators}" var="cooperator">
+                        <div class="col-lg-4 p-3 col-md-4">
+                            <div class="card text-white mb-3" style="max-width: 18rem;background-color: #49beb7">
+                                <div class="card-header">${cooperator.title}</div>
+                                <div class="container">
+                                    <a href="${cooperator.cpage}">
+                                        <img class="card-img" src="${cooperator.user.imgurl}"  alt="userpic">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${cooperator.user.realname}</h5>
+                                    <p class="card-text">邮箱:<br>${cooperator.cmail}</p>
+                                    <p class="card-text">性别：<br><c:if test="${cooperator.user.sex==0}">男</c:if> <c:if test="${cooperator.user.sex==1}">女</c:if></p>
+                                    <p class="card-text">公司：<br>${cooperator.company.coname}</p>
+                                    <p class="card-text">工作职务：<br>${cooperator.cduty}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
+            </c:choose>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

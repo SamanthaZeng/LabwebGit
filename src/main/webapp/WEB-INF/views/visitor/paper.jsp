@@ -27,6 +27,10 @@
          @import url(bootstrap/assets/css/ace.min.css);
          @import url(bootstrap/assets/css/ace-rtl.min.css);
          @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
+    }
   </style>
 </head>
 
@@ -137,43 +141,41 @@
   </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-  <div class="container" style="background-color: #fff">
+<div class="container" style="background-color: #fff;min-height: 100%;">
     <!--1-->
     <div style="padding-top: 5em;">
-      <p class="lead">2019年</p>
-      <c:forEach items="${papers1}" var="paper" varStatus="index">
+        <p class="lead">2019年</p>
+        <c:forEach items="${papers1}" var="paper" varStatus="index">
         [${index.count}] ${authors1[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
-      </c:forEach>
-    <!--2-->
-    <div style="margin-top: 5em">
-      <p class="lead">2018年</p>
-      <c:forEach items="${papers2}" var="paper" varStatus="index">
-        [${index.count}] ${authors2[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
-      </c:forEach>
-    </div>
-    <!--3-->
-    <div style="margin-top: 5em">
-      <p class="lead">2017年</p>
-      <c:forEach items="${papers3}" var="paper" varStatus="index">
-        [${index.count}] ${authors3[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
-      </c:forEach>
-    </div>
-    <!--4-->
-    <div style="margin-top: 5em">
-      <p class="lead">2016年</p>
-      <c:forEach items="${papers4}" var="paper" varStatus="index">
-        [${index.count}] ${authors4[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
-      </c:forEach>
-    <!--5-->
-    <div style="margin-top: 5em">
-      <p class="lead">2015年</p>
-      <c:forEach items="${papers5}" var="paper" varStatus="index">
-        [${index.count}] ${authors5[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
-      </c:forEach>
-    </div>
-  </div>
-</div>
+        </c:forEach>
+        <!--2-->
+        <div style="margin-top: 5em">
+            <p class="lead">2018年</p>
+            <c:forEach items="${papers2}" var="paper" varStatus="index">
+                [${index.count}] ${authors2[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+            </c:forEach>
+        </div>
+        <!--3-->
+        <div style="margin-top: 5em">
+            <p class="lead">2017年</p>
+            <c:forEach items="${papers3}" var="paper" varStatus="index">
+                [${index.count}] ${authors3[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+            </c:forEach>
+        </div>
+        <!--4-->
+        <div style="margin-top: 5em">
+            <p class="lead">2016年</p>
+            <c:forEach items="${papers4}" var="paper" varStatus="index">
+                [${index.count}] ${authors4[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+            </c:forEach>
+            <!--5-->
+            <div style="margin-top: 5em">
+                <p class="lead">2015年</p>
+                <c:forEach items="${papers5}" var="paper" varStatus="index">
+                    [${index.count}] ${authors5[index.count-1]}.${paper.ptitile}.${paper.papersource}.${paper.publictime}
+                </c:forEach>
+            </div>
+        </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

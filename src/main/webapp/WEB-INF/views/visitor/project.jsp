@@ -27,6 +27,10 @@
          @import url(bootstrap/assets/css/ace.min.css);
          @import url(bootstrap/assets/css/ace-rtl.min.css);
          @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
+    }
   </style>
 </head>
 
@@ -137,33 +141,31 @@
   </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-  <div class="container" style="background-color: #fff;">
+<div class="container" style="background-color: #fff;min-height: 100%">
     <div style="padding-top: 5em;min-height: 400px">
-      <table class="table ">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">项目名称</th>
-          <th scope="col">项目来源</th>
-          <th scope="col">项目编号</th>
-          <th scope="col">负责人</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${projects}" var="project" varStatus="index">
-          <tr>
-            <th scope="row">${index.count}</th>
-            <td>${project.proname}</td>
-            <td>${project.prosource}</td>
-            <td>${project.number}</td>
-            <td>${authors[index.count-1]}</td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">项目名称</th>
+                <th scope="col">项目来源</th>
+                <th scope="col">项目编号</th>
+                <th scope="col">负责人</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${projects}" var="project" varStatus="index">
+                <tr>
+                    <th scope="row">${index.count}</th>
+                    <td>${project.proname}</td>
+                    <td>${project.prosource}</td>
+                    <td>${project.number}</td>
+                    <td>${authors[index.count-1]}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
-  </div>
 </div>
 
 

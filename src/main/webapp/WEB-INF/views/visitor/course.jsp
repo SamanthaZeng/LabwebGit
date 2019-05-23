@@ -27,6 +27,10 @@
          @import url(bootstrap/assets/css/ace.min.css);
          @import url(bootstrap/assets/css/ace-rtl.min.css);
          @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);*/
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
+    }
   </style>
 </head>
 
@@ -137,68 +141,66 @@
     </nav>
 </div>
 
-<div style="background-color: #f1f1f1">
-    <div class="container"style="background-color: #fff">
-        <div style="padding-top: 5em;min-height: 400px">
-            <table class="table">
-                <thead>
+<div class="container"style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">课程名称</th>
+                <th scope="col">课程编号</th>
+                <th scope="col">课程类型</th>
+                <th scope="col">讲授者</th>
+                <th scope="col">授课对象</th>
+                <th scope="col">课时数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${courses}" var="course" varStatus="index">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">课程名称</th>
-                    <th scope="col">课程编号</th>
-                    <th scope="col">课程类型</th>
-                    <th scope="col">讲授者</th>
-                    <th scope="col">授课对象</th>
-                    <th scope="col">课时数</th>
+                    <th scope="row">${index.count}</th>
+                    <td>${course.name}</td>
+                    <td>${course.coursecode}</td>
+                    <td>
+                        <c:choose>
+                            <%--得导入user--%>
+                            <c:when test="${course.courseType==0}">
+                                A
+                            </c:when>
+                            <c:when test="${course.courseType == 1}">
+                                B
+                            </c:when>
+                            <c:when test="${course.courseType == 2}">
+                                C
+                            </c:when>
+                            <c:when test="${course.courseType == 3}">
+                                D
+                            </c:when>
+                            <c:when test="${course.courseType == 4}">
+                                E
+                            </c:when>
+                        </c:choose>
+                    </td>
+                    <td>${authors[index.count-1]}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${course.teachingobject==0}">
+                                本科生
+                            </c:when>
+                            <c:when test="${course.teachingobject==1}">
+                                硕士生
+                            </c:when>
+                            <c:when test="${course.teachingobject==2}">
+                                博士生
+                            </c:when>
+                        </c:choose>
+                    </td>
+                    <td>${course.classhour}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${courses}" var="course" varStatus="index">
-                    <tr>
-                        <th scope="row">${index.count}</th>
-                        <td>${course.name}</td>
-                        <td>${course.coursecode}</td>
-                        <td>
-                            <c:choose>
-                                <%--得导入user--%>
-                                <c:when test="${course.courseType==0}">
-                                    A
-                                </c:when>
-                                <c:when test="${course.courseType == 1}">
-                                    B
-                                </c:when>
-                                <c:when test="${course.courseType == 2}">
-                                    C
-                                </c:when>
-                                <c:when test="${course.courseType == 3}">
-                                    D
-                                </c:when>
-                                <c:when test="${course.courseType == 4}">
-                                    E
-                                </c:when>
-                            </c:choose>
-                        </td>
-                        <td>${authors[index.count-1]}</td>
-                        <td>
-                            <c:choose>
-                                <c:when test="${course.teachingobject==0}">
-                                    本科生
-                                </c:when>
-                                <c:when test="${course.teachingobject==1}">
-                                    硕士生
-                                </c:when>
-                                <c:when test="${course.teachingobject==2}">
-                                    博士生
-                                </c:when>
-                            </c:choose>
-                        </td>
-                        <td>${course.classhour}</td>
-                    </tr>
-                </c:forEach>
+            </c:forEach>
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>
 

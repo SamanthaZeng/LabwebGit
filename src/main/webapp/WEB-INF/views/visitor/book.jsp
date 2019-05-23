@@ -33,6 +33,10 @@
           max-width: 100%;
           max-height: 100%;
       }
+    html,body{
+        height: 100%;
+        background-color: #f1f1f1;
+    }
   </style>
 </head>
 
@@ -144,26 +148,24 @@
 </div>
 
 
-<div style="background-color: #f1f1f1">
-    <div class="container" style="background-color: #fff">
-        <div style="padding-top: 5em;min-height: 400px">
-            <div class="container">
-                <div class="row">
-                    <c:forEach items="${books}" var="book" varStatus="index" >
-                        <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
-                            <div class="card" style="width: 18rem;border-color:#49beb7;border-width: 5px ">
-                                <div class="container" style="margin-top: 25px">
-                                    <img class="img" src="${book.imgurl}"  alt="bookpic">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">《${book.bookname}》</h5>
-                                    <p class="card-text text-center">${book.press}</p>
-                                    <p class="card-text text-center">${authors[index.count-1]}</p>
-                                </div>
+<div class="container" style="background-color: #fff;min-height: 100%">
+    <div style="padding-top: 5em;">
+        <div class="container">
+            <div class="row">
+                <c:forEach items="${books}" var="book" varStatus="index" >
+                    <div class="col-lg-4 p-3 col-md-4" style="margin-top: 10px">
+                        <div class="card" style="width: 18rem;border-color:#49beb7;border-width: 5px ">
+                            <div class="container" style="margin-top: 25px">
+                                <img class="img" src="${book.imgurl}"  alt="bookpic">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">《${book.bookname}》</h5>
+                                <p class="card-text text-center">${book.press}</p>
+                                <p class="card-text text-center">${authors[index.count-1]}</p>
                             </div>
                         </div>
-                    </c:forEach>
-                </div>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>
