@@ -187,7 +187,7 @@
                                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 合作单位名称 </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" name="coname" id="form-field-1" placeholder="公司名称" class="col-xs-10 col-sm-5" value="${company.coname}"/>
+                                        <input type="text" name="coname" id="form-field-1" placeholder="合作单位名称" class="col-xs-10 col-sm-5" value="${company.coname}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -203,6 +203,14 @@
                                             <option value="4" >科研院所</option>
                                             <option value="5" >高校</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 合作单位首页 </label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" name="copage" id="copage" placeholder="合作单位首页" class="col-xs-10 col-sm-5" value="${company.copage}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">

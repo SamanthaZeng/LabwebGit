@@ -222,8 +222,9 @@
                                     <select class="col-xs-10 col-sm-5" id="prorank" name="prorank" value="${projectForEdit.prorank}">
                                         <option value="">-----------请选择项目级别----------</option>
                                         <option value="1" >国家级</option>
-                                        <option value="2" >省级</option>
+                                        <option value="2" >省部级</option>
                                         <option value="3" >校级</option>
+                                        <option value="4" >企业联合</option>
                                     </select>
                                 </div>
                             </div>
@@ -263,7 +264,7 @@
                                 <div class="col-sm-9">
                                     <select autocomplete="off" multiple="" name="proResearcharea" class="chosen-select col-xs-10 col-sm-5" id="proResearcharea" data-placeholder="选择研究方向">
                                         <c:forEach items="${researchareas}" var="researcharea">
-                                            <c:if test="${researchareas==null}">
+                                            <c:if test="${associations==null}">
                                                 <option class="researchareaAssociation" value="${researcharea.rid}">${researcharea.rname}</option>
                                             </c:if>
                                             <c:if test="${associations!=null}">

@@ -179,7 +179,7 @@
                     <div class="col-xs-12">
                         <!--学生表单 -->
 
-                        <form class="form-horizontal" method="post" action="/course/save" enctype="multipart/form-data"  accept-charset="UTF-8">
+                        <form class="form-horizontal" id="courseForm" method="post" action="/course/save" enctype="multipart/form-data"  accept-charset="UTF-8">
                             <!--新增点击过来，没有id，修改点过来有id-->
                             <input type="hidden" name="clsid" value="${courseForEdit.clsid}"/>
                             <div class="form-group">
@@ -237,10 +237,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-5"> 课程简介 </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="cabstract"> 课程简介 </label>
 
                                 <div class="col-sm-9">
-                                    <textarea name="abstract" style="resize:none;" id="form-field-5" class="col-sm-5" rows="10">${courseForEdit["abstract"]}</textarea>
+                                    <textarea name="cabstract" style="resize:none;" id="cabstract" class="col-sm-5" rows="10">${courseForEdit.cabstract}</textarea>
+                                    <div class="col-sm-3"  id="wordNum">
+                                        <label>当前字数：</label><label id="introNum">0</label><label>/300</label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -379,6 +382,12 @@
 
 <script type="text/javascript">
     jQuery(function($) {
+        $("#courseForm").on("submit", function () {
+            if($("#cabstract").val().length > 300) {
+                alert("课程简介字数过多，最多三百字！")
+                return false
+            }
+        })
         if("${user.isadmin}" == "false")
         {
             if("${user.usertype}" == "0")
@@ -398,6 +407,17 @@
         if(selectval!=null&&selectval!=""){
             $('#courseType').find("option[value='"+selectval+"']").attr("selected", "true");
         }
+        //字数提醒
+        var wordNum = "${courseForEdit.cabstract}"
+        if(wordNum != "")
+            $("#introNum").html(wordNum)
+        else
+            $("#introNum").html(0)
+        $("#cabstract").on('input', function() {
+            var num=$(this).val().length
+            $("#introNum").html(num)
+        })
+
         /*完成穿梭框的设置*/
         //移动到右边
         $("#add").on("click",function(){

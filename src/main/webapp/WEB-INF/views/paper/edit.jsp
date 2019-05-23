@@ -210,7 +210,7 @@
 
                                 <div class="col-sm-9">
                                     <select class="col-xs-10 col-sm-5" id="language" name="language" value="${paperForEdit.language}">
-                                        <option value="">-----------请选择论文语言----------</option>
+                                        <option value="0">-----------请选择论文语言----------</option>
                                         <option value="1" >中文</option>
                                         <option value="2" >英文</option>
                                     </select>
