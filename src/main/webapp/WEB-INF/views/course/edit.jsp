@@ -410,7 +410,7 @@
         //字数提醒
         var wordNum = "${courseForEdit.cabstract}"
         if(wordNum != "")
-            $("#introNum").html(wordNum)
+            $("#introNum").html(wordNum.length)
         else
             $("#introNum").html(0)
         $("#cabstract").on('input', function() {

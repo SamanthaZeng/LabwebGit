@@ -59,7 +59,6 @@ public class PaperController {
         }
         for(int i=0;i<papers.size();i++)
         {
-            papers.get(i).setKeyword(NewsController.cutStr(papers.get(i).getKeyword(), 50));
             String users = "";
             List<UserPaper> userPapers = userPaperService.selectUPps(papers.get(i).getPid());
             for(int j=0;j<userPapers.size() && j<3;j++)
